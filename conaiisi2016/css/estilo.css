@@ -1,0 +1,84 @@
+@charset "utf-8";
+
+/* CSS Estilo  */
+
+.navbar-default {
+	border:hidden;
+}
+
+.navbar{
+	margin:0px;
+	border:hidden;
+}
+
+.nav-principal{
+	background-color:#A2D9F7;
+	border:hidden;
+}
+
+.nav a{
+	color: white;
+	font-size: 20px;
+}
+
+.nav a:hover{
+	color: rgb(23,57,131);
+}
+.nav>li>a:hover{
+	background-color: white;
+}
+
+.nav .active{
+	background-color: rgb(23,57,131);
+}
+
+@font-face {
+     font-family: Roboto-Medium;
+     src: url(fonts/Roboto-Medium.ttf);
+}
+
+body{
+	background-color: rgb(238,238,238);
+	font-family: Arial,Roboto-Medium, Times, serif;
+}
+
+.nav-pills>li>a{
+	background-color: rgb(86,188,237);
+	color:rgb(249,255,255);
+	margin:15px;
+	padding: 5px;
+	text-align: center;
+}
+
+.nav-pills>li>a:hover{
+	background-color: rgb(23,57,131);
+	color:rgb(249,255,255);
+	
+}
+
+.texto-principal{
+	background-color: white;
+	font-size: 15px;
+}
+
+.segundo-nav{
+	background-color: rgb(215,237,251);
+}
+
+.cuadro{
+	background-color: rgb(215,237,251);
+}
+
+.logos{
+	font-size: 10px;
+	color:white;
+	background-color: #00A1E6;
+}
+
+figcaption{
+	margin:5px;
+}
+
+h1{
+	color: rgb(23,57,131);
+}

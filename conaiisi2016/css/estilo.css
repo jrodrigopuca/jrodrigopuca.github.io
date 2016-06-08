@@ -39,7 +39,7 @@
 
 body{
 	background-color: rgb(238,238,238);
-	font-family: Arial,Roboto-Medium, Times, serif;
+	font-family: Helvetica,Roboto-Medium, Times, serif;
 }
 
 .nav-pills>li>a{
@@ -81,4 +81,18 @@ figcaption{
 
 h1{
 	color: rgb(23,57,131);
+}
+
+p{
+	text-align: justify;
+}
+
+.icon-bar{
+	background-color: #00A1E6;
+
+}
+
+.navbar-header button{
+	
+	background-color: white;
 }

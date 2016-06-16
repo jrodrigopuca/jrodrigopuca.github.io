@@ -1,0 +1,65 @@
+<!--
+ ps-webrtc-peerjs.html
+ Author: Lisa Larson-Kelley (http://learnfromlisa.com)
+ WebRTC Fundamentals - Pluralsight.com
+ Version 1.0.0
+ -
+ The simplest WebRTC 2-person chat, with manual signalling
+ Adapted from peerjs documentation
+-->
+
+<html>
+
+<head>
+  <title>WebRTC Fundamentals - PeerJS video chat with manual signalling example</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  <script type="text/javascript" src="http://cdn.peerjs.com/0.3/peer.js"></script>
+
+  <script type="text/javascript" src="ps-webrtc-peerjs-start.js"></script>
+
+</head>
+
+<body>
+
+  <div>
+    <!-- Video area -->
+    <div id="video-container">
+      Friend
+      <video id="their-video" autoplay class="their-video"></video>
+      You
+      <video id="my-video" muted autoplay class="my-video"></video>
+    </div>
+    <!-- Steps -->
+    <h2> Simple Video Chat con Manual Signalling </h2>
+
+      <!-- Solicitar el permiso para stream -->
+      <div id="step1">
+        <p> Por favor acepta acceder a los permisos </p>
+        <div id="step1-error">
+          <p> Hay que volver a intentar </p>
+          <a href="#" id="step1-retry" class="button"> Intentar de nuevo </a>
+        </div>
+      </div>
+
+    <!--Make calls to others-->
+      <div id="step2">
+        <p> Tu ID: <span id="my-id">..</span></p>
+        <p>
+          <span id="subhead">Hacer una llamada</span>
+          <input type="text" placeholder="llamar a UserID" id="callto-id">
+          <a href="#" id="make-call">Llamar</a>
+        </p>
+      </div>
+
+    <!--Call in progress-->
+      <div id="step3">
+        <p>Actualmente en llamada con <span id="their-id">..</span>  </p>
+        <p><a href="#">Fin llamada</a></p>
+      </div>
+
+  </div>
+
+</body>
+
+</html>

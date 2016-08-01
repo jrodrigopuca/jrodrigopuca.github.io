@@ -12,8 +12,11 @@
 }
 
 .nav-principal{
-	background-color:#A2D9F7;
+	/*#A2D9F7*/
+	background-color:#03a9f4;
 	border:hidden;
+	padding-top: 0px;
+	padding-bottom: 0px;
 }
 
 .nav a{
@@ -22,28 +25,29 @@
 }
 
 .nav a:hover{
-	color: rgb(23,57,131);
+	color: #01579b;
 }
 .nav>li>a:hover{
 	background-color: white;
 }
 
 .nav .active{
-	background-color: rgb(23,57,131);
+	background-color:#01579b;
+	border-radius: 3px;;
 }
 
 @font-face {
-     font-family: Roboto-Medium;
-     src: url(fonts/Roboto-Medium.ttf);
+     font-family: fuente-cuerpo;
+     src: url(../fonts/Roboto-Regular.ttf);
 }
 
 body{
-	background-color: rgb(238,238,238);
-	font-family: Helvetica,Roboto-Medium, Times, serif;
+	background-color: #e6e6e6;
+	font-family: Helvetica,fuente-cuerpo, Times, serif;
 }
 
 .nav-pills>li>a{
-	background-color: rgb(86,188,237);
+	background-color: #03a9f4;
 	color:rgb(249,255,255);
 	margin:15px;
 	padding: 5px;
@@ -51,36 +55,43 @@ body{
 }
 
 .nav-pills>li>a:hover{
-	background-color: rgb(23,57,131);
+	background-color: #01579b;
 	color:rgb(249,255,255);
 	
 }
 
 .texto-principal{
-	background-color: white;
+	background-color: #fdfdfd;
 	font-size: 15px;
 }
 
 .segundo-nav{
-	background-color: rgb(215,237,251);
+	background-color:#81d4fa;
 }
 
 .cuadro{
-	background-color: rgb(215,237,251);
+	
+	background-color: inherit;
+}
+
+/* Columnas tamaños iguales - Parte I	*/
+.row {
+  overflow: hidden; 
+}
+/* Columnas tamaños iguales - Parte II	*/
+[class*="col-"]{
+  margin-bottom: -99999px;
+  padding-bottom: 99999px;
 }
 
 .logos{
 	font-size: 10px;
 	color:white;
-	background-color: #00A1E6;
+	background-color: #29b6f6;
 }
 
 figcaption{
 	margin:5px;
-}
-
-h1{
-	color: rgb(23,57,131);
 }
 
 p{
@@ -95,4 +106,45 @@ p{
 .navbar-header button{
 	
 	background-color: white;
+}
+
+.row-titulo{
+	background-color: #eff9fe;
+	color: white;
+}
+
+@font-face {
+     font-family: fuente-titulo;
+     src: url(../fonts/Lato-Black.ttf);
+}
+
+@font-face{
+	font-family: fuente-headers;
+	src: url(../fonts/Lato-Bold.ttf);
+}
+
+.page-header{
+	color:#01579b;
+	font-family: fuente-titulo;
+}
+
+
+br{
+	color: transparent;
+}
+
+.panel-heading>h4{
+	color: #01579b;
+	font-family: fuente-headers;
+}
+.panel-info>.panel-heading{
+	background-color: #f6fbff;
+}
+
+blockquote{
+font-size: 90%;
+}
+
+.divisor{
+	border: 1px solid gray;
 }

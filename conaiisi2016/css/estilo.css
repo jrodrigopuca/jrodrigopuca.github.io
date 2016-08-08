@@ -88,6 +88,11 @@ body{
 	font-size: 10px;
 	color:white;
 	background-color: #29b6f6;
+	  
+}
+.row .logos{
+	margin-top:7%; 
+	margin-bottom:7%;	
 }
 
 figcaption{
@@ -111,6 +116,7 @@ p{
 .row-titulo{
 	background-color: #eff9fe;
 	color: white;
+	 
 }
 
 @font-face {
@@ -126,6 +132,7 @@ p{
 .page-header{
 	color:#01579b;
 	font-family: fuente-titulo;
+
 }
 
 
@@ -147,4 +154,23 @@ font-size: 90%;
 
 .divisor{
 	border: 1px solid gray;
+}
+
+.google-maps{
+	position: relative;
+	padding-bottom: 75%;
+	height: 0;
+	overflow: hidden;
+}
+.google-maps iframe{
+	position: absolute;
+	top:0;
+	left:0;
+	width: 100% !important;
+	height: 100% !important;
+	
+}
+
+.alert-danger{
+	background-color: #FF9E80;
 }

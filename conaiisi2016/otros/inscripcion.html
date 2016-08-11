@@ -1,0 +1,567 @@
+<!--
+===ID de los controles===
+tipoInscripcion
+tipoDocumento
+numDocumento
+nombre
+apellido
+genero
+FecNacimiento
+ocupacion
+institucion
+domResidencia
+locResidencia
+provResidencia
+Tel1
+Tel2
+Tel3
+email1
+email2
+email3
+numCongresos
+recomendaciones
+medio
+carrera
+cursado
+universidad
+sede
+nombreFacturar
+numFacturar
+domFacturar
+
+
+Además de estos datos, debemos conocer:
+- IP, Fecha de Emisión, Fecha de Pago
+-->
+
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CoNaIISI 2016</title>
+
+
+    
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+
+    <link rel="stylesheet" href="../css/estilo.css">
+</head>
+
+<body class="container container-fluid">
+
+    <header>
+        <div class=" container container-fluid" align="center" style="background-color:#00A2E9">
+            <img src="../img/conaiisi-cabecera01.png" class="img-responsive bg-img" alt=" " />
+        </div>
+    </header>
+
+    <main>
+        <!--Sección 1: Nav -->
+        <section>
+            <div class="container nav-principal">
+                <nav class="navbar">
+                    <div class="container">
+                        <!-- Navbar desplegado para dispositivos móviles -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                                aria-expanded="false">
+                                <span class="sr-only">Desplegar Menú</span>
+                                <span class="icon-bar"></span>
+                             <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+              </button>
+                        </div>
+
+                        <!-- Links para NavBar -->
+
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+
+                                <li role="presentation">
+                                    <a href="../index.html">
+                  Inicio
+                </a>
+                                </li>
+
+                                <li role="presentation">
+                                    <a href="../organizadores.html">
+                  Organizadores
+                </a>
+                                </li>
+
+                                <li role="presentation">
+                                    <a href="../comite.html"> Comité Académico </a>
+                                </li>
+
+                                <li role="presentation">
+                                    <a href="../instrucciones.html">
+                  Instrucciones
+                </a>
+                                </li>
+
+                                <!--   
+                <li role="presentation">
+                  <a href="#" style=" background-color:#A2D9F7">
+                    <strong>Programas</strong>
+                    </a>
+                </li>
+                -->
+
+                                <li role="presentation">
+                                    <a href="../areas-tematicas.html">
+                  Áreas Temáticas
+                </a>
+                                </li>
+
+                                <!--                
+                <li role="presentation">
+                  <a href="#" style=" background-color:#A2D9F7">
+                    <strong>Memorias</strong>
+                  </a>
+                 </li>
+               -->
+
+                                <li role="presentation">
+                                    <a href="../sede.html">
+                  Sede
+                </a>
+                                </li>
+
+                                <li role="presentation">
+                                    <a href="../riisic.html">
+                  RIISIC
+                </a>
+                                </li>
+
+                                <li role="presentation">
+                                    <a href="../contacto.html">
+                  Contacto
+                </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </section>
+
+
+        <!-- Sección 2: Title + Logos Store -->
+        <section>
+            <div class="container">
+                <!-- Title + Logo Store -->
+                <div class="row row-titulo">
+
+                    <div class="col-xs-12 col-md-8 col-lg-8 col-sm-6" align="center">
+                        <br>
+                        <h1 class="page-header">Inscripción</h1>
+
+                    </div>
+
+                    <div class="col-xs-12 col-md-4 col-lg-4 col-sm-6" style="background-color: #29b6f6;">
+                        <!-- logos Store -->
+                        <div class="row logos">
+
+                            <div class="col-xs-4 col-xs-4">
+
+                                <img class="img-responsive" src="../img/android-conaiisi.png" />
+                                <figcaption> Muy pronto en Play Store </figcaption>
+                            </div>
+
+                            <div class="col-xs-4 col-xs-4">
+                                <img class="img-responsive" src="../img/apple-conaiisi.png" />
+                                <figcaption> Muy pronto en App Store </figcaption>
+                            </div>
+
+                            <div class="col-xs-4 col-xs-4">
+                                <img class="img-responsive" src="../img/microsoft-conaiisi.png" class="" alt="" />
+                                <figcaption> Muy pronto en Windows Store </figcaption>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+        </section>
+
+        <!--Sección 3.1: Texto-->
+        <section class="container">
+            <div class="row cuadro">
+                <div>
+                    <div class="col-xs-12 col-md-8 col-sm-12 col-lg-8 texto-principal">
+                        <!--Aqui va el contenido -->
+                        <br>
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4> Formulario de Inscripción </h4>
+                            </div>
+
+                            <div class="panel-body">
+
+<!-- 
+    ========================================FORM=================================================
+-->
+                                <form id="formInscripcion" action="" method="post" >
+
+
+
+                                    <h4> Datos Personales </h4>
+                                    <!--tipoInscripcion-->
+                                    <div class="form-group required">
+                                        <label for="tipoInscripcion" class=" control-label">Tipo de Asistente</label>
+                                        <div class="">
+                                            <select id="tipoInscripcion" class="form-control" required>
+                                            <option>Alumno Asistente</option>
+                                             <option>Alumno Expositor </option>
+                                             <option>Docente Asistente</option>
+                                             <option>Docente Expositor</option>
+                                        </select>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <!-- tipoDocumento -->
+                                    <div class="form-group required">
+                                        <label for="tipoDocumento" class=" control-label">Tipo de Documento</label>
+                                        <div class="">
+                                            <select id="tipoDocumento" class="form-control" required>
+                                            <option>D.U.</option>
+                                             <option>DNI-LE-LC</option>
+                                             <option>Pasaporte</option>
+                                             <option>Otros</option>
+                                             <option>C.I.</option>
+                                        </select>
+                                        </div>
+                                    </div>
+
+                                    <!--numDocumento -->
+                                    <div class="form-group required ">
+                                        <label for="numDocumento" class=" control-label">Número de Documento</label>
+                                        <input type="number" id="numDocumento" class="form-control" size="15" required>
+
+                                       
+                                    </div>
+
+                                    <!--nombre -->
+                                    <div class="form-group required">
+                                        <label for="nombre" class=" control-label">Nombre</label>
+                                        <input type="text" id="nombre" class="form-control" size="60" required>
+                                    </div>
+
+                                    <!--apellido -->
+                                    <div class="form-group required">
+                                        <label for="apellido" class=" control-label">Apellido</label>
+                                        <input type="text" id="apellido" class="form-control" size="60" required>
+                                    </div>
+
+                                    <!--genero-->
+                                    <div class="form-group">
+                                        <label for="genero" class=" control-label">Género</label>
+                                        <div class="">
+                                            <select id="genero" class="form-control">
+                                            <option>Masculino</option>
+                                             <option>Femenino</option>
+                                             <option>Otros</option>
+                                        </select>
+                                        </div>
+                                    </div>
+
+                                    <!--FecNacimiento -->
+                                    <div class="form-group">
+                                        <label for="FecNacimiento" class=" control-label">Fecha de Nacimiento</label>
+                                        <input type="date" id="FecNacimiento" class="form-control">
+                                    </div>
+
+                                    <!--ocupacion-->
+                                    <div class="form-group">
+                                        <label for="ocupacion" class=" control-label">Ocupación</label>
+                                        <input type="text" id="ocupacion" class="form-control" size="30">
+                                    </div>
+
+                                    <!--institucion-->
+                                    <div class="form-group required">
+                                        <label for="institucion" class=" control-label">Institución</label>
+                                        <input type="text" id="institucion" class="form-control" size="30" required>
+                                    </div>
+                                    <br>
+
+                                    <div class="divisor">
+                                    </div>
+                                    <h4> Datos de Contacto </h4>
+
+                                    <!--domResidencia-->
+                                    <div class="form-group">
+                                        <label for="domResidencia" class=" control-label">Domicilio</label>
+                                        <input type="text" id="domResidencia" class="form-control" size="60">
+                                    </div>
+
+                                    <!--locResidencia-->
+                                    <div class="form-group">
+                                        <label for="locResidencia" class=" control-label">Localidad </label>
+                                        <input type="text" id="locResidencia" class="form-control" size="30">
+                                    </div>
+
+                                    <!--provResidencia-->
+                                    <div class="form-group">
+                                        <label for="provResidencia" class=" control-label">Provincia</label>
+                                        <input type="text" id="provResidencia" class="form-control" size="30">
+                                    </div>
+
+                                    <!--Tel1-->
+                                    <div class="form-group">
+                                        <label for="Tel1" class=" control-label">Teléfono 1  </label>
+                                        <input type="tel" id="Tel1" class="form-control" size="30" >
+                                    </div>
+
+                                    <!--Tel2-->
+                                    <div class="form-group">
+                                        <label for="tel2" class=" control-label">Teléfono 2 </label>
+                                        <input type="tel" id="tel2" class="form-control" size="30">
+                                    </div>
+
+                                    <!--Tel3-->
+                                    <div class="form-group">
+                                        <label for="Tel3" class=" control-label">Teléfono 3 </label>
+                                        <input type="tel" id="Tel3" class="form-control" size="30">
+                                    </div>
+
+                                    <!--email1-->
+                                    <div class="form-group required">
+                                        <label for="email1" class=" control-label">e-mail 1</label>
+                                        <input type="email" id="email1" class="form-control" size="100" required>
+                                    </div>
+
+                                    <!--email2-->
+                                    <div class="form-group">
+                                        <label for="email2" class=" control-label">e-mail 2</label>
+                                        <input type="email" id="email2" class="form-control" size="100">
+                                    </div>
+
+                                    <!--email3-->
+                                    <div class="form-group">
+                                        <label for="email3" class=" control-label">e-mail 3</label>
+                                        <input type="email" id="email3" class="form-control" size="100">
+                                    </div>
+
+                                    <div class="divisor">
+                                    </div>
+                                    <h4> Feedback </h4>
+
+                                    <!--numCongresos-->
+                                    <div class="form-group">
+                                        <label for="numCongresos" class=" control-label"> Congresos Conaiisi asistidos</label>
+                                        <div class="">
+                                            <select id="numCongresos" class="form-control">
+                                             <option>0</option>
+                                             <option>1</option>
+                                             <option>2</option>
+                                             <option>3</option>
+                                        </select>
+                                        </div>
+                                    </div>
+
+                                    <!--recomendaciones-->
+                                    <div class="form-group">
+                                        <label for="recomendaciones" class=" control-label">Recomendaciones para mejorar el congreso </label>
+                                        <br>
+                                        <textarea name="" id="recomendaciones" class="form-control" rows="5"></textarea>
+                                    </div>
+
+                                    <!--medio-->
+                                    <div class="form-group">
+                                        <label for="medio" class=" control-label"> Medio por el cual conoció al 4to Congreso </label>
+                                        <div class="">
+                                            <select id="medio" class="form-control">
+                                             <option>Mail</option>
+                                             <option>Web</option>
+                                             <option>Redes Sociales</option>
+                                             <option>Otros</option>
+                                        </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="divisor">
+                                    </div>
+
+                                    <h4> Completar solo en caso de ser Alumno </h4>
+
+                                    <!--carrera-->
+
+                                    <div class="form-group">
+                                        <label for="carrera" class=" control-label">Carrera</label>
+                                        <input type="text" id="carrera" class="form-control" size="30">
+                                    </div>
+
+                                    <!--cursado-->
+                                    <div class="form-group">
+                                        <label for="cursado" class=" control-label"> Año que cursa</label>
+                                        <div class="">
+                                            <select id="cursado" class="form-control">
+                                             <option>1</option>
+                                             <option>2</option>
+                                             <option>3</option>
+                                             <option>4</option>
+                                             <option>5</option>
+                                             <option>6</option>
+                                        </select>
+                                        </div>
+                                    </div>
+
+                                    <!--universidad-->
+                                    <div class="form-group">
+                                        <label for="universidad" class=" control-label">Universidad donde cursa</label>
+                                        <input type="text" id="universidad" class="form-control" size="30">
+                                    </div>
+
+                                    <!--sede-->
+                                    <div class="form-group">
+                                        <label for="sede" class=" control-label">Sede / Regional</label>
+                                        <input type="text" id="sede" class="form-control" size="20">
+                                    </div>
+
+                                    <div class="divisor">
+                                    </div>
+                                    <h4> Datos de facturación </h4>
+
+                                    <!--nombreFacturar-->
+                                    <div class="form-group required">
+                                        <label for="nombreFacturar" class=" control-label">Nombre a Facturar</label>
+                                        <input type="text" id="nombreFacturar" class="form-control" size="60" required>
+                                    </div>
+
+                                    <!--numFacturar-->
+                                    <div class="form-group required">
+                                        <label for="numFacturar" class=" control-label">CUIT o CUIL</label>
+                                        <input type="number" id="numFacturar" class="form-control" size="15" required>
+                                    </div>
+
+                                    <!--domFacturar-->
+                                    <div class="form-group required">
+                                        <label for="domFacturar" class=" control-label">Domicilio de facturación</label>
+                                        <input type="text" id="domFacturar" class="form-control" size="100" required>
+                                    </div>
+
+                                    <br>
+                                    <br>
+
+                                    <input type="submit" class="btn btn-primary" value="Enviar inscripción por e-mail">
+                                    <input type="reset" class="btn" value="Borrar">
+
+                                    </br>
+                                    </br>
+                            </form>
+<!-- 
+    ========================================FIN FORM=================================================
+-->
+
+                            </div>
+
+                            
+                        </div>
+                    </div>
+
+                </div>
+                <br>
+            
+            
+
+            <!-- Sección 3.2: Nav 2-->
+            <div>
+                <div class="col-xs-12 col-md-4 col-sm-8 col-lg-4 segundo-nav">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li>
+                            <a href="../novedades.html"><strong>Novedades</strong></a>
+                        </li>
+                        <li>
+                            <a href="../aranceles.html"><strong>Aranceles</strong></a>
+                        </li>
+                        <li>
+                            <a href="../alojamientos.html"><strong>Alojamientos</strong></a>
+                        </li>
+                        <li>
+                            <a href="../contacto.html"><strong>Comunicación</strong></a>
+                        </li>
+                        <li>
+                            <a href="http://www.ucasal.edu.ar/institucional-identidad"><strong>Conozca UCASAL</strong></a>
+                        </li>
+                        <li>
+                            <a href="http://conaiisi.frc.utn.edu.ar/Envios"><strong>Envío de trabajos</strong></a>
+                        </li>
+                        <li>
+                            <a href="../Afiche-A3.pdf"><strong>Descargar Afiche en A3</strong></a>
+                        </li>
+                        <li>
+                            <a href="../Afiche.pdf"><strong>Descargar Afiche en A4</strong></a>
+                        </li>
+                    </ul>
+
+                    <div class="divisor">
+                    </div>
+
+                    <div>
+                        <h5 class="text-center"> Auspician: </h5>
+                        <div class="">
+                            <a href="http://www.copaipa.org.ar/">
+                                <img class="img-responsive center-block " src="../img/logo-copaipa.png">
+                            </a>
+                        </div>
+                        <br>
+                        <div>
+                            <a href="http://www.edusalta.gov.ar/">
+                                <img class="img-responsive center-block" src="../img/logo_MECyT.png">
+                            </a>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+
+
+            </div>
+            </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    </br>
+    </br>
+    <footer class="text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <a href="https://www.facebook.com/hashtag/conaiisi"><img src="../img/fb.png"></a>
+                    <i> #Conaiisi en Redes Sociales </i>
+                    <a href="https://twitter.com/search?q=conaiisi&src=typd&lang=es"><img src="../img/tw.png"></a>
+                    <br><br><br> Copyright ©
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- / FOOTER -->
+
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/jquery-1.11.2.min.js"></script>
+
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!--Google Analytics-->
+
+    <script src="../js/analytics.js"> </script>
+
+</body>
+
+</html>

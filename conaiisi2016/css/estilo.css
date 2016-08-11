@@ -174,3 +174,10 @@ font-size: 90%;
 .alert-danger{
 	background-color: #FF9E80;
 }
+
+
+.form-group.required .control-label:after { 
+    color: #d00;
+    content: "*";
+    
+}

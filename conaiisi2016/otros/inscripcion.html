@@ -217,7 +217,7 @@ Además de estos datos, debemos conocer:
                                     <div class="form-group required">
                                         <label for="tipoInscripcion" class=" control-label">Tipo de Asistente</label>
                                         <div class="">
-                                            <select id="tipoInscripcion" class="form-control" required>
+                                        <select id="tipoInscripcion" class="form-control" required>
                                             <option>Alumno Asistente</option>
                                              <option>Alumno Expositor </option>
                                              <option>Docente Asistente</option>
@@ -262,7 +262,7 @@ Además de estos datos, debemos conocer:
                                     </div>
 
                                     <!--genero-->
-                                    <div class="form-group">
+                                    <div class="form-group required">
                                         <label for="genero" class=" control-label">Género</label>
                                         <div class="">
                                             <select id="genero" class="form-control">
@@ -274,7 +274,7 @@ Además de estos datos, debemos conocer:
                                     </div>
 
                                     <!--FecNacimiento -->
-                                    <div class="form-group">
+                                    <div class="form-group required">
                                         <label for="FecNacimiento" class=" control-label">Fecha de Nacimiento</label>
                                         <input type="date" id="FecNacimiento" class="form-control">
                                     </div>
@@ -311,11 +311,43 @@ Además de estos datos, debemos conocer:
                                     <!--provResidencia-->
                                     <div class="form-group">
                                         <label for="provResidencia" class=" control-label">Provincia</label>
-                                        <input type="text" id="provResidencia" class="form-control" size="30">
+                                        
+                                         <div class="">
+                                        <select id="provResidencia" class="form-control" required>
+                                                <option>BUENOS AIRES</option>
+                                            
+<option>CATAMARCA </option>
+<option>CHACO </option>
+<option>CHUBUT </option>
+<option>CIUDAD AUTONOMA DE BUENOS AIRES </option>
+<option>CÓRDOBA </option>
+<option>CORRIENTES </option>
+<option>ENTRE RÍOS </option>
+<option>FORMOSA </option>
+<option>JUJUY </option>
+<option>JURISDICCION FEDERAL </option>
+<option>LA PAMPA </option>
+<option>LA RIOJA </option>
+<option>MENDOZA </option>
+<option>MISIONES </option>
+<option>NEUQUÉN </option>
+<option>RÍO NEGRO </option>
+<option>SALTA </option>
+<option>SAN JUAN </option>
+<option>SAN LUIS </option>
+<option>SANTA CRUZ </option>
+<option>SANTA FE </option> 
+<option>SANTIAGO DEL ESTERO </option>
+<option>TIERRA DEL FUEGO</option>
+<option>TUCUMÁN </option>
+<option> OTRO </option>
+
+                                        </select>
+                                        </div>
                                     </div>
 
                                     <!--Tel1-->
-                                    <div class="form-group">
+                                    <div class="form-group required">
                                         <label for="Tel1" class=" control-label">Teléfono 1  </label>
                                         <input type="tel" id="Tel1" class="form-control" size="30" >
                                     </div>
@@ -326,11 +358,6 @@ Además de estos datos, debemos conocer:
                                         <input type="tel" id="tel2" class="form-control" size="30">
                                     </div>
 
-                                    <!--Tel3-->
-                                    <div class="form-group">
-                                        <label for="Tel3" class=" control-label">Teléfono 3 </label>
-                                        <input type="tel" id="Tel3" class="form-control" size="30">
-                                    </div>
 
                                     <!--email1-->
                                     <div class="form-group required">
@@ -344,11 +371,7 @@ Además de estos datos, debemos conocer:
                                         <input type="email" id="email2" class="form-control" size="100">
                                     </div>
 
-                                    <!--email3-->
-                                    <div class="form-group">
-                                        <label for="email3" class=" control-label">e-mail 3</label>
-                                        <input type="email" id="email3" class="form-control" size="100">
-                                    </div>
+                                   
 
                                     <div class="divisor">
                                     </div>

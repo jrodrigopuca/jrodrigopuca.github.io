@@ -14,10 +14,10 @@ locResidencia
 provResidencia
 Tel1
 Tel2
-Tel3
+
 email1
 email2
-email3
+
 numCongresos
 recomendaciones
 medio
@@ -208,7 +208,7 @@ Además de estos datos, debemos conocer:
 <!-- 
     ========================================FORM=================================================
 -->
-                                <form id="formInscripcion" action="" method="post" >
+                                <form id="formInscripcion" action="" method="post" role="form" data-toggle="validator">
 
 
 
@@ -217,8 +217,8 @@ Además de estos datos, debemos conocer:
                                     <div class="form-group required">
                                         <label for="tipoInscripcion" class=" control-label">Tipo de Asistente</label>
                                         <div class="">
-                                        <select id="tipoInscripcion" class="form-control" required>
-                                            <option>Alumno Asistente</option>
+                                        <select id="tipoInscripcion" class="form-control" required name="tipoInscripcion">
+                                            <option selected>Alumno Asistente</option>
                                              <option>Alumno Expositor </option>
                                              <option>Docente Asistente</option>
                                              <option>Docente Expositor</option>
@@ -233,7 +233,7 @@ Además de estos datos, debemos conocer:
                                         <div class="">
                                             <select id="tipoDocumento" class="form-control" required>
                                             <option>D.U.</option>
-                                             <option>DNI-LE-LC</option>
+                                             <option selected>DNI-LE-LC</option>
                                              <option>Pasaporte</option>
                                              <option>Otros</option>
                                              <option>C.I.</option>
@@ -244,21 +244,23 @@ Además de estos datos, debemos conocer:
                                     <!--numDocumento -->
                                     <div class="form-group required ">
                                         <label for="numDocumento" class=" control-label">Número de Documento</label>
-                                        <input type="number" id="numDocumento" class="form-control" size="15" required>
-
+                                        <input type="number" id="numDocumento" class="form-control" size="15" required data-error="El dato debe ser númerico y de 9 a 13 caracteres.">
+                                        <div class="help-block with-errors"></div>
                                        
                                     </div>
 
                                     <!--nombre -->
                                     <div class="form-group required">
                                         <label for="nombre" class=" control-label">Nombre</label>
-                                        <input type="text" id="nombre" class="form-control" size="60" required>
+                                        <input type="text" id="nombre" class="form-control" size="60" required data-error="Es un dato importante">
+                                        <div class="help-block with-errors"></div>
                                     </div>
 
                                     <!--apellido -->
                                     <div class="form-group required">
                                         <label for="apellido" class=" control-label">Apellido</label>
-                                        <input type="text" id="apellido" class="form-control" size="60" required>
+                                        <input type="text" id="apellido" class="form-control" size="60" required data-error="Es un dato importante">
+                                        <div class="help-block with-errors"></div>
                                     </div>
 
                                     <!--genero-->
@@ -276,7 +278,8 @@ Además de estos datos, debemos conocer:
                                     <!--FecNacimiento -->
                                     <div class="form-group required">
                                         <label for="FecNacimiento" class=" control-label">Fecha de Nacimiento</label>
-                                        <input type="date" id="FecNacimiento" class="form-control">
+                                        <input type="date" id="FecNacimiento" class="form-control" required data-error="Fecha incorrecta">
+                                        <div class="help-block with-errors"></div>
                                     </div>
 
                                     <!--ocupacion-->
@@ -332,7 +335,7 @@ Además de estos datos, debemos conocer:
 <option>MISIONES </option>
 <option>NEUQUÉN </option>
 <option>RÍO NEGRO </option>
-<option>SALTA </option>
+<option selected>SALTA </option>
 <option>SAN JUAN </option>
 <option>SAN LUIS </option>
 <option>SANTA CRUZ </option>
@@ -349,7 +352,7 @@ Además de estos datos, debemos conocer:
                                     <!--Tel1-->
                                     <div class="form-group required">
                                         <label for="Tel1" class=" control-label">Teléfono 1  </label>
-                                        <input type="tel" id="Tel1" class="form-control" size="30" >
+                                        <input type="tel" id="Tel1" class="form-control" size="30" required>
                                     </div>
 
                                     <!--Tel2-->
@@ -362,7 +365,8 @@ Además de estos datos, debemos conocer:
                                     <!--email1-->
                                     <div class="form-group required">
                                         <label for="email1" class=" control-label">e-mail 1</label>
-                                        <input type="email" id="email1" class="form-control" size="100" required>
+                                        <input type="email" id="email1" class="form-control" size="100" required data-error="La dirección de mail no es válida">
+                                        <div class="help-block with-errors"></div>
                                     </div>
 
                                     <!--email2-->
@@ -455,20 +459,23 @@ Además de estos datos, debemos conocer:
 
                                     <!--nombreFacturar-->
                                     <div class="form-group required">
-                                        <label for="nombreFacturar" class=" control-label">Nombre a Facturar</label>
-                                        <input type="text" id="nombreFacturar" class="form-control" size="60" required>
+                                        <label for="nombreFacturar" class=" control-label">Emitir boleta de pago a nombre de:</label>
+                                        <input type="text" id="nombreFacturar" class="form-control" size="60" required data-error="Es un dato importante">
+                                        <div class="help-block with-errors"></div>
                                     </div>
 
                                     <!--numFacturar-->
                                     <div class="form-group required">
                                         <label for="numFacturar" class=" control-label">CUIT o CUIL</label>
-                                        <input type="number" id="numFacturar" class="form-control" size="15" required>
+                                        <input type="number" id="numFacturar" class="form-control" size="15" required data-error="Es un dato númerico">
+                                        <div class="help-block with-errors"></div>
                                     </div>
 
                                     <!--domFacturar-->
                                     <div class="form-group required">
                                         <label for="domFacturar" class=" control-label">Domicilio de facturación</label>
-                                        <input type="text" id="domFacturar" class="form-control" size="100" required>
+                                        <input type="text" id="domFacturar" class="form-control" size="100" required data-error="Es un dato importante">
+                                        <div class="help-block with-errors"></div>
                                     </div>
 
                                     <br>
@@ -573,13 +580,19 @@ Además de estos datos, debemos conocer:
 
 
 
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+    
     <script src="../js/jquery.js"></script>
     <script src="../js/jquery-1.11.2.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.js"></script>
+    
+   
     <script src="../js/bootstrap.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    
+    <!--
+    <script src="validacion.js"></script>
+    -->
 
     <!--Google Analytics-->
 

@@ -29,9 +29,6 @@ nombreFacturar
 numFacturar
 domFacturar
 
-
-Además de estos datos, debemos conocer:
-- IP, Fecha de Emisión, Fecha de Pago
 -->
 
 
@@ -45,7 +42,7 @@ Además de estos datos, debemos conocer:
     <title>CoNaIISI 2016</title>
 
 
-    
+
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 
@@ -205,10 +202,8 @@ Además de estos datos, debemos conocer:
 
                             <div class="panel-body">
 
-<!-- 
-    ========================================FORM=================================================
--->
-                                <form id="formInscripcion" action="" method="post" role="form" data-toggle="validator">
+                                <!--==================================FORM======================================- -->
+                                <form action="inscripcion.php" method="post" name="frm" role="form" data-toggle="validator">
 
 
 
@@ -217,21 +212,20 @@ Además de estos datos, debemos conocer:
                                     <div class="form-group required">
                                         <label for="tipoInscripcion" class=" control-label">Tipo de Asistente</label>
                                         <div class="">
-                                        <select id="tipoInscripcion" class="form-control" required name="tipoInscripcion">
+                                            <select name="tipoInscripcion" class="form-control" required >
                                             <option selected>Alumno Asistente</option>
-                                             <option>Alumno Expositor </option>
                                              <option>Docente Asistente</option>
                                              <option>Docente Expositor</option>
                                         </select>
                                         </div>
-                                        
+
                                     </div>
 
                                     <!-- tipoDocumento -->
                                     <div class="form-group required">
                                         <label for="tipoDocumento" class=" control-label">Tipo de Documento</label>
                                         <div class="">
-                                            <select id="tipoDocumento" class="form-control" required>
+                                            <select name="tipoDocumento" class="form-control" required>
                                             <option>D.U.</option>
                                              <option selected>DNI-LE-LC</option>
                                              <option>Pasaporte</option>
@@ -244,22 +238,22 @@ Además de estos datos, debemos conocer:
                                     <!--numDocumento -->
                                     <div class="form-group required ">
                                         <label for="numDocumento" class=" control-label">Número de Documento</label>
-                                        <input type="number" id="numDocumento" class="form-control" size="15" required data-error="El dato debe ser númerico y de 9 a 13 caracteres.">
+                                        <input type="number" name="numDocumento" class="form-control" size="15" required data-error="El dato debe ser númerico y de 9 a 13 caracteres.">
                                         <div class="help-block with-errors"></div>
-                                       
+
                                     </div>
 
                                     <!--nombre -->
                                     <div class="form-group required">
                                         <label for="nombre" class=" control-label">Nombre</label>
-                                        <input type="text" id="nombre" class="form-control" size="60" required data-error="Es un dato importante">
+                                        <input type="text" name="nombre" class="form-control" size="60" required data-error="Es un dato importante">
                                         <div class="help-block with-errors"></div>
                                     </div>
 
                                     <!--apellido -->
                                     <div class="form-group required">
                                         <label for="apellido" class=" control-label">Apellido</label>
-                                        <input type="text" id="apellido" class="form-control" size="60" required data-error="Es un dato importante">
+                                        <input type="text" name="apellido" class="form-control" size="60" required data-error="Es un dato importante">
                                         <div class="help-block with-errors"></div>
                                     </div>
 
@@ -267,7 +261,7 @@ Además de estos datos, debemos conocer:
                                     <div class="form-group required">
                                         <label for="genero" class=" control-label">Género</label>
                                         <div class="">
-                                            <select id="genero" class="form-control">
+                                            <select name="genero" class="form-control">
                                             <option>Masculino</option>
                                              <option>Femenino</option>
                                              <option>Otros</option>
@@ -278,20 +272,21 @@ Además de estos datos, debemos conocer:
                                     <!--FecNacimiento -->
                                     <div class="form-group required">
                                         <label for="FecNacimiento" class=" control-label">Fecha de Nacimiento</label>
-                                        <input type="date" id="FecNacimiento" class="form-control" required data-error="Fecha incorrecta">
+                                        <input type="date" name="FecNacimiento" class="form-control" required data-error="Fecha incorrecta">
                                         <div class="help-block with-errors"></div>
                                     </div>
 
                                     <!--ocupacion-->
                                     <div class="form-group">
                                         <label for="ocupacion" class=" control-label">Ocupación</label>
-                                        <input type="text" id="ocupacion" class="form-control" size="30">
+                                        <input type="text" name="ocupacion" class="form-control" size="30">
                                     </div>
 
                                     <!--institucion-->
                                     <div class="form-group required">
                                         <label for="institucion" class=" control-label">Institución</label>
-                                        <input type="text" id="institucion" class="form-control" size="30" required>
+                                        <input type="text" name="institucion" class="form-control" size="30" required data-error="Especificar la organización a la que pertenece">
+                                        <div class="help-block with-errors"></div>
                                     </div>
                                     <br>
 
@@ -302,49 +297,47 @@ Además de estos datos, debemos conocer:
                                     <!--domResidencia-->
                                     <div class="form-group">
                                         <label for="domResidencia" class=" control-label">Domicilio</label>
-                                        <input type="text" id="domResidencia" class="form-control" size="60">
+                                        <input type="text" name="domResidencia" class="form-control" size="60">
                                     </div>
 
                                     <!--locResidencia-->
                                     <div class="form-group">
                                         <label for="locResidencia" class=" control-label">Localidad </label>
-                                        <input type="text" id="locResidencia" class="form-control" size="30">
+                                        <input type="text" name="locResidencia" class="form-control" size="30">
                                     </div>
 
                                     <!--provResidencia-->
                                     <div class="form-group">
                                         <label for="provResidencia" class=" control-label">Provincia</label>
-                                        
-                                         <div class="">
-                                        <select id="provResidencia" class="form-control" required>
-                                                <option>BUENOS AIRES</option>
-                                            
-<option>CATAMARCA </option>
-<option>CHACO </option>
-<option>CHUBUT </option>
-<option>CIUDAD AUTONOMA DE BUENOS AIRES </option>
-<option>CÓRDOBA </option>
-<option>CORRIENTES </option>
-<option>ENTRE RÍOS </option>
-<option>FORMOSA </option>
-<option>JUJUY </option>
-<option>JURISDICCION FEDERAL </option>
-<option>LA PAMPA </option>
-<option>LA RIOJA </option>
-<option>MENDOZA </option>
-<option>MISIONES </option>
-<option>NEUQUÉN </option>
-<option>RÍO NEGRO </option>
-<option selected>SALTA </option>
-<option>SAN JUAN </option>
-<option>SAN LUIS </option>
-<option>SANTA CRUZ </option>
-<option>SANTA FE </option> 
-<option>SANTIAGO DEL ESTERO </option>
-<option>TIERRA DEL FUEGO</option>
-<option>TUCUMÁN </option>
-<option> OTRO </option>
 
+                                        <div class="">
+                                            <select name="provResidencia" class="form-control" required>
+                                                <option>BUENOS AIRES</option>
+                                                <option>CATAMARCA </option>
+                                                <option>CHACO </option>
+                                                <option>CHUBUT </option>
+                                                <option>CIUDAD AUTONOMA DE BUENOS AIRES </option>
+                                                <option>CÓRDOBA </option>
+                                                <option>CORRIENTES </option>
+                                                <option>ENTRE RÍOS </option>
+                                                <option>FORMOSA </option>
+                                                <option>JUJUY </option>
+                                                <option>JURISDICCION FEDERAL </option>
+                                                <option>LA PAMPA </option>
+                                                <option>LA RIOJA </option>
+                                                <option>MENDOZA </option>
+                                                <option>MISIONES </option>
+                                                <option>NEUQUÉN </option>
+                                                <option>RÍO NEGRO </option>
+                                                <option selected>SALTA </option>
+                                                <option>SAN JUAN </option>
+                                                <option>SAN LUIS </option>
+                                                <option>SANTA CRUZ </option>
+                                                <option>SANTA FE </option> 
+                                                <option>SANTIAGO DEL ESTERO </option>
+                                                <option>TIERRA DEL FUEGO</option>
+                                                <option>TUCUMÁN </option>
+                                                <option> OTRO </option>
                                         </select>
                                         </div>
                                     </div>
@@ -352,30 +345,29 @@ Además de estos datos, debemos conocer:
                                     <!--Tel1-->
                                     <div class="form-group required">
                                         <label for="Tel1" class=" control-label">Teléfono 1  </label>
-                                        <input type="tel" id="Tel1" class="form-control" size="30" required>
+                                        <input type="tel" name="Tel1" class="form-control" size="30" required data-error="Se debe especificar un número de teléfono">
+                                        <div class="help-block with-errors"></div> 
                                     </div>
 
                                     <!--Tel2-->
                                     <div class="form-group">
                                         <label for="tel2" class=" control-label">Teléfono 2 </label>
-                                        <input type="tel" id="tel2" class="form-control" size="30">
+                                        <input type="tel" name="tel2" class="form-control" size="30">
                                     </div>
 
 
                                     <!--email1-->
                                     <div class="form-group required">
                                         <label for="email1" class=" control-label">e-mail 1</label>
-                                        <input type="email" id="email1" class="form-control" size="100" required data-error="La dirección de mail no es válida">
+                                        <input type="email" name="email1" class="form-control" size="100" required data-error="La dirección de mail no es válida">
                                         <div class="help-block with-errors"></div>
                                     </div>
 
                                     <!--email2-->
                                     <div class="form-group">
                                         <label for="email2" class=" control-label">e-mail 2</label>
-                                        <input type="email" id="email2" class="form-control" size="100">
+                                        <input type="email" name="email2" class="form-control" size="100">
                                     </div>
-
-                                   
 
                                     <div class="divisor">
                                     </div>
@@ -385,7 +377,7 @@ Además de estos datos, debemos conocer:
                                     <div class="form-group">
                                         <label for="numCongresos" class=" control-label"> Congresos Conaiisi asistidos</label>
                                         <div class="">
-                                            <select id="numCongresos" class="form-control">
+                                            <select name="numCongresos" class="form-control">
                                              <option>0</option>
                                              <option>1</option>
                                              <option>2</option>
@@ -398,14 +390,14 @@ Además de estos datos, debemos conocer:
                                     <div class="form-group">
                                         <label for="recomendaciones" class=" control-label">Recomendaciones para mejorar el congreso </label>
                                         <br>
-                                        <textarea name="" id="recomendaciones" class="form-control" rows="5"></textarea>
+                                        <textarea name="" name="recomendaciones" class="form-control" rows="5"></textarea>
                                     </div>
 
                                     <!--medio-->
                                     <div class="form-group">
                                         <label for="medio" class=" control-label"> Medio por el cual conoció al 4to Congreso </label>
                                         <div class="">
-                                            <select id="medio" class="form-control">
+                                            <select name="medio" class="form-control">
                                              <option>Mail</option>
                                              <option>Web</option>
                                              <option>Redes Sociales</option>
@@ -423,14 +415,14 @@ Además de estos datos, debemos conocer:
 
                                     <div class="form-group">
                                         <label for="carrera" class=" control-label">Carrera</label>
-                                        <input type="text" id="carrera" class="form-control" size="30">
+                                        <input type="text" name="carrera" class="form-control" size="30">
                                     </div>
 
                                     <!--cursado-->
                                     <div class="form-group">
                                         <label for="cursado" class=" control-label"> Año que cursa</label>
                                         <div class="">
-                                            <select id="cursado" class="form-control">
+                                            <select name="cursado" class="form-control">
                                              <option>1</option>
                                              <option>2</option>
                                              <option>3</option>
@@ -444,13 +436,13 @@ Además de estos datos, debemos conocer:
                                     <!--universidad-->
                                     <div class="form-group">
                                         <label for="universidad" class=" control-label">Universidad donde cursa</label>
-                                        <input type="text" id="universidad" class="form-control" size="30">
+                                        <input type="text" name="universidad" class="form-control" size="30">
                                     </div>
 
                                     <!--sede-->
                                     <div class="form-group">
                                         <label for="sede" class=" control-label">Sede / Regional</label>
-                                        <input type="text" id="sede" class="form-control" size="20">
+                                        <input type="text" name="sede" class="form-control" size="20">
                                     </div>
 
                                     <div class="divisor">
@@ -460,25 +452,28 @@ Además de estos datos, debemos conocer:
                                     <!--nombreFacturar-->
                                     <div class="form-group required">
                                         <label for="nombreFacturar" class=" control-label">Emitir boleta de pago a nombre de:</label>
-                                        <input type="text" id="nombreFacturar" class="form-control" size="60" required data-error="Es un dato importante">
+                                        <input type="text" name="nombreFacturar" class="form-control" size="60" required data-error="Nombre de la persona (física/ideal) que aparecerá en la factura">
                                         <div class="help-block with-errors"></div>
                                     </div>
 
                                     <!--numFacturar-->
                                     <div class="form-group required">
                                         <label for="numFacturar" class=" control-label">CUIT o CUIL</label>
-                                        <input type="number" id="numFacturar" class="form-control" size="15" required data-error="Es un dato númerico">
+                                        <input type="number" name="numFacturar" class="form-control" size="15" required data-error="Es un dato númerico">
                                         <div class="help-block with-errors"></div>
                                     </div>
 
                                     <!--domFacturar-->
                                     <div class="form-group required">
                                         <label for="domFacturar" class=" control-label">Domicilio de facturación</label>
-                                        <input type="text" id="domFacturar" class="form-control" size="100" required data-error="Es un dato importante">
+                                        <input type="text" name="domFacturar" class="form-control" size="100" required data-error="Es un dato importante">
                                         <div class="help-block with-errors"></div>
                                     </div>
-
+                                    
                                     <br>
+                                    <!--
+                                    <div class="g-recaptcha" data-sitekey="6LcDCCkTAAAAAPAg_0NSFeqYQjstrtEcejb8xsJT" data-theme="dark"></div>
+                                    -->
                                     <br>
 
                                     <input type="submit" class="btn btn-primary" value="Enviar inscripción por e-mail">
@@ -486,74 +481,70 @@ Además de estos datos, debemos conocer:
 
                                     </br>
                                     </br>
-                            </form>
-<!-- 
-    ========================================FIN FORM=================================================
--->
+                                </form>
+                                <!--==================================FIN-FORM======================================- -->
 
                             </div>
 
-                            
+
                         </div>
                     </div>
 
                 </div>
                 <br>
-            
-            
 
-            <!-- Sección 3.2: Nav 2-->
-            <div>
-                <div class="col-xs-12 col-md-4 col-sm-8 col-lg-4 segundo-nav">
-                    <ul class="nav nav-pills nav-stacked">
-                        <li>
-                            <a href="../novedades.html"><strong>Novedades</strong></a>
-                        </li>
-                        <li>
-                            <a href="../aranceles.html"><strong>Aranceles</strong></a>
-                        </li>
-                        <li>
-                            <a href="../alojamientos.html"><strong>Alojamientos</strong></a>
-                        </li>
-                        <li>
-                            <a href="../contacto.html"><strong>Comunicación</strong></a>
-                        </li>
-                        <li>
-                            <a href="http://www.ucasal.edu.ar/institucional-identidad"><strong>Conozca UCASAL</strong></a>
-                        </li>
-                        <li>
-                            <a href="http://conaiisi.frc.utn.edu.ar/Envios"><strong>Envío de trabajos</strong></a>
-                        </li>
-                        <li>
-                            <a href="../Afiche-A3.pdf"><strong>Descargar Afiche en A3</strong></a>
-                        </li>
-                        <li>
-                            <a href="../Afiche.pdf"><strong>Descargar Afiche en A4</strong></a>
-                        </li>
-                    </ul>
+                <!-- Sección 3.2: Nav 2-->
+                <div>
+                    <div class="col-xs-12 col-md-4 col-sm-8 col-lg-4 segundo-nav">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li>
+                                <a href="../novedades.html"><strong>Novedades</strong></a>
+                            </li>
+                            <li>
+                                <a href="../aranceles.html"><strong>Aranceles</strong></a>
+                            </li>
+                            <li>
+                                <a href="../alojamientos.html"><strong>Alojamientos</strong></a>
+                            </li>
+                            <li>
+                                <a href="../contacto.html"><strong>Comunicación</strong></a>
+                            </li>
+                            <li>
+                                <a href="http://www.ucasal.edu.ar/institucional-identidad"><strong>Conozca UCASAL</strong></a>
+                            </li>
+                            <li>
+                                <a href="http://conaiisi.frc.utn.edu.ar/Envios"><strong>Envío de trabajos</strong></a>
+                            </li>
+                            <li>
+                                <a href="../Afiche-A3.pdf"><strong>Descargar Afiche en A3</strong></a>
+                            </li>
+                            <li>
+                                <a href="../Afiche.pdf"><strong>Descargar Afiche en A4</strong></a>
+                            </li>
+                        </ul>
 
-                    <div class="divisor">
-                    </div>
-
-                    <div>
-                        <h5 class="text-center"> Auspician: </h5>
-                        <div class="">
-                            <a href="http://www.copaipa.org.ar/">
-                                <img class="img-responsive center-block " src="../img/logo-copaipa.png">
-                            </a>
+                        <div class="divisor">
                         </div>
-                        <br>
+
                         <div>
-                            <a href="http://www.edusalta.gov.ar/">
-                                <img class="img-responsive center-block" src="../img/logo_MECyT.png">
-                            </a>
+                            <h5 class="text-center"> Auspician: </h5>
+                            <div class="">
+                                <a href="http://www.copaipa.org.ar/">
+                                    <img class="img-responsive center-block " src="../img/logo-copaipa.png">
+                                </a>
+                            </div>
+                            <br>
+                            <div>
+                                <a href="http://www.edusalta.gov.ar/">
+                                    <img class="img-responsive center-block" src="../img/logo_MECyT.png">
+                                </a>
+                            </div>
+                            <br>
                         </div>
-                        <br>
                     </div>
+
+
                 </div>
-
-
-            </div>
             </div>
             </div>
         </section>
@@ -580,19 +571,22 @@ Además de estos datos, debemos conocer:
 
 
 
-    
+
     <script src="../js/jquery.js"></script>
     <script src="../js/jquery-1.11.2.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.js"></script>
-    
-   
+
+
     <script src="../js/bootstrap.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-    
+
     <!--
     <script src="validacion.js"></script>
     -->
+
+    <!--recaptcha -->
+    <script src='https://www.google.com/recaptcha/api.js?hl=es'></script>
 
     <!--Google Analytics-->
 

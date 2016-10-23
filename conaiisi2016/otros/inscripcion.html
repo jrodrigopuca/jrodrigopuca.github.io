@@ -158,8 +158,14 @@ domFacturar
                     <div class="col-xs-12 col-md-8 col-lg-8 col-sm-6" align="center">
                         <br>
                         <h1 class="page-header">Inscripción</h1>
+                          <div class="alert alert-danger" role="alert">
+                            <p> <h4>
+                             <strong>importante</strong>:  Antes de proceder con la inscripción ver <a href="../aranceles.html"> Aranceles </a>
+                                </h4></p>
+                        </div>
 
-                    </div>
+                    </div>                  
+                    
 
                     <div class="col-xs-12 col-md-4 col-lg-4 col-sm-6" style="background-color: #29b6f6;">
                         <!-- logos Store -->
@@ -186,6 +192,7 @@ domFacturar
                     </div>
 
                 </div>
+            </div>
         </section>
 
         <!--Sección 3.1: Texto-->
@@ -198,6 +205,7 @@ domFacturar
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                 <h4> Formulario de Inscripción </h4>
+
                             </div>
 
                             <div class="panel-body">
@@ -213,9 +221,9 @@ domFacturar
                                         <label for="tipoInscripcion" class=" control-label">Tipo de Asistente</label>
                                         <div class="">
                                             <select name="tipoInscripcion" class="form-control" required >
-                                            <option selected>Alumno Asistente</option>
-                                             <option>Docente Asistente</option>
-                                             <option>Docente Expositor</option>
+                                                <option value="Alumno Asistente" selected>Alumno Asistente</option>
+                                                <option value="Docente Asistente">Docente Asistente</option>
+                                                <option value="Docente Expositor">Docente Expositor</option>
                                         </select>
                                         </div>
 
@@ -238,7 +246,7 @@ domFacturar
                                     <!--numDocumento -->
                                     <div class="form-group required ">
                                         <label for="numDocumento" class=" control-label">Número de Documento</label>
-                                        <input type="number" name="numDocumento" class="form-control" size="15" required data-error="El dato debe ser númerico y de 9 a 13 caracteres.">
+                                        <input type="number" name="numDocumento" class="form-control" min="0" max="99999999999" required data-error="El dato debe ser númerico y de 8 a 11 caracteres.">
                                         <div class="help-block with-errors"></div>
 
                                     </div>
@@ -246,26 +254,26 @@ domFacturar
                                     <!--nombre -->
                                     <div class="form-group required">
                                         <label for="nombre" class=" control-label">Nombre</label>
-                                        <input type="text" name="nombre" class="form-control" size="60" required data-error="Es un dato importante">
+                                        <input type="text" name="nombre" class="form-control" size="20" maxlength="20" required data-error="Es un dato importante que no puede faltar">
                                         <div class="help-block with-errors"></div>
                                     </div>
 
                                     <!--apellido -->
                                     <div class="form-group required">
                                         <label for="apellido" class=" control-label">Apellido</label>
-                                        <input type="text" name="apellido" class="form-control" size="60" required data-error="Es un dato importante">
+                                        <input type="text" name="apellido" class="form-control" size="20" maxlength="20" required data-error="Es un dato importante que no puede faltar">
                                         <div class="help-block with-errors"></div>
                                     </div>
 
                                     <!--genero-->
                                     <div class="form-group required">
                                         <label for="genero" class=" control-label">Género</label>
-                                        <div class="">
+                                        <div>
                                             <select name="genero" class="form-control">
-                                            <option>Masculino</option>
-                                             <option>Femenino</option>
-                                             <option>Otros</option>
-                                        </select>
+                                                <option value="Masculino">Masculino</option>
+                                                <option value="Femenino" selected>Femenino</option>
+                                                <option value="Otros">Otros</option>
+                                            </select>
                                         </div>
                                     </div>
 
@@ -285,7 +293,7 @@ domFacturar
                                     <!--institucion-->
                                     <div class="form-group required">
                                         <label for="institucion" class=" control-label">Institución</label>
-                                        <input type="text" name="institucion" class="form-control" size="30" required data-error="Especificar la organización a la que pertenece">
+                                        <input type="text" name="institucion" class="form-control" size="30" maxlength="30" required data-error="Especificar la organización a la que pertenece">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <br>
@@ -297,13 +305,13 @@ domFacturar
                                     <!--domResidencia-->
                                     <div class="form-group">
                                         <label for="domResidencia" class=" control-label">Domicilio</label>
-                                        <input type="text" name="domResidencia" class="form-control" size="60">
+                                        <input type="text" name="domResidencia" class="form-control" size="40" maxlength="40">
                                     </div>
 
                                     <!--locResidencia-->
                                     <div class="form-group">
                                         <label for="locResidencia" class=" control-label">Localidad </label>
-                                        <input type="text" name="locResidencia" class="form-control" size="30">
+                                        <input type="text" name="locResidencia" class="form-control" size="30" maxlength="30">
                                     </div>
 
                                     <!--provResidencia-->
@@ -329,7 +337,7 @@ domFacturar
                                                 <option>MISIONES </option>
                                                 <option>NEUQUÉN </option>
                                                 <option>RÍO NEGRO </option>
-                                                <option selected>SALTA </option>
+                                                <option selected >SALTA </option>
                                                 <option>SAN JUAN </option>
                                                 <option>SAN LUIS </option>
                                                 <option>SANTA CRUZ </option>
@@ -345,29 +353,33 @@ domFacturar
                                     <!--Tel1-->
                                     <div class="form-group required">
                                         <label for="Tel1" class=" control-label">Teléfono 1  </label>
-                                        <input type="tel" name="Tel1" class="form-control" size="30" required data-error="Se debe especificar un número de teléfono">
-                                        <div class="help-block with-errors"></div> 
+                                        <input type="text" name="Tel1" class="form-control" size="30" maxlength="30" required data-error="Se debe especificar un número de teléfono">
+                                        <div class="help-block with-errors"></div>
                                     </div>
 
                                     <!--Tel2-->
+                                    <!--
                                     <div class="form-group">
                                         <label for="tel2" class=" control-label">Teléfono 2 </label>
-                                        <input type="tel" name="tel2" class="form-control" size="30">
+                                        <input type="text" name="tel2" class="form-control" size="30">
                                     </div>
+                                    -->
 
 
                                     <!--email1-->
                                     <div class="form-group required">
                                         <label for="email1" class=" control-label">e-mail 1</label>
-                                        <input type="email" name="email1" class="form-control" size="100" required data-error="La dirección de mail no es válida">
+                                        <input type="email" name="email1" class="form-control" size="30" required data-error="La dirección de mail no es válida">
                                         <div class="help-block with-errors"></div>
                                     </div>
 
                                     <!--email2-->
+                                    <!--
                                     <div class="form-group">
                                         <label for="email2" class=" control-label">e-mail 2</label>
-                                        <input type="email" name="email2" class="form-control" size="100">
+                                        <input type="email" name="email2" class="form-control" size="30">
                                     </div>
+                                    -->
 
                                     <div class="divisor">
                                     </div>
@@ -379,7 +391,7 @@ domFacturar
                                         <div class="">
                                             <select name="numCongresos" class="form-control">
                                              <option>0</option>
-                                             <option>1</option>
+                                             <option selected>1</option>
                                              <option>2</option>
                                              <option>3</option>
                                         </select>
@@ -399,7 +411,7 @@ domFacturar
                                         <div class="">
                                             <select name="medio" class="form-control">
                                              <option>Mail</option>
-                                             <option>Web</option>
+                                             <option selected>Web</option>
                                              <option>Redes Sociales</option>
                                              <option>Otros</option>
                                         </select>
@@ -423,7 +435,7 @@ domFacturar
                                         <label for="cursado" class=" control-label"> Año que cursa</label>
                                         <div class="">
                                             <select name="cursado" class="form-control">
-                                             <option>1</option>
+                                             <option selected>1</option>
                                              <option>2</option>
                                              <option>3</option>
                                              <option>4</option>
@@ -452,24 +464,24 @@ domFacturar
                                     <!--nombreFacturar-->
                                     <div class="form-group required">
                                         <label for="nombreFacturar" class=" control-label">Emitir boleta de pago a nombre de:</label>
-                                        <input type="text" name="nombreFacturar" class="form-control" size="60" required data-error="Nombre de la persona (física/ideal) que aparecerá en la factura">
+                                        <input type="text" name="nombreFacturar" class="form-control" size="60" maxlength="60" required data-error="Nombre de la persona (física/ideal) que aparecerá en la factura">
                                         <div class="help-block with-errors"></div>
                                     </div>
 
                                     <!--numFacturar-->
                                     <div class="form-group required">
                                         <label for="numFacturar" class=" control-label">CUIT o CUIL</label>
-                                        <input type="number" name="numFacturar" class="form-control" size="15" required data-error="Es un dato númerico">
+                                        <input type="number" name="numFacturar" class="form-control" min="0" max="99999999999" required data-error="Es un dato númerico igual a 11 caracteres">
                                         <div class="help-block with-errors"></div>
                                     </div>
 
                                     <!--domFacturar-->
                                     <div class="form-group required">
                                         <label for="domFacturar" class=" control-label">Domicilio de facturación</label>
-                                        <input type="text" name="domFacturar" class="form-control" size="100" required data-error="Es un dato importante">
+                                        <input type="text" name="domFacturar" class="form-control" size="40" maxlength="40" required data-error="Es un dato importante">
                                         <div class="help-block with-errors"></div>
                                     </div>
-                                    
+
                                     <br>
                                     <!--
                                     <div class="g-recaptcha" data-sitekey="6LcDCCkTAAAAAPAg_0NSFeqYQjstrtEcejb8xsJT" data-theme="dark"></div>
@@ -546,7 +558,7 @@ domFacturar
 
                 </div>
             </div>
-            </div>
+            
         </section>
 
 
@@ -576,7 +588,7 @@ domFacturar
     <script src="../js/jquery-1.11.2.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
 
     <script src="../js/bootstrap.js"></script>
     <script src="../js/bootstrap.min.js"></script>

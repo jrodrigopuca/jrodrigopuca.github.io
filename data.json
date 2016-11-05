@@ -1,9 +1,39 @@
 [
+	{
+    "titulo":"Recepción y acreditación de asistentes",
+    "institucion":"UCASAL",
+    "tematica": "General",
+    "Horario": "17/11/2016 08:30",
+    "Autores": [
+        {"Autor": ""}
+    ],
+    "Aula":"Facultad de Ingeniería"
+    },
+	{
+    "titulo":"Acto de Apertura",
+    "institucion":"UCASAL",
+    "tematica": "General",
+    "Horario": "17/11/2016 09:30",
+    "Autores": [
+        {"Autor": ""}
+    ],
+    "Aula":"Aula Magna"
+    },
+	{
+    "titulo":"Conferencia Ingeniería, Ética en crisis",
+    "institucion":"UNER",
+    "tematica": "General",
+    "Horario": "17/11/2016 09:45",
+    "Autores": [
+        {"Autor": "Lic. Raúl Montoya"}
+    ],
+    "Aula":"Aula Magna"
+    },
     {
     "titulo":"Incorporando aula invertida, trabajo en equipo e iniciativa sustentable en un proyecto de innovación didáctica",
     "institucion":"UTN - Facultad Regional Rosario",
     "tematica": "Educación en Ingeniería",
-    "Horario": "17/11/2016 10:30AM",
+    "Horario": "17/11/2016 10:30",
     "Autores": [
         {"Autor": "Gabriela Mariel Font"},
         {"Autor": "María Yanina Nalli"},
@@ -15,7 +45,7 @@
     "titulo":"Experiencia de Formación y Promoción de Emprendedores Tecnológicos desde una Carrera Universitaria",
     "institucion":"UTN-Facultad Regional Córdoba",
     "tematica": "Educación en Ingeniería",
-    "Horario": "17/11/2016 10:30AM",
+    "Horario": "17/11/2016 10:30",
     "Autores": [
         {"Autor": "Roberto Miguel Muñoz"},
         {"Autor": "Oscar Carlos Medina"},
@@ -28,7 +58,7 @@
     "titulo":"Diagnóstico del Proceso de Aprendizaje de Alumnos de Inteligencia Artificial mediante un Modelo Dinámico Bayesiano",
     "institucion":"UTN-Facultad Regional Buenos Aires",
     "tematica": "Educación en Ingeniería",
-    "Horario": "17/11/2016 10:30AM",
+    "Horario": "17/11/2016 10:30",
     "Autores": [
         {"Autor": "Cinthia  Vegega"},
         {"Autor": "Ariel  Deroche"},
@@ -40,33 +70,22 @@
     "Aula":"Aula 1 - UM2"
     },
 
-    {
-    "titulo":"Experiencias en tutorías y reinserción de estudiantes de Ingeniería de Sistemas de la Universidad Nacional del Centro",
-    "institucion":"PLADEMA, Universidad Nacional del Centro - CIC- PBA,  INTIA, Universidad Nacional del Centro",
-    "tematica": "Educación en Ingeniería",
-    "Horario": "17/11/2016 10:30AM",
-    "Autores": [
-        {"Autor": "Mariana  del Fresno"},
-        {"Autor": "Laura  Rivero"}
-    ],
-    "Aula":"Aula 1 - UM2"
-    },
     
     {
     "titulo":"Enfoque multimedial en aulas virtuales para la Enseñanza de Algoritmos y Estructuras de Datos",
     "institucion":"UTN - Facultad Regional Rosario",
     "tematica": "Educación en Ingeniería",
-    "Horario": "17/11/2016 10:30AM",
+    "Horario": "17/11/2016 10:30",
     "Autores": [
         {"Autor": "Claudia Estela Dania"}
     ],
-    "Aula":"Aula 3 - UM2"
+    "Aula":"Aula 5 - UM2"
     },
     {
     "titulo":"Simulación en la enseñanza de redes de computadoras: visión de docentes",
     "institucion":"Universidad Nacional de Salta",
     "tematica": "Educación en Ingeniería",
-    "Horario": "17/11/2016 10:30AM",
+    "Horario": "17/11/2016 10:30",
     "Autores": [
         {"Autor": "Daniel Arias Figueroa"},
         {"Autor": "Nelson Rodríguez"},
@@ -78,37 +97,25 @@
         {"Autor": "Jorge Mercado"},
         {"Autor": "Marcelo Moreno"}
     ],
-    "Aula":"Aula 3 - UM2"
+    "Aula":"Aula 5 - UM2"
     },
        {
     "titulo":"Evaluación de una Propuesta Metodológica para el Entrenamiento de la Programación",
     "institucion":"Universidad Nacional de Salta",
     "tematica": "Educación en Ingeniería",
-    "Horario": "17/11/2016 10:30AM",
+    "Horario": "17/11/2016 10:30",
     "Autores": [
         {"Autor": "Lorena Elizabeth Del Moral Sachetti"},
         {"Autor": "Angel Rubén Barberis"}
     ],
-    "Aula":"Aula 3 - UM2"
+    "Aula":"Aula 5 - UM2"
     },
-       {
-    "titulo":"Desarrollo de proyectos finales mejorando la relación UniversidadIndustria de Software",
-    "institucion":"Universidad Nacional de Rio Cuarto",
-    "tematica": "Educación en Ingeniería",
-    "Horario": "17/11/2016 10:30AM",
-    "Autores": [
-        {"Autor": "Marcela  Daniele"},
-        {"Autor": "Marcelo Ariel Uva"},
-        {"Autor": "Ariel  Arsaute"},
-        {"Autor": "Franco  Brusatti"}
-    ],
-    "Aula":"Aula 3 - UM2"
-    },
-       {
+
+        {
     "titulo":"Impacto del uso de Tecnologías Informáticas frente a la búsqueda de Eficiencia Energética en Organizaciones",
     "institucion":"UTN - Facultad Regional La Plata",
     "tematica": "Ing. de Sistemas y de Software",
-    "Horario": "17/11/2016 10:30AM",
+    "Horario": "17/11/2016 10:30",
     "Autores": [
         {"Autor": "Leopoldo Nahuel"},
         {"Autor": "José Maccarone"},
@@ -122,11 +129,12 @@
     ],
     "Aula":"Aula 2 - UM2"
     },
+	  
        {
     "titulo":"Comportamiento de la Complejidad Ciclomática en la Refactorización de Código Estructurado a Código Orientado a Objetos",
     "institucion":"Universidad Abierta interamericana",
     "tematica": "Ing. de Sistemas y de Software",
-    "Horario": "17/11/2016 10:30AM",
+    "Horario": "17/11/2016 10:30",
     "Autores": [
         {"Autor": "Dario Guillermo Cardacci"}
     ],
@@ -136,7 +144,7 @@
     "titulo":"Aporte del Procesamiento de Lenguaje Natural a la Ingeniería de Requisitos",
     "institucion":"Universidad Nacional de La Matanza. DIIT",
     "tematica": "Ing. de Sistemas y de Software",
-    "Horario": "17/11/2016 10:30AM",
+    "Horario": "17/11/2016 10:30",
     "Autores": [
         {"Autor": "Claudia Silvia Litvak"},
         {"Autor": "Jorge Horacio Donrn"},
@@ -147,24 +155,12 @@
     ],
     "Aula":"Aula 2 - UM2"
     },
-    {
-    "titulo":"An Intelligent Approach to Support Software Architecture Decisionmaking in the Context of Software Architecture Evaluation",
-    "institucion":"CIT Villa María (CONICET-UNVM), UTN - Facultad Regional Villa María, INGAR (CONICETUTN)",
-    "tematica": "Ing. de Sistemas y de Software",
-    "Horario": "17/11/2016 10:30AM",
-    "Autores": [
-        {"Autor": "Verónica  Bogado"},
-        {"Autor": "Eva  Villarreal Guzmán"},
-        {"Autor": "Silvio  Gonnet"},
-        {"Autor": "Horacio  Leone"}
-    ],
-    "Aula":"Aula 2 - UM2"
-    },
-        {
+
+	{
     "titulo":"Realtime Volumen Render en Videojuegos",
     "institucion":"Universidad Argentina de la Empresa",
     "tematica": "Aplic.Informáticas y de Sist.de Información",
-    "Horario": "17/11/2016 10:30AM",
+    "Horario": "17/11/2016 10:30",
     "Autores": [
         {"Autor": "Mariano  Banquiero"},
         {"Autor": "Bibiana  Rossi"},
@@ -176,7 +172,7 @@
     "titulo":"Sistema de Inteligencia Ambiental para el Monitoreo Remoto de Adultos Mayores",
     "institucion":"UTN - Facultad Regional Rosario",
     "tematica": "Aplic.Informáticas y de Sist.de Información",
-    "Horario": "17/11/2016 10:30AM",
+    "Horario": "17/11/2016 10:30",
     "Autores": [
         {"Autor": "Darío Weitz"},
         {"Autor": "Nicole Schmidt"},
@@ -191,7 +187,7 @@
     "titulo":"Búsqueda de respuestas como aplicación del problema de extracción de relaciones",
     "institucion":"Universidad Católica de Salta",
     "tematica": "Aplic.Informáticas y de Sist.de Información",
-    "Horario": "17/11/2016 10:30AM",
+    "Horario": "17/11/2016 10:30",
     "Autores": [
         {"Autor": "Alejandra Carolina Cardoso"},
         {"Autor": "Maria Alicia Perez Abelleira"},
@@ -199,46 +195,34 @@
     ],
     "Aula":"Aula 4 - UM2"
     },
-        {
-    "titulo":"Schedule Modeling and Expert Knowledge Elicitation Using Graphs",
-    "institucion":"UTN - Facultad Regional Villa Maria INGAR(CONICET-UTN)",
-    "tematica": "Aplic.Informáticas y de Sist.de Información",
-    "Horario": "17/11/2016 10:30AM",
-    "Autores": [
-        {"Autor": "Paula Andrea Toselli"},
-        {"Autor": "Jorge  Palombarini"},
-        {"Autor": "Eduardo  Romero"},
-        {"Autor": "Ernesto  Martinez"}
-    ],
-    "Aula":"Aula 4 - UM2"
-    },
-     {
+
+	{
     "titulo":"Memoria Organizacional Retroalimentada por Flujos de Datos Aplicada a la Predicción de Pasturas",
     "institucion":"Facultad de Ingeniería, Universidad Nacional de La Pampa",
     "tematica": "Base de Datos",
-    "Horario": "17/11/2016 10:30AM",
+    "Horario": "17/11/2016 10:30",
     "Autores": [
         {"Autor": "Mario José Diván"},
         {"Autor": "María de los Ángeles Martín"}
     ],
-    "Aula":"Aula 5 - UM2"
+    "Aula":"Aula 9 - UM2"
     },
      {
     "titulo":"Implementación asistida de Bases de Datos en Firebird/Interbase",
     "institucion":"UTN - Facultad Regional Delta,  UNLu, ISFT 189",
     "tematica": "Base de Datos",
-    "Horario": "17/11/2016 10:30AM",
+    "Horario": "17/11/2016 10:30",
     "Autores": [
         {"Autor": "Guillermo Ruben Cherencio"}
     ],
-    "Aula":"Aula 5 - UM2"
+    "Aula":"Aula 9 - UM2"
     },
     
     {
     "titulo":"Evaluación de Competencias a través de una Experiencia de Flipped Classrom en Programación en la Universidad Nacional de La Matanza",
     "institucion":"Universidad Nacional de la Matanza",
     "tematica": "Educación en Ingeniería",
-    "Horario": "17/11/2016 11:30AM",
+    "Horario": "17/11/2016 11:30",
     "Autores": [
         {"Autor": "Sergio Daniel Conde"},
         {"Autor": "Santiago  Igarza"}
@@ -249,7 +233,7 @@
     "titulo":"Los modelos de Teoría de Colas, propuesta de abordaje en una asignatura optativa de grado",
     "institucion":"Facultad de Ciencias Exactas y Naturales y Agrimensura, Universidad Nacional del Nordeste",
     "tematica": "Educación en Ingeniería",
-    "Horario": "17/11/2016 11:30AM",
+    "Horario": "17/11/2016 11:30",
     "Autores": [
         {"Autor": "Sonia I. Mariño"},
         {"Autor": "Pedro L. Alfonzo"}
@@ -260,7 +244,7 @@
     "titulo":"Construcción y validación de un sistema web/móvil como herramienta de intervención tecnológica para la evaluación dinámica en asignatura de grado en Ingeniería en sistemas de información",
     "institucion":"Laboratorios de Sistemas -  Departamento de Ingeniería en Sistemas de Información, UTN - Facultad Regional Buenos Aires, Grupo Gemis",
     "tematica": "Educación en Ingeniería",
-    "Horario": "17/11/2016 11:30AM",
+    "Horario": "17/11/2016 11:30",
     "Autores": [
         {"Autor": "Ramiro Walter Garbarini"},
         {"Autor": "Ezequiel  Gaspes"},
@@ -278,7 +262,7 @@
     "titulo":"La máquina de hacer software",
     "institucion":"Facultad de Ingeniería, Universidad de Buenos Aires",
     "tematica": "Ing. de Sistemas y de Software",
-    "Horario": "17/11/2016 11:30AM",
+    "Horario": "17/11/2016 11:30",
     "Autores": [
         {"Autor": "Guillermo Gustavo Pantaleo"}
     ],
@@ -289,7 +273,7 @@
     "titulo":"Escenarios de Metas de Negocio y de Necesidad de Información de Nivel Operativo soportadas por Estrategias basadas en Medición, Evaluación y Cambio",
     "institucion":"Facultad de Ingeniería, Universidad Nacional de La Pampa",
     "tematica": "Ing. de Sistemas y de Software",
-    "Horario": "17/11/2016 11:30AM",
+    "Horario": "17/11/2016 11:30",
     "Autores": [
         {"Autor": "Pablo  Becker, Belen  Ribera"},
         {"Autor": "Fernanda  Papa"},
@@ -303,7 +287,7 @@
     "titulo":"Experiencias de Implementación de Despliegue Continuo con una Infraestructura Conteinerizada",
     "institucion":"UTN – Facultad Regional Córdoba",
     "tematica": "Ing. de Sistemas y de Software",
-    "Horario": "17/11/2016 11:30AM",
+    "Horario": "17/11/2016 11:30",
     "Autores": [
         {"Autor": "Carlos S. Moreno"},
         {"Autor": "Heraldo R. Valenti"},
@@ -313,72 +297,49 @@
     "Aula":"Aula 2 - UM2"
     },
     
-    {
-    "titulo":"Evaluando el impacto de la automatización y la gestión de trazas en la calidad de transformaciones de modelos",
-    "institucion":"CONICET - UTN - Facultad Regional Resistencia, Universidad Rey Juan Carlos",
-    "tematica": "Ing. de Sistemas y de Software",
-    "Horario": "17/11/2016 11:30AM",
-    "Autores": [
-        {"Autor": "Verónica Andrea Bollati"},
-        {"Autor": "Juan Manuel Vara"},
-        {"Autor": "David  Granada"},
-        {"Autor": "Esperanza  Marcos"}
-    ],
-    "Aula":"Aula 2 - UM2"
-    },
+    
      {
     "titulo":"Guía metodológica para el desarrollo de sitios web móviles adaptativos con el enfoque Mobile First",
     "institucion":"Universidad Nacional de La Matanza, Universidad Tecnológica Nacional, Universidad Abierta Interamericana",
     "tematica": "Ing. de Sistemas y de Software",
-    "Horario": "17/11/2016 11:30AM",
+    "Horario": "17/11/2016 11:30",
     "Autores": [
         {"Autor": "Pablo Martín Vera"},
         {"Autor": "Rocio Andrea Rodríguez"},
         {"Autor": "María Roxana Martínez"}
     ],
-    "Aula":"Aula 3 - UM2"
+    "Aula":"Aula 5 - UM2"
     },
      {
     "titulo":"SAKOnto: una ontología de conocimiento sobre arquitecturas de software",
     "institucion":"UTN - Facultad Regional Santa Fe - CONICET (INGAR)",
     "tematica": "Ing. de Sistemas y de Software",
-    "Horario": "17/11/2016 11:30AM",
+    "Horario": "17/11/2016 11:30",
     "Autores": [
         {"Autor": "Luciana  Roldán"},
         {"Autor": "Silvio  Gonnet"},
         {"Autor":"Horacio  Leone"}
     ],
-    "Aula":"Aula 3 - UM2"
+    "Aula":"Aula 5 - UM2"
     },
      {
     "titulo":"Interoperabilidad Semántica entre Estándares de Datos Industriales para Productos",
     "institucion":"UTN - Facultad Regional Santa Fe",
     "tematica": "Ing. de Sistemas y de Software",
-    "Horario": "17/11/2016 11:30AM",
+    "Horario": "17/11/2016 11:30",
     "Autores": [
         {"Autor": "Álvaro  Fraga"},
         {"Autor": "María Marcela Vegetti"},
         {"Autor":"Horacio  Leone"}
     ],
-    "Aula":"Aula 3 - UM2"
+    "Aula":"Aula 5 - UM2"
     },
-     {
-    "titulo":"Análisis Semántico de los Aspectos Técnicos y Operaciones de Cloud Computing",
-    "institucion":"GITIA UTN-Facultad Regional Tucumán, CIDISI UTN - Facultad Regional Santa Fe",
-    "tematica": "Ing. de Sistemas y de Software",
-    "Horario": "17/11/2016 11:30AM",
-    "Autores": [
-        {"Autor": "Ana Sofia Zalazar"},
-        {"Autor": "Luciana Cristina Ballejos"},
-        {"Autor": "Sebastian Alberto Rodriguez"}
-    ],
-    "Aula":"Aula 3 - UM2"
-    },
+     
     {
 	"titulo":"Análisis del Proceso de Aceleración vía Hardware en LIBSVM: Máquinas de Soporte Vectorial Optimizadas",
 	"institucion":"Universidad Nacional del Centro de la Provincia de Buenos Aires- Department of Computer Engineering and Mathematics, University Rovira i Virgili",
 	"tematica": "Aplic.Informáticas y de Sist.de Información",
-	"Horario": "17/11/2016 11:30AM",
+	"Horario": "17/11/2016 11:30",
 	"Autores": [
 		{"Autor": "Lucas  Leiva"},
 		{"Autor": "Jordina  Torrents-Barrena"},
@@ -392,7 +353,7 @@
 	"titulo":"Desarrollo de aplicación utilizando el índice espacio-temporal I+3 R-Tree",
 	"institucion":"UTN - Facultad Regional Concepción del Uruguay, UTN - Facultad Regional Córdoba, Universidad Nacional de San Luis",
 	"tematica": "Aplic.Informáticas y de Sist.de Información",
-	"Horario": "17/11/2016 11:30AM",
+	"Horario": "17/11/2016 11:30",
 	"Autores": [
 		{"Autor": "Marcela  Aballay"},
 		{"Autor": "Anabella Cecilia De Battista"},
@@ -404,7 +365,7 @@
 	"titulo":"Algoritmo de Optimización por Enjambre de Partículas Aplicado en la Selección de Componentes de Filtros Bicuadráticos",
 	"institucion":"UTN - Facultad Regional Villa María",
 	"tematica": "Aplic.Informáticas y de Sist.de Información",
-	"Horario": "17/11/2016 11:30AM",
+	"Horario": "17/11/2016 11:30",
 	"Autores": [
 		{"Autor": "Mónica Andrea Lovay"},
 		{"Autor": "Gabriela Marta Peretti"},
@@ -412,26 +373,12 @@
 	],
 	"Aula":"Aula 4 - UM2"
 	},
-    {
-	"titulo":"Gestión del Capital Intelectual en la Investigación Universitaria: situación actual. Propuesta de investigación entre la UNCa (Argentina) y la UNE (Paraguay)",
-	"institucion":"Universidad Nacional de Catamarca, Universidad Nacional del Este de Paraguay, Universidad Nacional de San Luis",
-	"tematica": "Aplic.Informáticas y de Sist.de Información",
-	"Horario": "17/11/2016 11:30AM",
-	"Autores": [
-		{"Autor": "Carola Victoria Flores"},
-		{"Autor": "Dina Raquel Paniagua Cristaldo"},
-		{"Autor": "María Vanesa Doria"},
-		{"Autor": "Juan Pablo Moreno"},
-        {"Autor": "Germán Antonio Montejano"},
-        {"Autor": "Arnaldo  Martínez Mercado"}
-	],
-	"Aula":"Aula 4 - UM2"
-	},
-    	{
+
+	{
 	"titulo":"Estrategia de Comprensión y Análisis aplicado a un Proyecto de Evaluación de Usabilidad de LinkedIn",
 	"institucion":"Facultad de Ingeniería, Universidad Nacional de La Pampa",
 	"tematica": "Gestión de Proyectos",
-	"Horario": "17/11/2016 11:30AM",
+	"Horario": "17/11/2016 11:30",
 	"Autores": [
 		{"Autor": "Guido  Tebes"},
 		{"Autor": "Denis  Peppino"},
@@ -439,42 +386,78 @@
 		{"Autor": "Pablo  Becker"},
         {"Autor":"Luis  Olsina"}
 	],
-	"Aula":"Aula 5 - UM2"
+	"Aula":"Aula 9 - UM2"
 	},
     	{
 	"titulo":"Entornos uniformes de desarrollo de software",
 	"institucion":"UTN - Facultad Regional Villa María",
 	"tematica": "Gestión de Proyectos",
-	"Horario": "17/11/2016 11:30AM",
+	"Horario": "17/11/2016 11:30",
 	"Autores": [
 		{"Autor": "Norberto Gaspar Cena"},
 		{"Autor": "Ignacio Daniel Favro"},
 		{"Autor": "Sebastián Norberto Mussetta"}
 	],
-	"Aula":"Aula 5 - UM2"
+	"Aula":"Aula 9 - UM2"
 	},
     	{
 	"titulo":"Favoreciendo el desarrollo de conocimientos y competencias en el contexto de un Proyecto de Investigación",
 	"institucion":"UTN - Facultad Regional Rosario",
 	"tematica": "Gestión de Proyectos",
-	"Horario": "17/11/2016 11:30AM",
+	"Horario": "17/11/2016 11:30",
 	"Autores": [
 		{"Autor": "Rita Guadalupe Malano"},
 		{"Autor": "Vilma Alicia Martin"},
 		{"Autor": "Fabiana María Riva"}
 	],
-	"Aula":"Aula 5 - UM2"
+	"Aula":"Aula 9 - UM2"
 	},
+
     {
-	"titulo":"La Estructura de los Artículos Científicos, lineamientos generales para la escritura de un paper",
+	"titulo":"Seminario: La Estructura de los Artículos Científicos, lineamientos generales para la escritura de un paper",
 	"institucion":"Universidad Abierta interamericana",
-	"tematica": "Seminario",
-	"Horario": "17/11/2016 10:30AM",
+	"tematica": "General",
+	"Horario": "17/11/2016 10:30",
 	"Autores": [
 		{"Autor": "Carlos Neil"}
 	],
 	"Aula":"Aula 6 - UM2"
 	},
+    {
+	"titulo":"Horario disponible para Almuerzo",
+	"institucion":"UCASAL",
+	"tematica": "General",
+	"Horario": "17/11/2016 12:30",
+	"Autores": [
+		{"Autor": ""}
+	],
+	"Aula":"Confiteria"
+	},
+
+	{
+	"titulo":"Presentación de posters de trabajos de investigación",
+	"institucion":"UCASAL",
+	"tematica": "General",
+	"Horario": "17/11/2016 14:00",
+	"Autores": [
+		{"Autor": ""}
+	],
+	"Aula":"Galería UM2"
+	},
+	{
+	"titulo":"Presentación de posters de trabajos de alumnos",
+	"institucion":"UCASAL",
+	"tematica": "General",
+	"Horario": "17/11/2016 14:00",
+	"Autores": [
+		{"Autor": ""}
+	],
+	"Aula":"Galería UM2"
+	},
+
+
+
+
     {
 	"titulo":"La Creación de Enunciados de Problemas como Propuesta Didáctica en la Educación Superior",
 	"institucion":"Facultad de Ingeniería, UBA",
@@ -517,12 +500,14 @@
 	"Autores": [
 		{"Autor": "Rosana  Hadad Salomon"},
 		{"Autor": "Rubén Fernando Araujo"},
-		{"Autor": "María Alexandra Elizabeth Dufour"},
+		{"Autor": "Elizabeth María Alexandra Dufour"},
 		{"Autor": "María Concepción Caporale"},
         {"Autor":"Mario Alberto Paredi"}
 	],
 	"Aula":"Aula 6 - UM2"
 	},
+
+
     {
 	"titulo":"Análisis de Dependencias entre Refactorings para Solucionar Code Smells",
 	"institucion":"Instituo Superior de Ingeniería de Software TANDIL – Centro Científico Tecnológico de TANDIL- CONICET TANDIL",
@@ -571,7 +556,7 @@
 		{"Autor": "Martín  Morales"},
 		{"Autor": "Diego Omar Encinas"}
 	],
-	"Aula":"Aula 3 - UM2"
+	"Aula":"Aula 5 - UM2"
 	},
     	{
 	"titulo":"Control Adaptivo de un Sistema de Comunicación Inalámbrico",
@@ -583,7 +568,7 @@
 		{"Autor": "Nicolás  Garcia"},
 		{"Autor": "Roberto  Breslin"}
 	],
-	"Aula":"Aula 3 - UM2"
+	"Aula":"Aula 5 - UM2"
 	},
     	{
 	"titulo":"Mediciones de radiaciones no ionizantes",
@@ -595,7 +580,7 @@
 		{"Autor": "Nicolás  Cruz"},
 		{"Autor": "Roberto  Breslin"}
 	],
-	"Aula":"Aula 3 - UM2"
+	"Aula":"Aula 5 - UM2"
 	},
     	{
 	"titulo":"Utilización de un Microcontrolador como interfase para la conexión a Internet de una Celda Robotizada",
@@ -630,19 +615,7 @@
 	],
 	"Aula":"Aula 4 - UM2"
 	},
-    	{
-	"titulo":"Métodos aplicados para la selección de variables de entrada en la predicción del consumo eléctrico en el corto plazo",
-	"institucion":"UTN - Facultad Regional Tucumán, Universidad Nacional de Tucumán - Facultad de Ciencias Naturales e IML, Grupo de Investigación en Tecnologías Informáticas Avanzadas",
-	"tematica": "Aplic.Informáticas y de Sist.de Información",
-	"Horario": "17/11/2016 14:00",
-	"Autores": [
-		{"Autor": "Fernando  Villacís Postigo"},
-		{"Autor": "Victor Adrian Jimenez"},
-		{"Autor": "Adrian  Will"}
-	],
-	"Aula":"Aula 4 - UM2"
-	},
-    
+  
 	{
 	"titulo":"Análisis comparativo de metodologías para la gestión de proyectos de TICs en la Administración Pública",
 	"institucion":"UTN - Facultad Regional Concepción del Uruguay, UTN - Facultad Regional Santa Fe",
@@ -653,7 +626,7 @@
 		{"Autor": "Luciana Ballejos"},
 		{"Autor": "Mariel Alejandra Ale"}
 	],
-	"Aula":"Aula 5 - UM2"
+	"Aula":"Aula 9 - UM2"
 	},
     
 	{
@@ -668,10 +641,10 @@
 		{"Autor": "Sofía Beatriz Pérez"},
         {"Autor": "José Domingo Cuozzo"}
 	],
-	"Aula":"Aula 5 - UM2"
+	"Aula":"Aula 9 - UM2"
 	},
     {
-	"titulo":"Conferencia: CONTRATACIÓN ELECTRÓNICA Y FIRMA DIGITAL",
+	"titulo":"Conferencia: Contratación Electrónica y firma digital",
 	"institucion":"UTN Facultad Regional Córdoba",
 	"tematica": "General",
 	"Horario": "17/11/2016 18:00",
@@ -680,6 +653,9 @@
 				],
 	"Aula":"Aula Magna"
 	},
+
+
+
 	{
 	"titulo":"Evaluación de una Arquitectura de Referencia con Alumnos Avanzados de la Carrera Ingeniería en Sistemas de Información",
 	"institucion":"Instituto de Desarrollo y Diseño, INGAR CONICET, UTN – Facultad Regional Santa Fe",
@@ -813,7 +789,7 @@
 		{"Autor": "Andrea  Guevara"},
         {"Autor":"Agustín  Carrasco"}
 	],
-	"Aula":"Aula 5 - UM2"
+	"Aula":"Aula 9 - UM2"
 	},
     {
 	"titulo":"Hacia un modelo de deserción universitaria: Análisis exploratorio de variables socioeconómicas y académicas de alumnos de primer y segundo año de la carrera Ingeniería en Sistemas de Información, Universidad Tecnológica Nacional Facultad Regional Rosario.",
@@ -830,7 +806,7 @@
 		{"Autor": "Fabiana  Riva"},
         {"Autor": "Eduardo  Amar"}
 	],
-	"Aula":"Aula 5 - UM2"
+	"Aula":"Aula 9 - UM2"
 	},
     {
 	"titulo":"Comparación de estrategias para determinar el modo de integración del flujo de datos de una variable de contexto al datawarehouse de un invernadero",
@@ -841,12 +817,12 @@
 		{"Autor": "Nélida Raquel Cáceres"},
 		{"Autor": "Evelina Carola Velázquez"}
 	],
-	"Aula":"Aula 5 - UM2"
+	"Aula":"Aula 9 - UM2"
 	},
     {
-	"titulo":"Encuentro de Jóvenes Emprendedores",
+	"titulo":"Foro: Encuentro de Jóvenes Emprendedores",
 	"institucion":"UTN - Facultad Regional Córdoba, UTN - Facultad Regional La Plata, UTN - Facultad Regional Rosario, Universidad Atlántica Argentina - Mar de Ajó, Universidad Católica de Salta",
-	"tematica": "Foro",
+	"tematica": "General",
 	"Horario": "17/11/2016 16:00",
 	"Autores": [
 		{"Autor": "Moderador: Gastón Martín"}
@@ -950,7 +926,7 @@
 		{"Autor": "Graciela Dora Susana Hadad"},
 		{"Autor": "Jorge Horacio Doorn"}
 	],
-	"Aula":"Aula 3 - UM2"
+	"Aula":"Aula 5 - UM2"
 	},
     {
 	"titulo":"La Usabilidad a través de modelos de negocios",
@@ -960,7 +936,7 @@
 	"Autores": [
 		{"Autor": "Juan Carlos Moreno"}
 	],
-	"Aula":"Aula 3 - UM2"
+	"Aula":"Aula 5 - UM2"
 	},
     {
 	"titulo":"Resolución de Dependencias Java a Demanda",
@@ -972,7 +948,7 @@
 		{"Autor": "Luciana  Ballejos"},
 		{"Autor": "Claudia  Pons"}
 	],
-	"Aula":"Aula 3 - UM2"
+	"Aula":"Aula 5 - UM2"
 	},
     {
 	"titulo":"Clasificación Automática de Textos Periodísticos Usando SVM",
@@ -1023,7 +999,7 @@
 	"Autores": [
 		{"Autor": "Gabriel Martin Barrera"}
 	],
-	"Aula":"Aula 5 - UM2"
+	"Aula":"Aula 9 - UM2"
 	},
     {
 	"titulo":"Análisis de los Documentos Oficiales sobre Obtención, Tratamiento y Preservación de la Evidencia Digital. Aportes para el Tratamiento del Correo Electrónico como Evidencia Digital",
@@ -1036,7 +1012,7 @@
 		{"Autor": "Beatriz Parra de Gallo"},
 		{"Autor": "Horacio Leone"}
 	],
-	"Aula":"Aula 5 - UM2"
+	"Aula":"Aula 9 - UM2"
 	},
     {
 	"titulo":"Las redes sociales como fuente de datos para un Observatorio Regional de Ingeniería en Sistemas de Información e Informática. Oportunidades y limitaciones técnicas, éticas y legales.",
@@ -1049,8 +1025,9 @@
 		{"Autor": "Alejo  Cervino"},
 		{"Autor": "Fabiana María Riva"}
 	],
-	"Aula":"Aula 5 - UM2"
+	"Aula":"Aula 9 - UM2"
 	},
+
     {
 	"titulo":"Los Juegos como Herramienta Didáctica para la Enseñanza de la Programación",
 	"institucion":"Facultad de Ingeniería, Universidad Nacional de Jujuy",
@@ -1128,6 +1105,49 @@
 	],
 	"Aula":"Aula 2 - UM2"
 	},
+
+
+	{
+	"titulo":"Despliegue y ejecución en un cloud privado",
+	"institucion":"Instituto de Ingeniería y Agronomía, Universidad Nacional Arturo Jauretche",
+	"tematica": "Redes-SO-FI",
+	"Horario": "17/11/2016 18:00",
+	"Autores": [
+		{"Autor": "Gonzalo  Zaccardi"},
+		{"Autor": "Brian  Galarza"},
+		{"Autor": "Martín  Morales"},
+		{"Autor": "Diego Omar Encinas"}
+	],
+	"Aula":"Aula 5 - UM2"
+	},
+    {
+	"titulo":"Impacto de distintas formas de acceso a memoria sobre la complejidad temporal de Autómatas Finitos Bidireccionales",
+	"institucion":"UTN - Facultad Regional Córdoba, Universidad Nacional de Córdoba - FCEFyN, Instituto Universitario Aeronáutico",
+	"tematica": "Redes-SO-FI",
+	"Horario": "17/11/2016 18:00",
+	"Autores": [
+		{"Autor": "Juan Francisco Giró"},
+		{"Autor": "Juan Carlos Vázquez"},
+		{"Autor": "Brenda Elizabeth Meloni"},
+		{"Autor": "Leticia Edith Constable"}
+	],
+	"Aula":"Aula 5 - UM2"
+	},
+    {
+	"titulo":"Una experiencia en la implementación de Extensiones de Seguridad para el Sistema de Nombres de Dominio",
+	"institucion":"Universidad Nacional de Salta",
+	"tematica": "Redes-SO-FI",
+	"Horario": "17/11/2016 18:00",
+	"Autores": [
+		{"Autor": "Ernesto Sánchez"},
+		{"Autor": "Daniel Arias Figueroa"},
+		{"Autor": "Sergio Rocabado"},
+		{"Autor": "Álvaro Gamarra"},
+        {"Autor":"Javier Díaz"}
+	],
+	"Aula":"Aula 5 - UM2"
+	},
+
     	{
 	"titulo":"Diseño Centrado en el Usuario y Claims Analysis: Metodologías para Introducir Mejoras a un Software de Terapia de las Afasias",
 	"institucion":"UTN Facultad Regional La Plata",
@@ -1175,7 +1195,7 @@
 		{"Autor": "María del Carmen Becerra"},
 		{"Autor": "Pedro Daniel Zarate"}
 	],
-	"Aula":"Aula 5 - UM2"
+	"Aula":"Aula 9 - UM2"
 	},
     {
 	"titulo":"La Informática Forense y sus Analogías: la Balística Digital",
@@ -1188,73 +1208,169 @@
 		{"Autor": "Juan  Iturriaga"},
 		{"Autor": "Ana Haydée Di Iorio"}
 	],
-	"Aula":"Aula 5 - UM2"
+	"Aula":"Aula 9 - UM2"
 	},
-    {
-	"titulo":"Despliegue y ejecución en un cloud privado",
-	"institucion":"Instituto de Ingeniería y Agronomía, Universidad Nacional Arturo Jauretche",
-	"tematica": "Redes-SO-FI",
-	"Horario": "17/11/2016 18:00",
+    
+   {
+	"titulo":"Experiencias en tutorías y reinserción de estudiantes de Ingeniería de Sistemas de la Universidad Nacional del Centro",
+	"institucion":"PLADEMA, Universidad Nacional del Centro - CIC-PBA,  INTIA, Universidad Nacional del Centro",
+	"tematica": "Educación en Ingeniería",
+	"Horario": "17/11/2016 19:00",
 	"Autores": [
-		{"Autor": "Gonzalo  Zaccardi"},
-		{"Autor": "Brian  Galarza"},
-		{"Autor": "Martín  Morales"},
-		{"Autor": "Diego Omar Encinas"}
+		{"Autor": "Mariana del Fresno"},
+		{"Autor": "Laura Rivero"}
 	],
-	"Aula":"Aula 3 - UM2"
+	"Aula":"Aula 1 - UM2"
 	},
     {
-	"titulo":"Impacto de distintas formas de acceso a memoria sobre la complejidad temporal de Autómatas Finitos Bidireccionales",
-	"institucion":"UTN - Facultad Regional Córdoba, Universidad Nacional de Córdoba - FCEFyN, Instituto Universitario Aeronáutico",
-	"tematica": "Redes-SO-FI",
-	"Horario": "17/11/2016 18:00",
+	"titulo":"Desarrollo de proyectos finales mejorando la relación Universidad Industria de Software",
+	"institucion":"Universidad Nacional de Rio Cuarto",
+	"tematica": "Educación en Ingeniería",
+	"Horario": "17/11/2016 19:00",
 	"Autores": [
-		{"Autor": "Juan Francisco Giró"},
-		{"Autor": "Juan Carlos Vázquez"},
-		{"Autor": "Brenda Elizabeth Meloni"},
-		{"Autor": "Leticia Edith Constable"}
+		{"Autor": "Marcela  Daniele"},
+		{"Autor": "Marcelo Ariel Uva"},
+		{"Autor": "Ariel  Arsaute"},
+		{"Autor": "Franco  Brusatti"}
 	],
-	"Aula":"Aula 3 - UM2"
+	"Aula":"Aula 1 - UM2"
 	},
-    {
-	"titulo":"Una experiencia en la implementación de Extensiones de Seguridad para el Sistema de Nombres de Dominio",
-	"institucion":"Universidad Nacional de Salta",
-	"tematica": "Redes-SO-FI",
-	"Horario": "17/11/2016 18:00",
+
+	{
+	"titulo":"An Intelligent Approach to Support Software Architecture Decisionmaking in the Context of Software Architecture Evaluation",
+	"institucion":"CIT Villa María (CONICET-UNVM), UTN - Facultad Regional Villa María, INGAR (CONICETUTN)",
+	"tematica": "Ing. de Sistemas y de Software",
+	"Horario": "17/11/2016 19:00",
 	"Autores": [
-		{"Autor": "Ernesto Sánchez"},
-		{"Autor": "Daniel Arias Figueroa"},
-		{"Autor": "Sergio Rocabado"},
-		{"Autor": "Álvaro Gamarra"},
-        {"Autor":"Javier Díaz"}
+		{"Autor": "Verónica  Bogado"},
+		{"Autor": "Eva  Villarreal Guzmán"},
+		{"Autor": "Silvio  Gonnet"},
+		{"Autor": "Horacio  Leone"}
 	],
-	"Aula":"Aula 3 - UM2"
+	"Aula":"Aula 2 - UM2"
 	},
-    {
+	{
+	"titulo":"Evaluando el impacto de la automatización y la gestión de trazas en la calidad de transformaciones de modelos",
+	"institucion":"CONICET - UTN - Facultad Regional Resistencia, Universidad Rey Juan Carlos",
+	"tematica": "Ing. de Sistemas y de Software",
+	"Horario": "17/11/2016 19:00",
+	"Autores": [
+		{"Autor": "Verónica Andrea Bollati"},
+		{"Autor": "Juan Manuel Vara"},
+		{"Autor": "David  Granada"},
+		{"Autor": "Esperanza  Marcos"}
+	],
+	"Aula":"Aula 2 - UM2"
+	},
+	{
+	"titulo":"Análisis Semántico de los Aspectos Técnicos y Operaciones de Cloud Computing",
+	"institucion":"GITIA UTN-Facultad Regional Tucumán, CIDISI UTN - Facultad Regional Santa Fe",
+	"tematica": "Ing. de Sistemas y de Software",
+	"Horario": "17/11/2016 19:00",
+	"Autores": [
+		{"Autor": "Ana Sofia Zalazar"},
+		{"Autor": "Luciana Cristina Ballejos"},
+		{"Autor": "Sebastian Alberto Rodriguez"}
+	],
+	"Aula":"Aula 2 - UM2"
+	},
+	{
 	"titulo":"Análisis de las prestaciones del Sistema Operativo para el Procesamiento de Señales y la Enseñanza de RTOS",
 	"institucion":"Universidad Nacional Arturo Jauretche",
 	"tematica": "Redes-SO-FI",
-	"Horario": "17/11/2016 18:00",
+	"Horario": "17/11/2016 19:00",
 	"Autores": [
 		{"Autor": "Jorge Rafael Osio"},
 		{"Autor": "Juan Eduardo Salvatore"},
 		{"Autor": "Leandro  Menendez"},
 		{"Autor": "Daniel Martin Morales"}
 	],
-	"Aula":"Aula 3 - UM2"
+	"Aula":"Aula 5 - UM2"
 	},
-    {
+	{
 	"titulo":"Análisis de eficiencia en sistemas de Computo de Alta Performance Reconfigurable",
 	"institucion":"Universidad Nacional Arturo Jauretche",
 	"tematica": "Redes-SO-FI",
-	"Horario": "17/11/2016 18:00",
+	"Horario": "17/11/2016 19:00",
 	"Autores": [
-		{"Autor": "Daniel Martin  Morales"},
+		{"Autor": "Daniel Martin Morales"},
 		{"Autor": "Eduardo Jose Kunysz"},
 		{"Autor": "Jorge  R. Osio"},
 		{"Autor": "Jose  Rapallini"}
 	],
-	"Aula":"Aula 3 - UM2"
+	"Aula":"Aula 5 - UM2"
+	},
+	{
+	"titulo":"Detectando patrones de interés sobre IVUS con Aprendizaje Profundo (Deep Learning)",
+	"institucion":"Universidad del Centro de la Provincia de Buenos Aires",
+	"tematica": "Redes-SO-FI",
+	"Horario": "17/11/2016 19:00",
+	"Autores": [
+		{"Autor": "José A. Marone"}
+	],
+	"Aula":"Aula 5 - UM2"
+	},
+	{
+	"titulo":"Schedule Modeling and Expert Knowledge Elicitation Using Graphs",
+	"institucion":"UTN - Facultad Regional Villa Maria INGAR(CONICET-UTN)",
+	"tematica": "Aplic.Informáticas y de Sist.de Información",
+	"Horario": "17/11/2016 19:00",
+	"Autores": [
+		{"Autor": "Paula Andrea Toselli"},
+		{"Autor": "Jorge  Palombarini"},
+		{"Autor": "Eduardo  Romero"},
+		{"Autor": "Ernesto  Martinez"}
+	],
+	"Aula":"Aula 4 - UM2"
+	},
+	{
+	"titulo":"Gestión del Capital Intelectual en la Investigación Universitaria: situación actual. Propuesta de investigación entre la UNCa (Argentina) y la UNE (Paraguay)",
+	"institucion":"Universidad Nacional de Catamarca, Universidad Nacional del Este de Paraguay, Universidad Nacional de San Luis",
+	"tematica": "Aplic.Informáticas y de Sist.de Información",
+	"Horario": "17/11/2016 19:00",
+	"Autores": [
+		{"Autor": "Carola Victoria Flores"},
+		{"Autor": "Dina Raquel Paniagua Cristaldo"},
+		{"Autor": "María Vanesa Doria"},
+		{"Autor": "Juan Pablo Moreno"},
+		{"Autor": "Germán Antonio Montejano"},
+		{"Autor": "Arnaldo  Martínez Mercado"}
+	],
+	"Aula":"Aula 4 - UM2"
+	},
+	{
+	"titulo":"Métodos aplicados para la selección de variables de entrada en la predicción del consumo eléctrico en el corto plazo",
+	"institucion":"UTN - Facultad Regional Tucumán, Universidad Nacional de Tucumán - Facultad de Ciencias Naturales e IML, Grupo de Investigación en Tecnologías Informáticas Avanzadas",
+	"tematica": "Aplic.Informáticas y de Sist.de Información",
+	"Horario": "17/11/2016 19:00",
+	"Autores": [
+		{"Autor": "Fernando  Villacís Postigo"},
+		{"Autor": "Victor Adrian Jimenez"},
+		{"Autor": "Adrian  Will"}
+	],
+	"Aula":"Aula 4 - UM2"
+	},
+	{
+	"titulo":"Comparison of Seven Techniques for Generating Random Latin Squares",
+	"institucion":"Blue Montag Software",
+	"tematica": "Seguridad Informática",
+	"Horario": "17/11/2016 19:00",
+	"Autores": [
+		{"Autor": "Ignacio  Gallego Sagastume"}
+	],
+	"Aula":"Aula 9 - UM2"
+	},
+	{
+	"titulo":"Bypassing HSTS",
+	"institucion":"UTN - Facultad Regional Villa María",
+	"tematica": "Seguridad Informática",
+	"Horario": "17/11/2016 19:00",
+	"Autores": [
+		{"Autor": "Sebastián Norberto Mussetta"},
+		{"Autor": "Norberto Gaspar Cena"},
+		{"Autor": "Ignacio Daniel Favro"}
+	],
+	"Aula":"Aula 9 - UM2"
 	},
     {
 	"titulo":"Cena de Camaradería",
@@ -1268,10 +1384,679 @@
 		{"Autor": ""}
 	],
 	"Aula":"Peña Gauchos de Guemes"
+	}, 
+	{
+	"titulo":"Presentación de posters de trabajos de investigación",
+	"institucion":"",
+	"tematica": "General",
+	"Horario": "18/11/2016 09:00",
+	"Autores": [
+		{"Autor": ""}
+	],
+	"Aula":"Galería UM2"
+	},
+	{
+	"titulo":"Presentación de posters de trabajos de alumnos",
+	"institucion":"",
+	"tematica": "General",
+	"Horario": "18/11/2016 09:00",
+	"Autores": [
+		{"Autor": ""}
+	],
+	"Aula":"Galería UM2"
+	},
+	{
+	"titulo":"Una experiencia en la aplicación de Patrones de Negocio",
+	"institucion":"UTN - Facultad Regional Córdoba",
+	"tematica": "Ing. de Sistemas y de Software",
+	"Horario": "18/11/2016 09:00",
+	"Autores": [
+		{"Autor": "Marcelo Marciszack"},
+		{"Autor": "Claudia Castro"},
+		{"Autor": "Claudia Sánchez"},
+		{"Autor": "Andrea Delgado"},
+		{"Autor": "Ana Belén Garnero"},
+		{"Autor": "Nicolás Horenstein"},
+		{"Autor": "Ezequiel Fernández"}
+	],
+	"Aula":"Aula 2 - UM2"
+	},
+	{
+	"titulo":"Propuesta Metodológica y Herramientas de Soporte para Modelar y Validar Esquemas Conceptuales",
+	"institucion":"UTN - Facultad Regional Córdoba,  GIDTSI, Facultad de Informática - Universidad de Vigo, España",
+	"tematica": "Ing. de Sistemas y de Software",
+	"Horario": "18/11/2016 09:00",
+	"Autores": [
+		{"Autor": "Marcelo Marciszack"},
+		{"Autor": "Manuel Perez Cota"},
+		{"Autor": "Mario A. Groppo"}
+	],
+	"Aula":"Aula 2 - UM2"
+	},
+	{
+	"titulo":"Modelo para la Automatización de Relaciones de Trazabilidad en Procesos Scrum",
+	"institucion":"INGAR (CONICET) UTN Facultad Regional Santa Fe, Universidad Nacional de La Rioja, UTN - Facultad Regional Resistencia",
+	"tematica": "Ing. de Sistemas y de Software",
+	"Horario": "18/11/2016 09:00",
+	"Autores": [
+		{"Autor": "Roberto  Nazareno"},
+		{"Autor": "Verónica  Bollati"},
+		{"Autor": "Horacio  Leone"},
+		{"Autor": "Silvio  Gonnet"}
+	],
+	"Aula":"Aula 2 - UM2"
+	},
+	
+	{
+	"titulo":"Estrategia para una gestión de calidad en la Cátedra Proyecto Fin de Carrera",
+	"institucion":"Universidad Nacional de la Matanza",
+	"tematica": "Educación en Ingeniería",
+	"Horario": "18/11/2016 09:00",
+	"Autores": [
+		{"Autor": "Roberto Angel Eribe"},
+		{"Autor": "Jorge  Eterovic"}
+	],
+	"Aula":"Aula 5 - UM2"
+	},
+	
+	{
+	"titulo":"Ingeniería y Óptica Geométrica Una Estrategia Didáctica",
+	"institucion":"UTN - Facultad Regional Concepción del Uruguay",
+	"tematica": "Educación en Ingeniería",
+	"Horario": "18/11/2016 09:00",
+	"Autores": [
+		{"Autor": "Norma Yolanda Haudemand"},
+		{"Autor": "Jorgelina  Nadal"},
+		{"Autor": "Liliana Marina Bonin"},
+		{"Autor": "Darío Rodolfo Echazarreta"}
+	],
+	"Aula":"Aula 5 - UM2"
+	},
+	
+	{
+	"titulo":"Diseño de prácticas de laboratorio en Electrónica con TICs",
+	"institucion":"Facultad de Tecnología y Ciencias Aplicadas, Universidad Nacional de Catamarca",
+	"tematica": "Educación en Ingeniería",
+	"Horario": "18/11/2016 09:00",
+	"Autores": [
+		{"Autor": "Jesús Eduardo Cano"},
+		{"Autor": "María Valeria Poliche"},
+		{"Autor": "Paola Ines Beltramini"},
+		{"Autor": "Sergio Hilario Gallina"},
+		{"Autor": "Flavio Sergio Fama"},
+		{"Autor": "Marcelo Luis D'Amore"}
+	],
+	"Aula":"Aula 5 - UM2"
+	},
+	
+	{
+	"titulo":"Repositorio Temático para la Facultad de Tecnología y Ciencias Aplicadas de la Universidad Nacional de Catamarca. Aspectos Técnicos a considerar",
+	"institucion":"Universidad Nacional de Catamarca - Facultad de Tecnologia y Cs. Aplicadas - Dpto. Informática, Facultad de Cs. Físico, Matemáticas y Naturales, Universidad Nacional de San Luis",
+	"tematica": "Educación en Ingeniería",
+	"Horario": "18/11/2016 09:00",
+	"Autores": [
+		{"Autor": "Maria Vanesa Doria"},
+		{"Autor": "Germán Antonio Montejano"},
+		{"Autor": "Carola Victoria Flores"}
+	],
+	"Aula":"Aula 9 - UM2"
+	},
+	
+	{
+	"titulo":"Congruencia y TIC",
+	"institucion":"Universidad Nacional de La Matanza",
+	"tematica": "Educación en Ingeniería",
+	"Horario": "18/11/2016 09:00",
+	"Autores": [
+		{"Autor": "Teresa Fernández, "},
+		{"Autor": "Verónica Aubin"},
+		{"Autor": "Renata Guatelli"}
+	],
+	"Aula":"Aula 9 - UM2"
+	},
+	
+	{
+	"titulo":"Pautas para el Desarrollo de Competencias de Comunicación",
+	"institucion":"",
+	"tematica": "Educación en Ingeniería",
+	"Horario": "18/11/2016 09:00",
+	"Autores": [
+		{"Autor": "Patricia Mabel Calvo"},
+		{"Autor": "Elizabeth Jiménez Rey"},
+		{"Autor": "Arturo Carlos Servetto"},
+		{"Autor": "Ismael  Jeder"},
+		{"Autor": "Gustavo  López"}
+	],
+	"Aula":"Aula 9 - UM2"
+	},
+		{
+	"titulo":"Arquitectura de una plataforma integral para la recolección, procesamiento y visualización de datos de desplazamiento",
+	"institucion":"UTN - Facultad Regional Buenos Aires; Facultad de Ingeniería y Ciencias Exactas y Naturales (FICEN) - Universidad Favaloro ",
+	"tematica": "Aplic.Informáticas y de Sist.de Información",
+	"Horario": "18/11/2016 09:00",
+	"Autores": [
+		{"Autor": "Natalia  Pérez López"},
+		{"Autor": "Javier  Carugno"},
+		{"Autor": "Martín Alexandro De Luca"},
+		{"Autor": "Leandro Javier Cymberknop"},
+		{"Autor": "Ricardo Luis Armentano"}
+	],
+	"Aula":"Aula 4 - UM2"
+	},
+	{
+	"titulo":"Redes Neuronales Artificiales y Algoritmos Genéticos en Aplicaciones Energéticas",
+	"institucion":"Universidad Nacional Arturo Jauretche, Grupo de Estudio de Materiales y Dispositivos Electrónicos (GEMyDE), UTN Facultad Regional La Plata, Universidad Nacional de La Plata",
+	"tematica": "Aplic.Informáticas y de Sist.de Información",
+	"Horario": "18/11/2016 09:00",
+	"Autores": [
+		{"Autor": "D. Martin  Morales"},
+		{"Autor": "Marcelo  Cappelletti"},
+		{"Autor": "Waldo  Hasperué"},
+		{"Autor": "Leandro  Charlier"},
+		{"Autor":"Guillermo  Casas"}
+	],
+	"Aula":"Aula 4 - UM2"
+	},
+	{
+	"titulo":"Minería de Datos para la Caracterización de Recorridos Académicos",
+	"institucion":"Facultad de Tecnología y Ciencias Aplicadas, Universidad Nacional de Catamarca",
+	"tematica": "Bases de Datos",
+	"Horario": "18/11/2016 09:00",
+	"Autores": [
+		{"Autor": "Hernán César Ahumada"},
+		{"Autor": "Oscar Eduardo Quinteros"},
+		{"Autor": "Claudia Alejandra Bazán"}
+	],
+	"Aula":"Aula 6 - UM2"
+	},
+	{
+	"titulo":"Comparación de Algoritmos de Aprendizaje Supervisado para la obtención de perfiles de alumnos desertores",
+	"institucion":"Universidad Nacional de La Matanza",
+	"tematica": "Bases de Datos",
+	"Horario": "18/11/2016 09:00",
+	"Autores": [
+		{"Autor": "Osvaldo Mario Spositto"},
+		{"Autor": "Julio Cesar Bossero"}
+	],
+	"Aula":"Aula 6 - UM2"
+	},
+	{
+	"titulo":"REST vs SOAP en Mobile Web Servers",
+	"institucion":"UTN - Facultad Regional Buenos Aires",
+	"tematica": "Trabajos de Alumnos",
+	"Horario": "18/11/2016 09:00",
+	"Autores": [
+		{"Autor": "Matìas Landau Codazzi"}
+	],
+	"Aula":"Aula 1 - UM2"
+	},
+	{
+	"titulo":"Green IT como solución al impacto ambiental de la utilización de las tecnologías de la información en las empresas",
+	"institucion":"UTN - Facultad Regional Buenos Aires",
+	"tematica": "Trabajos de Alumnos",
+	"Horario": "18/11/2016 09:00",
+	"Autores": [
+		{"Autor": "Rocío Chipian"}
+	],
+	"Aula":"Aula 1 - UM2"
+	},
+	{
+	"titulo":"Artachito",
+	"institucion":"Universidad Abierta Interamericana",
+	"tematica": "Trabajos de Alumnos",
+	"Horario": "18/11/2016 09:00",
+	"Autores": [
+		{"Autor": "Sebastian Tempone"}
+	],
+	"Aula":"Aula 1 - UM2"
+	},
+	{
+	"titulo":"Sistema Experto y Lógica Difusa Aplicadas en la Clasificación y Traslado de Basura para Reciclaje",
+	"institucion":"UTN - Facultad Regional Tucumán",
+	"tematica": "Trabajos de Alumnos",
+	"Horario": "18/11/2016 09:00",
+	"Autores": [
+		{"Autor": "Selma Muriel Jiménez Galarza"}
+	],
+	"Aula":"Aula 1 - UM2"
+	},
+	
+	{
+	"titulo":"Recuperación de información basada en técnicas de minería Web",
+	"institucion":"Universidad Gastón Dachary, UTN - Facultad Regional Resistencia",
+	"tematica": "Ing. de Sistemas y de Software",
+	"Horario": "18/11/2016 10:00",
+	"Autores": [
+		{"Autor": "Fabián Edgardo Favret"},
+		{"Autor": "Raúl  Montiel"},
+		{"Autor": "Victor  Alvarenga"},
+		{"Autor": "Matias  Barboza"},
+		{"Autor":"Leandro  Witzke"}
+	],
+	"Aula":"Aula 2 - UM2"
+	},
+	
+	{
+	"titulo":"Estrategia basada en una Meta-Ontología Geoespacial para el Modelado Conceptual de Información Geográfica",
+	"institucion":"Facultad de Ingeniería - Universidad Nacional de Jujuy, CONICET - CIDISI UTN FRSF, CONICET - INGAR Instituto de Desarrollo y Diseño",
+	"tematica": "Ing. de Sistemas y de Software",
+	"Horario": "18/11/2016 10:00",
+	"Autores": [
+		{"Autor": "Ana Carolina Tolaba"},
+		{"Autor": "María Laura Caliusco"},
+		{"Autor": "María Rosa Galli"}
+	],
+	"Aula":"Aula 2 - UM2"
+	},
+	
+	{
+	"titulo":"Cuantificación de Perfiles de Clientes para la Calificación y Priorización de Nuevos Requerimientos de Software",
+	"institucion":"UTN - Facultad Regional Rosario, UTN - Facultad Regional Santa Fe",
+	"tematica": "Ing. de Sistemas y de Software",
+	"Horario": "18/11/2016 10:00",
+	"Autores": [
+		{"Autor": "Sara Ester De Federico"},
+		{"Autor": "Javier  Gago"},
+		{"Autor": "Lucia  Melfi"},
+		{"Autor": "Silvio  Gonnet"}
+	],
+	"Aula":"Aula 2 - UM2"
+	},
+	{
+	"titulo":"Arquitectura y operatoria de un sistema de corrección de exámenes automatizado, utilizando grafos dirigidos",
+	"institucion":"UTN - Facultad Regional Córdoba",
+	"tematica": "Aplic.Informáticas y de Sist.de Información",
+	"Horario": "18/11/2016 10:00",
+	"Autores": [
+		{"Autor": "María Alejandra  Paz Menvielle"},
+		{"Autor": "Mario Alberto  Groppo"},
+		{"Autor": "Marcelo Martín  Marciszack"},
+		{"Autor": "Analía  Guzman"},
+		{"Autor": "Karina  Ligorria"},
+		{"Autor": "Martin  Casatti"}
+	],
+	"Aula":"Aula 4 - UM2"
+	},
+		{
+	"titulo":"Clasificación de Granos de Polen con Deep Learning y SVM",
+	"institucion":"UTN - Facultad Regional Tucumán - Grupo de Investigación en Tecnologías Informáticas Avanzadas",
+	"tematica": "Aplic.Informáticas y de Sist.de Información",
+	"Horario": "18/11/2016 10:00",
+	"Autores": [
+		{"Autor": "Matías  Roodschild"},
+		{"Autor": "Jorge  Gotay Sardiñas"},
+		{"Autor": "Adrian  Will"}
+	],
+	"Aula":"Aula 4 - UM2"
+	},
+		{
+	"titulo":"Estudio de Patrones característicos en Imágenes",
+	"institucion":"Universidad de la Marina Mercante",
+	"tematica": "Aplic.Informáticas y de Sist.de Información",
+	"Horario": "18/11/2016 10:00",
+	"Autores": [
+		{"Autor": "Sergio Daniel Conde"},
+		{"Autor": "Osvaldo Donato Marcovecchio"}
+	],
+	"Aula":"Aula 4 - UM2"
+	},
+	{
+	"titulo":"Un Modelo de Artefacto Sistema de Información",
+	"institucion":"Universidad Nacional de San Juan",
+	"tematica": "Educación en Ingeniería",
+	"Horario": "18/11/2016 10:00",
+	"Autores": [
+		{"Autor": "Sebastián José García"},
+		{"Autor": "María Claudia Gomez"},
+		{"Autor": "Alejandra  Orellana Vassallo"}
+	],
+	"Aula":"Aula 9 - UM2"
+	},
+	{
+	"titulo":"Primer Análisis de Resultados del Proceso de Rediseño de la Propuesta Académica y Metodológica de la Cátedra de AED (Ingeniería en Sistemas de Información - UTN FRC)",
+	"institucion":"UTN - Facultad Regional Córdoba",
+	"tematica": "Educación en Ingeniería",
+	"Horario": "18/11/2016 10:00",
+	"Autores": [
+		{"Autor": "Valerio  Frittelli"},
+		{"Autor": "Felipe  Steffolani"},
+		{"Autor": "Romina  Teicher"},
+		{"Autor": "Marcela  Tartabini"},
+		{"Autor": "Gustavo  Bett"},
+		{"Autor": "Julieta  Fernández"},
+		{"Autor": "Diego  Serrano"},
+		{"Autor": "Ana  Strub"}
+	],
+	"Aula":"Aula 9 - UM2"
+	},
+	{
+	"titulo":"Educación apoyada por las Tecnologías de la Información: Desafío de adecuar las buenas prácticas docentes a los nuevos medios, con base en los estilos de enseñanza y aprendizaje, en el nivel superior UTN.FRC.",
+	"institucion":"UTN - Facultad Regional Córdoba",
+	"tematica": "Educación en Ingeniería",
+	"Horario": "18/11/2016 10:00",
+	"Autores": [
+		{"Autor": "Cecilia Andrea Savi"},
+		{"Autor": "Mariel Edith Ferrando"},
+		{"Autor": "Clarisa  Stefanich"},
+		{"Autor": "Irene  Romoli"},
+		{"Autor":"Roberto  Hoya Sanchez"}
+	],
+	"Aula":"Aula 9 - UM2"
+	},
+	{
+	"titulo":"Codificación de Sufragios con Detección de Colisiones en NIDC con Canales Paralelos de Slots",
+	"institucion":"Facultad de Ciencias Exactas y Naturales, Universidad Nacional de La Pampa",
+	"tematica": "Seguridad Informática",
+	"Horario": "18/11/2016 10:00",
+	"Autores": [
+		{"Autor": "Pablo Marcelo García"},
+		{"Autor": "Silvia Gabriela Bast"},
+		{"Autor": "Germán Antonio Montejano"},
+		{"Autor": "Estela Marisa Fritz"}
+	],
+	"Aula":"Aula 6 - UM2"
+	},
+	{
+	"titulo":"Plan Integral de Protección Informática",
+	"institucion":"UTN - Facultad Regional Tucuman",
+	"tematica": "Seguridad Informática",
+	"Horario": "18/11/2016 10:00",
+	"Autores": [
+		{"Autor": "Ricardo José Corbella"}
+	],
+	"Aula":"Aula 6 - UM2"
+	},
+	{
+	"titulo":"Redes Neuronales No Supervisadas Competitivas Entrenadas Mediante Algoritmos Genéticos.",
+	"institucion":"UTN - Facultad Regional Córdoba",
+	"tematica": "Trabajos de Alumnos",
+	"Horario": "18/11/2016 10:00",
+	"Autores": [
+		{"Autor": "Tadeo Facundo Sanchez"}
+	],
+	"Aula":"Aula 1 - UM2"
+	},
+	{
+	"titulo":"Aplicación de Big Data para el análisis de accidentes viales",
+	"institucion":"UTN - Facultad Regional Córdoba",
+	"tematica": "Trabajos de Alumnos",
+	"Horario": "18/11/2016 10:00",
+	"Autores": [
+		{"Autor": "Aldana Yael Vaca"}
+	],
+	"Aula":"Aula 1 - UM2"
+	},
+	{
+	"titulo":"Proyecto SmartAqua - Acuario Automatizado",
+	"institucion":"Universidad Nacional de La Matanza",
+	"tematica": "Trabajos de Alumnos",
+	"Horario": "18/11/2016 10:00",
+	"Autores": [
+		{"Autor": "Fabricio Delgado"}
+	],
+	"Aula":"Aula 1 - UM2"
+	},
+	{
+	"titulo":"Representación de Espacios Indoor utilizando la Herramienta de Desarrollo de Metamodelos ADOxx",
+	"institucion":"Facultad de Informática, Universidad Nacional de La Plata",
+	"tematica": "Trabajos de Alumnos",
+	"Horario": "18/11/2016 10:00",
+	"Autores": [
+		{"Autor": "Karen Poch"}
+	],
+	"Aula":"Aula 1 - UM2"
+	},
+	{
+	"titulo":"Desarrollo de Software de Simulación de Propósitos Generales ",
+	"institucion":"UTN - Facultad Regional Buenos Aires",
+	"tematica": "Ing. de Sistemas y de Software",
+	"Horario": "18/11/2016 11:00",
+	"Autores": [
+		{"Autor": "Erica  Milin"},
+		{"Autor": "Silvia  Quiroga"},
+		{"Autor": "Leonardo Viegas"},
+		{"Autor": "Pablo Kosakovski"},
+		{"Autor":"Hernán Martel"},
+		{"Autor":"Leandro Goldin"}
+	],
+	"Aula":"Aula 2 - UM2"
+	},
+		{
+	"titulo":"Certificación ISO 9001:2008 en organizaciones ágiles: dos experiencias de implementación",
+	"institucion":"UTN - Facultad Regional Córdoba, Esolutions SA",
+	"tematica": "Ing. de Sistemas y de Software",
+	"Horario": "18/11/2016 11:00",
+	"Autores": [
+		{"Autor": "Alvaro  Ruiz de Mendarozqueta, "},
+		{"Autor": "Pablo Miguel Oliva"}
+	],
+	"Aula":"Aula 2 - UM2"
+	},
+		{
+	"titulo":"Universitarios App: Aplicación Móvil para la UNSL",
+	"institucion":"Universidad Nacional de San Luis",
+	"tematica": "Ing. de Sistemas y de Software",
+	"Horario": "18/11/2016 11:00",
+	"Autores": [
+		{"Autor": "Miguel Alfredo Bustos"},
+		{"Autor": "Norma Beatriz Perez"},
+		{"Autor": "Mario Marcelo Berón"}
+	],
+	"Aula":"Aula 2 - UM2"
+	},
+	{
+	"titulo":"Control de Calidad en una Línea de Producción mediante Análisis de Imágenes",
+	"institucion":"Universidad de la Marina Mercante, Universidad Atlántida Argentina",
+	"tematica": "Aplic.Informáticas y de Sist.de Información",
+	"Horario": "18/11/2016 11:00",
+	"Autores": [
+		{"Autor": "Sergio Daniel Conde"},
+		{"Autor": "Osvaldo Donato Marcovecchio"}
+	],
+	"Aula":"Aula 4 - UM2"
+	},
+		{
+	"titulo":"Sistemas de Información para la minería de datos georeferenciada en ecología urbana: Perros callejeros como caso de estudio",
+	"institucion":"Universidad Nacional de la Patagonia Austral, Unidad Académica Caleta Olivia",
+	"tematica": "Aplic.Informáticas y de Sist.de Información",
+	"Horario": "18/11/2016 11:00",
+	"Autores": [
+		{"Autor": "Luis Ramos"},
+		{"Autor": "Diego E. Procopio"},
+		{"Autor": "Marta Lasso"},
+		{"Autor": "Maria Eugenia de San Pedro"}
+	],
+	"Aula":"Aula 4 - UM2"
+	},
+		{
+	"titulo":"Experiencia de Aprendizaje Basado en Proyectos en la asignatura Investigación Operativa",
+	"institucion":"UTN - Facultad Regional Tucumán",
+	"tematica": "Educación en Ingeniería",
+	"Horario": "18/11/2016 11:00",
+	"Autores": [
+		{"Autor": "Cristina Rojas"},
+		{"Autor": "Javier Raúl Alejandro Cantó"}
+	],
+	"Aula":"Aula 9 - UM2"
+	},
+		{
+	"titulo":"Modelos, Estrategias y Recursos para la Enseñanza Mediada, en una Asignatura de una Carrera de Grado",
+	"institucion":"Universidad Nacional de la Patagonia San Juan Bosco, Universidad Nacional de La Plata",
+	"tematica": "Educación en Ingeniería",
+	"Horario": "18/11/2016 11:00",
+	"Autores": [
+		{"Autor": "Angela  Belcastro"},
+		{"Autor": "Roger  Alanes"},
+		{"Autor": "Rodolfo  Bertone"}
+	],
+	"Aula":"Aula 9 - UM2"
+	},
+		{
+	"titulo":"Herramientas TIC para Evaluación Online",
+	"institucion":"Universidad Nacional de Río Cuarto",
+	"tematica": "Educación en Ingeniería",
+	"Horario": "18/11/2016 11:00",
+	"Autores": [
+		{"Autor": "María de los Angeles Lucero"},
+		{"Autor": "Julián  Conde"},
+		{"Autor": "Fabio Andrés Zorzan"}
+	],
+	"Aula":"Aula 9 - UM2"
+	},
+	{
+	"titulo":"Foro: Encuentro de Investigadores Académicos sobre el Laboratorio Forense Digital",
+	"institucion":"Universidad FASTA, Universidad Católica de Salta, Universidad Nacional del Litoral",
+	"tematica": "Educación en Ingeniería",
+	"Horario": "18/11/2016 11:00",
+	"Autores": [
+		{"Autor": "Moderador: Sergio Appendino"}
+	],
+	"Aula":"Aula 6 - UM2"
+	},
+	{
+	"titulo":"Sistema Integral de Detección de Puntos Críticos y Siniestros",
+	"institucion":"UTN - Facultad Regional Villa María",
+	"tematica": "Trabajos de Alumnos",
+	"Horario": "18/11/2016 11:00",
+	"Autores": [
+		{"Autor": "Elvio Nicolás Oliva Saccenti"}
+	],
+	"Aula":"Aula 1 - UM2"
+	},
+		{
+	"titulo":"itiGo: sistema de asistencia en generación de itinerarios turísticos",
+	"institucion":"UTN - Facultad Regional Mendoza",
+	"tematica": "Trabajos de Alumnos",
+	"Horario": "18/11/2016 11:00",
+	"Autores": [
+		{"Autor": "Ivo Dohmen"}
+	],
+	"Aula":"Aula 1 - UM2"
+	},
+		{
+	"titulo":"Sistema de Monitoreo de Alcoholemia (SMA)",
+	"institucion":"Universidad Nacional de Mendoza",
+	"tematica": "Trabajos de Alumnos",
+	"Horario": "18/11/2016 11:00",
+	"Autores": [
+		{"Autor": "Marcos Luis Senatra"}
+	],
+	"Aula":"Aula 1 - UM2"
+	},
+	
+	{
+	"titulo":"Characterizing Technical and Organizational Practices in the Agile Community",
+	"institucion":"Universidad Nacional de Tres de Febrero",
+	"tematica": "Ing. de Sistemas y de Software",
+	"Horario": "18/11/2016 12:00",
+	"Autores": [
+		{"Autor": "Nicolás Martín Paez"},
+		{"Autor": "Diego  Fontdevila"},
+		{"Autor": "Alejandro  Oliveros"}
+	],
+	"Aula":"Aula 2 - UM2"
+	},
+		{
+	"titulo":"Incorporación TDD con Programación Extrema mediante un Modelo de Simulación Dinámico de Desarrollo Software",
+	"institucion":"Universidad Gastón Dachary",
+	"tematica": "Ing. de Sistemas y de Software",
+	"Horario": "18/11/2016 12:00",
+	"Autores": [
+		{"Autor": "Diego Alberto Godoy"},
+		{"Autor": "Henry Kotynski"},
+		{"Autor": "Edgardo A. Belloni"},
+		{"Autor": "Eduardo O.Sosa"},
+		{"Autor":"Mariela Gamonal"},
+		{"Autor":"Nahuel Regueira"}
+	],
+	"Aula":"Aula 2 - UM2"
+	},
+		{
+	"titulo":"Análisis de los desafíos Arquitectónicos en IoT (Internet de las Cosas)",
+	"institucion":"UTN - Facultad Regional Buenos Aires",
+	"tematica": "Ing. de Sistemas y de Software",
+	"Horario": "18/11/2016 12:00",
+	"Autores": [
+		{"Autor": "Lucas Javier Saclier"},
+		{"Autor": "Juan Manuel Soto"}
+	],
+	"Aula":"Aula 2 - UM2"
+	},
+		{
+	"titulo":"Análisis competencial inicial en Matemática Discreta",
+	"institucion":"Universidad Nacional de La Matanza",
+	"tematica": "Educación en Ingeniería",
+	"Horario": "18/11/2016 12:00",
+	"Autores": [
+		{"Autor": "Marcela E. Bellani"},
+		{"Autor": "Verónica Aubin"},
+		{"Autor": "Renata Guatelli"}
+	],
+	"Aula":"Aula 5 - UM2"
+	},
+		{
+	"titulo":"ABP en la enseñanza de proyectos tecnológicos interdisciplinares con Arduino",
+	"institucion":"Universidad Nacional de San Luis",
+	"tematica": "Educación en Ingeniería",
+	"Horario": "18/11/2016 12:00",
+	"Autores": [
+		{"Autor": "Jesus Francisco Aguirre"},
+		{"Autor": "Berta Elena García"}
+	],
+	"Aula":"Aula 5 - UM2"
+	},
+		{
+	"titulo":"Evaluación de herramientas para la creación de materiales didácticos interactivos para implementar la clase invertida",
+	"institucion":"Universidad Nacional de La Matanza",
+	"tematica": "Educación en Ingeniería",
+	"Horario": "18/11/2016 12:00",
+	"Autores": [
+		{"Autor": "Verónica Inés Aubin"},
+		{"Autor": "Renata Silvia Guatelli"},
+		{"Autor": "Leonardo José Blautzik"},
+		{"Autor": "Teresa Fernández"},
+		{"Autor":"Marcela Bellani"}
+	],
+	"Aula":"Aula 9 - UM2"
+	},
+		{
+	"titulo":"Criterios de Análisis de Software Educativo para Aprender a Programar",
+	"institucion":"UTN - Facultad Regional Buenos Aires, UTN - Facultad Regional Delta, Universidad Nacional de San Martin",
+	"tematica": "Educación en Ingeniería",
+	"Horario": "18/11/2016 12:00",
+	"Autores": [
+		{"Autor": "Lucas  Spigariol"}
+	],
+	"Aula":"Aula 9 - UM2"
+	},
+		{
+	"titulo":"Aplicación de Sistemas Embebidos para Determinar la Actitud de una Carga Útil en Vuelo Suborbital",
+	"institucion":"UTN - Facultad Regional La Rioja",
+	"tematica": "Trabajos de Alumnos",
+	"Horario": "18/11/2016 12:00",
+	"Autores": [
+		{"Autor": "Yamil Emanuel Zimmermann"}
+	],
+	"Aula":"Aula 1 - UM2"
+	},
+		{
+	"titulo":"Integrando trayectos curriculares con robótica aplicada: una experiencia en primer año",
+	"institucion":"Universidad Nacional de Rosario",
+	"tematica": "Trabajos de Alumnos",
+	"Horario": "18/11/2016 12:00",
+	"Autores": [
+		{"Autor": "Gabina Luz Bianchi"}
+	],
+	"Aula":"Aula 1 - UM2"
+	},
+		{
+	"titulo":"Entrega de premios y acto de cierre",
+	"institucion":"UCASAL",
+	"tematica": "General",
+	"Horario": "18/11/2016 13:00",
+	"Autores": [
+		{"Autor": ""}
+	],
+	"Aula":"Aula Magna"
 	}
-
-
-
-
-
 ]

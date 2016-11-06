@@ -1,7 +1,7 @@
 [
     {
         "titulo": "Alerta Ciudadana: Una nueva forma de combatir el delito",
-        "archivo": "Alerta Ciudadana: Una nueva forma de combatir el delito",
+        "archivo": "1",
         "tipo": "Póster",
         "Autores": [
             {
@@ -23,7 +23,7 @@
     },
     {
         "titulo": "Aplicación de Big Data para el análisis de accidentes viales",
-        "archivo": "Aplicación de Big Data para el análisis de accidentes viales",
+        "archivo": "2",
         "tipo": "Póster",
         "Autores": [
             {
@@ -36,7 +36,7 @@
     },
     {
         "titulo": "Aplicación de Sistemas Embebidos para Determinar la Actitud",
-        "archivo": "Aplicación de Sistemas Embebidos para Determinar la Actitud",
+        "archivo": "3",
         "tipo": "Póster",
         "Autores": [
             {
@@ -58,7 +58,7 @@
     },
     {
         "titulo": "Aplicacion de un Algoritmo Genetico para determinar las caracteristicas de un estudiante universitario que permiten alcanzar un rendimiento académico óptimo",
-        "archivo": "Aplicacion de un Algoritmo Genetico para determinar las caracteristicas de un estudiante universitario que permiten alcanzar un rendimiento académico óptimo",
+        "archivo": "4",
         "tipo": "Póster",
         "Autores": [
             {
@@ -77,7 +77,7 @@
     },
     {
         "titulo": "Aplicación embebida para control de parámetros temperatura e iluminación",
-        "archivo": "Aplicación embebida para control de parámetros temperatura e iluminación",
+        "archivo": "5",
         "tipo": "Póster",
         "Autores": [
             {
@@ -96,7 +96,7 @@
     },
     {
         "titulo": "Aplicación móvil que ayude al proceso de enseñanza y aprendizaje en la asignatura de sistemas y organizaciones de la carrera de Ingeniería en Sistemas de Información",
-        "archivo": "Aplicación móvil que ayude al proceso de enseñanza y aprendizaje en la asignatura de sistemas y organizaciones de la carrera de Ingeniería en Sistemas de Información",
+        "archivo": "6",
         "tipo": "Póster",
         "Autores": [
             {
@@ -124,7 +124,7 @@
     },
     {
         "titulo": "Artachito: Cesto de basura inteligente",
-        "archivo": "Artachito",
+        "archivo": "7",
         "tipo": "Póster",
         "Autores": [
             {

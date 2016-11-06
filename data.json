@@ -404,7 +404,7 @@
 	"titulo":"Favoreciendo el desarrollo de conocimientos y competencias en el contexto de un Proyecto de Investigación",
 	"institucion":"UTN - Facultad Regional Rosario",
 	"tematica": "Gestión de Proyectos",
-	"Horario": "17/11/2016 11:30",
+	"Horario": "17/11/2016 14:00",
 	"Autores": [
 		{"Autor": "Rita Guadalupe Malano"},
 		{"Autor": "Vilma Alicia Martin"},
@@ -729,6 +729,46 @@
 	],
 	"Aula":"Aula 2 - UM2"
 	},
+	{
+	"titulo":"Herramienta para administración y validación de requerimientos de sistemas (Comunicación Oral)",
+	"institucion":"UTN - Facultad Regional Córdoba",
+	"tematica": "Ing. de Sistemas y de Software",
+	"Horario": "17/11/2016 16:00",
+	"Autores": [
+		{"Autor": "Oscar Carlos Medina"},
+		{"Autor":"Martín Marcelo Marciszack"},
+		{"Autor":"Mario Alberto Groppo"}
+	],
+	"Aula":"Aula 5 - UM2"
+	},
+	{
+	"titulo":"Metodología para realizar evaluación de respuestas a preguntas escritos en formato de texto (Comunicación Oral)",
+	"institucion":"UTN - Facultad Regional Córdoba",
+	"tematica": "Ing. de Sistemas y de Software",
+	"Horario": "17/11/2016 16:00",
+	"Autores": [
+		{"Autor": "María Alejandra Paz Menvielle"},
+		{"Autor":"Martín Marcelo Marciszack"},
+		{"Autor":"Martín Casatti"},
+		{"Autor":"Mario Alberto Groppo"}
+	],
+	"Aula":"Aula 5 - UM2"
+	},
+	{
+	"titulo":"Optimizing Javascript Throught Source Code Rewriting- Proyecto PumaScript",
+	"institucion":"UTN - Facultad Regional Córdoba, LIS",
+	"tematica": "Ing. de Sistemas y de Software",
+	"Horario": "17/11/2016 16:00",
+	"Autores": [
+		{"Autor": "Emanuel Mariano Ravera"},
+		{"Autor":"Alexis Ferreyra"},
+		{"Autor":"Ricardo Medel"},
+		{"Autor":"Nestor Navarro"}
+	],
+	"Aula":"Aula 5 - UM2"
+	},
+
+
     	{
 	"titulo":"RPS (Resistant Procrustes Software):una herramienta novedosa para el Análisis Morfométrico Resistente",
 	"institucion":"INTIA, Facultad de Ciencias Exactas, Universidad Nacional del Centro de la Provincia de Buenos Aires",
@@ -795,7 +835,7 @@
 	"titulo":"Hacia un modelo de deserción universitaria: Análisis exploratorio de variables socioeconómicas y académicas de alumnos de primer y segundo año de la carrera Ingeniería en Sistemas de Información, Universidad Tecnológica Nacional Facultad Regional Rosario.",
 	"institucion":"UTN - Facultad Regional Rosario",
 	"tematica": "Bases de Datos",
-	"Horario": "17/11/2016 16:00",
+	"Horario": "18/11/2016 09:00",
 	"Autores": [
 		{"Autor": "Luciano  Valía"},
 		{"Autor": "Juan Miguel Moine"},
@@ -806,7 +846,7 @@
 		{"Autor": "Fabiana  Riva"},
         {"Autor": "Eduardo  Amar"}
 	],
-	"Aula":"Aula 9 - UM2"
+	"Aula":"Aula 6 - UM2"
 	},
     {
 	"titulo":"Comparación de estrategias para determinar el modo de integración del flujo de datos de una variable de contexto al datawarehouse de un invernadero",
@@ -1018,7 +1058,7 @@
 	"titulo":"Las redes sociales como fuente de datos para un Observatorio Regional de Ingeniería en Sistemas de Información e Informática. Oportunidades y limitaciones técnicas, éticas y legales.",
 	"institucion":"UTN - Facultad Regional Rosario",
 	"tematica": "Aspectos Legales y Profesionales",
-	"Horario": "17/11/2016 17:00",
+	"Horario": "17/11/2016 18:00",
 	"Autores": [
 		{"Autor": "Martín  Abbatemarco"},
 		{"Autor": "Luisina  Brizuela"},
@@ -1301,7 +1341,7 @@
 	"Aula":"Aula 5 - UM2"
 	},
 	{
-	"titulo":"Detectando patrones de interés sobre IVUS con Aprendizaje Profundo (Deep Learning)",
+	"titulo":"Detectando patrones de interés sobre IVUS con Aprendizaje Profundo (Deep Learning) (Comunicación Oral)",
 	"institucion":"Universidad del Centro de la Provincia de Buenos Aires",
 	"tematica": "Redes-SO-FI",
 	"Horario": "17/11/2016 19:00",

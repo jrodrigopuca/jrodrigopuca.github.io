@@ -1,8 +1,9 @@
 [
     {
         "titulo": "Alerta Ciudadana: Una nueva forma de combatir el delito",
-        "archivo": "1",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcaTFEbng1YmYxTWc",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
                 "Autor": "Díaz Lederhos, Nahuel Matias"
@@ -21,10 +22,51 @@
             }
         ]
     },
+{
+        "titulo": "Análisis de puestos de sistemas de información",
+        "archivo": "0B0UxvnUHVKBcdEEwNUF3bGpKdDQ",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Ivan Arnaudo"
+            },
+            {
+                "Autor": "Tomas Gullón"
+            }
+        ]
+    },
+    {
+        "titulo": "Análisis en tiempo de ejecución para detección de problemas de seguridad de Javascript del lado del servidor",
+        "archivo": "0B0UxvnUHVKBcdFRPODlFeW5RM1k",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Carlos Alejandro Ryser"
+            }
+        ]
+    },
+    {
+        "titulo": "Analisis y gestión de riesgos en la simulacion de vuelo",
+        "archivo": "0B0UxvnUHVKBcOERJTi16a2REQjQ",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Amigo Barzola, Mailen"
+            },
+            {
+                "Autor": "Vazquez Petrini, Santiago "
+            }
+        ]
+    },
+
     {
         "titulo": "Aplicación de Big Data para el análisis de accidentes viales",
-        "archivo": "2",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcUGc2RUxtclpackU",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
                 "Autor": "Romina Nicastro"
@@ -35,9 +77,27 @@
         ]
     },
     {
+        "titulo": "Aplicación de chat para alertas a destacamentos de bomberos basado en posicionamiento georeferencial",
+        "archivo": "0B0UxvnUHVKBcbnhTR2I3c1FVcTQ",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Martín A. Navarro Mugas"
+            },
+            {
+                "Autor": "Marina Cardenas"
+            },
+            {
+                "Autor":"Julio Castillo"
+            }
+        ]
+ },
+    {
         "titulo": "Aplicación de Sistemas Embebidos para Determinar la Actitud",
-        "archivo": "3",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcMm1VdzlVZUNON1U",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
                 "Autor": "Carlos N. Oviedo"
@@ -58,8 +118,9 @@
     },
     {
         "titulo": "Aplicacion de un Algoritmo Genetico para determinar las caracteristicas de un estudiante universitario que permiten alcanzar un rendimiento académico óptimo",
-        "archivo": "4",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBca2U5VGMtNmdLTWc",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
                 "Autor": "Anahí Bezel"
@@ -77,8 +138,9 @@
     },
     {
         "titulo": "Aplicación embebida para control de parámetros temperatura e iluminación",
-        "archivo": "5",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcdV9ZTTdBallfcjA",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
                 "Autor": "Erik Hromek"
@@ -96,8 +158,9 @@
     },
     {
         "titulo": "Aplicación móvil que ayude al proceso de enseñanza y aprendizaje en la asignatura de sistemas y organizaciones de la carrera de Ingeniería en Sistemas de Información",
-        "archivo": "6",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcZ3U4dWctS09wd0E",
+        "categoria":"Trabajos de Docentes - Investigadores",
+        "tipo": "poster",
         "Autores": [
             {
                 "Autor": "Sebastián Plawner"
@@ -124,8 +187,9 @@
     },
     {
         "titulo": "Artachito: Cesto de basura inteligente",
-        "archivo": "7",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcOFRyb3A2THVBWVk",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
                 "Autor": "Adrián Eduardo Elías"
@@ -139,1221 +203,1569 @@
         ]
     },
     {
-        "titulo": "Clasificación Automática de Textos aplicados a textos periodísticos del noroeste argentino",
-        "archivo": "Clasificación Automática de Textos aplicados a textos periodísticos del noroeste argentino",
-        "tipo": "Póster",
+        "titulo": "Big Data y privacidad del individuo",
+        "archivo": "0B0UxvnUHVKBceU5waHdYVUV4dXM",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Carrozzo Eduardo"
             },
             {
-                "Autor": ""
-            },
+                "Autor": "Comparín Julieta "
+            }
+        ]
+ },
+
+
+    {
+        "titulo": "Clasificación Automática de Textos aplicados a textos periodísticos del noroeste argentino",
+        "archivo": "0B0UxvnUHVKBcR3ZsR2JXcy1fQkE",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
             {
-                "Autor": ""
-            },
-            {
-                "Autor": ""
-            },
-            {
-                "Autor": ""
+                "Autor": "Juan Gabriel Salinas "
             }
         ]
     },
+{
+        "titulo": "Combinando Fuerzas BI + IOT",
+        "archivo": "0B0UxvnUHVKBcRWxwU1lwSnBsSVE",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Emiliano Barco "
+            }
+        ]
+ },
+ {
+        "titulo": "Contribución de las TICs en la Cadena de Valor para el Desarrollo Industrial",
+        "archivo": "0B0UxvnUHVKBcSFI5TnRMdnZaR00",
+        "categoria":"Trabajos de Docentes - Investigadores",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Alicia Mon"
+            },
+            {
+                "Autor": "Horacio Del Giorgio"
+            },
+            {
+                "Autor": "Eduardo De María"
+            },
+            {
+                "Autor": "Claudia Figuerola"
+            },
+            {
+                "Autor": "Matías Querel"
+            }
+
+        ]
+ },
+
     {
         "titulo": "Control de Calidad en una Línea de Producción mediante Análisis de Imágenes",
-        "archivo": "Control de Calidad en una Línea de Producción mediante Análisis de Imágenes",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcV1R6LUxkUUs1d3c",
+        "categoria":"Trabajos de Docentes - Investigadores",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Esp. Lic. Sergio Daniel Conde"
             },
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Ing. Osvaldo Marcovecchio"
             }
         ]
     },
-    {
-        "titulo": "Desarollo de aplicaciones de realidad aumentada para practicas en escuelas de nivel primario",
-        "archivo": "Desarollo de aplicaciones de realidad aumentada para practicas en escuelas de nivel primario",
-        "tipo": "Póster",
+{
+        "titulo": "Deep Learning y Web Semantica",
+        "archivo": "0B0UxvnUHVKBcMnpLQmdMc0JSdnM",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Arrúa, Martín Nahuel "
             },
             {
-                "Autor": " "
+                "Autor": "Mannise Nerón, María Agustina "
             },
             {
-                "Autor": " "
+                "Autor":"Rivera, Ramiro Adolfo "
+            }
+        ]
+ },
+ {
+        "titulo": "Definir un Equipo de Futbol Optimo mediante RNA",
+        "archivo": "0B0UxvnUHVKBcN2NacWZyUlBIUUU",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Lucas Cariddi"
             },
             {
-                "Autor": " "
+                "Autor": "Federico Alvarez"
+            },
+            {
+                "Autor":"José Evaristo Marro"
+            }
+        ]
+ },
+
+    {
+        "titulo": "Desarollo de aplicaciones de realidad aumentada para practicas en escuelas de nivel primario",
+        "archivo": "0B0UxvnUHVKBcSnIwWm92X0lVQXM",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Mariela Alejandra Calisaya"
+            },
+            {
+                "Autor": "Brenda Veramendi"
             }
         ]
     },
     {
         "titulo": "Desarrollo de Software Educativo en un Entorno Cliente - Servidor",
-        "archivo": "Desarrollo de Software Educativo en un Entorno Cliente - Servidor",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcYmstejVGbHU2QlU",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Martín Oscar Ganami"
             },
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Héctor Liberatori"
             }
         ]
     },
     {
         "titulo": "Desarrollo de un Modelo de Procesos para Selección de Bases de Datos ante Problemáticas Determinadas",
-        "archivo": "Desarrollo de un Modelo de Procesos para Selección de Bases de Datos ante Problemáticas Determinadas",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcTk1Pc1JVczFzVnc",
+        "categoria":"Trabajos de Docentes - Investigadores",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Giovanni Rottoli"
             },
             {
-                "Autor": " "
+                "Autor": "Patricio Boffino"
             },
             {
-                "Autor": " "
+                "Autor": "Martín Mihura"
             },
             {
-                "Autor": " "
+                "Autor": "Juan Zaffaroni"
+            },
+            {
+                "Autor":"Ma. Florencia Pollo-Cattaneo"
             }
         ]
     },
+    {
+        "titulo": "Descripción y comparación de las diferentes tecnologías de interfaz cerebro computador",
+        "archivo": "0B0UxvnUHVKBcMnRXeUlNQlhMMU0",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Delucchi, Pablo "
+            },
+            {
+                "Autor": "Duarte, Gastón "
+            },
+            {
+                "Autor": "Di Chena, Federico "
+            },
+            {
+                "Autor": "Ramirez, Gabriel "
+            },
+            {
+                "Autor": "Giovanetti, Rodrigo "
+            },
+            {
+                "Autor": "Pacherres, Adrián "
+            }
+        ]
+ },
     {
         "titulo": "Detector de actividades en una memoria USB",
-        "archivo": "Detector de actividades en una memoria USB",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcbzFCWGtNVEppNlU",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Genaro Franceschelli "
             },
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Milagros Zea Cárdenas "
             }
         ]
     },
+    {
+        "titulo": "Diagnóstico poligráfico de la verdad mediante inteligencia artifial",
+        "archivo": "0B0UxvnUHVKBcM0kxSFUzdzdlOXM",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Ignacio Agustín Casais "
+            },
+            {
+                "Autor": "Natalia Serebrinsky "
+            }
+        ]
+ },
+ {
+        "titulo": "Diseño de Lanzador con Interfaz Intuitiva para la Tercera Edad en Dispositivos Móviles Android",
+        "archivo": "0B0UxvnUHVKBcR1NNZ0lMRW82d1k",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Sebastián Plawner "
+            },
+            {
+                "Autor": "Germán Claudio Novoa "
+            },
+            {
+                "Autor": "Demian Iacono "
+            },
+            {
+                "Autor": "Martín Saposnic"
+            }
+        ]
+ },  
+    
     {
         "titulo": "Diseño de prototipo de un sistema de monitoreo y control anti incendios",
-        "archivo": "Diseño de prototipo de un sistema de monitoreo y control anti incendios",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcaG9TY25xWmJfZzA",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Marco Mallorquín "
             },
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Dercio Pareja "
             }
         ]
     },
+{
+        "titulo": "Distintos tipos de aplicaciones de Seguridad (Biometria)",
+        "archivo": "0B0UxvnUHVKBcSzNDMUdtMFZhU0k",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Agustín Moles"
+            },
+            {
+                "Autor": "Ezequiel Bianchetta"
+            },
+             {
+                "Autor": "Melanie Ibañez"
+            },
+            {
+                "Autor": "Sergio Vásquez"
+            }
+        ]
+ },
+ {
+        "titulo": "Draw Your Fish Bone",
+        "archivo": "0B0UxvnUHVKBcOGwyUFVsUVdPNHM",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Nicolás Abatedaga "
+            }
+        ]
+ },
+
     {
         "titulo": "El ingeniero en sistemas de información y la gestión tecnológico educativa",
-        "archivo": "El ingeniero en sistemas de información y la gestión tecnológico educativa",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcS09oZF84ajFSdzQ",
+        "categoria":"Trabajos de Docentes - Investigadores",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Odetti, María Alejandra"
             },
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Kabusch, Andrés Ricard"
             }
         ]
     },
-    {
-        "titulo": "Estación inalámbrica basada en microcontroladores para la monitorización del riego en plantaciones de olivo",
-        "archivo": "Estación inalámbrica basada en microcontroladores para la monitorización del riego en plantaciones de olivo",
-        "tipo": "Póster",
+{
+        "titulo": "Enseñanzas en la implementación de un analizador sintáctico por descenso recursivo",
+        "archivo": "0B0UxvnUHVKBcMW1rNmFULXowcW8",
+        "categoria":"Trabajos de Docentes - Investigadores",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Juan C. Vázquez"
             },
             {
-                "Autor": " "
+                "Autor": "Leticia E. Constable"
             },
             {
-                "Autor": " "
+                "Autor": " Wilfredo R. Jornet"
             },
             {
-                "Autor": " "
+                "Autor": "Brenda E. Meloni "
+            },
+            {
+                "Autor": "Nicolás R. Carballo "
+            }
+        ]
+ },
+
+
+
+    {
+        "titulo": "Estación inalámbrica basada en microcontroladores para la monitorización del riego en plantaciones de olivo",
+        "archivo": "0B0UxvnUHVKBcUHFmaUlxMTMtblk",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Emmanuel A. Portugal M"
+            },
+            {
+                "Autor": "Fernanda B. Carmona"
+            },
+            {
+                "Autor": "Alberto E. Riba"
+            },
+            {
+                "Autor": "Jorge D. Tejada"
             }
         ]
     },
     {
         "titulo": "Estrategias y Recursos Tecnológicos Para la Creación de Material Didáctico Mediados Por Tic ",
-        "archivo": "Estrategias y Recursos Tecnológicos Para la Creación de Material Didáctico Mediados Por Tic ",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcQ0pnX2xLOVc1UEU",
+        "categoria":"Trabajos de Docentes - Investigadores",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Héctor R. Tarifa "
             },
             {
-                "Autor": " "
+                "Autor": "J. Luis Medina"
             },
             {
-                "Autor": " "
+                "Autor": "Celia  Torres Bugeau"
             },
             {
-                "Autor": " "
+                "Autor": "Patricio O. Condorí"
             }
         ]
     },
     {
         "titulo": "Experimentando mas allá de la Realidad",
-        "archivo": "Experimentando mas allá de la Realidad",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcNHkxRlQ4ZEljTUU",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Lázaro Ansaldi"
             },
             {
-                "Autor": " "
+                "Autor": "Marcela Dalpra "
             },
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Damián Moreiro"
             }
         ]
     },
     {
         "titulo": "extraccion de información de sitios relacionados a la provincia de Salta",
-        "archivo": "extraccion de información de sitios relacionados a la provincia de Salta",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcTzlxeEM4Q01FaHc",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Enzo Rubén Notario"
             }
         ]
     },
     {
         "titulo": "FINDSER, servicios y turnos",
-        "archivo": "FINDSER, servicios y turnos",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcR0YzOXBMQXRzNEk",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Diego Iván Cordoba "
             },
             {
-                "Autor": " "
+                "Autor": "Carlos Salustiano Escalante "
             },
             {
-                "Autor": " "
+                "Autor": "Seiyu Ricardo Higa Tamashiro "
             },
             {
-                "Autor": " "
+                "Autor": "Romina Nicastro "
+            },
+            {
+                "Autor":"Aldana Yael Vaca"
             }
         ]
     },
     {
         "titulo": "Fixit! – Sistema de contrataciones para reparaciones en el hogar",
-        "archivo": "Fixit! – Sistema de contrataciones para reparaciones en el hogar",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcNUVTS2pxQ2lQTUE",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Francisco Diblasi"
             },
             {
-                "Autor": " "
+                "Autor": "Germán Antonucci"
             },
             {
-                "Autor": " "
+                "Autor": "Marco Briganti"
             },
             {
-                "Autor": " "
+                "Autor": "Gastón Mulé"
             }
         ]
     },
     {
         "titulo": "Framework para Sistema de Reducción de Accidentes de Tráfico en Rutas",
-        "archivo": "Framework para Sistema de Reducción de Accidentes de Tráfico en Rutas",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcYjIxMXNpcVZLeTQ",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Vanesa Araya "
             },
             {
-                "Autor": " "
+                "Autor": "Natacha Espada"
             },
             {
-                "Autor": " "
+                "Autor": "Lucas Leiva"
             },
             {
-                "Autor": " "
+                "Autor": "Marcelo Tosini"
             }
         ]
     },
     {
         "titulo": "Generación de tests para JavaScript basados en ECMA-262 como primera experiencia de alumnos en un grupo de investigación",
-        "archivo": "Generación de tests para JavaScript basados en ECMA-262 como primera experiencia de alumnos en un grupo de investigación",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcTmJFZmhnV3ByUkk",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Alan Pipino"
             },
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Lucas Astrada"
             }
         ]
     },
     {
         "titulo": "Graficador de fractales complejos",
-        "archivo": "Graficador de fractales complejos",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcOWZEd2Rma1VqQmc",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Facundo Javier Gelatti"
             }
         ]
     },
     {
         "titulo": "Green IT como solución al impacto ambiental de la utilización de las tecnologías de la información en las empresas",
-        "archivo": "Green IT como solución al impacto ambiental de la utilización de las tecnologías de la información en las empresas",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcTmdOUG9Sd2MtOEU",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Rocío Chipian "
             },
             {
-                "Autor": " "
+                "Autor": "Nahuel Fleitas "
             },
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Nicolas de Beruti "
             }
         ]
     },
-    {
-        "titulo": "HERRAMIENTAS LIBRES APLICADAS AL TESTING UTN",
-        "archivo": "HERRAMIENTAS LIBRES APLICADAS AL TESTING UTN",
-        "tipo": "Póster",
+{
+        "titulo": "Hardware libre y los nuevos horizontes para la diversidad",
+        "archivo": "0B0UxvnUHVKBcT1Q2RzNHQXlLUVU",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Bertola, Federico Javier "
             },
             {
-                "Autor": " "
+                "Autor": "Del Valle, Nicolas Gabriel"
             },
             {
-                "Autor": " "
+                "Autor": "Moreno Ravera, María Alejandra"
             },
             {
-                "Autor": " "
+                "Autor": "Muñoz Campos, Agustín"
+            }
+        ]
+ },
+ {
+        "titulo": "Herramienta para la detección temprana de deserción estudiantil para la UTN FRLP Diseño preliminar",
+        "archivo": "0B0UxvnUHVKBcelI2b1F1OTZ3NFk",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Paula Del Giorgio"
+            },
+            {
+                "Autor": "Ismaín Ressel "
+            }
+        ]
+ },
+
+    {
+        "titulo": "Herramientas libres aplicadas al testing UTN",
+        "archivo": "0B0UxvnUHVKBcWkszMjdleGc3a2M",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Bertuzzi Gaspari, Augusto "
+            },
+            {
+                "Autor": "Urzagasti, Silvia Liliana "
             }
         ]
     },
     {
         "titulo": "Implementación de Estrategias de apoyo pedagógico",
-        "archivo": "Implementación de Estrategias de apoyo pedagógico",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcMURmRE03V3RoNEU",
+        "categoria":"Trabajos de Docentes - Investigadores",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Mirta E. Giovannini"
             },
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Juliana I. Torre"
             }
         ]
     },
     {
         "titulo": "Implementación de GREEN IT en Argentina",
-        "archivo": "Implementación de GREEN IT en Argentina",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcRjlSRmFaT01IMFk",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Agostini Dohmen, Janice"
             },
             {
-                "Autor": " "
+                "Autor": "Androchuk, Nicolas "
             },
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Aquino, Francisco "
             }
         ]
     },
     {
         "titulo": "Implementación de las impresoras 3D en el ámbito hospitalario",
-        "archivo": "Implementación de las impresoras 3D en el ámbito hospitalario",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcOW5jQnZaeGdmQTA",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Leandro Enriquez"
             },
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Marcos Blas Pafundi"
             }
         ]
     },
     {
-        "titulo": "IMPLEMENTACIÓN EFECTIVA DEL SISTEMA DE GESTIÓN “SIINAR” EMPLEANDO EL ENFOQUE DOMAIN-DRIVEN DESIGN",
-        "archivo": "IMPLEMENTACIÓN EFECTIVA DEL SISTEMA DE GESTIÓN “SIINAR” EMPLEANDO EL ENFOQUE DOMAIN-DRIVEN DESIGN",
-        "tipo": "Póster",
+        "titulo": "Implementación efectiva del sistema de gestión SIINAR empleando el enfoque Domain-Drive Design",
+        "archivo": "0B0UxvnUHVKBccmJpanNzYXQtZ1U",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Dana Luz Gonzalez "
             },
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Christian Diego Escalante"
             }
         ]
     },
-    {
-        "titulo": "INTEGRANDO TRAYECTOS CURRICULARES CON ROBÓTICA APLICADA UNA EXPERIENCIA EN PRIMER AÑO.",
-        "archivo": "INTEGRANDO TRAYECTOS CURRICULARES CON ROBÓTICA APLICADA UNA EXPERIENCIA EN PRIMER AÑO.",
-        "tipo": "Póster",
+{
+        "titulo": "Inmersión en la Realidad Virtual",
+        "archivo": "0B0UxvnUHVKBcV1RzNWRyRVEtT00",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Alexis Polak "
             },
             {
-                "Autor": " "
+                "Autor": "Lucas Mazalán "
             },
             {
-                "Autor": " "
+                "Autor": "Ramiro Colombo "
             },
             {
-                "Autor": " "
+                "Autor": "Gabriel Barrera "
+            }
+        ]
+ },
+
+ {
+        "titulo": "Integrando trayectos curriculares con robótica aplicada, una experiencia en primer año",
+        "archivo": "0B0UxvnUHVKBcWlRwX2xHdjR0Vmc",
+         "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Gabina Luz Bianchi "
+            },
+            {
+                "Autor": "Federico Rossi "
+            },
+            {
+                "Autor": "Lucio Bassanti "
+            },
+            {
+                "Autor": "Guillermo Rodriguez"
             }
         ]
     },
     {
         "titulo": "Introducción a redes con Mikrotik",
-        "archivo": "Introducción a redes con Mikrotik",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcaDJUU3l5cjZkdU0",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Tapia Diego  "
             },
             {
-                "Autor": " "
+                "Autor": "Mayer Javier "
             },
             {
-                "Autor": " "
+                "Autor": "Encinas Diego "
             },
             {
-                "Autor": " "
+                "Autor": "Morales Martin "
             }
         ]
     },
     {
-        "titulo": "IOT RIESGOS Y OPORTUNIDADES",
-        "archivo": "IOT RIESGOS Y OPORTUNIDADES",
-        "tipo": "Póster",
+        "titulo": "IOT riesgos y oportunidades",
+        "archivo": "0B0UxvnUHVKBcd2w5UEZYSGtycVk",
+       "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Jorge Benitez "
             },
             {
-                "Autor": " "
+                "Autor": "Melina Fellay "
             },
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Juan Andrés Frigo "
             }
         ]
     },
     {
         "titulo": "La Utilización de la Informática y los Sistemas de Información en la Reducción de Papel en las Organizaciones",
-        "archivo": "La Utilización de la Informática y los Sistemas de Información en la Reducción de Papel en las Organizaciones",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBccWxxQTJoVG5TTXM",
+         "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Santiago Anaya "
             },
             {
-                "Autor": " "
+                "Autor": "Gastón Galbán "
             },
             {
-                "Autor": " "
+                "Autor": "Lucas Saller "
             },
             {
-                "Autor": " "
+                "Autor": "Sebastian Diaz Argentino "
+            },
+            {
+                "Autor": "Ignacio Zullo Salvucci"
+            },
+            {
+                "Autor": "Lucila Salmeron"
             }
         ]
     },
     {
         "titulo": "Las Cookies y la privacidad Consideraciones y recomendaciones",
-        "archivo": "Las Cookies y la privacidad Consideraciones y recomendaciones",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcY0otYzFzbDc0SEU",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Luciano Bracco "
             },
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Facundo Coto  "
             }
         ]
     },
+
+{
+        "titulo": "Las distintas utilizaciones de la interfaz cerebro computador",
+        "archivo": "0B0UxvnUHVKBceHRQYVFLZ2QxMWc",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Alejandro Chañi "
+            },
+            {
+                "Autor": "Kevin Michelone"
+            },
+             {
+                "Autor": "Juan Vergara"
+            },
+            {
+                "Autor": "Matias Torelli"
+            },
+             {
+                "Autor": "Nicolas Nardi"
+            },
+            {
+                "Autor": "Nicolas Florian"
+            }
+        ]
+ },
+
+
     {
         "titulo": "Librería de Multiprogramación para Arduino",
-        "archivo": "Librería de Multiprogramación para Arduino",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcZ043WFZoQncteU0",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Facundo Javier Gelatti  "
             }
         ]
     },
     {
-        "titulo": "LOS ESTUDIANTES UNIVERSITARIOS Y LAS TIC",
-        "archivo": "LOS ESTUDIANTES UNIVERSITARIOS Y LAS TIC",
-        "tipo": "Póster",
+        "titulo": "Los estudiantes universitarios y las TIC",
+        "archivo": "0B0UxvnUHVKBcb0pZbjVFY3BnNGM",
+        "categoria":"Trabajos de Docentes - Investigadores",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Roberto D. Lamas "
             },
             {
-                "Autor": " "
+                "Autor": "Claudio M. Perez Ibarra "
             },
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Adelina García "
             }
         ]
     },
     {
         "titulo": "Lost in the Abysm",
-        "archivo": "Lost in the Abysm",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcVmxWVV9tVE04TlE",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Lauro Cacciagioni  "
             },
             {
-                "Autor": " "
+                "Autor": "Marcelo Vaquero  "
             },
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Alejandro Sartorio  "
             }
         ]
     },
     {
         "titulo": "MASAA",
-        "archivo": "MASAA",
-        "tipo": "Póster",
+       "archivo":"0B0UxvnUHVKBcNkZQcU1tMVg3T0U",
+        "categoria":"Trabajos de Docentes - Investigadores",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Juan Carlos Calloni "
             },
             {
-                "Autor": " "
+                "Autor": "Andrés Bianciotti  "
             },
             {
-                "Autor": " "
+                "Autor": "Sergio Paez  "
             },
             {
-                "Autor": " "
+                "Autor": "Eduardo Scarello  "
+            },
+            {
+                "Autor": "Leandro Banchio "
+            },
+            {
+                "Autor": "Juan Carlos Cuevas"
             }
         ]
     },
     {
         "titulo": "Matemática Discreta cursado b-learning para alumnos recursantes",
-        "archivo": "Matemática Discreta cursado b-learning para alumnos recursantes",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcdVBKSlpXUFNMNFE",
+        "categoria":"Trabajos de Docentes - Investigadores",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Adelina García  "
             },
             {
-                "Autor": " "
+                "Autor": "Roberto D. Lamas  "
             },
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Verónica M. Torres  "
             }
         ]
     },
     {
         "titulo": "Meta-Framework de Arquitectura Empresarial ",
-        "archivo": "Meta-Framework de Arquitectura Empresarial ",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcSktjdEdxY2k2UGM",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Ing. Diego Tudury  "
             },
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Ing. Pablo Antedomenico  "
             }
         ]
     },
     {
-        "titulo": "OMNIA",
-        "archivo": "OMNIA",
-        "tipo": "Póster",
+        "titulo": "MuniApp - Servicio de Ayuda Ciudadana",
+        "archivo": "0B0UxvnUHVKBccmVDeVRPbHpnVGM",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Gabriel Barrientos"
             },
             {
-                "Autor": " "
+                "Autor": "Maximiliano Espeche"
             },
             {
-                "Autor": " "
+                "Autor": "Emanuel Gomez"
             },
             {
-                "Autor": " "
+                "Autor": "Sebastian Reverso"
+            }
+        ]
+ },
+ {
+        "titulo": "Negocios orientados a dispositivos móviles y su implementación",
+        "archivo": "0B0UxvnUHVKBcSml1TFJEVVBsdGs",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Valentín Costa"
+            },
+            {
+                "Autor": "Martín Cuba"
+            },
+             {
+                "Autor": "David Lazbal"
+            },
+            {
+                "Autor": "Diego Lonardi"
+            },
+             {
+                "Autor": "Fernando Rodríguez Cora "
+            },
+            {
+                "Autor": "Luciano Thoma "
+            }
+        ]
+ },
+    {
+        "titulo": "OMNIA",
+        "archivo": "0B0UxvnUHVKBcZWhKWkpqQVN0VFE",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Brito Joel"
+            },
+            {
+                "Autor": "Natalini Leandro "
+            },
+            {
+                "Autor": "Zahradnicek Desirée  "
+            },
+            {
+                "Autor": "Pérez Alegre Adriel  "
+            },
+            {
+                "Autor":"Peirasso Evangelina "
             }
         ]
     },
     {
         "titulo": "Open Data",
-        "archivo": "Open Data",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcRHIzUVhBNnBJT0E",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Julián Ignacio Acosta  "
             },
             {
-                "Autor": " "
+                "Autor": "Germán Asmus  "
             },
             {
-                "Autor": " "
+                "Autor": "Silvana Belén García  "
             },
             {
-                "Autor": " "
+                "Autor": "Facundo Rodríguez  "
+            },
+            {
+                "Autor":"Alejandro Fabián Segovia "
             }
         ]
     },
     {
         "titulo": "Operationalization of the Architecture Principle “Partitioning, Encapsulation and Coupling”",
-        "archivo": "Operationalization of the Architecture Principle “Partitioning, Encapsulation and Coupling”",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcSDBRSjZZOFpyLVk”",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Rivero Noelia Belén  "
             }
         ]
     },
     {
         "titulo": "Paper Construcción de una Aplicación de realidad mixta en la elaboración de recetas de cocina - CocinApp",
-        "archivo": "Paper Construcción de una Aplicación de realidad mixta en la elaboración de recetas de cocina - CocinApp",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcXzAwZGxDa2x3bGM",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Cristian Hernán González "
             },
             {
-                "Autor": " "
+                "Autor": "Martín Ángel Morrongiello  "
             },
             {
-                "Autor": " "
+                "Autor": "Gabriel Andrés Castagno "
             },
             {
-                "Autor": " "
+                "Autor": "Nicolás Di Vito "
+            },
+            {
+                "Autor": "Gonzalo Iván Lucero  "
+            },
+            {
+                "Autor": "Javier Ramírez  "
             }
         ]
     },
     {
         "titulo": "Perfiles e incumbencias de carreras de informática y sistemas de información en la Ciudad de Buenos Aires",
-        "archivo": "Perfiles e incumbencias de carreras de informática y sistemas de información en la Ciudad de Buenos Aires",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcSUtiQnFCYk5xMnM",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Victoria Lippolis  "
             },
             {
-                "Autor": " "
+                "Autor": "Ronan Bio "
             },
             {
-                "Autor": " "
+                "Autor": "Mariano De Luca "
             },
             {
-                "Autor": " "
+                "Autor": "Marcos Donner "
+            },
+            {
+                "Autor": "Elias Kim"
+            },
+            {
+                "Autor": "Leonardo Maestri"
             }
         ]
     },
     {
-        "titulo": "PLAN INTEGRAL DE PROTECCION INFORMATICA",
-        "archivo": "PLAN INTEGRAL DE PROTECCION INFORMATICA",
-        "tipo": "Póster",
+        "titulo": "Plan Integral de Informática",
+        "archivo": "0B0UxvnUHVKBcekJyRXdJdmZVUjQ",
+        "categoria":"Trabajos de Docentes - Investigadores",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Ricardo José Corbella  "
             }
         ]
     },
     {
-        "titulo": "PORNOGRAFIA INFANTIL MARCO LEGAL Y HERRAMIENTAS P2P",
-        "archivo": "PORNOGRAFIA INFANTIL MARCO LEGAL Y HERRAMIENTAS P2P",
-        "tipo": "Póster",
+        "titulo": "Pornografía infantil Marco legal y herramientas peer to peer",
+        "archivo": "0B0UxvnUHVKBcNFh5ejg0aV81a28",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Matías Nicolas Amor "
             }
         ]
     },
     {
         "titulo": "Predicción de Reelección Presidencial mediante Sistemas Inteligentes",
-        "archivo": "Predicción de Reelección Presidencial mediante Sistemas Inteligentes",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcYmJrbEFvbVZST1k",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Miguel Elias Arteaga Orozco  "
             },
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Hernan Suzuki Son  "
             }
         ]
     },
     {
         "titulo": "Predicción de Tráfico en Redes Globales Multiprotocolo aplicando Redes Expertas Difusas",
-        "archivo": "Predicción de Tráfico en Redes Globales Multiprotocolo aplicando Redes Expertas Difusas",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcZGtFSXU2UnBVbzQ",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Paz Aldo Esteban  "
             },
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Rivero Noelia Belén  "
             }
         ]
     },
     {
-        "titulo": "PREGUTNADOS UNA HERRAMIENTA DE SOPORTE AL APRENDIZAJE",
-        "archivo": "PREGUTNADOS UNA HERRAMIENTA DE SOPORTE AL APRENDIZAJE",
-        "tipo": "Póster",
+        "titulo": "PREGUTNADOS Una herramienta de soporte al aprendizaje",
+        "archivo": "0B0UxvnUHVKBcajRUYkxyNjRCUHc",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Federico Hauque  "
             },
             {
-                "Autor": " "
+                "Autor": "Germán Saudejaud"
+        }]
+    },
+
+{
+        "titulo": "Propuesta de un Catálogo de Patrones para el Análisis y Diseño de la Interfaz de Groupware",
+        "archivo": "0B0UxvnUHVKBcNUo2QVN2YnAwdDg",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Noelia Alejandra Yolde Deppen"
             },
             {
-                "Autor": " "
+                "Autor": "Mabel del Valle Sosa"
             },
             {
-                "Autor": " "
+                "Autor":"Ivanna Paola Maldonado "
             }
         ]
-    },
+ },
+
     {
         "titulo": "Propuesta para la concientización del consumo responsable del agua usando tecnologías ",
-        "archivo": "Propuesta para la concientización del consumo responsable del agua usando tecnologías ",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcdDNhbFVGV0R3eVU",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Laura Romina Aristegui  "
             }
         ]
     },
     {
         "titulo": "Realtime Volume Render en Videojuegos",
-        "archivo": "Realtime Volume Render en Videojuegos",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcQ1JKOUdZN2FmUjg",
+        "categoria":"Trabajos de Docentes - Investigadores",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Ortiz Edgar  "
             },
             {
-                "Autor": " "
+                "Autor": "Banquiero Mariano  "
             },
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Rossi Bibiana"
             }
         ]
     },
     {
         "titulo": "Redes Definidas por Software",
-        "archivo": "Redes Definidas por Software",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcbVExcTE2ZnpnUEE",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Benitez Gabriel  "
             },
             {
-                "Autor": " "
+                "Autor": "Morales Martin "
             },
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Encinas Diego "
             }
         ]
     },
     {
-        "titulo": "REDES NEURONALES NO SUPERVISADAS COMPETITIVAS ENTRENADAS MEDIANTE ALGORITMOS GENÉTICOS ",
-        "archivo": "REDES NEURONALES NO SUPERVISADAS COMPETITIVAS ENTRENADAS MEDIANTE ALGORITMOS GENÉTICOS ",
-        "tipo": "Póster",
+        "titulo": "Redes neuronales no supervisadas competitivas entrenadas mediante algoritmos genéticos ",
+        "archivo": "0B0UxvnUHVKBcNV9YSFVWYzRZSnM",
+          "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Merlo Mateo  "
             },
             {
-                "Autor": " "
+                "Autor": "Pecchio Lucas  "
             },
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Sánchez Tadeo  "
             }
         ]
     },
+
+{
+        "titulo": "Riesgos del uso de las redes sociales",
+        "archivo": "0B0UxvnUHVKBcYndab2NJVHRlaGs",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Matias Baghdassarian"
+            },
+            {
+                "Autor": "Nicolas Calle"
+            },
+            {
+                "Autor": "Sebastian Guozden"
+            },
+            {
+                "Autor": "Tomas Gorkin"
+            },
+            {
+                "Autor": "Pablo Monti"
+            }
+        ]
+ },
+ {
+        "titulo": "secatt Herramienta online para asistir a la correspondencia entre Patrones de Ataque y de Seguridad",
+        "archivo": "0B0UxvnUHVKBcaURHNUtpRWZQTmM",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Ignacio Ramos "
+            },
+            {
+                "Autor": "Sofia Lottersberger "
+            },
+            {
+                "Autor":"Nicolas J. Guimar "
+            }
+        ]
+ },
+
+
+
     {
         "titulo": "Seguimiento de Pacientes con Litiasis Renal – UTN FRT",
-        "archivo": "Seguimiento de Pacientes con Litiasis Renal – UTN FRT",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcZ25TVlB5a2FmbXM",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "José Cardozo "
             },
             {
-                "Autor": " "
+                "Autor": "Vicente Chibilisco "
             },
             {
-                "Autor": " "
+                "Autor": "María Molina "
             },
             {
-                "Autor": " "
+                "Autor": "María Nieva "
             }
         ]
     },
+    {
+        "titulo": "Seguridad de los datos en las redes sociales ",
+        "archivo": "0B0UxvnUHVKBcYUJVTDAxYUJFYmM",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Juan Pablo Marcialis "
+            },
+            {
+                "Autor": "Joao Baptista"
+            },
+            {
+                "Autor": "Luciano Mansilla "
+            },
+            {
+                "Autor": "Gonzalo Fernandez"
+            }
+        ]
+ },
     {
         "titulo": "SIAC  Sistema de Información de Alertas y Conciencia Ciudadana",
-        "archivo": "SIAC  Sistema de Información de Alertas y Conciencia Ciudadana",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcRjdXY1RieW1KNkk",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Lucas de la Fuente  "
             },
             {
-                "Autor": " "
+                "Autor": "Marcelo Belbey  "
             },
             {
-                "Autor": " "
+                "Autor": "Fabrizio Appiano  "
             },
             {
-                "Autor": " "
+                "Autor": "Diego Tello  "
             }
         ]
     },
     {
-        "titulo": "SIEMPRE CONTIGO ",
-        "archivo": "SIEMPRE CONTIGO ",
-        "tipo": "Póster",
+        "titulo": "Siempre Contigo ",
+        "archivo": "0B0UxvnUHVKBccFR6XzBUdnRQS00",
+         "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Reyes, Jorge L. "
             },
             {
-                "Autor": " "
+                "Autor": "Brandan, Marcelo "
             },
             {
-                "Autor": " "
+                "Autor": "Rueda, Julio G. "
             },
             {
-                "Autor": " "
+                "Autor": "Arias, Marina "
             }
         ]
     },
     {
         "titulo": "Simulación Acotada de Procesadores ",
-        "archivo": "Simulación Acotada de Procesadores ",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBccFR6XzBUdnRQS00",
+         "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Tomás Juárez"
             },
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Guillermo Pacheco "
             }
         ]
     },
     {
         "titulo": "Sistema de control inteligente de patentes de vehículos para la Policía a través de una aplicación móvil",
-        "archivo": "Sistema de control inteligente de patentes de vehículos para la Policía a través de una aplicación móvil",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcTDNXelNuQWNqWWc",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Seiyu Ricardo Higa Tamashiro  "
             },
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Spalletti Mauricio Gabriel    "
             }
         ]
     },
     {
         "titulo": "Sistema de semaforización inteligente",
-        "archivo": "Sistema de semaforización inteligente",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcQVNjOEtGclJwYTg",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Bonessi, Santiago "
             },
             {
-                "Autor": " "
+                "Autor": "Cargnelutti, Renato "
             },
             {
-                "Autor": " "
+                "Autor": "Griguol, Agustin "
             },
             {
-                "Autor": " "
+                "Autor": "Ortigoza, Matias "
+            },
+            {
+                "Autor":"Somadossi, Andrés"
             }
         ]
     },
     {
-        "titulo": "SISTEMA EXPERTO Y LÓGICA DIFUSA APLICADAS EN LA CLASIFICACIÓN Y TRASLADO DE BASURA PARA RECICLAJE",
-        "archivo": "SISTEMA EXPERTO Y LÓGICA DIFUSA APLICADAS EN LA CLASIFICACIÓN Y TRASLADO DE BASURA PARA RECICLAJE",
-        "tipo": "Póster",
+        "titulo": "Sistema Experto y Lógica Difusa Aplicadas en la Clasificación y Traslado de Basura para Reciclaje",
+        "archivo": "0B0UxvnUHVKBcUTJnODcybjloRWs",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Melisa Anabel Jiménez Galarza "
             },
             {
-                "Autor": " "
+                "Autor": "Selma Muriel Jiménez Galarza  "
             },
             {
-                "Autor": " "
+                "Autor": "Maria Emilia Lavenia  "
             },
             {
-                "Autor": " "
+                "Autor": "Alejandra Paola Quispe Mendez "
             }
         ]
     },
     {
-        "titulo": "smart aqua",
-        "archivo": "smart aqua",
-        "tipo": "Póster",
+        "titulo": "Smart Aqua",
+        "archivo": "0B0UxvnUHVKBcTW9yd1VXRjhZUTg",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Barbesini, Nicolás "
             },
             {
-                "Autor": " "
+                "Autor": "Ledesma, Nahuel "
             },
             {
-                "Autor": " "
+                "Autor": "Delgado, Fabricio "
             },
             {
-                "Autor": " "
+                "Autor": "Olivera, Braian "
             }
         ]
     },
+{
+        "titulo": "Snapchat Unicidad y Control",
+        "archivo": "0B0UxvnUHVKBcNWRwSmR0bkVLLWc",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Andini, Micaela "
+            },
+            {
+                "Autor": "Carrera. Katherine"
+            },
+            {
+                "Autor": "Lucchelli, Sophia"
+            },
+            {
+                "Autor": "Ramirez, Naimid"
+            }
+        ]
+ },
+ {
+        "titulo": "Tecnologías aplicadas al tratamiento de discapacidades motoras ",
+        "archivo": "0B0UxvnUHVKBcT3JpZGg1UWdjam8",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Galeano Lucas"
+            },
+            {
+                "Autor": "Federico Macias"
+            },
+            {
+                "Autor": "Gianpier Yupanqui"
+            },
+            {
+                "Autor": "Kevin Brian"
+            },
+            {
+                "Autor": "Agustín Martínez"
+            }
+        ]
+ },
+
+
     {
         "titulo": "Tipos de ataques, técnicas y herramientas utilizadas para vulnerar aplicaciones web",
-        "archivo": "Tipos de ataques, técnicas y herramientas utilizadas para vulnerar aplicaciones web",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBccm56NVR6b2w2ZTQ",
+         "categoria":"Trabajos de Docentes - Investigadores",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Cuevas, Juan Carlos "
             },
             {
-                "Autor": " "
+                "Autor": "Muñoz, Roberto "
             },
             {
-                "Autor": " "
+                "Autor": "Gibellini, Fabian A. "
             },
             {
-                "Autor": " "
+                "Autor": "Parisi, Germán "
+            },
+             {
+                "Autor": "Zea Cárdenas, Milagros"
+            },
+            {
+                "Autor": "Barrionuevo, Diego"
             }
         ]
     },
     {
         "titulo": "Un estudio de simulación como aporte de información para la toma de decisiones organizacionales",
-        "archivo": "Un estudio de simulación como aporte de información para la toma de decisiones organizacionales",
-        "tipo": "Póster",
+        "archivo": "0B0UxvnUHVKBcUTV6a3RBbXlCcXc",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Gonzalo Weiss  "
             }
         ]
     },
     {
-        "titulo": "Un Nuevo Método para clustering de tweets basado en métodos de ensambles y técnicas de hashing",
-        "archivo": "Un Nuevo Método para clustering de tweets basado en métodos de ensambles y técnicas de hashing",
-        "tipo": "Póster",
+        "titulo": "Un nuevo Método para clustering de tweets basado en métodos de ensambles y técnicas de hashing",
+        "archivo": "0B0UxvnUHVKBcaTJRQWUwVENWSnM",
+        "categoria":"Trabajos de Docentes - Investigadores",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Matías E. Gentile  "
             },
             {
-                "Autor": " "
+                "Autor": "Bruno J. Varani "
             },
             {
-                "Autor": " "
+                "Autor": "Eduardo Amar "
             },
             {
-                "Autor": " "
+                "Autor": "Cristian Bigatti "
+            },
+              {
+                "Autor": "M. Cecilia Kraiselburd"
+            },
+            {
+                "Autor": "Fabricio Neirotti"
+            },
+              {
+                "Autor": "Juan M. Moine"
             }
         ]
     },
     {
-        "titulo": "UN PROXY UDT PARA UN SISTEMA DE VIRTUALIZACIÓN DISTRIBUIDO ",
-        "archivo": "UN PROXY UDT PARA UN SISTEMA DE VIRTUALIZACIÓN DISTRIBUIDO ",
-        "tipo": "Póster",
+        "titulo": "Un proxy UDT para un sistema de virtualización distribuido ",
+        "archivo": "0B0UxvnUHVKBcYTA2bGlMNmhMVUU",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Guillermo Jacob  "
             },
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Matías Sequeira  "
             }
         ]
     },
     {
-        "titulo": "una implementación sobre Cloudera ",
-        "archivo": "una implementación sobre Cloudera ",
-        "tipo": "Póster",
+        "titulo": "Una implementación sobre Cloudera ",
+        "archivo": "0B0UxvnUHVKBcbWZ0Y3hORUZvTG8",
+        "categoria":"Trabajos de Docentes - Investigadores",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "S. Retamar "
             },
             {
-                "Autor": " "
+                "Autor": "L. Ramos  "
             },
             {
-                "Autor": " "
+                "Autor": "N. Herrera "
             },
             {
-                "Autor": " "
+                "Autor": "N. Rapesta "
+            },
+            {
+                "Autor": "J.P. Nuñez"
+            },
+            {
+                "Autor": "P. Cristaldo "
+            },
+            {
+                "Autor": "A. De Battista"
             }
         ]
     },
     {
-        "titulo": "urImag Sistema de Información Turística Mediante Reconocimiento Automático de Imágenes",
-        "archivo": "urImag Sistema de Información Turística Mediante Reconocimiento Automático de Imágenes",
-        "tipo": "Póster",
+        "titulo": "TurImag Sistema de Información Turística Mediante Reconocimiento Automático de Imágenes",
+        "archivo": "0B0UxvnUHVKBcQkRESlVncnh4TVE",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Ricardo Martin Llobet  "
             },
             {
-                "Autor": " "
+                "Autor": "Cristian Alberto Marcos  "
             },
             {
-                "Autor": " "
+                "Autor": "Marcelo Alejandro Tosini  "
             },
             {
-                "Autor": " "
+                "Autor": "Julio Esteban Kun  "
             }
         ]
     },
     {
-        "titulo": "VULNERABILIDADES DEL INTERNET DE LAS COSAS Y DELITOS DERIVADOS ",
-        "archivo": "VULNERABILIDADES DEL INTERNET DE LAS COSAS Y DELITOS DERIVADOS ",
-        "tipo": "Póster",
+        "titulo": "Vulnerabilidades del internet de las cosas y delitos derivados",
+        "archivo": "0B0UxvnUHVKBcS1A4YTBzMEY1MjA",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
+                "Autor": "Fabio Emanuel Gómez Castro"
             },
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "Aldo Guido Arzelan "
             }
         ]
     },
     {
-        "titulo": "Wiree",
-        "archivo": "Wiree",
-        "tipo": "Póster",
+        "titulo": "Wiree - Propuesta de una Metodología de Recuperación de Información Web Eficaz y Eficiente para un Dominio Específico",
+        "archivo": "0B0UxvnUHVKBcTlNIVTR5eC0zSVU",
+        "categoria":"Trabajos de Docentes - Investigadores",
+        "tipo": "poster",
         "Autores": [
             {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
-            },
-            {
-                "Autor": " "
+                "Autor": "María Romagnano"
             }
         ]
     }

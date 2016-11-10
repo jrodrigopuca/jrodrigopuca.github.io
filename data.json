@@ -20,7 +20,7 @@
     "Aula":"Aula Magna"
     },
 	{
-    "titulo":"Conferencia Ingeniería, Ética en crisis",
+    "titulo":"Conferencia: Ingeniería, Ética en crisis",
     "institucion":"UNER",
     "tematica": "General",
     "Horario": "17/11/2016 09:45",
@@ -29,18 +29,7 @@
     ],
     "Aula":"Aula Magna"
     },
-    {
-    "titulo":"Incorporando aula invertida, trabajo en equipo e iniciativa sustentable en un proyecto de innovación didáctica",
-    "institucion":"UTN - Facultad Regional Rosario",
-    "tematica": "Educación en Ingeniería",
-    "Horario": "17/11/2016 10:30",
-    "Autores": [
-        {"Autor": "Gabriela Mariel Font"},
-        {"Autor": "María Yanina Nalli"},
-        {"Autor": "Rita Guadalupe Malano"}
-    ],
-    "Aula":"Aula 1 - UM2"
-    },
+    
      {
     "titulo":"Experiencia de Formación y Promoción de Emprendedores Tecnológicos desde una Carrera Universitaria",
     "institucion":"UTN-Facultad Regional Córdoba",
@@ -199,7 +188,7 @@
 	{
     "titulo":"Memoria Organizacional Retroalimentada por Flujos de Datos Aplicada a la Predicción de Pasturas",
     "institucion":"Facultad de Ingeniería, Universidad Nacional de La Pampa",
-    "tematica": "Base de Datos",
+    "tematica": "Bases de Datos",
     "Horario": "17/11/2016 10:30",
     "Autores": [
         {"Autor": "Mario José Diván"},
@@ -210,7 +199,7 @@
      {
     "titulo":"Implementación asistida de Bases de Datos en Firebird/Interbase",
     "institucion":"UTN - Facultad Regional Delta,  UNLu, ISFT 189",
-    "tematica": "Base de Datos",
+    "tematica": "Bases de Datos",
     "Horario": "17/11/2016 10:30",
     "Autores": [
         {"Autor": "Guillermo Ruben Cherencio"}
@@ -400,20 +389,8 @@
 	],
 	"Aula":"Aula 9 - UM2"
 	},
-    	{
-	"titulo":"Favoreciendo el desarrollo de conocimientos y competencias en el contexto de un Proyecto de Investigación",
-	"institucion":"UTN - Facultad Regional Rosario",
-	"tematica": "Gestión de Proyectos",
-	"Horario": "17/11/2016 14:00",
-	"Autores": [
-		{"Autor": "Rita Guadalupe Malano"},
-		{"Autor": "Vilma Alicia Martin"},
-		{"Autor": "Fabiana María Riva"}
-	],
-	"Aula":"Aula 9 - UM2"
-	},
 
-    {
+	{
 	"titulo":"Seminario: La Estructura de los Artículos Científicos, lineamientos generales para la escritura de un paper",
 	"institucion":"Universidad Abierta interamericana",
 	"tematica": "General",
@@ -423,7 +400,7 @@
 	],
 	"Aula":"Aula 6 - UM2"
 	},
-    {
+	{
 	"titulo":"Horario disponible para Almuerzo",
 	"institucion":"UCASAL",
 	"tematica": "General",
@@ -433,6 +410,7 @@
 	],
 	"Aula":"Confiteria"
 	},
+ 
 
 	{
 	"titulo":"Presentación de posters de trabajos de investigación",
@@ -643,11 +621,23 @@
 	],
 	"Aula":"Aula 9 - UM2"
 	},
+	{
+	"titulo":"Favoreciendo el desarrollo de conocimientos y competencias en el contexto de un Proyecto de Investigación",
+	"institucion":"UTN - Facultad Regional Rosario",
+	"tematica": "Gestión de Proyectos",
+	"Horario": "17/11/2016 14:00",
+	"Autores": [
+		{"Autor": "Rita Guadalupe Malano"},
+		{"Autor": "Vilma Alicia Martin"},
+		{"Autor": "Fabiana María Riva"}
+	],
+	"Aula":"Aula 9 - UM2"
+	},
     {
 	"titulo":"Conferencia: Contratación Electrónica y firma digital",
 	"institucion":"UTN Facultad Regional Córdoba",
 	"tematica": "General",
-	"Horario": "17/11/2016 18:00",
+	"Horario": "17/11/2016 15:00",
 	"Autores": [
 		{"Autor": "Dr. Anibal Pardini"}
 				],
@@ -754,16 +744,15 @@
 	],
 	"Aula":"Aula 5 - UM2"
 	},
-	{
-	"titulo":"Optimizing Javascript Throught Source Code Rewriting- Proyecto PumaScript",
-	"institucion":"UTN - Facultad Regional Córdoba, LIS",
+		{
+	"titulo":"Propuesta Metodológica y Herramientas de Soporte para Modelar y Validar Esquemas Conceptuales",
+	"institucion":"UTN - Facultad Regional Córdoba,  GIDTSI, Facultad de Informática - Universidad de Vigo, España",
 	"tematica": "Ing. de Sistemas y de Software",
 	"Horario": "17/11/2016 16:00",
 	"Autores": [
-		{"Autor": "Emanuel Mariano Ravera"},
-		{"Autor":"Alexis Ferreyra"},
-		{"Autor":"Ricardo Medel"},
-		{"Autor":"Nestor Navarro"}
+		{"Autor": "Marcelo Marciszack"},
+		{"Autor": "Manuel Perez Cota"},
+		{"Autor": "Mario A. Groppo"}
 	],
 	"Aula":"Aula 5 - UM2"
 	},
@@ -831,23 +820,7 @@
 	],
 	"Aula":"Aula 9 - UM2"
 	},
-    {
-	"titulo":"Hacia un modelo de deserción universitaria: Análisis exploratorio de variables socioeconómicas y académicas de alumnos de primer y segundo año de la carrera Ingeniería en Sistemas de Información, Universidad Tecnológica Nacional Facultad Regional Rosario.",
-	"institucion":"UTN - Facultad Regional Rosario",
-	"tematica": "Bases de Datos",
-	"Horario": "18/11/2016 09:00",
-	"Autores": [
-		{"Autor": "Luciano  Valía"},
-		{"Autor": "Juan Miguel Moine"},
-		{"Autor": "Jose  Rostagno"},
-		{"Autor": "Jose  Milan"},
-        {"Autor": "Claudio  Arfuso"},
-		{"Autor": "Cristian  Bigatti"},
-		{"Autor": "Fabiana  Riva"},
-        {"Autor": "Eduardo  Amar"}
-	],
-	"Aula":"Aula 6 - UM2"
-	},
+
     {
 	"titulo":"Comparación de estrategias para determinar el modo de integración del flujo de datos de una variable de contexto al datawarehouse de un invernadero",
 	"institucion":"Facultad de Ingeniería- Universidad Nacional de Jujuy",
@@ -1054,19 +1027,7 @@
 	],
 	"Aula":"Aula 9 - UM2"
 	},
-    {
-	"titulo":"Las redes sociales como fuente de datos para un Observatorio Regional de Ingeniería en Sistemas de Información e Informática. Oportunidades y limitaciones técnicas, éticas y legales.",
-	"institucion":"UTN - Facultad Regional Rosario",
-	"tematica": "Aspectos Legales y Profesionales",
-	"Horario": "17/11/2016 18:00",
-	"Autores": [
-		{"Autor": "Martín  Abbatemarco"},
-		{"Autor": "Luisina  Brizuela"},
-		{"Autor": "Alejo  Cervino"},
-		{"Autor": "Fabiana María Riva"}
-	],
-	"Aula":"Aula 9 - UM2"
-	},
+ 
 
     {
 	"titulo":"Los Juegos como Herramienta Didáctica para la Enseñanza de la Programación",
@@ -1250,6 +1211,19 @@
 	],
 	"Aula":"Aula 9 - UM2"
 	},
+	   {
+	"titulo":"Las redes sociales como fuente de datos para un Observatorio Regional de Ingeniería en Sistemas de Información e Informática. Oportunidades y limitaciones técnicas, éticas y legales.",
+	"institucion":"UTN - Facultad Regional Rosario",
+	"tematica": "Aspectos Legales y Profesionales",
+	"Horario": "17/11/2016 18:00",
+	"Autores": [
+		{"Autor": "Martín  Abbatemarco"},
+		{"Autor": "Luisina  Brizuela"},
+		{"Autor": "Alejo  Cervino"},
+		{"Autor": "Fabiana María Riva"}
+	],
+	"Aula":"Aula 9 - UM2"
+	},
     
    {
 	"titulo":"Experiencias en tutorías y reinserción de estudiantes de Ingeniería de Sistemas de la Universidad Nacional del Centro",
@@ -1275,6 +1249,18 @@
 	],
 	"Aula":"Aula 1 - UM2"
 	},
+	{
+    "titulo":"Incorporando aula invertida, trabajo en equipo e iniciativa sustentable en un proyecto de innovación didáctica",
+    "institucion":"UTN - Facultad Regional Rosario",
+    "tematica": "Educación en Ingeniería",
+    "Horario": "17/11/2016 19:00",
+    "Autores": [
+        {"Autor": "Gabriela Mariel Font"},
+        {"Autor": "María Yanina Nalli"},
+        {"Autor": "Rita Guadalupe Malano"}
+    ],
+    "Aula":"Aula 1 - UM2"
+    },
 
 	{
 	"titulo":"An Intelligent Approach to Support Software Architecture Decisionmaking in the Context of Software Architecture Evaluation",
@@ -1462,17 +1448,19 @@
 	"Aula":"Aula 2 - UM2"
 	},
 	{
-	"titulo":"Propuesta Metodológica y Herramientas de Soporte para Modelar y Validar Esquemas Conceptuales",
-	"institucion":"UTN - Facultad Regional Córdoba,  GIDTSI, Facultad de Informática - Universidad de Vigo, España",
+	"titulo":"Optimizing Javascript Throught Source Code Rewriting- Proyecto PumaScript (Comunicación Oral)",
+	"institucion":"UTN - Facultad Regional Córdoba, LIS",
 	"tematica": "Ing. de Sistemas y de Software",
 	"Horario": "18/11/2016 09:00",
 	"Autores": [
-		{"Autor": "Marcelo Marciszack"},
-		{"Autor": "Manuel Perez Cota"},
-		{"Autor": "Mario A. Groppo"}
+		{"Autor": "Emanuel Mariano Ravera"},
+		{"Autor":"Alexis Ferreyra"},
+		{"Autor":"Ricardo Medel"},
+		{"Autor":"Nestor Navarro"}
 	],
 	"Aula":"Aula 2 - UM2"
 	},
+
 	{
 	"titulo":"Modelo para la Automatización de Relaciones de Trazabilidad en Procesos Scrum",
 	"institucion":"INGAR (CONICET) UTN Facultad Regional Santa Fe, Universidad Nacional de La Rioja, UTN - Facultad Regional Resistencia",
@@ -1617,6 +1605,23 @@
 	"Autores": [
 		{"Autor": "Osvaldo Mario Spositto"},
 		{"Autor": "Julio Cesar Bossero"}
+	],
+	"Aula":"Aula 6 - UM2"
+	},
+	    {
+	"titulo":"Hacia un modelo de deserción universitaria: Análisis exploratorio de variables socioeconómicas y académicas de alumnos de primer y segundo año de la carrera Ingeniería en Sistemas de Información, Universidad Tecnológica Nacional Facultad Regional Rosario.",
+	"institucion":"UTN - Facultad Regional Rosario",
+	"tematica": "Bases de Datos",
+	"Horario": "18/11/2016 09:00",
+	"Autores": [
+		{"Autor": "Luciano  Valía"},
+		{"Autor": "Juan Miguel Moine"},
+		{"Autor": "Jose  Rostagno"},
+		{"Autor": "Jose  Milan"},
+        {"Autor": "Claudio  Arfuso"},
+		{"Autor": "Cristian  Bigatti"},
+		{"Autor": "Fabiana  Riva"},
+        {"Autor": "Eduardo  Amar"}
 	],
 	"Aula":"Aula 6 - UM2"
 	},

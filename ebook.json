@@ -1768,5 +1768,164 @@
                 "Autor": "María Romagnano"
             }
         ]
+    },
+     {
+        "titulo": "Desarrollo de aplicaciones de comercio electrónico con servicios de la nube computacional",
+        "archivo": "0B0UxvnUHVKBcdGtKVEJvcU9GSTQ",
+        "categoria":"Trabajos de Docentes - Investigadores",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Rodrigo Basualdo"
+            },
+	        {
+                "Autor": "Esteban Massuh"
+            },
+            {
+                "Autor": "Federico Baroni"
+            },
+	        {
+                "Autor": "Rosana Portillo"
+            }
+        ]
+    },
+     {
+        "titulo": "Deserción Universitaria: Validación de Patrones Relacionales en los Alumnos de Primer Año",
+        "archivo": "0B0UxvnUHVKBcci1HLWFqZ1lSVmM",
+        "categoria":"Trabajos de Docentes - Investigadores",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Mariana Falco"
+            },
+	    {
+                "Autor": "Sergio A. Antonini"
+            },
+            {
+                "Autor": "Romina M. Istvan"
+            }
+        ]
+    },
+     {
+        "titulo": "Evaluando la Calidad de Uso en una Aplicación Web de Gobierno Electrónic",
+        "archivo": "0B0UxvnUHVKBcQW80eUloTWM4dVE",
+        "categoria":"Trabajos de Docentes - Investigadores",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Marcelo Castro "
+            },
+	        {
+                "Autor": "David Sánchez Rivero"
+            },
+            {
+                "Autor": "Alejandro Vargas"
+            },
+	        {
+                "Autor": "José Farfán"
+            },
+            {
+                "Autor": "Elizabeth Reinoso"
+            },
+	        {
+                "Autor": "María Aparicio"
+            },
+            {
+                "Autor": "Fabiana Aragón"
+            },
+	        {
+                "Autor": "José Zapana"
+            },
+            {
+                "Autor": "Andrea Cándido"
+            },
+	        {
+                "Autor": "Liliana Cazón"
+            }
+        ]
+    },
+    {
+        "titulo": "Hipertension Arterial - Modelos de programacion lineal aplicados a la Dieta Dash",
+        "archivo": "0B0UxvnUHVKBcOF83X0pmRl9QSWM",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Federico Javier Gramajo "
+            }
+        ]
+    },
+    {
+        "titulo": "Representación de Espacios Indoor utilizando la Herramienta de Desarrollo de Metamodelos ADOxx",
+        "archivo": "0B0UxvnUHVKBcaWJKUm9LMExlSE0",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Karen Poch"
+            },
+	         {
+                "Autor": "Paula Rispoli"
+            }
+        ]
+    },
+    {
+        "titulo": "Sistema de monitoreo de alcoholemia - SMA",
+        "archivo": "0B0UxvnUHVKBcZFV2VmgzWU5pNXM",
+        "categoria":"Trabajos de Alumnos",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Marcos Luis Senatra"
+            },
+	        {
+                "Autor": "Gonzalo David Vicino "
+            },
+            {
+                "Autor":"Jorge Luis Favier"
+            }
+        ]
+    },
+     {
+        "titulo": "Sistemas de Información para la minería de datos georeferenciada en ecología urbana Perros callejeros como caso de estudio",
+        "archivo": "0B0UxvnUHVKBcZkZKZVNPU3BZMms",
+        "categoria":"Trabajos de Docentes - Investigadores",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Luis Ramos "
+            },
+	        {
+                "Autor": "Diego Procopio "
+            },
+            {
+                "Autor": "Marta Lasso "
+            },
+	        {
+                "Autor": "Ma. Eugenia de San Pedro "
+            }
+        ]
+    },
+     {
+        "titulo": "Student Play: un Módulo Educativo de Agent SocialMetric",
+        "archivo": "0B0UxvnUHVKBcV25OQWQxLXJ0WXc",
+        "categoria":"Trabajos de Docentes - Investigadores",
+        "tipo": "poster",
+        "Autores": [
+            {
+                "Autor": "Antonieta Kuz"
+            },
+	        {
+                "Autor": "Mariana Falco"
+            },
+            {
+                "Autor": "Roxana S. Giandini"
+            },
+	        {
+                "Autor": "Francisco Castellini"
+            }
+        ]
     }
+
+
 ]

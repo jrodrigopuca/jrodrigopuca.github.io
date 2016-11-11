@@ -285,7 +285,19 @@
     ],
     "Aula":"Aula 2 - UM2"
     },
-    
+    	{
+	"titulo":"Evaluando el impacto de la automatización y la gestión de trazas en la calidad de transformaciones de modelos",
+	"institucion":"CONICET - UTN - Facultad Regional Resistencia, Universidad Rey Juan Carlos",
+	"tematica": "Ing. de Sistemas y de Software",
+	"Horario": "17/11/2016 11:30",
+	"Autores": [
+		{"Autor": "Verónica Andrea Bollati"},
+		{"Autor": "Juan Manuel Vara"},
+		{"Autor": "David  Granada"},
+		{"Autor": "Esperanza  Marcos"}
+	],
+	"Aula":"Aula 2 - UM2"
+	},
     
      {
     "titulo":"Guía metodológica para el desarrollo de sitios web móviles adaptativos con el enfoque Mobile First",
@@ -1272,19 +1284,6 @@
 		{"Autor": "Eva  Villarreal Guzmán"},
 		{"Autor": "Silvio  Gonnet"},
 		{"Autor": "Horacio  Leone"}
-	],
-	"Aula":"Aula 2 - UM2"
-	},
-	{
-	"titulo":"Evaluando el impacto de la automatización y la gestión de trazas en la calidad de transformaciones de modelos",
-	"institucion":"CONICET - UTN - Facultad Regional Resistencia, Universidad Rey Juan Carlos",
-	"tematica": "Ing. de Sistemas y de Software",
-	"Horario": "17/11/2016 19:00",
-	"Autores": [
-		{"Autor": "Verónica Andrea Bollati"},
-		{"Autor": "Juan Manuel Vara"},
-		{"Autor": "David  Granada"},
-		{"Autor": "Esperanza  Marcos"}
 	],
 	"Aula":"Aula 2 - UM2"
 	},

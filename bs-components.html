@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--BS4 CSS
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+        -->
+    <!--BS3 CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+    crossorigin="anonymous">
+    
+    <!--Estilo interno-->   
+    <style>
+        .container-fluid {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        #cont-1 {
+            background-color: indigo;
+            color: whitesmoke;
+        }
+        #cont-2 {
+            background-color: rebeccapurple;
+            color: whitesmoke;
+        }
+        #cont-3 {
+            background-color: #663380;
+            color: whitesmoke;
+        } 
+        #cont-6{
+            background: dimgrey;
+        }       
+    </style>
+</head>
+
+<body>
+            
+    <!-- NavBar -->
+       <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img alt="Brand" class="img-circle img-responsive" src="https://store-images.s-microsoft.com/image/apps.39154.9007199266291358.535e92e7-c15f-48b3-9889-feff968ccb3c.42a657f4-1495-4ffb-8d5b-ddf9983b6f06?w=50&h=50">
+                 </a>
+                 <!--Hamburger button-->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+             </div>       
+            <!--NavBar Items-->
+             <div class="navbar-collapse collapse">
+                 <ul class="nav navbar-nav">
+                     <li> <a href="#cont-2"> Description </a></li>
+                     <li> <a href="#cont-3"> Features </a></li>
+                     <li> <a href="#cont-4"> Screens </a></li>    
+                     <li> <a href="#cont-5"> Game Details  </a></li>    
+                     <li> <a href="#cont-6"> Download  </a></li>   
+                                  
+                 </ul>
+              </div>   
+            </div>
+        </nav>
+     
+
+    <!--Texto -->
+    <div id="cont-1" class="container-fluid text-center">
+        <h1> Nyan JT </h1>
+        <img src="https://store-images.s-microsoft.com/image/apps.39154.9007199266291358.535e92e7-c15f-48b3-9889-feff968ccb3c.42a657f4-1495-4ffb-8d5b-ddf9983b6f06?w=191&h=191" class="img-circle" alt="logo">
+         <h3>
+         <span class="label label-info">Other Nyan Cat Game</span>
+         </h3>
+    </div>
+    
+    <!--Carousel + Texto-->
+    <div id="cont-2" class="container-fluid text-center">
+       <h2> Description</h2>
+       <div class="col-md-3">
+               <!--Carousel imagen -->
+                <div id="carousel" class="carousel slide" data-ride="carousel">
+                 <!--Lista de imagenes -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel" data-slide-to="0" class="active"/>
+                    <li data-target="#carousel" data-slide-to="1" />
+                    <li data-target="#carousel" data-slide-to="2" />
+                </ol>
+        
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img class="img-responsive" src="https://store-images.s-microsoft.com/image/apps.499.9007199266291358.40b60469-9e36-40c8-9e64-094ca5d591ce.a2e4ce80-1284-4adc-a0bf-fc680dc34846?w=712&h=400&mode=letterbox&background=black">
+                        <div class="carousel-caption">
+                            Ready
+                    </div>
+                </div>
+                    <div class="item">
+                        <img class="img-responsive" src="https://store-images.s-microsoft.com/image/apps.499.9007199266291358.40b60469-9e36-40c8-9e64-094ca5d591ce.a2e4ce80-1284-4adc-a0bf-fc680dc34846?w=712&h=400&mode=letterbox&background=black">
+                        <div class="carousel-caption">
+                            set
+                     </div>
+                </div>
+                <div class="item">
+                        <img class="img-responsive" src="https://store-images.s-microsoft.com/image/apps.37096.9007199266291358.867dc575-1608-46c1-8a58-379863c01a2c.676ba1b0-e593-4d4b-a3db-f0872afcbf52?w=712&h=400&mode=letterbox&background=black">
+                        <div class="carousel-caption">
+                            Go!
+                </div>
+           </div>
+        </div>
+    </div>
+           
+       </div>
+       <div class="col-md-9">
+        
+        <p>
+           Bacon ipsum dolor amet sausage ball tip tongue tri-tip corned beef t-bone cupim chuck pork chop beef turkey hamburger tenderloin.
+           Jowl leberkas bacon cow. Short loin short ribs boudin, drumstick turducken pancetta turkey porchetta cow pork prosciutto rump 
+           brisket chicken beef. Flank ground round shankle salami. Filet mignon tail chicken, short ribs venison turducken drumstick fatback 
+           cupim. Pig salami turkey pork loin tri-tip alcatra, pork doner ribeye short ribs turducken kevin swine chicken cupim.
+        </p>  
+       </div>         
+    </div>
+    
+    <!-- Video responsive + Texto -->
+    <div id="cont-3" class="container-fluid cont-3 text-center">
+        <h2> Features</h2> 
+             
+        <div class="row">
+        <div class="col-md-3">
+        <div class="embed-responsive embed-responsive-4by3">    
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/QH2-TGUlwu4" frameborder="0" allowfullscreen></iframe>
+        </div>
+        </div>
+        <div class="col-md-9 text-left">
+        <p>            
+         Short ribs pork jowl, beef brisket venison doner porchetta chicken andouille turkey bacon pig. Shoulder jerky picanha jowl, venison boudin 
+         cow turducken ribeye short ribs doner. Chuck boudin pancetta, frankfurter pork loin andouille turkey short loin picanha pastrami t-bone cupim
+          meatball hamburger filet mignon. Bresaola tail capicola spare ribs tri-tip prosciutto kevin tongue pork loin strip steak filet mignon ham 
+          landjaeger short ribs. Kevin rump pig strip steak corned beef turkey prosciutto t-bone kielbasa alcatra beef ribs. Hamburger pig tenderloin 
+          picanha sirloin, prosciutto landjaeger beef meatball chicken kielbasa salami jerky capicola cupim. Ham hock sausage meatball tenderloin porchetta 
+          picanha pancetta jerky, prosciutto venison tri-tip short ribs shoulder.
+        </p>    
+        <p>
+           Bacon ipsum dolor amet sausage ball tip tongue tri-tip corned beef t-bone cupim chuck pork chop beef turkey hamburger tenderloin.
+           Jowl leberkas bacon cow. Short loin short ribs boudin, drumstick turducken pancetta turkey porchetta cow pork prosciutto rump 
+           brisket chicken beef. Flank ground round shankle salami. Filet mignon tail chicken, short ribs venison turducken drumstick fatback 
+           cupim. Pig salami turkey pork loin tri-tip alcatra, pork doner ribeye short ribs turducken kevin swine chicken cupim.
+        </p>   
+        
+        </div>       
+        </div>
+        
+    </div>
+
+    <!-- Galería (3,3,3,3) -->
+    <div id="cont-4" class="row container-fluid text-center">
+         <h2> Screens </h2> 
+        
+        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+            <img class="img-responsive" src="https://store-images.s-microsoft.com/image/apps.52613.9007199266291358.b8152c05-2264-405d-bfb7-b485fa979b3d.8ac82ee7-1dc0-4c69-94dd-074d07d88c27?w=712&h=400&mode=letterbox&background=black">
+            <p>Bacon ipsum dolor amet kielbasa ball tip picanha pastrami short loin hamburger drumstick salami bacon spare ribs
+                cow ham hock. Porchetta boudin strip steak salami, drumstick.
+            </p>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+            <img class="img-responsive" src="https://store-images.s-microsoft.com/image/apps.499.9007199266291358.40b60469-9e36-40c8-9e64-094ca5d591ce.a2e4ce80-1284-4adc-a0bf-fc680dc34846?w=712&h=400&mode=letterbox&background=black">
+            <p>Fatback tail pork spare ribs shoulder alcatra pastrami prosciutto kevin.
+               Venison beef pork belly, brisket fatback tail ground round biltong tongue pastrami shoulder. 
+            </p>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+            <img class="img-responsive" src="https://store-images.s-microsoft.com/image/apps.37096.9007199266291358.867dc575-1608-46c1-8a58-379863c01a2c.676ba1b0-e593-4d4b-a3db-f0872afcbf52?w=712&h=400&mode=letterbox&background=black">
+            <p>Pork loin drumstick shankle sirloin, jowl brisket tongue doner cupim shank venison pork chop ground round jerky.
+               Pork shank bacon fatback leberkas sirloin.
+            </p>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+            <img class="img-responsive" src="https://store-images.s-microsoft.com/image/apps.7366.9007199266291358.b81a88f4-97cf-4876-b7e6-a5e633ff684d.54340c87-ef1e-4b63-b6d3-732ec5b1dda1?w=712&h=400&mode=letterbox&background=black">
+            <p>Pork loin drumstick shankle sirloin, jowl brisket tongue doner cupim shank venison pork chop ground round jerky.
+               Pork shank bacon fatback leberkas sirloin.
+            </p>
+        </div>
+    </div>
+    
+ <!-- Panel -->
+    <div id="cont-5" class="container-fluid">
+    <div class="panel panel-default">
+           <div class="panel-heading text-center"> <h2> Game Details </h2> </div>
+      <div class="panel-body">
+         <p>Additional information</p>
+            
+            <table class="table table-responsive table-hover">
+                 <tbody>
+                    <tr>
+                         <th>Last update</th>
+                         <td>------------</td>
+                    </tr>
+                    <tr>
+                        <th>Content Rating</th>
+                        <td>------------</td>
+                    </tr>
+                    <tr>
+                        <th>Permissions</th>
+                        <td>------------</td>
+                    </tr>
+                     <tr>
+                        <th>Platform</th>
+                        <td>------------</td>
+                    </tr>
+                     <tr>
+                        <th>Developer</th>
+                        <td>------------</td>
+                    </tr>
+                 </tbody>
+            </table>
+                        
+        </div>
+     </div>
+     </div>
+    
+    <!-- Botón -->
+    <div id="cont-6" class="row container-fluid text-center">
+        <h2> Download </h2> 
+        <a href="https://www.microsoft.com/en-us/store/games/nyan-jt/9wzdncrdfhdz" class="btn btn-default" role="button">
+            <span class="glyphicon glyphicon-download" aria-hidden="true"></span> Download now!
+        </a>
+    </div>
+
+    <!-- footer-->
+    <footer class="container-fluid text-center">
+        <p> RGeeks <a href="http://rgeeks.wordpress.com/"> Visit us! </a><p> 
+    </footer>
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- BS4 JS 
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+       -->
+    <!-- BS3 JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

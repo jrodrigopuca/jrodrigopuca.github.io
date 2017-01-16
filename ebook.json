@@ -315,6 +315,13 @@
         "tipo": "Trabajos de Investigación"
     },
     {
+        "id": "",
+        "titulo": "Contratación electrónica y firma digital",
+        "archivo": "0B0UxvnUHVKBcZ0IyQTN0cTEtZW8",
+        "categoria": "Conferencias",
+        "tipo": "Conferencia"
+    },
+    {
         "id": 115,
         "titulo": "Contribución de las TICs en la Cadena Valor para el Desarrollo Industrial",
         "archivo": "0Byd3HXEW6NCBRVFmZi1makVHWms",
@@ -411,6 +418,13 @@
         "archivo": "0Byd3HXEW6NCBYU4zbzF3c1pOUFU",
         "categoria": "Base de Datos",
         "tipo": "Trabajos de Investigación"
+    },
+    {
+        "id": 316,
+        "titulo": "Descripción y comparación de las diferentes tecnologías de interfaz cerebro computadora",
+        "archivo": "0B0UxvnUHVKBceE5mNTIzZlhWVTg",
+        "categoria": "Trabajos aprobados (Alumnos)",
+        "tipo": "Trabajos de Alumnos"
     },
     {
         "id": 78,
@@ -882,6 +896,13 @@
         "tipo": "Trabajos de Investigación"
     },
     {
+        "id": "",
+        "titulo": "Ingenieros - Ética en Crisis",
+        "archivo": "0B0UxvnUHVKBcTVJtV3cwTG0wSlU",
+        "categoria": "Conferencias",
+        "tipo": "Conferencia"
+    },
+    {
         "id": 301,
         "titulo": "Inmersión en la Realidad Virtual",
         "archivo": "0Byd3HXEW6NCBYkZIcE8tRUtuTzA",
@@ -1067,6 +1088,13 @@
         "id": 109,
         "titulo": "Modelado de Comportamiento de Conectores de Software a través de Lenguajes Declarativos ",
         "archivo": "0Byd3HXEW6NCBWUJlekNXNmNQbXM",
+        "categoria": "Ing. de Sistemas y de Software",
+        "tipo": "Trabajos de Investigación"
+    },
+    {
+        "id": 94,
+        "titulo": "Modelado de procesos continuos",
+        "archivo": "0B0UxvnUHVKBcdVVtbG1rTmxkblU",
         "categoria": "Ing. de Sistemas y de Software",
         "tipo": "Trabajos de Investigación"
     },

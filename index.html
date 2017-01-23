@@ -1,53 +1,69 @@
 <!DOCTYPE html>
 <html>
-<body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
-    <script>
-        var dev;
-        $.getJSON('https://raw.githubusercontent.com/jrodrigopuca/jrodrigopuca.github.io/master/data.json',function(data){
-            dev=JSON.stringify(data);
-
-            $(data).each(function(index,value){
-
-                $("ul").append("<li>"+ 
-                                    "<p>"+ value.titulo+"</p>" +
-                                    "<p>"+ value.tematica +"</p>" +
-                                    "<p>"+ value.Horario +"</p>" +
-                                "</li>");
-                
-               /*
-                $(value.Autores).each(function(key,val){
-                        console.log(val.Autor);
-                        });*/
-                
-            
-                
-            });
-
-        });
-
-
-        $.ajax({
-                type: "POST",
-                url: url,
-                data: dev,
-                headers:{
-                        'Content-Type': 'application/json'
-                    },
-
-                success: function(){$("body").append("<p>Correcto</p>" );},
-                error: function(){$("body").append("<p>InCorrecto</p>" );},
-                dataType:"json"
-        });
-
-    </script>
-
-    <ul> 
-
-    </ul>
-
-
-
-</body>
+  <head class="no-js" lang="es">
+    <meta charset="utf-8">
+    <title>Título</title>
+    <meta content="JARP Site" name="description">
+    <meta content="width=device=width, initial-scale=1" name="viewport">
+    <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <!-- Logo -->
+          <a class="navbar-brand" href="">
+            <img alt="brand" class="img-circle img-responsive" src="images/mini-logo.png">
+          </a>
+          <!-- Hamburger -->
+          <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="#inicio">inicio</a>
+            </li>
+            <li>
+              <a href="#ajsdkkl">ajsdkkl</a>
+            </li>
+            <li>
+              <a href="#Contacto">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Sección Portada -->
+    <section class="video-container full">
+      <!-- Video de portada -->
+      <video autoplay="true" class="absolute embed-responsive-item" loop="true">
+        <source src="videos/portada.mp4">
+      </video>
+      <!-- Texto de portada -->
+    </section>
+    <div class="row relative full middle-xs center-xs up">
+      <div class="col-xs-12">
+        <div class="box">
+          <img height="200" src="images/logo.png" width="200">
+          <h1>Titulo</h1>
+          <h3>Hola</h3>
+        </div>
+      </div>
+    </div>
+    <div class="row full" id="proyectos">
+      <p>hola</p>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script crossorigin="anonymous" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>
-

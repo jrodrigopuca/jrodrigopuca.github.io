@@ -1,0 +1,53 @@
+!!!5
+%html
+    %head{class:"no-js",lang:"es"}
+        %meta{charset:"utf-8"}
+        %title Título
+        %meta{name:"description", content:"JARP Site"}
+        %meta{name:"viewport", content:"width=device=width, initial-scale=1"}
+        %link{rel:"stylesheet",href:"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css",integrity:"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", crossorigin:"anonymous"}
+        %link{rel:"stylesheet",href:"https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.css"}
+        %link{href:"https://fonts.googleapis.com/css?family=Questrial",rel:"stylesheet"}
+        %link{href:"https://fonts.googleapis.com/css?family=Raleway",rel:"stylesheet"}
+        %link{rel:"stylesheet",href:"styles/style.css"}
+    %body
+        %nav.navbar.navbar-fixed-top.navbar-inverse
+            .container
+                .navbar-header
+                    /Logo
+                    %a.navbar-brand{href:""}
+                        %img.img-circle.img-responsive{alt:"brand",src:"images/mini-logo.png"}
+                    /Hamburger
+                    %button.navbar-toggle{'data-toggle':"collapse",'data-target':".navbar-collapse"}
+                        -3.times do |i|
+                            %span.icon-bar
+                .navbar-collapse.collapse
+                    -menu =["inicio", "ajsdkkl", "Contacto"]
+                    %ul.nav.navbar-nav
+                        -menu.each do |item|
+                            %li
+                                %a{href:'#'+"#{item}"}= item
+
+
+
+        /Sección Portada
+        %section.video-container.full
+            /Video de portada
+            %video.absolute.embed-responsive-item{autoplay:"true", loop:"true"}
+                %source{src:"videos/portada.mp4"}
+            /Texto de portada
+        .row.relative.full.middle-xs.center-xs.up
+            .col-xs-12
+                .box
+                    %img{src:"images/logo.png", width:"200",height:"200"}
+                    %h1 Titulo
+                    %h3 Hola
+
+        .row.full#proyectos
+            %p hola
+
+
+        %script{src:"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"}
+        %script{src:"https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"}
+        %script{src:"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js", integrity:"sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa", crossorigin:"anonymous"}
+        %script{src:"js/main.js"}

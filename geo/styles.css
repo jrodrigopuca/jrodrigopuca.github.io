@@ -1,0 +1,12 @@
+#app-gl .input-group-addon-btn {
+    padding: 0;
+    cursor: pointer;
+}
+
+form{
+    padding: 45px;
+}
+.dlist{
+    width: auto;
+    margin:10px;
+}

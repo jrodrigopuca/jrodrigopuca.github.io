@@ -54,7 +54,7 @@ $text.on('input',function(e){
 // agregar sugerencias al texto
 function cambiarTexto(query){
 
-    var api_dir='http://autocomplete.geocoder.api.here.com/6.2/suggest.json';   
+    var api_dir='https://autocomplete.geocoder.api.here.com/6.2/suggest.json';   
 
     $.ajax({
         url: api_dir,

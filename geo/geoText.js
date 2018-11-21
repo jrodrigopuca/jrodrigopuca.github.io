@@ -83,9 +83,6 @@ function cambiarTexto(query){
                 }
             }
         },
-        error: function(error){
-            $respuesta.text("no se obtuvo posición");
-        },
         
         });
 

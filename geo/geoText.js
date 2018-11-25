@@ -29,14 +29,15 @@ function actualizarPosicion(posicion){
     dataType: 'jsonp',
     jsonp: 'jsoncallback',
     data:{
-        prox: `${posicion.coords.latitude},${posicion.coords.longitude},150`,
+        prox: `${posicion.coords.latitude},${posicion.coords.longitude},10`,
         mode: 'retrieveAddresses',
         maxresults: '1',
         app_id: app_id,
         app_code: app_code
     },
     success: function(response) {
-        $('#busqueda').val(response.Response.View[0].Result[0].Location.Address.City);
+        //console.log(response.Response.View[0].Result[0].Location.Address.City);
+        $('#busqueda').val(response.Response.View[0].Result[0].Location.Address.Label);
         $respuesta.text("Tu lugar fue encontrado correctamente");
         },
     error:function(e){
@@ -84,7 +85,7 @@ function cambiarTexto(query){
             }
         },
         
-        });
+    });
 
 }
 

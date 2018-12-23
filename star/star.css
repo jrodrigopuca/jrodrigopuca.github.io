@@ -1,0 +1,19 @@
+.star{
+    font-size: 3em;
+}
+
+.label-star{
+    font-size: 3em;
+    font-weight: bold;
+    color:#FF9017;
+}
+
+.activo{
+    color:#FF9017;
+}
+.semi-activo{
+    color:#FCBD5B;
+}
+.inactivo{
+    color:#D6C6A5;
+}

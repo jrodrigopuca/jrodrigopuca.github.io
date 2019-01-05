@@ -1,0 +1,60 @@
+html{
+    padding: 0;
+    margin: 0;
+}
+
+@font-face{
+    font-family: 'blzee';
+    src: url('fonts/blzee.ttf');
+}
+
+@font-face{
+    font-family: 'rudi';
+    src: url('fonts/Rudiment.ttf');
+}
+
+body{
+   background-color: #292623;
+   color: white;
+   font-weight: 300 px;
+}
+
+.jumbotron-fluid{
+    background-image: url('images/jumbotron.jpg');
+    height:100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+h1{
+    font-family: 'blzee', sans-serif;
+}
+
+.product-name{
+    font-family: 'rudi', serif;
+}
+
+#divPrincipal{
+    margin: 20px;
+    padding: 20px;
+    align-content: center;
+    border-radius: 10%;
+    border: beige;
+    border-width: 10px;
+    border-style: double;
+}
+
+
+#divPrincipal:hover{
+    background-color: #F2f1D3;
+    color:#41413D;
+}
+
+.img-rounded{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}

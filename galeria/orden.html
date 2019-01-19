@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Galería</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="orden.css">
+</head>
+
+<body ng-app="App">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Delicious</h1>
+            <p class="lead">Un gran lugar para comenzar</p>
+        </div>
+    </div>
+
+    <!--        Sección Orden       -->
+    <section class="full orden">
+        <h1 class="text-center"> Ordenes Activas </h1>
+        <br>
+        <div class="full row" ng-controller="ctrlOrden">
+            <ul class="col-6">
+                <li class="list-group-item list-group-item-light" ng-repeat="o in ordenes">
+                    <h4>{{o.nombre}}</h4>
+                    <fieldset>{{o.horario | date:'medium' }}</fieldset>
+                </li>
+            </ul>
+            <form class="col-6">
+                <div class="">
+                    <select class="custom-select col">
+                        <option ng-repeat="m in mesas">
+                            {{m.nombre}}
+                        </option>
+                    </select>
+                    <button type="submit" class="btn btn-primary col">Iniciar Orden</button>
+                </div>
+
+            </form>
+        </div>
+        <script>
+            const app = angular.module('App', []);
+            app.controller('ctrlOrden', function ($scope) {
+                $scope.ordenes = [{ nombre: "Mesa 1", horario: "20190118T00:00:00" }, { nombre: "Mesa 2", horario: "20190118T00:00:00" }];
+                $scope.mesas = [{ nombre: "Mesa 3" }, { nombre: "Mesa 4" }, { nombre: "Mesa 5" }];
+            })
+        </script>
+    </section>
+
+    <!--        Sección Detalles       -->
+    <section class="full detalle">
+        <br>
+        <h1 class="text-center"> Detalles de Orden <span class="badge badge-secondary">Mesa 1</span> </h1>
+        <br>
+        <div class="full row" ng-controller="ctrlDetalle">
+            <ul class="col-6">
+                <li class="list-group-item list-group-item-light" ng-repeat="d in detalles">
+                    <h5>{{d.producto}}</h5>
+                    <fieldset>
+                        Cantidad: {{d.cantidad}}
+                        Subtotal: <b>$ {{d.precio * d.cantidad}}</b>
+                        <a href="" class="badge badge-pill badge-danger">Remover</a>
+                    </fieldset>
+
+                </li>
+            </ul>
+            <form class="col-6">
+                <div class="">
+                    <select class="custom-select col">
+                        <option ng-repeat="p in productos" value="{{p.nombre}}">
+                            {{p.nombre}} | $ {{p.precio}}
+                        </option>
+                    </select>
+                    <button type="submit" class="btn btn-primary col">Agregar</button>
+                    <a href="#" class="btn btn-success col">Cerrar Orden</a>
+                </div>
+            </form>
+        </div>
+        <script>
+            app.controller('ctrlDetalle', function ($scope) {
+                $scope.detalles = [
+                    { producto: "cafecito", cantidad: "2", precio: "15" },
+                    { producto: "medialunas", cantidad: "4", precio: "10" },
+                ];
+                $scope.productos = [{ nombre: "cafecito", precio: "15" }, { nombre: "medialuna", precio: "10" }];
+            })
+        </script>
+    </section>
+    <!--        Sección Cobrar       -->
+    <section class="full cobrar">
+        <br>
+        <h1 class="text-center"> Cerrar Orden <span class="badge badge-secondary">Mesa 1</span> </h1>
+        <br>
+        <div class="full" ng-controller="ctrlCerrar">
+            <form class="col-12">
+
+                <label> A pagar: ${{total}}</label>
+                <select class="custom-select col">
+                    <option ng-repeat="f in formaPago" value="{{f.forma}}">
+                        {{f.forma}}
+                    </option>
+                </select>
+                <br>
+                <div class="full row">
+                <button type="submit" class="btn btn-primary col-6">Confirmar</button>
+                <button type="submit" class="btn btn-danger col-6">Cancelar</button>
+                </div>
+            </form>
+            <br>
+        </div>
+        <script>
+            app.controller('ctrlCerrar', function ($scope) {
+                $scope.total = 70;
+                $scope.formaPago = [
+                    { forma: "Efectivo" },
+                    { forma: "Tarjeta Debito" },
+                    { forma: "Tarjeta Crédito" },
+
+                ];
+            })
+        </script>
+    </section>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Satisfy');
+
+html, body{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    overflow-x: hidden;
+    color: white;
+    background-color: #292623;
+    font-weight: 300 px;
+}
+.jumbotron-fluid{
+    background-image: url('images/jumbotron.jpg');
+    height:100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1{
+    font-family: 'Satisfy', cursive;
+}
+
+section{
+    margin-top:40px;
+    margin-bottom: 40px;
+}

@@ -1,0 +1,59 @@
+<section id="detalla">
+    <h1 class="text-center"> Pedidos en Mesa {{num}}</h1>
+    <div class="container-fluid">
+        <form class="col-12">
+            <select class="custom-select col-2" ng-model="cantidad" required>
+                <option value="" disabled> Eligir cantidad </option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <select class="custom-select col-6" ng-model="productos[$index]" required>
+                <option value="" disabled> Eligir producto </option>
+                <option ng-repeat="p in productos" ng-value="p">
+                    {{p.productoNombre}} | Precio: $ {{p.Precio}}
+                </option>
+            </select>
+
+            <button type="submit" class="btn btn-primary col-3" ng-disabled="productos[$index]==null || cantidad==null" ng-click="BtnClickB($index, cantidad)">
+                <i class="fas fa-cart-plus"></i>
+            </button>
+            <br>
+        </form>
+
+
+        <ul class="col-12">
+            <i> Mis Pedidos </i>
+            <li class="list-group-item list-group-item-light" ng-repeat="d in detalles">
+                <div class="d-flex w-100 justify-content-between">
+                    <h6 class="mb-1"><span class="badge badge-dark">{{d.Cantidad}} </span>
+                        {{d.ProductoNombre}} </h6>
+                    <small>{{d.FechaDetalleOrden | date:'medium'}}</small>
+                    <small>Estado: {{d.Estado}} </small>
+                    <small>SubTotal: ${{d.Precio*d.Cantidad}}</small>
+                    <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-warning" ng-click="BtnCambiarEstadoD(d.Id,2)">
+                                <i class="fas fa-mortar-pestle"></i>
+                            </button>
+                            <button type="button" class="btn btn-secondary" ng-click="BtnCambiarEstadoD(d.Id,3)">
+                                <i class="fas fa-shoe-prints"></i>
+                            </button>
+                            <button type="button" class="btn btn-success" ng-click="BtnCambiarEstadoD(d.Id,4)">
+                                <i class="fas fa-concierge-bell"></i>
+                            </button>
+                            <button type="button" class="btn btn-danger" ng-click="BtnCambiarEstadoD(d.Id,0)">
+                                <i class="fas fa-ban"></i>
+                            </button>
+                    </div>
+                    <!--
+                        - EnPreparacion=2
+                        - EnCamino=3
+                        - Servido=4
+                        - Cancelado=0
+                    -->
+                </div>
+            </li>
+        </ul>
+</section>

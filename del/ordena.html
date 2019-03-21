@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <title>Ordenar</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="estilo.css">
@@ -29,7 +31,7 @@
         <div class="container-fluid" ng-controller="ctrlOrden">
             <!-- Ocupar mesa -->
             <div class="col-12">
-                <form class="container row" name="formMesa">
+                <form class="container-fluid row" name="formMesa">
                     <select class="custom-select col-8" required ng-model="mesas[$index]">
                         <option value="" disabled> Eligir una mesa </option>
                         <option ng-repeat="m in mesas" ng-value="m" ng-show="{{!m.Ocupada}}">
@@ -37,20 +39,24 @@
                         </option>
                     </select>
 
-                    <button type="submit" class="btn btn-primary col-4" ng-click="BtnClick($index)" ng-disabled="mesas[$index]==null">
+                    <button type="submit" class="btn btn-primary col-4" ng-click="BtnClick($index)"
+                        ng-disabled="mesas[$index]==null">
                         <i class="far fa-calendar-plus"></i>
                     </button>
                 </form>
                 <br>
             </div>
             <!--Mesas ocupadas-->
-            <ul class="col-12">
+            <ul class="col-12 col-xs-12 col-ms-12">
                 <i> Mesas ocupadas </i>
                 <li class="list-group-item list-group-item-light" ng-repeat="o in ordenes | orderBy:'-FechaOrden'">
                     <div class="d-flex w-100 justify-content-between">
-                        <h6 class="mb-1">Mesa: {{o.MesaNumero}}</h6>
-                        <small>{{o.FechaOrden| date:'medium'}}</small>
-                        <div class="btn-group" role="group">
+                        <p class="mb-1">Mesa: {{o.MesaNumero}}</p>
+                        <!--
+                        <small>{{o.FechaOrden+'Z'| date:"dd MMM yy hh:mm a"}}</small>
+                        -->
+                        <p> {{enMinutos(o.FechaOrden+'Z')}}</p>
+                        <p class="btn-group" role="group">
                             <a href="#!detalla/{{o.Id}}/{{o.MesaNumero}}?scrollTo=detalla" class="btn btn-primary"
                                 alt="Ordenar">
                                 <i class="fas fa-clipboard-list"></i>
@@ -61,7 +67,7 @@
                                 <i class="fas fa-dollar-sign"></i>
                             </a>
 
-                        </div>
+                        </p>
                     </div>
                 </li>
             </ul>
@@ -82,16 +88,38 @@
         app.controller('ctrlOrden', ['$scope', '$http', '$interval', function ($scope, $http, $interval) {
             // Traer Mesas
             function getMesas() {
-                $http.get("https://buscandomesa.azurewebsites.net/API/MesaAPI/MesasDisponibles?localID=7cf4dc70-9719-40ba-9dda-00f2f2769af4")
+                $http.get("http://buscandomesa.azurewebsites.net/API/MesaAPI/MesasDisponibles?localID=7cf4dc70-9719-40ba-9dda-00f2f2769af4")
                     .then(function (response) {
                         $scope.mesas = response.data;
                     })
             }
             getMesas();
 
+            // Código para traer data de minutos/horas 
+            var reloj = () => { $scope.ahora = Date.now(); }
+            reloj();
+            $interval(reloj, 1000);
+
+            function getFecha(fecha) {
+                let fechaAnterior = new Date(fecha);
+                let fechaActual = $scope.ahora;
+                let retorno = "";
+                minutos = ~~(Math.abs(fechaActual - fechaAnterior) / (1000 * 60));
+
+                if (minutos > 120) { retorno = `Hace ${~~(minutos / 60)} horas` }
+                else { retorno = `Hace ${minutos} minutos` }
+
+                return retorno;
+            }
+
+            $scope.enMinutos = function (fecha) {
+                return getFecha(fecha);
+            }
+
+
             // Traer Ordenes
             function getOrdenes() {
-                $http.get("https://buscandomesa.azurewebsites.net/API/ORDENAPI?LocalId=7cf4dc70-9719-40ba-9dda-00f2f2769af4&pagado=false")
+                $http.get("http://buscandomesa.azurewebsites.net/API/ORDENAPI?LocalId=7cf4dc70-9719-40ba-9dda-00f2f2769af4&pagado=false")
                     .then(function (response) {
                         $scope.ordenes = response.data;
                         console.log("traer datos");
@@ -109,7 +137,7 @@
             // Agregar Orden
             $scope.BtnClick = function (index) {
                 let date = new Date();
-                let jsonDate= date.toJSON();
+                let jsonDate = date.toJSON();
                 var post = $http({
                     method: 'POST',
                     url: `https://buscandomesa.azurewebsites.net/API/OrdenAPI?fechaOrden=${jsonDate}&mesaNumero=${$scope.mesas[index].MesaNumero}&MesaId=${$scope.mesas[index].MesaId}`,
@@ -119,6 +147,7 @@
                     getMesas();
                     getOrdenes();
                 }, function errorCallback(response) {
+                    alert("Algo ha salido mal. Por favor, intenta de nuevo");
                     //console.log(response);
                 });
             }
@@ -140,16 +169,38 @@
             $scope.id = $routeParams.id;
             $scope.num = $routeParams.num;
 
-            function ActualizarFecha(){
-                let fecha=new Date();
-                $scope.date=fecha;
+            function ActualizarFecha() {
+                let fecha = new Date();
+                $scope.date = fecha;
                 //fecha.toJSON();
-            } 
+            }
 
-            $interval(ActualizarFecha,1000);
+            $interval(ActualizarFecha, 1000);
+
+
+            // Código para traer data de minutos/horas (para refactoring)
+            var reloj = () => { $scope.ahora = Date.now(); }
+            reloj();
+            $interval(reloj, 1000);
+
+            function getFecha(fecha) {
+                let fechaAnterior = new Date(fecha);
+                let fechaActual = $scope.ahora;
+                let retorno = "";
+                minutos = ~~(Math.abs(fechaActual - fechaAnterior) / (1000 * 60));
+
+                if (minutos > 120) { retorno = `Hace ${~~(minutos / 60)} horas` }
+                else { retorno = `Hace ${minutos} minutos` }
+
+                return retorno;
+            }
+
+            $scope.enMinutos = function (fecha) {
+                return getFecha(fecha);
+            }
 
             function getDetalles(id) {
-                $http.get(`https://buscandomesa.azurewebsites.net/API/OrdenDetalleAPI?ordenID=${id}`)
+                $http.get(`http://buscandomesa.azurewebsites.net/API/OrdenDetalleAPI?ordenID=${id}`)
                     .then(function (response) {
                         $scope.detalles = response.data;
                         //console.log(response.data);
@@ -157,7 +208,7 @@
             }
 
             function getProductos() {
-                $http.get('https://buscandomesa.azurewebsites.net/API/ProductoAPI?LocalId=7cf4dc70-9719-40ba-9dda-00f2f2769af4')
+                $http.get('http://buscandomesa.azurewebsites.net/API/ProductoAPI?LocalId=7cf4dc70-9719-40ba-9dda-00f2f2769af4')
                     .then(function (response) {
                         $scope.productos = response.data;
                     })
@@ -167,15 +218,16 @@
 
             $scope.BtnClickB = function (index, cant) {
                 let date = new Date();
-                let jsonDate= date.toJSON();
+                let jsonDate = date.toJSON();
                 let post = $http({
                     method: 'POST',
-                    url: `https://buscandomesa.azurewebsites.net/API/OrdenDetalleAPI?ordenID=${$scope.id}&productoID=${$scope.productos[index].Id}&fechaDetalle=${jsonDate}&cantidad=${cant}`,
+                    url: `http://buscandomesa.azurewebsites.net/API/OrdenDetalleAPI?ordenID=${$scope.id}&productoID=${$scope.productos[index].Id}&fechaDetalle=${jsonDate}&cantidad=${cant}`,
 
                 }).then(function successCallback(response) {
                     getDetalles($scope.id)
                     getProductos();
                 }, function errorCallback(response) {
+                    alert("Algo ha salido mal. Por favor, intenta de nuevo");
                 });
             }
 
@@ -184,9 +236,10 @@
                     method: 'POST',
                     url: `https://buscandomesa.azurewebsites.net/API/OrdenDetalleAPI?detalleOrdenId=${id}&estado=${estado}`,
                 }).then(function successCallback(response) {
-                    console.log(response.data)
+                    //console.log(response.data)
                     getDetalles($scope.id)
                 }, function errorCallback(response) {
+                    alert("Algo ha salido mal. Por favor, intenta de nuevo");
                 });
             }
 
@@ -198,7 +251,7 @@
             $scope.num = $routeParams.num;
             var subtotal = 0;
             function getDetallesPago(id) {
-                $http.get(`https://buscandomesa.azurewebsites.net/API/OrdenDetalleAPI?ordenID=${id}`)
+                $http.get(`http://buscandomesa.azurewebsites.net/API/OrdenDetalleAPI?ordenID=${id}`)
                     .then(function (response) {
                         $scope.detallesP = response.data;
                         for (det of $scope.detallesP) {
@@ -211,7 +264,7 @@
             }
 
             function getOrden(id) {
-                $http.get(`https://buscandomesa.azurewebsites.net/API/ORDENAPI?ordenId=${id}`)
+                $http.get(`http://buscandomesa.azurewebsites.net/API/ORDENAPI?ordenId=${id}`)
                     .then(function (response) {
                         $scope.ordenP = response.data;
                     })
@@ -220,10 +273,10 @@
             getDetallesPago($scope.Id);
             $scope.BtnPagar = function () {
                 let date = new Date();
-                let jsonDate= date.toJSON();
+                let jsonDate = date.toJSON();
                 let post = $http({
                     method: 'POST',
-                    url: `https://buscandomesa.azurewebsites.net/API/ORDENAPI?ordenId=${$scope.Id}&fechaPagado=${jsonDate}&totalPagado=${$scope.aPagar}`,
+                    url: `http://buscandomesa.azurewebsites.net/API/ORDENAPI?ordenId=${$scope.Id}&fechaPagado=${jsonDate}&totalPagado=${$scope.aPagar}`,
                 }).then(function successCallback(response) {
                     //$window.location.reload();
                     //window.history.back();
@@ -233,12 +286,22 @@
                     $window.location.reload();
 
                 }, function errorCallback(response) {
+                    alert("Algo ha salido mal. Por favor, intenta de nuevo");
                 });
             }
 
         })
 
     </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

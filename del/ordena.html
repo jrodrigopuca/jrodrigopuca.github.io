@@ -88,7 +88,7 @@
         app.controller('ctrlOrden', ['$scope', '$http', '$interval', function ($scope, $http, $interval) {
             // Traer Mesas
             function getMesas() {
-                $http.get("http://buscandomesa.azurewebsites.net/API/MesaAPI/MesasDisponibles?localID=7cf4dc70-9719-40ba-9dda-00f2f2769af4")
+                $http.get("https://buscandomesa.azurewebsites.net/API/MesaAPI/MesasDisponibles?localID=7cf4dc70-9719-40ba-9dda-00f2f2769af4")
                     .then(function (response) {
                         $scope.mesas = response.data;
                     })
@@ -119,7 +119,7 @@
 
             // Traer Ordenes
             function getOrdenes() {
-                $http.get("http://buscandomesa.azurewebsites.net/API/ORDENAPI?LocalId=7cf4dc70-9719-40ba-9dda-00f2f2769af4&pagado=false")
+                $http.get("https://buscandomesa.azurewebsites.net/API/ORDENAPI?LocalId=7cf4dc70-9719-40ba-9dda-00f2f2769af4&pagado=false")
                     .then(function (response) {
                         $scope.ordenes = response.data;
                         console.log("traer datos");
@@ -200,7 +200,7 @@
             }
 
             function getDetalles(id) {
-                $http.get(`http://buscandomesa.azurewebsites.net/API/OrdenDetalleAPI?ordenID=${id}`)
+                $http.get(`https://buscandomesa.azurewebsites.net/API/OrdenDetalleAPI?ordenID=${id}`)
                     .then(function (response) {
                         $scope.detalles = response.data;
                         //console.log(response.data);
@@ -208,7 +208,7 @@
             }
 
             function getProductos() {
-                $http.get('http://buscandomesa.azurewebsites.net/API/ProductoAPI?LocalId=7cf4dc70-9719-40ba-9dda-00f2f2769af4')
+                $http.get('https://buscandomesa.azurewebsites.net/API/ProductoAPI?LocalId=7cf4dc70-9719-40ba-9dda-00f2f2769af4')
                     .then(function (response) {
                         $scope.productos = response.data;
                     })
@@ -221,7 +221,7 @@
                 let jsonDate = date.toJSON();
                 let post = $http({
                     method: 'POST',
-                    url: `http://buscandomesa.azurewebsites.net/API/OrdenDetalleAPI?ordenID=${$scope.id}&productoID=${$scope.productos[index].Id}&fechaDetalle=${jsonDate}&cantidad=${cant}`,
+                    url: `https://buscandomesa.azurewebsites.net/API/OrdenDetalleAPI?ordenID=${$scope.id}&productoID=${$scope.productos[index].Id}&fechaDetalle=${jsonDate}&cantidad=${cant}`,
 
                 }).then(function successCallback(response) {
                     getDetalles($scope.id)
@@ -251,7 +251,7 @@
             $scope.num = $routeParams.num;
             var subtotal = 0;
             function getDetallesPago(id) {
-                $http.get(`http://buscandomesa.azurewebsites.net/API/OrdenDetalleAPI?ordenID=${id}`)
+                $http.get(`https://buscandomesa.azurewebsites.net/API/OrdenDetalleAPI?ordenID=${id}`)
                     .then(function (response) {
                         $scope.detallesP = response.data;
                         for (det of $scope.detallesP) {
@@ -264,7 +264,7 @@
             }
 
             function getOrden(id) {
-                $http.get(`http://buscandomesa.azurewebsites.net/API/ORDENAPI?ordenId=${id}`)
+                $http.get(`https://buscandomesa.azurewebsites.net/API/ORDENAPI?ordenId=${id}`)
                     .then(function (response) {
                         $scope.ordenP = response.data;
                     })
@@ -276,7 +276,7 @@
                 let jsonDate = date.toJSON();
                 let post = $http({
                     method: 'POST',
-                    url: `http://buscandomesa.azurewebsites.net/API/ORDENAPI?ordenId=${$scope.Id}&fechaPagado=${jsonDate}&totalPagado=${$scope.aPagar}`,
+                    url: `https://buscandomesa.azurewebsites.net/API/ORDENAPI?ordenId=${$scope.Id}&fechaPagado=${jsonDate}&totalPagado=${$scope.aPagar}`,
                 }).then(function successCallback(response) {
                     //$window.location.reload();
                     //window.history.back();

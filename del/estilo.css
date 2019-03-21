@@ -9,7 +9,6 @@ body{
     overflow-x: hidden;
     color: white;
     background-color: #292623;
-    font-weight: 300 px;
 }
 .jumbotron-fluid{
     background-image: url('images/jumbotron.jpg');
@@ -25,6 +24,15 @@ h1{
 }
 
 section{
-    margin-top:40px;
-    margin-bottom: 40px;
+    font-size: 1.5rem;
+    padding-top:40px;
+    padding-bottom: 40px;
+}
+
+#detalla{
+    background-color: lightblue;
+}
+
+#paga{
+    background-color: darkslategrey;
 }

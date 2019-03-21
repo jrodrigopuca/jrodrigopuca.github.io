@@ -19,19 +19,19 @@
 <body ng-app="app">
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4">Buscando mesa</h1>
+            <h1 class="display-1">Buscando mesa</h1>
             <p class="lead">Un gran lugar para comenzar</p>
         </div>
     </div>
 
     <!--        Sección Orden       -->
     <section class="full orden" id="orden">
-        <h1 class="text-center"> Ocupar una mesa </h1>
+        <h1 class="text-center display-3"> Ocupar una mesa </h1>
         </br>
         <div class="container-fluid" ng-controller="ctrlOrden">
             <!-- Ocupar mesa -->
             <div class="col-12">
-                <form class="container-fluid row" name="formMesa">
+                <form class="container-fluid row input-group-lg" name="formMesa">
                     <select class="custom-select col-8" required ng-model="mesas[$index]">
                         <option value="" disabled> Eligir una mesa </option>
                         <option ng-repeat="m in mesas" ng-value="m" ng-show="{{!m.Ocupada}}">
@@ -49,9 +49,9 @@
             <!--Mesas ocupadas-->
             <ul class="col-12 col-xs-12 col-ms-12">
                 <i> Mesas ocupadas </i>
-                <li class="list-group-item list-group-item-light" ng-repeat="o in ordenes | orderBy:'-FechaOrden'">
+                <li class="list-group-item list-group-item-light flex-column" ng-repeat="o in ordenes | orderBy:'-FechaOrden'">
                     <div class="d-flex w-100 justify-content-between">
-                        <p class="mb-1">Mesa: {{o.MesaNumero}}</p>
+                        <p class="">Mesa: {{o.MesaNumero}}</p>
                         <!--
                         <small>{{o.FechaOrden+'Z'| date:"dd MMM yy hh:mm a"}}</small>
                         -->
@@ -73,7 +73,7 @@
             </ul>
         </div>
     </section>
-    <div class="ng-view" autoscroll="false"></div>
+    <div class="ng-view w-100 h-100" autoscroll="false"></div>
 
     <script>
         const app = angular.module('app', ['ngRoute']);

@@ -1,22 +1,27 @@
-<section id="paga">
-    <h1 class="text-center"> Pagar cuenta de mesa {{num}} </h1>
+<section id="paga" class="w-100 h-100">
+    <h1 class="text-center display-3"> Pagar cuenta de mesa {{num}} </h1>
     <div class="container-fluid">
 
-        <div class="col-12">
-            <h4>Total a Pagar: $ {{aPagar}}</h4>
-            <li class="list-group-item"
+        <ul class="col-12 col-xs-12 col-ms-12">
+            <i> Mis Pedidos </i>
+            <li class="list-group-item flex-column"
                 ng-class="d.Estado!='Cancelado'?'list-group-item-success':'list-group-item-danger'"
                 ng-repeat="d in detallesP">
                 <div class="d-flex w-100 justify-content-between">
-                    <h6 class="mb-1"><span class="badge badge-dark">{{d.Cantidad}} </span>
-                        {{d.ProductoNombre}} </h6>
-                    <small>Estado: {{d.Estado}} </small>
-                    <small>SubTotal: <b>${{d.Precio*d.Cantidad}}</b></small>
+                    <p class="mb-1"><span class="badge badge-dark">{{d.Cantidad}} </span>
+                        {{d.ProductoNombre}} </p>
+                    <p>Estado: {{d.Estado}} </p>
+                    <p>SubTotal: <b>${{d.Precio*d.Cantidad}}</b></p>
             </li>
-            <button class="btn btn-primary" ng-click="BtnPagar()" ng-show="!ordenP.Pagado">Confirmar Pago</button>
+        </ul>
+        <div class="col-12">
+            <h2 class="display-5">Total a Pagar: $ {{aPagar}}</h2>
+            <button class="btn btn-success btn-lg col-12" ng-click="BtnPagar()" ng-show="!ordenP.Pagado">Confirmar
+                Pago</button>
             <div class="alert alert-success" role="alert" ng-show="ordenP.Pagado">
                 La cuenta ha sido pagada. Gracias
             </div>
         </div>
+    </div>
     </div>
 </section>

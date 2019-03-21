@@ -1,42 +1,46 @@
-<section id="detalla">
-    <h1 class="text-center"> Pedidos en Mesa {{num}}</h1>
+<section id="detalla" class="w-100 h-100">
+    <h1 class="text-center display-3"> Pedidos en Mesa {{num}}</h1>
     <div class="container-fluid">
-        <form class="col-12">
-            <select class="custom-select col-2" ng-model="cantidad" required>
-                <option value="" disabled> Eligir cantidad </option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <select class="custom-select col-6" ng-model="productos[$index]" required>
-                <option value="" disabled> Eligir producto </option>
-                <option ng-repeat="p in productos" ng-value="p">
-                    {{p.productoNombre}} | Precio: $ {{p.Precio}}
-                </option>
-            </select>
+        <div class="col-12">
+            <form class="container-fluid row input-group-lg">
+                <select class="custom-select col-2" ng-model="cantidad" required>
+                    <option value="" disabled> Eligir cantidad </option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <select class="custom-select col-5" ng-model="productos[$index]" required>
+                    <option value="" disabled> Eligir producto </option>
+                    <option ng-repeat="p in productos" ng-value="p">
+                        {{p.productoNombre}} | Precio: $ {{p.Precio}} | Disponibles: {{p.CantidadDisponible}}
+                    </option>
+                </select>
 
-            <button type="submit" class="btn btn-primary col-3" ng-disabled="productos[$index]==null || cantidad==null"
-                ng-click="BtnClickB($index, cantidad)">
-                <i class="fas fa-cart-plus"></i>
-            </button>
-            <br>
-        </form>
+                <button type="submit" class="btn btn-primary col-4"
+                    ng-disabled="productos[$index]==null || cantidad==null" ng-click="BtnClickB($index, cantidad)">
+                    <i class="fas fa-cart-plus"></i>
+                </button>
+                <br>
+            </form>
+        </div>
 
-
-        <ul class="col-12">
+        <ul class="col-12 col-xs-12 col-ms-12">
             <i> Mis Pedidos </i>
-            <li class="list-group-item list-group-item-light" ng-repeat="d in detalles | orderBy:'-FechaDetalleOrden'">
+            <li class="list-group-item list-group-item-light flex-column"
+                ng-repeat="d in detalles | orderBy:'-FechaDetalleOrden'">
                 <div class="d-flex w-100 justify-content-between">
-                    <p class="col-2"><span class="badge badge-dark">{{d.Cantidad}} </span>
+                    <p class="col-3"><span class="badge badge-dark">{{d.Cantidad}} </span>
                         {{d.ProductoNombre}} </p>
                     <!--
                     <small>{{d.FechaDetalleOrden | date:'medium'}}</small>
                     -->
                     <p>{{enMinutos(d.FechaDetalleOrden+'Z')}}</p>
-                    <p>Estado: {{d.Estado}} </p>
+                    <p>{{d.Estado}} </p>
+                    <!--
                     <p>SubTotal: ${{d.Precio*d.Cantidad}}</p>
+                    -->
                     <p class="btn-group" role="group">
                         <button type="button" class="btn btn-warning" ng-click="BtnCambiarEstadoD(d.Id,2)">
                             <i class="fas fa-mortar-pestle"></i>

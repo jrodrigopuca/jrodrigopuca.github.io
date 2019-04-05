@@ -2,14 +2,14 @@
     <h1 class="text-center display-3"> Facturación </h1>
     <div class="container-fluid">
         <form name="fFactura" class="container-fluid row input-group-lg">
-            <div class="input-group col-6">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroupPrepend">Desde</span>
+            <div class="input-group col-lg-6">
+                <div class="input-group-prepend ">
+                    <span class="input-group-text col-sm-12">Desde</span>
                 </div>
                 <input name="input" placeholder="Desde" type="date" ng-model="fecha" ng-max="hoy"
-                    class="form-control form-control-lg" required>
+                    class="form-control form-control-lg col-sm-12" required>
             </div>
-            <button type="submit" class="btn btn-primary btn-lg col-2" ng-show="fFactura.input.$valid"
+            <button type="submit" class="btn btn-primary btn-lg col-lg-2 col-sm-12" ng-show="fFactura.input.$valid"
                 ng-click="traerFacturado(fecha)">
                 <i class="fas fa-arrow-circle-right"></i>
             </button>

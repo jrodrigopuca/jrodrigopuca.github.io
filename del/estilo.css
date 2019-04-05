@@ -23,6 +23,16 @@ body{
     text-shadow: 2px -1px 20px black;
 }
 
+.facturacion{
+    background-image: url('images/calc.jpg');
+    color: whitesmoke;
+    text-shadow: 2px -1px 5px green;
+}
+
+canvas{
+    width: 100%;
+    height:auto;
+}
 
 
 .inventario{
@@ -57,7 +67,7 @@ li{
 }
 
 #grafica{
-    background-color: wheat;
+    background-color: cornsilk;
 }
 .full{
     min-width: 100%;

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width">
+    <title>Informar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="estilo.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+</head>
+
+<body ng-app="appF">
+    <div class="jumbotron jumbotron-fluid facturacion">
+        <div class="container">
+            <h1 class="display-2">Buscando mesa</h1>
+            <h2 class="display-4">Solicitar Facturación</h2>
+        </div>
+    </div>
+
+    <script>
+        const app = angular.module('appF', ['ngRoute']);
+        //=================== RUN =======================
+        app.run(function ($rootScope, $location, $anchorScroll, $routeParams) {
+            $rootScope.$on('$routeChangeSuccess', function (newRoute, oldRoute) {
+                $location.hash($routeParams.scrollTo);
+                $anchorScroll();
+            });
+        })
+        //=================== RUTAS =======================
+        app.config(function ($routeProvider) {
+            $routeProvider
+                .when("/factura", {
+                    templateUrl: "factura.html",
+                    controller: 'ctrlFactura'
+                })
+                .when("/pagados", {
+                    templateUrl: "pagados.html",
+                    controller: 'ctrlPagado'
+                })
+        });
+        
+
+        app.controller('ctrlFactura', function ($scope, $http) {
+            $scope.id = "7cf4dc70-9719-40ba-9dda-00f2f2769af4";//$routeParams.id;
+
+            $scope.fechaBuena = (fecha)=>{
+            aux = new Date(fecha);
+            return `${aux.getDate()}/${aux.getMonth()}`
+        }
+            function graficar(dias, fact) {
+                var contexto = document.getElementById("grafica").getContext('2d');
+                var grafica = new Chart(contexto, {
+                    type: 'line',
+                    data: {
+                        labels: dias,
+                        datasets: [{
+                            label: 'Facturación',
+                            data: fact,
+                        }]
+                    }
+                })
+
+            }
+
+
+            function getFacturacion(id, fInicial, fFin, fn) {
+                $http.get(`https://buscandomesa.azurewebsites.net/API/InformeAPI?LocalId=${id}&fechaInicio=${fInicial}&fechaFin=${fFin}`)
+                    .then(function (response) {
+                        $scope.tFacturado = 0;
+                        $scope.lstDias = [];
+                        $scope.lstFact = [];
+                        $scope.informe = response.data;
+                        for (inf of $scope.informe) {
+                            $scope.tFacturado += inf.TotalFacturado;
+                            //aux_fecha= new Date(inf.Fecha);
+                            //$scope.lstDias.push(aux_fecha.getDay().toString()+"/"+aux_fecha.getMonth().toString());
+                            $scope.lstDias.push($scope.fechaBuena(inf.Fecha));
+                            $scope.lstFact.push(inf.TotalFacturado);
+                        }
+                        graficar($scope.lstDias, $scope.lstFact);
+                    })
+            }
+
+            let fecha = new Date();
+            $scope.hoy = fecha.toISOString();
+
+            $scope.traerFacturado = (fecha) => {
+                let fAhora = new Date();
+                $scope.fAhora = fAhora.toISOString();
+                getFacturacion($scope.id, fecha.toISOString(), $scope.fAhora);
+            }
+
+        });
+
+        app.controller('ctrlPagado', function ($scope, $http) {
+            let id = "7cf4dc70-9719-40ba-9dda-00f2f2769af4";
+
+            function getPagados(id) {
+                $http.get(`http://buscandomesa.azurewebsites.net/API/ORDENAPI?LocalId=${id}`)
+                    .then(function (response) {
+                        $scope.pagados = response.data;
+                    })
+            }
+            getPagados(id);
+
+        })
+    </script>
+    <div class="container-fluid factura">
+        <div class="btn-group">
+            <a href="#!/factura" class="btn btn-lg btn-success">Facturación por días</a>
+            <a href="#!/pagados" class="btn btn-lg btn-primary">Ordenes pagadas</a>
+        </div>
+    </div>
+
+
+    <div class="ng-view" autoscroll="false"></div>
+</body>

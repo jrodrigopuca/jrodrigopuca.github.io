@@ -1,0 +1,32 @@
+<section id="factura" class="full">
+    <h1 class="text-center display-3"> Facturación </h1>
+    <div class="container-fluid">
+        <form name="fFactura" class="container-fluid row input-group-lg">
+            <div class="input-group col-6">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupPrepend">Desde</span>
+                </div>
+                <input name="input" placeholder="Desde" type="date" ng-model="fecha" ng-max="hoy"
+                    class="form-control form-control-lg" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg col-2" ng-show="fFactura.input.$valid"
+                ng-click="traerFacturado(fecha)">
+                <i class="fas fa-arrow-circle-right"></i>
+            </button>
+        </form>
+
+        <ul class="col-12 col-xs-12 col-ms-12" ng-show="informe!=null">
+            <i> Facturado por día </i>
+            <li class="list-group-item flex-column" ng-repeat="i in informe">
+                <div class="d-flex w-100 justify-content-between">
+                    <p class="col-6">
+                        {{fechaBuena(i.Fecha)}}
+                    </p>
+                    <p class="col-6"> $ {{i.TotalFacturado}} </p>
+            </li>
+            </br>
+            <h1>Total facturado: ${{tFacturado}}</h1>
+            <canvas id="grafica" class="w-100 h-100"></canvas>
+        </ul>
+    </div>
+</section>

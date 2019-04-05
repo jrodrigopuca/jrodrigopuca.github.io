@@ -3,24 +3,25 @@
 
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width initial-scale=1, maximum-scale=1">
     <title>Ordenar</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="estilo.css">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" href="estilo.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular-route.js"></script>
 </head>
 
 <body ng-app="app">
     <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-1">Buscando mesa</h1>
-            <p class="lead">Un gran lugar para comenzar</p>
+        <div class="container-fluid ordenes">
+            <h1 class="display-2">Buscando mesa</h1>
+            <h2 class="display-4">Registrar Orden</h2>
         </div>
     </div>
 
@@ -30,47 +31,60 @@
         </br>
         <div class="container-fluid" ng-controller="ctrlOrden">
             <!-- Ocupar mesa -->
-            <div class="col-12">
-                <form class="container-fluid row input-group-lg" name="formMesa">
-                    <select class="custom-select col-8" required ng-model="mesas[$index]">
-                        <option value="" disabled> Eligir una mesa </option>
-                        <option ng-repeat="m in mesas" ng-value="m" ng-show="{{!m.Ocupada}}">
-                            Mesa #{{m.MesaNumero}}. Cantidad de sillas: {{m.CantidadSillas}}
-                        </option>
-                    </select>
 
-                    <button type="submit" class="btn btn-primary col-4" ng-click="BtnClick($index)"
-                        ng-disabled="mesas[$index]==null">
-                        <i class="far fa-calendar-plus"></i>
-                    </button>
-                </form>
-                <br>
-            </div>
+            <form class="container-fluid input-group-lg" name="formMesa">
+                <select class="custom-select col-lg-8 col-sm-12" required ng-model="mesas[$index]">
+                    <option value="" disabled> Eligir una mesa </option>
+                    <option ng-repeat="m in mesas" ng-value="m" ng-show="{{!m.Ocupada}}">
+                        Mesa #{{m.MesaNumero}}. Cantidad de sillas: {{m.CantidadSillas}}
+                    </option>
+                </select>
+
+                <button type="submit" class="btn btn-primary col-lg-3 col-sm-12 btn-lg" ng-click="BtnClick($index)"
+                    ng-disabled="mesas[$index]==null">
+                    <i class="far fa-calendar-plus"></i>
+                </button>
+            </form>
+            <br>
+
             <!--Mesas ocupadas-->
-            <ul class="col-12 col-xs-12 col-ms-12">
-                <i> Mesas ocupadas </i>
-                <li class="list-group-item list-group-item-light flex-column" ng-repeat="o in ordenes | orderBy:'-FechaOrden'">
-                    <div class="d-flex w-100 justify-content-between">
-                        <p class="">Mesa: {{o.MesaNumero}}</p>
-                        <!--
+            <div class="container-fluid">
+                <div class="table-responsive">
+                    <table class="table table-striped table-dark">
+                        <i> Mesas ocupadas </i>
+                        <tbody>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Tiempo</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                            <tr ng-repeat="o in ordenes | orderBy:'-FechaOrden'">
+
+                                <td class="">Mesa: {{o.MesaNumero}}</p>
+                                    <!--
                         <small>{{o.FechaOrden+'Z'| date:"dd MMM yy hh:mm a"}}</small>
                         -->
-                        <p> {{enMinutos(o.FechaOrden+'Z')}}</p>
-                        <p class="btn-group" role="group">
-                            <a href="#!detalla/{{o.Id}}/{{o.MesaNumero}}?scrollTo=detalla" class="btn btn-primary"
-                                alt="Ordenar">
-                                <i class="fas fa-clipboard-list"></i>
-                            </a>
+                                <td> {{enMinutos(o.FechaOrden+'Z')}}</p>
+                                <td class="btn-group" role="group">
+                                    <a href="#!detalla/{{o.Id}}/{{o.MesaNumero}}?scrollTo=detalla"
+                                        class="btn btn-primary btn-lg" alt="Ordenar">
+                                        Ordenar
+                                        <i class="fas fa-clipboard-list"></i>
+                                    </a>
 
-                            <a href="#!paga/{{o.Id}}/{{o.MesaNumero}}?scrollTo=paga" class="btn btn-success"
-                                alt="Pagar">
-                                <i class="fas fa-dollar-sign"></i>
-                            </a>
+                                    <a href="#!paga/{{o.Id}}/{{o.MesaNumero}}?scrollTo=paga"
+                                        class="btn btn-success btn-lg" alt="Pagar">
+                                        Pagar
+                                        <i class="fas fa-dollar-sign"></i>
+                                    </a>
 
-                        </p>
-                    </div>
-                </li>
-            </ul>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </section>
     <div class="ng-view w-100 h-100" autoscroll="false"></div>
@@ -203,7 +217,7 @@
                 $http.get(`https://buscandomesa.azurewebsites.net/API/OrdenDetalleAPI?ordenID=${id}`)
                     .then(function (response) {
                         $scope.detalles = response.data;
-                        //console.log(response.data);
+                        //console.log("detalles",response.data);
                     })
             }
 

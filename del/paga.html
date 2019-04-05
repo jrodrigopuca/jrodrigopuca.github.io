@@ -9,8 +9,8 @@
                 ng-repeat="d in detallesP">
                 <div class="d-flex w-100 justify-content-between">
                     <p class="mb-1"><span class="badge badge-dark">{{d.Cantidad}} </span>
-                        {{d.ProductoNombre}} </p>
-                    <p>Estado: {{d.Estado}} </p>
+                        {{d.ProductoNombre}} ({{d.Estado}})
+                    </p>
                     <p>SubTotal: <b>${{d.Precio*d.Cantidad}}</b></p>
             </li>
         </ul>

@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Satisfy');
 
 html, body{
-    padding: 0;
-    margin: 0;
+    min-height: 100%;
+    overflow-x: hidden;
 }
 
 body{
-    overflow-x: hidden;
+    
     color: white;
     background-color: #292623;
 }
@@ -18,15 +18,31 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+.ordenes{
+    color:#e8e1e1;
+    text-shadow: 2px -1px 20px black;
+}
 
-h1{
+
+
+.inventario{
+    background-image: url('images/cocina.jpg');
+    background-color: rgb(58, 43, 43);
+    color:#e8e1e1;
+    text-shadow: 2px -1px 10px black;
+}
+
+h1,h2{
     font-family: 'Satisfy', cursive;
 }
 
-section{
-    font-size: 1.5rem;
-    padding-top:40px;
-    padding-bottom: 40px;
+section{ 
+    padding-top:10px;
+    padding-bottom: 10px;
+}
+
+td{
+    font-size:1.25rem;
 }
 
 #detalla{
@@ -35,4 +51,32 @@ section{
 
 #paga{
     background-color: darkslategrey;
+}
+li{
+    color:lightslategrey;
+}
+
+#grafica{
+    background-color: wheat;
+}
+.full{
+    min-width: 100%;
+    min-height: 100vh;
+}
+
+
+@media (max-width: 600px) {
+    table, thead, tbody, th, td, tr{
+        display: block;
+    }
+    
+    td { 
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee; 
+        position: relative;
+        padding-left: 50%; 
+        white-space: normal;
+        text-align:left;
+    }
 }

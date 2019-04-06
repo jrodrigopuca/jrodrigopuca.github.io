@@ -86,7 +86,7 @@
             let id = "7cf4dc70-9719-40ba-9dda-00f2f2769af4";
 
             function getProductos(id) {
-                $http.get(`http://buscandomesa.azurewebsites.net/API/ProductoAPI?LocalId=${id}`)
+                $http.get(`https://buscandomesa.azurewebsites.net/API/ProductoAPI?LocalId=${id}`)
                     .then(function (response) {
                         $scope.productos = response.data;
                     })

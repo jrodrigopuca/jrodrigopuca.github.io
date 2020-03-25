@@ -1,7 +1,9 @@
-const video = document.getElementById('video');
-const pipButton = document.getElementById('pipButton');
-pipButton.hidden = !document.pictureInPictureEnabled || video.disablePictureInPicture;
 
+const video = document.getElementById('video');
+let pipButton = document.getElementById('pipButton');
+
+const hidden = !document.pictureInPictureEnabled || video.disablePictureInPicture;
+if (hidden) pipButton.style.visibility = "hidden";
 pipButton.addEventListener('click', () => {
     if (document.pictureInPictureElement) {
         document
@@ -17,6 +19,7 @@ pipButton.addEventListener('click', () => {
             });
     }
 });
+
 
 /*
 video.addEventListener('enterpictureinpicture', () => {

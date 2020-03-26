@@ -35,9 +35,11 @@ h1{
     font-size: calc(10px + 15vmin);
     padding: 10px;
     margin:0;
+    text-align: center;
 }
 
 h2 {
+    text-align: center;
     font-size: calc(10px + 10vmin);
     padding: 10px;
     margin:0!important; 
@@ -78,7 +80,7 @@ h2 .material-icons{
 
 .btn-green{
     background-color: #28a745;
-    color: white;
+    color: #fafbfc;
     padding: 20px;
     margin:10px;
     text-decoration: none;
@@ -181,13 +183,14 @@ h2 .material-icons{
 }
 
 .card-title{
+    text-align: center;
     font-size: calc(10px + 5vmin);
     padding: 10px;
     margin:0!important; 
     width: 98.5%;
     border-radius: 15px 15px 0px 0px;
-    background-color:#f1f8ff;
-
+    background-color:#959da5;
+    color:whitesmoke;
 }
 
 footer{
@@ -198,4 +201,20 @@ footer{
 }
 .img-me{
     border-radius: 50%;
+}
+
+@keyframes jump {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+.jump {
+    animation: jump 1s linear alternate infinite;
+}
+.yellow-card{
+    background-color: #ffd33d;
+}
+
+.yellow-card-title{
+    background-color: #ffab70;
 }

@@ -1,0 +1,121 @@
+{
+    "intro":{
+        "titulo":"El método E para emprendedores",
+        "video":"video/book.mp4"
+    },
+
+    "videos":{
+        "titulo": "Hurry, This Offer Won't Last Long!",
+        "opiniones":[
+            {   "video":"video/book.mp4",
+                "descripcion":"I watched Mike go from making a few hundred dollars a day, to producing over a Million Dollars in a Year",
+                "autor": "Russell Brunson - CEO and Co-Founder of ClickFunnels"
+            },
+            {   "video":"video/book.mp4",
+                "descripcion":"There is no one better right now in the industry, that is at the cutting edge....then Mike",
+                "autor": "Anik Singal - CEO of Lurn"
+            },
+            {   "video":"video/book.mp4",
+                "descripcion":"If it's costing you too much to acquire a Customer right now, you need to grab this!",
+                "autor": "Adam Nolan - Founder of Subscription School"
+            }
+        ]
+    },
+
+    "presentacion":{
+        "producto":{
+            "texto":"Introducing Our Client Formula - The Ultimate Guide for Bringing in 30 - 50 New Clients A Month...",
+            "imagen":"img/book.jpg"
+        },
+        "comentarios":{
+            "texto":"What People Are Saying About Our Audiobook",
+            "imagen":"img/captura.jpg"
+        },
+        "accionable": "Yes I want my copy of the AudioBook for $1.99",
+        "accion":"https://bing.com"
+    },
+
+
+    "caracteristicas":{
+        "descripcion":"Inside Of This Brand New Audiobook, Here Are A Few Of The Secrets That You'll Be Discovering...",
+        "lista":[
+            "How to setup your pixels and tracking correctly with the basics and then we train you on 'Advanced' Custom Pixels with Google Tag Manager (drop pixels on how long people watch webinars, video sales letters, articles, etc..) - pg. xv",
+            "The 9 Audiences you need to setup before you launch any campaign online. These audiences are a must-have and position your Ads Campaigns for success right out of the gate. - pg. xvi",
+            "The 2 main Campaigns we setup for every single client we take on. We walk you through our initial setup, the audiences we test, how many ads, the copy, literally everything we do for our $3,500 a month Facebook Ads Clients. pg. 3",
+            "The one ads placement you do not want to target at all. If you target here, be prepared to lose money and simply kill your campaigns. - pg. 3",
+            "How we create easy 15 Second Video Ads that get 3% Click-Through Rates and will cut your Lead Cost in half. We launch all of our clients with these ads and generally cut their lead cost by 40-60% depending on what they were paying before. - pg. 5",
+            "The free software we use to edit all of our image ads which make them pop out of the newsfeed, which allows you to get cheaper clicks immediately. - pg. 6",
+            "How to track every single click, lead, and sale. This is simple, but often overlooked and you need to do this if you ever want to truly scale your campaigns to $100k a month. - pg. 13",
+            "The Ad Copy Formula my team uses to launch winning ad, after winning ad each time. If you want the most bang for your buck, you need to be testing these two specific copy formulas, if not, you're leaving $ on the table. - pg. 18",
+            "Our Retargeting Strategies that bring in more sales for any advertiser. We have 3 specific campaigns that we run for ourselves, and our clients, and if you want to hit your prospects from all angles in order to convert them, you need to make sure you have these in your arsenal. - pg. 25",
+            "How to look at the data so you know when to scale and when to cut your losses. This is tested across Millions of Dollars in ad spend and will allow you and your team to get to the next level. - pg. 29",
+            "The Specific Lookalikes Audiences we test immediately after we get some data. You need to make sure you're making LLAs based off these audiences, they will be some of your best campaigns. - pg. 30",
+            "The exact sequence we took people through. We go over the flow, the ads, and the why. - pg. 39",
+            "The specific custom conversions we setup to track best campaigns, which also allowed us to create custom audiences of our most pre-sold prospects as well. - pg. 42",
+            "How we get Testimonial Videos from our best clients so we can get prospects off the fence who are thinking about buying our programs. - pg. 45",
+            "What software we used to segment our best prospects depending on how long they had watched, and the emails we sent them to convert the sale. - pg. 48",
+            "The simple one line of text we added to our thank you page that 4x our booked calls revenue. Once you add this to your campaigns, you'll see immediate ROI. - pg. 49",
+            "I reveal how much we paid for a booked call, what a booked call was worth to us, and how we tracked everything. - pg. 51",
+            "The 'Sweep Up' Campaign we ran 45 days after someone opted in that brought in 30% of our revenue. If you're currently running a webinar and not running this, you're INSANE. - pg. 53"
+        ]
+    },
+
+    "publicidad":{
+        "titulo":"This Audiobook Is Filled To The Brim With Client Grabbing Techniques That Are Working Right Now...",
+        "accionable":"Get your client formula copy now!",
+        "accion":"https://bing.com"
+    },
+
+    "motivos":{
+        "titulo":"Here's What To Do Next",
+        "descripcion":"Like I mentioned before, this audiobook is just $1.99. The only reason I'm doing this, is because I know you're going to love the content and naturally want more products from my company, or to even have us run the advertising for you. Oh, and in case you're wondering...",
+        "subtitulo": "This Isn't One Of Them",
+        "presentacion":"There's NO hidden 'continuity program' - and in case you're wondering why I'm doing this... Well, there are actually a few reasons...",
+        "lista":[
+            "It allows me to get my message out and help a ton of business owners. $1.99 is nothing, and I know the information can change your business forever.",
+            "I know when I share my best stuff you're going to want to get more from me, whether that's 1 on 1 consulting or even having my team run your ads for your business.",
+            "I'm kinda a show off... I'm not going to lie. I'm sick of people throwing out conversion numbers and their stats without any real proof to back it up. I think 99% of what is said online is complete BS... so I thought it would be a breath of fresh air to publish the TRUE, show the actual stats and #'s behind what we do, and well... honestly, I just want you to think I'm cool. :)"
+        ],
+        "accionable":"Grab my copy of 'Client Formula' Audiobook now",
+        "accion":"https://bing.com"
+    },
+
+    "garantia":{
+        "titulo":"Time Is Of The Essence...",
+        "descripcion": "Here's why...These audiobooks fly off the shelves, most days we do anywhere from 25 - 50 audiobook sales a day, that means that a ton of people reach out for our services, when we hit our max capacity for clients, we have to shut down this page until we have enough new trained employees for our next batch of clients. So this page will be coming down when we hit our capacity again.",
+        "importante": {
+            "titulo":"Here Is My 'You've Gotta Be Crazy' Guarantee",
+            "descripcion":"I 100% guarantee that you'll love this audiobook, or I'll return your fee and let you keep the audiobook anyway.That's right. You don't even have to send anything back. Just email me or call the number on your receipt and I'll give you back your money with no question asked. Sound fair?"
+        },
+        "agradecimiento":{
+            "titulo": "This Is Truly A Limited Offer, So Claim Your Copy Now Before They're All Gone..",
+            "descripcion":"Thanks for taking the time to read this letter and I look forward to hearing from you soon!",
+            "texto":"P.S. In case you're one of those people (like me) who just skip to the end of the letter, here's the deal: I'm giving you instant access to an 1 hour and 24 minute long audiobook on exactly how to start bringing in 30-50 new clients every single month using Facebook Ads. There's no catch... no gimmicks... You will NOT be signing up for any 'trial' to some monthly program or anything like that.        In fact, if you don't love the audiobook - I'll even refund your $1.99. So, Click the button below to get instant access now. You won't regret it.",
+            "foto":"img/mike.png"
+        },
+        "accionable": "Give me instant access now!",
+        "accion":"https://bing.com"
+    },
+    "bonus":{
+        "descripcion":"sdadas",
+        "productos":[
+            {   
+                "texto":"",
+                "imagen":""
+            },
+            {   
+                "texto":"",
+                "imagen":""
+            },
+            {   
+                "texto":"",
+                "imagen":""
+            }
+        ]
+    },
+    "final":{
+        "nombre":"Mike",
+        "descripcion":"Over the past 10 years, Mike Buontempo has been spending Millions of Dollars on Paid Advertising across Facebook, Google, and YouTube. He runs an agency that runs the ads for companies and also promotes his own programs.",
+        "direccion": "1020 South Ave. Westfield, NJ 07090"
+    }
+}

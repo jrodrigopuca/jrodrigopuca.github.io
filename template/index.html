@@ -12,11 +12,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 </head>
 
-<body>
+<body ng-app="myApp" ng-controller="myController">
     <section id="intro">
-        <h1>El método E para emprendedores</h1>
+        <h1>{{data.intro.titulo}}</h1>
         <div class="video-container">
-            <video id="video" src="book.mp4" controls autoplay muted></video>
+            <video id="video" ng-src="{{data.intro.video}}" controls autoplay muted></video>
         </div>
     </section>
     <div class="float-block">
@@ -28,205 +28,113 @@
     </div>
 
     <section>
-        <h2>
-            Hurry, This Offer Won't Last Long!
-        </h2>
+        <h2>{{data.videos.titulo}}</h2>
         <div class="videoX3-supercontainer">
-            <div class="videoX3-container">
-                <video class="videoX3" src="book.mp4" controls width="300px"></video>
-                <q> I watched Mike go from making a few hundred dollars a day, to producing over a Million Dollars in a
-                    Year</q>
-                <p class="opinion"> Russell Brunson - CEO and Co-Founder of ClickFunnels</p>
-            </div>
-
-            <div class="videoX3-container">
-                <video class="videoX3" src="book.mp4" controls width="300px"></video>
-                <q> There is no one better right now in the industry, that is at the cutting edge....then Mike</q>
-                <p class="opinion">Anik Singal - CEO of Lurn</p>
-            </div>
-            <div class="videoX3-container">
-                <video class="videoX3" src="book.mp4" controls width="300px"></video>
-                <q> If it's costing you too much to acquire a Customer right now, you need to grab this! </q>
-                <p class="opinion">Adam Nolan - Founder of Subscription School</p>
+            <div ng-repeat="opinion in data.videos.opiniones" class="videoX3-container">
+                <video class="videoX3" ng-src="{{opinion.video}}" controls width="300px"></video>
+                <q> {{opinion.descripcion}} </q>
+                <p class="opinion"> {{opinion.autor}}</p>
             </div>
         </div>
     </section>
+
     <section class="img-section">
         <div class="card">
-            <p>Introducing Our Client Formula - The Ultimate Guide for Bringing in 30 - 50 New Clients A Month...</p>
+            <p>{{data.presentacion.producto.texto}}</p>
             <img src="img/audiobook.jpg" width="300px" alt="">
-            <a href="" class="btn-green jump">Yes I want my copy of the AudioBook for $1.99</a>
+            <a ng-href="{{data.presentacion.accion}}" class="btn-green jump">{{data.presentacion.accionable}}</a>
         </div>
         <div class="card">
-            <p>What People Are Saying About Our Audiobook </p>
-            <img src="img/captura-1.jpg" width="300px" alt="">
-            <img src="img/captura-2.jpg" width="300px" alt="">
-            <img src="img/captura-3.jpg" width="300px" alt="">
+            <p>{{data.presentacion.comentarios.texto}}</p>
+            <img ng-src="{{data.presentacion.comentarios.imagen}}" width="300px" alt="">
         </div>
     </section>
+
     <section class="card-section">
         <div class="card">
             <div class="card-title">
-                Inside Of This Brand New Audiobook, Here Are A Few Of The Secrets That You'll Be Discovering...
+                {{data.caracteristicas.descripcion}}
             </div>
             <ul class="card-items">
-                <li class="card-item">
-                    How to setup your pixels and tracking correctly with the basics and then we train you on 'Advanced' Custom Pixels with Google Tag Manager (drop pixels on how long people watch webinars, video sales letters, articles, etc..) - pg. xv
-                </li>
-                <li class="card-item">
-                    The 9 Audiences you need to setup before you launch any campaign online. These audiences are a must-have and position your Ads Campaigns for success right out of the gate. - pg. xvi
-                </li>
-                <li class="card-item">
-                    The 2 main Campaigns we setup for every single client we take on. We walk you through our initial setup, the audiences we test, how many ads, the copy, literally everything we do for our $3,500 a month Facebook Ads Clients. pg. 3
-                </li>
-                <li class="card-item">
-                    The one ads placement you do not want to target at all. If you target here, be prepared to lose money and simply kill your campaigns. - pg. 3
-                </li>
-                <li class="card-item">
-                    How we create easy 15 Second Video Ads that get 3% Click-Through Rates and will cut your Lead Cost in half. We launch all of our clients with these ads and generally cut their lead cost by 40-60% depending on what they were paying before. - pg. 5 [Fig 0.3]
-                </li>
-                <li class="card-item">
-                    The free software we use to edit all of our image ads which make them pop out of the newsfeed, which allows you to get cheaper clicks immediately. - pg. 6
-                </li>
-                <li class="card-item">
-                    How to track every single click, lead, and sale. This is simple, but often overlooked and you need to do this if you ever want to truly scale your campaigns to $100k a month. - pg. 13
-                </li>
-                <li class="card-item">
-                    The Ad Copy Formula my team uses to launch winning ad, after winning ad each time. If you want the most bang for your buck, you need to be testing these two specific copy formulas, if not, you're leaving $ on the table. - pg. 18 
-                </li>
-                <li class="card-item">
-                    Our Retargeting Strategies that bring in more sales for any advertiser. We have 3 specific campaigns that we run for ourselves, and our clients, and if you want to hit your prospects from all angles in order to convert them, you need to make sure you have these in your arsenal. - pg. 25
-                </li>
-                <li class="card-item">
-                    How to look at the data so you know when to scale and when to cut your losses. This is tested across Millions of Dollars in ad spend and will allow you and your team to get to the next level. - pg. 29
-                </li>
-                <li class="card-item">
-                    The Specific Lookalikes Audiences we test immediately after we get some data. You need to make sure you're making LLAs based off these audiences, they will be some of your best campaigns. - pg. 30
-                </li>
-                <li class="card-item">
-                    The exact sequence we took people through. We go over the flow, the ads, and the why. - pg. 39
-                </li>
-                <li class="card-item">
-                    The specific custom conversions we setup to track best campaigns, which also allowed us to create custom audiences of our most pre-sold prospects as well. - pg. 42
-                </li>
-                <li class="card-item">
-                    How we get Testimonial Videos from our best clients so we can get prospects off the fence who are thinking about buying our programs. - pg. 45
-                </li>
-                <li class="card-item">
-                    What software we used to segment our best prospects depending on how long they had watched, and the emails we sent them to convert the sale. - pg. 48
-                </li>
-                <li class="card-item">
-                    The simple one line of text we added to our thank you page that 4x our booked calls revenue. Once you add this to your campaigns, you'll see immediate ROI. - pg. 49
-                </li>
-                <li class="card-item">
-                    I reveal how much we paid for a booked call, what a booked call was worth to us, and how we tracked everything. - pg. 51
-                </li>
-                <li class="card-item">
-                    The "Sweep Up" Campaign we ran 45 days after someone opted in that brought in 30% of our revenue. If you're currently running a webinar and not running this, you're INSANE. - pg. 53
+                <li ng-repeat="item in data.caracteristicas.lista" class="card-item">
+                    {{item}}
                 </li>
             </ul>
         </div>
-
-
     </section>
+
     <section class="card-section">
         <div class="card">
             <div class="card-text">
-                This Audiobook Is Filled To The Brim With Client Grabbing Techniques That Are Working Right Now...
+                {{data.publicidad.titulo}}
             </div>
-            <a href="" class="btn-green jump">Get your client formula copy now!</a>
+            <a ng-href="{{data.publicidad.accion}}" class="btn-green jump">{{data.publicidad.accionable}}</a>
         </div>
     </section>
+
     <section class="card-section" id="reasons">
         <div class="card">
             <h2>
-                Here's What To Do Next
+                {{data.motivos.titulo}}
             </h2>
             <div class="card-text">
-                Like I mentioned before, this audiobook is just $1.99. The only reason I'm doing this, is because I know you're going to love the content and naturally want more products from my company, or to even have us run the advertising for you.
-                Oh, and in case you're wondering...
+                {{data.motivos.descripcion}}
             </div>
             <div class="card-title">
-                This Isn't One Of Them
+                {{data.motivos.subtitulo}}
             </div>
             <div class="card-text">
-                There's NO hidden "continuity program" - and in case you're wondering why I'm doing this...
-                Well, there are actually a few reasons...
+                {{data.motivos.presentacion}}
             </div>
-            <ol class="card-items">
-                <li class="card-item">
-                    1. It allows me to get my message out and help a ton of business owners. $1.99 is nothing, and I know the information can change your business forever.
+            <ol class="card-items-num">
+                <li ng-repeat="motivo in data.motivos.lista" class="card-item">
+                    {{motivo}}
                 </li>
-                <li class="card-item">
-                    2. I know when I share my best stuff you're going to want to get more from me, whether that's 1 on 1 consulting or even having my team run your ads for your business.
-                </li>
-                <li class="card-item">
-                    3. I'm kinda a show off... I'm not going to lie. I'm sick of people throwing out conversion numbers and their stats without any real proof to back it up. I think 99% of what is said online is complete BS... so I thought it would be a breath of fresh air to publish the TRUE, show the actual stats and #'s behind what we do, and well... honestly, I just want you to think I'm cool. :)
-                </li>
+    
             </ol>
-            <a href="" class="btn-green jump">Grab my copy of 'Client Formula' Audiobook now</a>
+            <a ng-href="{{data.motivos.accion}}" class="btn-green jump">{{data.motivos.accionable}}</a>
         </div>
     </section>
     <section class="card-section">
         <div class="card yellow-card">
             <h2>
-                Time Is Of The Essence...
+                {{data.garantia.titulo}}
             </h2>
             <div class="card-text">
-                <p>Here's why...</p>
-                <p>
-                    These audiobooks fly off the shelves, most days we do anywhere from 25 - 50 audiobook sales a day, that means that a ton of people reach out for our services, when we hit our max capacity for clients, we have to shut down this page until we have enough new trained employees for our next batch of clients. So this page will be coming down when we hit our capacity again.
-                </p>
+                {{data.garantia.descripcion}}
             </div>
             <div class="card-title yellow-card-title">
-                Here Is My "You've Gotta Be Crazy" Guarantee
+                {{data.garantia.importante.titulo}}
             </div>
             <img src="img/guarantee.png" alt="" width="200px">
             <div class="card-text">
-                <p>I 100% guarantee that you'll love this audiobook, or I'll return your fee and let you keep the audiobook anyway.
-                </p>
-                <p>That's right. You don't even have to send anything back. Just email me or call the number on your receipt and I'll give you back your money with no question asked.
-                </p>
-                <p>Sound fair?</p>
+                {{data.garantia.importante.descripcion}}
             </div>
             <card class="card-title yellow-card-title">
-                This Is Truly A Limited Offer,
-                So Claim Your Copy Now Before They're All Gone..
+                {{data.garantia.agradecimiento.titulo}}
             </card>
-            <div class="card-text">
-                Thanks for taking the time to read this letter and I look forward to hearing from you soon!
-            </div>
-            <img src="img/mike.png" width="315px" class="img-me" alt="">
-
-            <div class="card-text">
-                <p>P.S. In case you're one of those people (like me) who just skip to the end of the letter, here's the deal:
-                </p>
-
-                <p>I'm giving you instant access to an 1 hour and 24 minute long audiobook on exactly how to start bringing in 30-50 new clients every single month using Facebook Ads.
-                </p>
-                <p>There's no catch... no gimmicks... You will NOT be signing up for any "trial" to some monthly program or anything like that.
-                </p>
-                <p>In fact, if you don't love the audiobook - I'll even refund your $1.99.
-                </p>
-                <p>So, Click the button below to get instant access now. You won't regret it.
-                </p>
-            </div>
-            <a href="" class="btn-green jump">Give me instant access now!</a>
-
+            <div class="card-text"> {{data.garantia.agradecimiento.descripcion}}</div>
+            <img ng-src="{{data.garantia.agradecimiento.foto}}" width="315px" class="img-me" alt="">
+            <div class="card-text">{{data.garantia.agradecimiento.texto}}</div>
+            
+            <a ng-href="{{data.garantia.accion}}" class="btn-green jump">{{data.garantia.accionable}}</a>
         </div>
 
     </section>
 
     <footer>
+        <p>{{data.final.nombre}}</p>
         <small>
-            Mike: Over the past 10 years, Mike Buontempo has been spending Millions of Dollars on Paid Advertising across Facebook, Google, and YouTube. He runs an agency that runs the ads for companies and also promotes his own programs.
+            {{data.final.descripcion}}
         </small>
         <hr>
         <small>
-            1020 South Ave. Westfield, NJ 07090
+            {{data.final.direccion}}
         </small>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.9/angular.js" integrity="sha256-JCDFk3Tc3BypchwzSjKv7pLwYQKAyuDRs5UrEnm8KyQ=" crossorigin="anonymous"></script>
     <script src="script.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>

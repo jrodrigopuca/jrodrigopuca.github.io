@@ -173,9 +173,17 @@ h2 .material-icons{
     padding: 0px;
 }
 
+.card-items-num{
+    list-style: decimal;
+    padding:0px;
+    list-style-position: inside;
+}
+
 .card-items li:before{
     content: '✓';
 }
+
+
 
 .card-item, .card-text{
     padding: 10px;

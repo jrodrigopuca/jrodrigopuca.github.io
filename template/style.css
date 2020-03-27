@@ -32,8 +32,8 @@ section{
 }
 
 h1{
-    font-size: calc(10px + 15vmin);
-    padding: 10px;
+    font-size: calc(5px + 10vmin);
+    padding: 15vh 5px;
     margin:0;
     text-align: center;
 }

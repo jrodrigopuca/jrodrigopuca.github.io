@@ -119,7 +119,17 @@
             
             <a ng-href="{{data.garantia.accion}}" class="btn-green jump">{{data.garantia.accionable}}</a>
         </div>
+    </section>
 
+    <section class="card-section">
+
+        <h2>{{data.bonus.titulo}}</h2>
+        <p class="card-title">{{data.bonus.descripcion}}</p>
+        <div class="card" ng-repeat="producto in data.bonus.productos">
+            <img ng-src="{{producto.imagen}}" alt="" width="300px">
+            <b class="card-text">{{producto.texto}}</b>
+            <div class="card-text">{{producto.descripcion}}</div>
+        </div>
     </section>
 
     <footer>

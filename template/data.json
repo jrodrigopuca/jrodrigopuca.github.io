@@ -97,19 +97,23 @@
         "accion":"https://bing.com"
     },
     "bonus":{
-        "descripcion":"sdadas",
+        "titulo":"Include with your order",
+        "descripcion":"5 free fast action bonuses",
         "productos":[
             {   
-                "texto":"",
-                "imagen":""
+                "texto":"Exclusive Training: How To Go On Holiday & Still Make Sales",
+                "descripcion":"This will help you with systems & mindset you need to automate your business.",
+                "imagen":"img/bonus.jpg"
             },
             {   
-                "texto":"",
-                "imagen":""
+                "texto":"$700,000 Plug-And-Play Agency Website Template",
+                "descripcion": "$700,000 Plug-And-Play Agency Website Template",
+                "imagen":"img/bonus.jpg"
             },
             {   
-                "texto":"",
-                "imagen":""
+                "texto":"2 Hour Agency Quickstart Guide",
+                "descripcion":"This PDF will get you started QUICKLY so you can get closer to freedom.",
+                "imagen":"img/bonus.jpg"
             }
         ]
     },

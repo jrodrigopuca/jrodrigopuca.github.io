@@ -26,8 +26,9 @@ section{
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-    background-color: #24292e;
-    display: none !important;
+    /*background-color: #24292e;
+    display: none !important;*/
+    visibility: hidden;
 }
 
 #video{

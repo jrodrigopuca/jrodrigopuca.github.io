@@ -12,11 +12,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 </head>
 
-<body ng-app="myApp" ng-controller="myController">
+<body ng-app="myApp" ng-controller="myController" ng-cloak>
     <section id="intro">
         <h1>{{data.intro.titulo}}</h1>
         <div class="video-container">
-            <video id="video" ng-src="{{data.intro.video}}" controls autoplay muted></video>
+            <video id="video" ng-src="{{data.intro.video}}" controls autoplay muted ></video>
         </div>
     </section>
     <div class="float-block">

@@ -25,6 +25,11 @@ section{
     word-wrap: break-word;
 }
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    background-color: #24292e;
+    display: none !important;
+}
+
 #video{
     width: 100%;
     max-height: 100%;

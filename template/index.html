@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 </head>
 
-<body ng-app="myApp" ng-controller="myController" ng-cloak>
+<body ng-app="myApp" ng-controller="myController" >
     <section id="intro">
-        <h1>{{data.intro.titulo}}</h1>
+        <h1 ng-cloak>{{data.intro.titulo}}</h1>
         <div class="video-container">
             <video id="video" ng-src="{{data.intro.video}}" controls autoplay muted ></video>
         </div>
@@ -28,31 +28,31 @@
     </div>
 
     <section>
-        <h2>{{data.videos.titulo}}</h2>
+        <h2 ng-cloak>{{data.videos.titulo}}</h2>
         <div class="videoX3-supercontainer">
             <div ng-repeat="opinion in data.videos.opiniones" class="videoX3-container">
                 <video class="videoX3" ng-src="{{opinion.video}}" controls width="300px"></video>
-                <q> {{opinion.descripcion}} </q>
-                <p class="opinion"> {{opinion.autor}}</p>
+                <q ng-cloak> {{opinion.descripcion}} </q>
+                <p class="opinion" ng-cloak> {{opinion.autor}}</p>
             </div>
         </div>
     </section>
 
     <section class="img-section">
         <div class="card">
-            <p>{{data.presentacion.producto.texto}}</p>
+            <p ng-cloak>{{data.presentacion.producto.texto}}</p>
             <img src="img/audiobook.jpg" width="300px" alt="">
             <a ng-href="{{data.presentacion.accion}}" class="btn-green jump">{{data.presentacion.accionable}}</a>
         </div>
         <div class="card">
-            <p>{{data.presentacion.comentarios.texto}}</p>
+            <p ng-cloak>{{data.presentacion.comentarios.texto}}</p>
             <img ng-src="{{data.presentacion.comentarios.imagen}}" width="300px" alt="">
         </div>
     </section>
 
     <section class="card-section">
         <div class="card">
-            <div class="card-title">
+            <div class="card-title" ng-cloak>
                 {{data.caracteristicas.descripcion}}
             </div>
             <ul class="card-items">
@@ -74,20 +74,20 @@
 
     <section class="card-section" id="reasons">
         <div class="card">
-            <h2>
+            <h2 >
                 {{data.motivos.titulo}}
-            </h2>
+            </h2 >
             <div class="card-text">
                 {{data.motivos.descripcion}}
             </div>
-            <div class="card-title">
+            <div class="card-title" >
                 {{data.motivos.subtitulo}}
             </div>
-            <div class="card-text">
+            <div class="card-text" >
                 {{data.motivos.presentacion}}
             </div>
             <ol class="card-items-num">
-                <li ng-repeat="motivo in data.motivos.lista" class="card-item">
+                <li ng-repeat="motivo in data.motivos.lista" class="card-item" >
                     {{motivo}}
                 </li>
     

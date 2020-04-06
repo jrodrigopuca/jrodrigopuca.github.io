@@ -1,7 +1,7 @@
 
 const video = document.getElementById('video');
 let pipButton = document.getElementById('pipButton');
-let float = document.getElementByClassName('float-block');
+let float = document.getElementsByClassName('float-block')[0];
 
 
 const hidden = !document.pictureInPictureEnabled || video.disablePictureInPicture;

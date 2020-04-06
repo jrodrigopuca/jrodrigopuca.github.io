@@ -1,9 +1,11 @@
 
 const video = document.getElementById('video');
 let pipButton = document.getElementById('pipButton');
+let float = document.getElementByClassName('float-block');
+
 
 const hidden = !document.pictureInPictureEnabled || video.disablePictureInPicture;
-if (hidden) pipButton.style.visibility = "hidden";
+if (hidden) float.style.visibility = "hidden";
 pipButton.addEventListener('click', () => {
     if (document.pictureInPictureElement) {
         document

@@ -5,7 +5,7 @@ html, body{
     font-family: InterUI, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
 }
 #intro{
-    background-color: rgb(27, 31, 35);
+    background-color: #3F51B5;
     color: #fafbfc;
     
 }
@@ -39,7 +39,7 @@ section{
 
 h1{
     font-size: calc(5px + 10vmin);
-    padding: 15vh 5px;
+    padding: 20vh 5px;
     margin:0;
     text-align: center;
 }
@@ -58,12 +58,14 @@ h2 .material-icons{
 
 .float-block{
     position: fixed;
-    display: block;
+    display: flex;
     right: 0;
     bottom: 0;
     bottom:40px;
     right: 20px;
     z-index: 900;
+    background-color: #3F51B5;
+    border-radius: 50%;
 }
 
 .btn-rd{
@@ -83,6 +85,19 @@ h2 .material-icons{
     padding: 0;
     margin:0;
 }
+
+.btn{
+    background-color: #28a745;
+    color: #fafbfc;
+    padding: 10px;
+    margin:10px;
+    text-decoration: none;
+    border-radius: 5px;
+    width: 260px;
+    text-align: center;   
+    width: 80%;
+}
+
 
 .btn-green{
     background-color: #28a745;
@@ -133,11 +148,15 @@ h2 .material-icons{
 }
 
 
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 330px) {
     html {
       font-size: calc(16px + 6 * ((100vw - 320px) / 680));
     }
+
 }
+
+
+
 @media screen and (min-width: 1000px) {
     html {
         font-size: 22px;
@@ -231,4 +250,51 @@ footer{
 
 .yellow-card-title{
     background-color: #ffab70;
+}
+
+#promo{
+    position: fixed;
+    background-color: #3F51B5;
+    color: white;
+    width: 100%;
+    padding: 15px;
+    z-index: 10;
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
+    align-items: center;
+    font-size: 15px;
+}
+
+#promo-small{
+    position: fixed;
+    background-color: #3F51B5;
+    color: white;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content:center;
+    align-self: center;
+    align-items: center;
+}
+
+
+.promo-cir{
+    padding: 7px;
+    border-radius: 50px;
+    border-style: solid;
+    display: inline-flex;
+    border-width: 2px;
+}
+
+@media (max-width: 1023px){
+    #promo{
+        display: none;
+    }
+}
+
+@media (min-width: 1024px){
+    #promo-small{
+        display: none;
+    }
 }

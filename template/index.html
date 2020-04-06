@@ -10,9 +10,31 @@
         integrity="sha256-WAgYcAck1C1/zEl5sBl5cfyhxtLgKGdpI3oKyJffVRI=" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.9/angular.js" integrity="sha256-JCDFk3Tc3BypchwzSjKv7pLwYQKAyuDRs5UrEnm8KyQ=" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
 </head>
 
 <body ng-app="myApp" ng-controller="myController" >
+    <div id="promo" ng-show="!fecha.expired" class="ng-hide" ng-cloak>
+        <div class="promo-der">
+            {{data.promo.texto}}
+        </div>
+        <div class="promo-der promo-time">
+            <small>Dias</small> <div class="promo-cir">{{fecha.d}} </div>
+            <small>Horas</small> <div class="promo-cir">{{fecha.h}} </div>
+            <small>Minutos</small> <div class="promo-cir">{{fecha.m}} </div>
+            <small>Segundos</small> <div class="promo-cir">{{fecha.s}} </div>
+        </div>
+        <div class="promo-der">
+            <a ng-href="{{data.promo.accion}}" class="btn">{{data.promo.accionable}}</a>
+        </div>
+    </div>
+
+    <div id="promo-small" ng-show="!fecha.expired" class="ng-hide" ng-cloak>
+            <a ng-href="{{data.promo.accion}}" class="btn">{{data.promo.texto}}</a>
+    </div>
+
     <section id="intro">
         <h1 ng-cloak>{{data.intro.titulo}}</h1>
         <div class="video-container">
@@ -142,9 +164,8 @@
             {{data.final.direccion}}
         </small>
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.9/angular.js" integrity="sha256-JCDFk3Tc3BypchwzSjKv7pLwYQKAyuDRs5UrEnm8KyQ=" crossorigin="anonymous"></script>
+
     <script src="script.js"></script>
-    <script src="app.js"></script>
 </body>
 
 </html>

@@ -1,7 +1,16 @@
 {
     "intro":{
         "titulo":"El método E para emprendedores",
-        "video":"video/book.mp4"
+        "video":"video/book.mp4" 
+    },
+
+    "promo":{
+        "texto":"Enjoy 80% OFF During The Early Bird Promotion!",
+        "tiempo":{
+            "anio":2020, "mes": 4, "dia":7
+        },
+        "accionable":"Order Now!",
+        "accion":"https://bing.com"
     },
 
     "videos":{
@@ -34,7 +43,41 @@
         "accionable": "Yes I want my copy of the AudioBook for $1.99",
         "accion":"https://bing.com"
     },
+    "contenido":{
+        "titulo":"So, What Is The Single Most Valuable Entrepreneurial Skill?",
+        "introduccion":[
+            "The first sale is a crucial vote of confidence your audience gives with their bank account. If you're facing this obstacle chances are you're most likely lacking in one particular skill...",
+            "... It's the skill that drives almost every dollar made online and off. ",
+            "... It's the skill that can transform a run-of-the-mill business into a wealth generating machine.",
+            "... It's also the skill that many veteran entreprenurs confess is the toughest to master.",
+            "I never blame anyone for struggling with it. ",
+            "It's not a skill that is taught in school or prioritized in college.",
+            "Confession time...",
+            "and this is a confession you won’t often hear from an online entreprenuer.",
+            "Even though this skill directly generates the most revenue in my business, in reality, I'm not a 'professional' at it. I developped this skill out of necessity, not out of desire.",
+            "And one of my biggest regrets is not learning its foundations sooner."
+        ],
+        "oportunidades": {
+            "presentacion":"Most people think it's skills like...",
+            "lista": [
+                "Networking",
+                "​Advertising",
+                "​Social Media",
+                "Money management",
+                "Branding",
+                "Leadership"
+            ],
+            "destacado":"... are the most important entrepreneurial skills.",
+            "resumen":"While these are very important skills in their own way, they're relatively easy to outsource or develop."
+        },
+        "resumen": [
+            "So what is this always in demand 'profit skill'? The one skill almost all successful business owners will admit is in large part responsible for their success?",
+            "If you haven't already guessed it, that skill is copywriting. Specifically, sales copywriting..."
+        ]
 
+
+
+    },
 
     "caracteristicas":{
         "descripcion":"Inside Of This Brand New Audiobook, Here Are A Few Of The Secrets That You'll Be Discovering...",

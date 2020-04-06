@@ -11,20 +11,25 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.9/angular.js" integrity="sha256-JCDFk3Tc3BypchwzSjKv7pLwYQKAyuDRs5UrEnm8KyQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.9/angular.js"
+        integrity="sha256-JCDFk3Tc3BypchwzSjKv7pLwYQKAyuDRs5UrEnm8KyQ=" crossorigin="anonymous"></script>
     <script src="app.js"></script>
 </head>
 
-<body ng-app="myApp" ng-controller="myController" >
+<body ng-app="myApp" ng-controller="myController">
     <div id="promo" ng-show="!fecha.expired" class="ng-hide" ng-cloak>
         <div class="promo-der">
             {{data.promo.texto}}
         </div>
         <div class="promo-der promo-time">
-            <small>Dias</small> <div class="promo-cir">{{fecha.d}} </div>
-            <small>Horas</small> <div class="promo-cir">{{fecha.h}} </div>
-            <small>Minutos</small> <div class="promo-cir">{{fecha.m}} </div>
-            <small>Segundos</small> <div class="promo-cir">{{fecha.s}} </div>
+            <small>Dias</small>
+            <div class="promo-cir">{{fecha.d}} </div>
+            <small>Horas</small>
+            <div class="promo-cir">{{fecha.h}} </div>
+            <small>Minutos</small>
+            <div class="promo-cir">{{fecha.m}} </div>
+            <small>Segundos</small>
+            <div class="promo-cir">{{fecha.s}} </div>
         </div>
         <div class="promo-der">
             <a ng-href="{{data.promo.accion}}" class="btn">{{data.promo.accionable}}</a>
@@ -32,16 +37,16 @@
     </div>
 
     <div id="promo-small" ng-show="!fecha.expired" class="ng-hide" ng-cloak>
-            <a ng-href="{{data.promo.accion}}" class="btn">{{data.promo.texto}}</a>
+        <a ng-href="{{data.promo.accion}}" class="btn">{{data.promo.texto}}</a>
     </div>
 
     <section id="intro">
         <h1 ng-cloak>{{data.intro.titulo}}</h1>
         <div class="video-container">
-            <video id="video" ng-src="{{data.intro.video}}" controls autoplay muted ></video>
+            <video id="video" ng-src="{{data.intro.video}}" controls autoplay muted></video>
         </div>
     </section>
-    
+
     <div class="float-block">
         <button id="pipButton" class="btn-rd">
             <span class="material-icons">
@@ -75,6 +80,29 @@
 
     <section class="card-section">
         <div class="card">
+            <h2>{{data.contenido.titulo}}</h2>
+            <div class="card-text" ng-repeat="intro in data.contenido.introduccion">
+                {{intro}}
+            </div>
+            <div class="card-title">
+                {{data.contenido.oportunidades.presentacion}}
+            </div>
+            <ul class="card-items">
+                <li ng-repeat="li in data.contenido.oportunidades.lista" class="card-item">
+                    {{li}}
+                </li>
+            </ul>
+            <div class="card-text">{{data.contenido.oportunidades.destacado}}</div>
+            <div class="card-text">{{data.contenido.oportunidades.resumen}}</div>
+
+            <div class="card-text" ng-repeat="res in data.contenido.resumen">{{res}}</div>
+
+
+        </div>
+    </section>
+
+    <section class="card-section">
+        <div class="card">
             <div class="card-title" ng-cloak>
                 {{data.caracteristicas.descripcion}}
             </div>
@@ -97,23 +125,23 @@
 
     <section class="card-section" id="reasons">
         <div class="card">
-            <h2 >
+            <h2>
                 {{data.motivos.titulo}}
-            </h2 >
+            </h2>
             <div class="card-text">
                 {{data.motivos.descripcion}}
             </div>
-            <div class="card-title" >
+            <div class="card-title">
                 {{data.motivos.subtitulo}}
             </div>
-            <div class="card-text" >
+            <div class="card-text">
                 {{data.motivos.presentacion}}
             </div>
             <ol class="card-items-num">
-                <li ng-repeat="motivo in data.motivos.lista" class="card-item" >
+                <li ng-repeat="motivo in data.motivos.lista" class="card-item">
                     {{motivo}}
                 </li>
-    
+
             </ol>
             <a ng-href="{{data.motivos.accion}}" class="btn-green jump">{{data.motivos.accionable}}</a>
         </div>
@@ -139,7 +167,7 @@
             <div class="card-text"> {{data.garantia.agradecimiento.descripcion}}</div>
             <img ng-src="{{data.garantia.agradecimiento.foto}}" width="315px" class="img-me" alt="">
             <div class="card-text">{{data.garantia.agradecimiento.texto}}</div>
-            
+
             <a ng-href="{{data.garantia.accion}}" class="btn-green jump">{{data.garantia.accionable}}</a>
         </div>
     </section>

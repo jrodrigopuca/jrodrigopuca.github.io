@@ -14,6 +14,9 @@ p,q, small{
     word-wrap: break-word;
 }
 
+q{
+    margin-top:10px;
+}
 section{
     min-width: 100%;
     /*min-height: 100vh;*/
@@ -190,7 +193,7 @@ h2 .material-icons{
     display: inline-flex;
     justify-content: center;
     align-items: center;
-
+    text-align: center;
 }
 
 .card-items{

@@ -1,6 +1,6 @@
 {
     "intro":{
-        "titulo":"El método E para emprendedores",
+        "titulo":"My Book",
         "video":"video/book.mp4" 
     },
 
@@ -14,33 +14,33 @@
     },
 
     "videos":{
-        "titulo": "¿Te gustaría ganar cientos de dólares por semana?",
+        "titulo": "Hurry, This Offer Won't Last Long!",
         "opiniones":[
-            {   "video":"img/01.jpg",
-                "descripcion":"Imagina ser dueño absoluto de tu tiempo y tener la libertad de hacer lo que más disfrutas...",
-                "autor": ""
+            {   "video":"img/mike.png",
+                "descripcion":"I watched Mike go from making a few hundred dollars a day, to producing over a Million Dollars in a Year",
+                "autor": "Russell Brunson - CEO and Co-Founder of ClickFunnels"
             },
-            {   "video":"img/02.jpg",
-                "descripcion":"Imagina cuan hermoso sería poder darles a ti y tus seres queridos todo lo que se merecen...",
-                "autor": ""
+            {   "video":"img/mike.png",
+                "descripcion":"There is no one better right now in the industry, that is at the cutting edge....then Mike",
+                "autor": "Anik Singal - CEO of Lurn"
             },
-            {   "video":"img/03.jpg",
-                "descripcion":"¿Cúan diferente sería tu vida si supieras como hacerlo realidad?...",
-                "autor": ""
+            {   "video":"img/mike.png",
+                "descripcion":"If it's costing you too much to acquire a Customer right now, you need to grab this!",
+                "autor": "Adam Nolan - Founder of Subscription School"
             }
         ]
     },
 
     "presentacion":{
         "producto":{
-            "texto":"Te presento la guía definitiva para generar dinero por internet, desde casa...",
-            "imagen":"img/book.png"
+            "texto":"Introducing Our Client Formula - The Ultimate Guide for Bringing in 30 - 50 New Clients A Month...",
+            "imagen":"img/book.jpg"
         },
         "comentarios":{
-            "texto":"Mira lo que dicen otras personas sobre El Método E",
+            "texto":"What People Are Saying About Our Audiobook",
             "imagen":"img/captura.jpg"
         },
-        "accionable": "¡Si, quiero mi copia del libro por solo 6.99 USD!",
+        "accionable": "Yes I want my copy of the AudioBook for $1.99",
         "accion":"https://bing.com"
     },
     
@@ -102,8 +102,8 @@
     },
 
     "publicidad":{
-        "titulo":"Este Libro Digital está lleno de conocimiento efectivo y probado por años de experiencia personal",
-        "accionable":"¡Obtén tu copia del Método E, Ahora!",
+        "titulo":"This Audiobook Is Filled To The Brim With Client Grabbing Techniques That Are Working Right Now...",
+        "accionable":"Get your client formula copy now!",
         "accion":"https://bing.com"
     },
 
@@ -132,7 +132,7 @@
             "titulo": "This Is Truly A Limited Offer, So Claim Your Copy Now Before They're All Gone..",
             "descripcion":"Thanks for taking the time to read this letter and I look forward to hearing from you soon!",
             "texto":"P.S. In case you're one of those people (like me) who just skip to the end of the letter, here's the deal: I'm giving you instant access to an 1 hour and 24 minute long audiobook on exactly how to start bringing in 30-50 new clients every single month using Facebook Ads. There's no catch... no gimmicks... You will NOT be signing up for any 'trial' to some monthly program or anything like that.        In fact, if you don't love the audiobook - I'll even refund your $1.99. So, Click the button below to get instant access now. You won't regret it.",
-            "foto":"img/profile.jpg"
+            "foto":"img/mike.png"
         },
         "accionable": "Give me instant access now!",
         "accion":"https://bing.com"
@@ -144,17 +144,17 @@
             {   
                 "texto":"Exclusive Training: How To Go On Holiday & Still Make Sales",
                 "descripcion":"This will help you with systems & mindset you need to automate your business.",
-                "imagen":"img/book.png"
+                "imagen":"img/bonus.jpg"
             },
             {   
                 "texto":"$700,000 Plug-And-Play Agency Website Template",
                 "descripcion": "$700,000 Plug-And-Play Agency Website Template",
-                "imagen":"img/book.png"
+                "imagen":"img/bonus.jpg"
             },
             {   
                 "texto":"2 Hour Agency Quickstart Guide",
                 "descripcion":"This PDF will get you started QUICKLY so you can get closer to freedom.",
-                "imagen":"img/book.png"
+                "imagen":"img/bonus.jpg"
             }
         ]
     },

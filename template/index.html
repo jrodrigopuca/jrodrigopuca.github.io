@@ -59,7 +59,10 @@
         <h2 ng-cloak>{{data.videos.titulo}}</h2>
         <div class="videoX3-supercontainer">
             <div ng-repeat="opinion in data.videos.opiniones" class="videoX3-container">
+                <!--
                 <video class="videoX3" ng-src="{{opinion.video}}" controls width="300px"></video>
+                -->
+                <img class="videoX3" ng-src="{{opinion.video}}" width="320px">
                 <q ng-cloak> {{opinion.descripcion}} </q>
                 <p class="opinion" ng-cloak> {{opinion.autor}}</p>
             </div>
@@ -69,7 +72,7 @@
     <section class="img-section">
         <div class="card">
             <p ng-cloak>{{data.presentacion.producto.texto}}</p>
-            <img src="img/audiobook.jpg" width="300px" alt="">
+            <img ng-src="{{data.presentacion.producto.imagen}}" width="300px" alt="">
             <a ng-href="{{data.presentacion.accion}}" class="btn-green jump">{{data.presentacion.accionable}}</a>
         </div>
         <div class="card">

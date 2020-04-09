@@ -1,6 +1,6 @@
 {
     "intro":{
-        "titulo":"El método E. para emprendedores",
+        "titulo":"El método E. para Emprendedores",
         "video":"video/book.mp4" 
     },
 
@@ -13,18 +13,18 @@
         "accion":"https://bing.com"
     },
 
-    "videos":{
+    "galeria":{
         "titulo": "¿Te gustaría ganar cientos de dólares por semana?",
-        "opiniones":[
-            {   "video":"img/01.jpg",
+        "imagenes":[
+            {   "imagen":"img/01.jpg",
                 "descripcion":"Imagina ser dueño absoluto de tu tiempo y tener la libertad de hacer lo que más disfrutas...",
                 "autor": ""
             },
-            {   "video":"img/02.jpg",
+            {   "imagen":"img/02.jpg",
                 "descripcion":"Imagina cuan hermoso sería poder darles a ti y tus seres queridos todo lo que se merecen...",
                 "autor": ""
             },
-            {   "video":"img/03.jpg",
+            {   "imagen":"img/03.jpg",
                 "descripcion":"¿Cúan diferente sería tu vida si supieras como hacerlo realidad?...",
                 "autor": ""
             }
@@ -80,33 +80,34 @@
     "caracteristicas":{
         "descripcion":"Aquí tienes una rápida mirada a algunos de los Secretos que descubrirás en esta Obra Pionera…",
         "lista":[
-            "Cuáles son los 10 mitos que te alejan del éxito y cómo eliminarlos… (estos mitos están arraigados en tu cerebro y tu subconsciente y no te permiten avanzar en la dirección que quieres. Ellos actúan como frenos en tu vida. Identifícalos, elimínalos y alcanzarás tu verdadero potencial)",
-            "Cómo cultivar la mentalidad correcta que te hará emprendedor próspero… (Tu mentalidad determinará en gran medida hasta dónde llegarás en la vida. Te ofrezco varios conocimientos esenciales que cambiarán tu forma de ver el mundo y allanarán tu camino hacia el éxito)",
-            "Una técnica infalible para alcanzar todos tus sueños… (Esta técnica poderosa y simple te permitirá concentrarte y ganar claridad para actuar. Si la pones en práctica te garantizo que conseguirás todo lo que te propongas)",
-            "Cuál es el error número uno que es fatal a todos los emprendedores y cómo evitarlo… (Este error ha hecho más daño que cualquiera de los otros errores que un emprendedor podría cometer jamás. Protégete y no permitas que te ocurra a ti y verás que tu empresa despegará)",
-            "Las 9 características de una empresa ideal… (Conocerlas evitará que malgastes tiempo y energía en emprendimientos infructuosos destinados a fracasar. También te permitirá armar empresas robustas con grandes chances de éxito)",
-            "Los 3 imanes del dinero… (Así como existen leyes que gobiernan la física, el dinero cuenta con sus propias leyes. Si no las conoces estarás destinado a andar mal en las finanzas por siempre)",
-            "Cómo elegir un servicio para vender, basado en lo que las personas están comprando ACTUALMENTE… (De forma que tu camino hacia la libertad financiera sea mucho más rápido y menos accidentado. Lo mejor de todo es que aprenderás cómo entregar tu servicio sin necesidad de que sepas como hacer el trabajo técnico)",
-            "Cómo crear un Sitio Web que vende tus servicios de forma automática… (Generando 10 a 20 clientes al mes que pagan por tus servicios. Con este tipo especial de Sitio Web de El Método E generas dinero y no citas para futuras reuniones e intercambios de email, los cuales resultan en cansancio extremo y cero dineros en tus bolsillos)",
-            "Te comparto mis 4 formas favoritas de generar tráfico para un Sitio Web…(Que te permitirán alimentar tu Sitio Web de Ventas Automático y convertirlos en clientes para tu Empresa Digital. Una de esas estrategias es totalmente gratuita y atraerá clientes durante meses)",
-            "3 estrategias que aumentarán tus ganancias… (Cuando apliques estas estrategias podrás duplicar el dinero generado por tu Empresa Digital. La estrategia 3 es poco utilizada, pero te dará excelentes resultados)",
-            "Cómo diferenciarte de tu competencia, más allá del precio… (Los emprendedores y dueños de agencias digitales que caen en la guerra de precios nunca terminan bien. Solo basta un error para que queden fuera del juego. Este conocimiento que te entrego hará que tus servicios se distingan de tu competencia)",
-            "Cómo usar tus palabras para hacer dinero… (Existe una habilidad que si la aprendes y dominas te transformará en una máquina de vender, logrando que convenzas a extraños de que sean tus clientes y lo podrás hacer sin siquiera abrir tu boca, usando palabras escritas por ti. ¡También puedes usar esta habilidad para abrirá una Empresa Digital nueva!)",
-            "El Método E. te ofrece una guía completa para empezar tu Empresa Digital Desde casa, paso a paso… (Solo debes seguir lo que escribí para ti. Y si ya tienes un emprendimiento, este Método te ayudará a atraer clientes automáticamente y liberar tu tiempo)"
+            {"destacado":"Cuáles son los 10 mitos que te alejan del éxito y cómo eliminarlos…","texto":"(estos mitos están arraigados en tu cerebro y tu subconsciente y no te permiten avanzar en la dirección que quieres. Ellos actúan como frenos en tu vida. Identifícalos, elimínalos y alcanzarás tu verdadero potencial)"},
+            {"destacado":"Cómo cultivar la mentalidad correcta que te hará emprendedor próspero… ","texto":"(Tu mentalidad determinará en gran medida hasta dónde llegarás en la vida. Te ofrezco varios conocimientos esenciales que cambiarán tu forma de ver el mundo y allanarán tu camino hacia el éxito)"},
+            {"destacado":"Una técnica infalible para alcanzar todos tus sueños…","texto":"(Esta técnica poderosa y simple te permitirá concentrarte y ganar claridad para actuar. Si la pones en práctica te garantizo que conseguirás todo lo que te propongas)"},
+            {"destacado":"Cuál es el error número uno que es fatal a todos los emprendedores y cómo evitarlo…", "texto":"(Este error ha hecho más daño que cualquiera de los otros errores que un emprendedor podría cometer jamás. Protégete y no permitas que te ocurra a ti y verás que tu empresa despegará)"},
+            {"destacado":"Las 9 características de una empresa ideal…", "texto":"(Conocerlas evitará que malgastes tiempo y energía en emprendimientos infructuosos destinados a fracasar. También te permitirá armar empresas robustas con grandes chances de éxito)"},
+            {"destacado":"Los 3 imanes del dinero…", "texto":"(Así como existen leyes que gobiernan la física, el dinero cuenta con sus propias leyes. Si no las conoces estarás destinado a andar mal en las finanzas por siempre)"},
+            {"destacado":"Cómo elegir un servicio para vender,", "texto":"basado en lo que las personas están comprando ACTUALMENTE… (De forma que tu camino hacia la libertad financiera sea mucho más rápido y menos accidentado. Lo mejor de todo es que aprenderás cómo entregar tu servicio sin necesidad de que sepas como hacer el trabajo técnico)"},
+            {"destacado":"Cómo crear un Sitio Web que vende tus servicios de forma automática…","texto":"(Generando 10 a 20 clientes al mes que pagan por tus servicios. Con este tipo especial de Sitio Web de El Método E generas dinero y no citas para futuras reuniones e intercambios de email, los cuales resultan en cansancio extremo y cero dineros en tus bolsillos)"},
+            {"destacado":"Te comparto mis 4 formas favoritas de generar tráfico para un Sitio Web…", "texto":"(Que te permitirán alimentar tu Sitio Web de Ventas Automático y convertirlos en clientes para tu Empresa Digital. Una de esas estrategias es totalmente gratuita y atraerá clientes durante meses)"},
+            {"destacado":"3 estrategias que aumentarán tus ganancias…","texto":"(Cuando apliques estas estrategias podrás duplicar el dinero generado por tu Empresa Digital. La estrategia 3 es poco utilizada, pero te dará excelentes resultados)"},
+            {"destacado":"Cómo diferenciarte de tu competencia, más allá del precio…","texto":"(Los emprendedores y dueños de agencias digitales que caen en la guerra de precios nunca terminan bien. Solo basta un error para que queden fuera del juego. Este conocimiento que te entrego hará que tus servicios se distingan de tu competencia)"},
+            {"destacado":"Cómo usar tus palabras para hacer dinero…","texto":"(Existe una habilidad que si la aprendes y dominas te transformará en una máquina de vender, logrando que convenzas a extraños de que sean tus clientes y lo podrás hacer sin siquiera abrir tu boca, usando palabras escritas por ti. ¡También puedes usar esta habilidad para abrirá una Empresa Digital nueva!)"},
+            {"destacado":"El Método E. te ofrece una guía completa para empezar tu Empresa Digital desde casa,", "texto": "paso a paso… (Solo debes seguir lo que escribí para ti. Y si ya tienes un emprendimiento, este Método te ayudará a atraer clientes automáticamente y liberar tu tiempo)"}
         ]
     },
 
     "publicidad":{
         "titulo":"Este Libro Digital está lleno de conocimiento efectivo y probado por años de experiencia personal",
-        "accionable":"¡Obtén tu copia del Método E, Ahora!",
+        "accionable":"¡Obtén tu copia del Método E., Ahora!",
         "accion":"https://bing.com"
     },
 
     "motivos":{
         "titulo":"No hay ninguna trampa oculta",
-        "descripcion":"Se que el libro que escribí es muy económico, cuesta menos de 4 cafés… Probablemente te preguntes: 'Si te va tan bien con tu consultora, ¿por qué estás dando tu libro tan barato? Entonces debe ser una estafa… 'Se de la existencia de sitios web que te venden 'mega ofertas' pero después de que compras te das con la sorpresa de que hay costos ocultos mensuales… Esto no es uno de esos sitios web. Te garantizo que comprarás mi libro completo por solo 9.99 USD y no habrá costos ocultos",
+        "descripcion": ["Se que el libro que escribí es muy económico, cuesta menos de 4 cafés…","Probablemente te preguntes:","'Si te va tan bien con tu consultora, ¿por qué estás dando tu libro tan barato?","Entonces debe ser una estafa…", "'Se de la existencia de sitios web que te venden 'mega ofertas' pero después de que compras te das con la sorpresa de que hay costos ocultos mensuales… Esto no es uno de esos sitios web."],
+        "destacado":"Te garantizo que comprarás mi libro completo por solo 9.99 USD y no habrá costos ocultos",
         "subtitulo": "Esto no durará mucho tiempo",
-        "presentacion":"Planeaba vender mi libro a 47 USD pero eso significaría imprimirlo y enviarlo por correo. Eso me quitaría ganancias y sería difícil ayudar a muchas personas. Inicialmente vendí mi libro digital a 37 USD y más de 970 personas lo compraron a ese precio. Pero cambié de parecer y te lo estoy ofreciendo a solo 9.99 USD, ahorrándote 27 USD, ¿sabes por qué?",
+        "presentacion":["Planeaba vender mi libro a 47 USD pero eso significaría imprimirlo y enviarlo por correo. Eso me quitaría ganancias y sería difícil ayudar a muchas personas.","Inicialmente vendí mi libro digital a 37 USD y más de 970 personas lo compraron a ese precio.", "Pero cambié de parecer y te lo estoy ofreciendo a solo 9.99 USD, ahorrándote 27 USD, ¿sabes por qué?"],
         "lista":[
             "Me permite ayudar a miles de personas a las que podría impactar positivamente sus vidas. Se que esta información cambiará la forma en que emprendes para siempre.",
             "Estoy convencido de que te gustará tanto mi libro que apuesto que querrás tomar más clases o entrenamientos. O quizás me buscarás para que te ayude a desarrollar tu Empresa Digital con publicidad o desarrollo web. Sinceridad ante todo…",
@@ -118,23 +119,26 @@
 
     "garantia":{
         "titulo":"El tiempo apremia...",
-        "descripcion": "La mayoría de los días mi libro vende de 40 a 70 copias. Lo que significa que muchas personas buscan mis servicios de consultoría y cuando mi consultora obtiene muchos pedidos de trabajo, debo cerrar esta página hasta que entreno nuevos empleados.Esta oferta terminará pronto, ¡aprovecha a agarrar tu copia de El Método E. antes que se agoten hoy!",
-        "importante": {
+        "descripcion": ["La mayoría de los días mi libro vende de 40 a 70 copias.", "Lo que significa que muchas personas buscan mis servicios de consultoría y cuando mi consultora obtiene muchos pedidos de trabajo, debo cerrar esta página hasta que entreno nuevos empleados.","Esta oferta terminará pronto, ¡aprovecha a agarrar tu copia de El Método E. antes que se agoten hoy!"],
+        "texto": {
             "titulo":"La mejor Garantía de devolución de dinero del mundo",
-            "descripcion":"I 100% guarantee that you'll love this audiobook, or I'll return your fee and let you keep the audiobook anyway.That's right. You don't even have to send anything back. Just email me or call the number on your receipt and I'll give you back your money with no question asked. Sound fair?"
+            "descripcion":["Se que antes de comprar algo quieres conocer que garantía tiene…", "Se que quieres estar seguro de que este libro realmente te servirá. Aunque solamente cueste 9.99 USD has trabajado por ese dinero.","Así que me gustaría proponerte algo:"],
+            "lista":["Baja tu copia de El Método E.","Léelo entero y aplica lo aprendido"],
+            "conclusion": "Si no te sorprende lo que lees, solo escríbeme un correo pidiéndome una devolución dentro de los 30 días de tu compra",
+            "importante": "¡Te devolveré tus 9!99 USD y te dejaré quedarte con tu copia del libro! ¿Qué tal suena mi garantía de devolución de dinero?"
         },
         "agradecimiento":{
-            "titulo": "This Is Truly A Limited Offer, So Claim Your Copy Now Before They're All Gone..",
-            "descripcion":"Thanks for taking the time to read this letter and I look forward to hearing from you soon!",
-            "texto":"P.S. In case you're one of those people (like me) who just skip to the end of the letter, here's the deal: I'm giving you instant access to an 1 hour and 24 minute long audiobook on exactly how to start bringing in 30-50 new clients every single month using Facebook Ads. There's no catch... no gimmicks... You will NOT be signing up for any 'trial' to some monthly program or anything like that.        In fact, if you don't love the audiobook - I'll even refund your $1.99. So, Click the button below to get instant access now. You won't regret it.",
+            "titulo": "Esta es una oferta limitada, obtén tu copia ahora antes de que se agoten…",
+            "descripcion":"Gracias por leer hasta aquí, me gustaría oir de ti pronto…",
+            "texto":" ",
             "foto":"img/profile.jpg"
         },
-        "accionable": "Give me instant access now!",
+        "accionable":"¡Obtén tu copia del Método E., Ahora!",
         "accion":"https://bing.com"
     },
     "bonus":{
-        "titulo":"Include with your order",
-        "descripcion":"5 free fast action bonuses",
+        "titulo":"Incluido con tu orden",
+        "descripcion":"3 Bonus Imperdibles",
         "productos":[
             {   
                 "texto":"Exclusive Training: How To Go On Holiday & Still Make Sales",
@@ -154,8 +158,8 @@
         ]
     },
     "final":{
-        "nombre":"Mike",
-        "descripcion":"Over the past 10 years, Mike Buontempo has been spending Millions of Dollars on Paid Advertising across Facebook, Google, and YouTube. He runs an agency that runs the ads for companies and also promotes his own programs.",
-        "direccion": "1020 South Ave. Westfield, NJ 07090"
+        "nombre":"Ebaneo",
+        "descripcion":"En los últimos años Ebaneo Valdez Kao ha desarrollado diversos emprendimientos. Actualmente vive en Taiwán desde donde opera su Consultora Informática internacional.",
+        "direccion": ""
     }
 }

@@ -56,15 +56,15 @@
     </div>
 
     <section>
-        <h2 ng-cloak>{{data.videos.titulo}}</h2>
-        <div class="videoX3-supercontainer">
-            <div ng-repeat="opinion in data.videos.opiniones" class="videoX3-container">
+        <h2 ng-cloak>{{data.galeria.titulo}}</h2>
+        <div class="imagenX3-supercontainer">
+            <div ng-repeat="i in data.galeria.imagenes" class="imagenX3-container">
                 <!--
                 <video class="videoX3" ng-src="{{opinion.video}}" controls width="300px"></video>
                 -->
-                <img class="videoX3" ng-src="{{opinion.video}}" width="320px">
-                <q ng-cloak> {{opinion.descripcion}} </q>
-                <p class="opinion" ng-cloak> {{opinion.autor}}</p>
+                <img class="videoX3" ng-src="{{i.imagen}}" width="320px">
+                <q ng-cloak> {{i.descripcion}} </q>
+                <p class="opinion" ng-cloak> {{i.autor}}</p>
             </div>
         </div>
     </section>
@@ -81,6 +81,7 @@
         </div>
     </section>
 
+    <!--
     <section class="card-section">
         <div class="card">
             <h2>{{data.contenido.titulo}}</h2>
@@ -103,6 +104,7 @@
 
         </div>
     </section>
+    -->
 
     <section class="card-section">
         <div class="card">
@@ -111,7 +113,8 @@
             </div>
             <ul class="card-items">
                 <li ng-repeat="item in data.caracteristicas.lista" class="card-item">
-                    {{item}}
+                    <b>{{item.destacado}}</b>
+                    <small>{{item.texto}}</small>
                 </li>
             </ul>
         </div>
@@ -131,14 +134,15 @@
             <h2>
                 {{data.motivos.titulo}}
             </h2>
-            <div class="card-text">
-                {{data.motivos.descripcion}}
+            <div ng-repeat="descripcion in data.motivos.descripcion">
+                <div class="card-text">{{descripcion}}</div>
             </div>
+            <b class="card-text">{{data.motivos.destacado}}</b>
             <div class="card-title">
                 {{data.motivos.subtitulo}}
             </div>
-            <div class="card-text">
-                {{data.motivos.presentacion}}
+            <div ng-repeat="presentacion in data.motivos.presentacion">
+                <div class="card-text">{{presentacion}}</div>
             </div>
             <ol class="card-items-num">
                 <li ng-repeat="motivo in data.motivos.lista" class="card-item">
@@ -154,19 +158,35 @@
             <h2>
                 {{data.garantia.titulo}}
             </h2>
-            <div class="card-text">
-                {{data.garantia.descripcion}}
+            
+            <div ng-repeat="descripcion in data.garantia.descripcion">
+                <div class="card-text">{{descripcion}}</div>
+            </div>
+            
+            <div class="card-title yellow-card-title">
+                {{data.garantia.texto.titulo}}
+            </div>
+
+            <img src="img/guarantee.png" alt="" width="200px">
+            
+            <div ng-repeat="descripcion in data.garantia.texto.descripcion">
+                <div class="card-text">{{descripcion}}</div>
+            </div>
+
+            <ul class="card-items" ng-repeat="item in data.garantia.texto.lista">
+                <li class="card-item">{{item}}</li>
+            </ul>
+
+            <div class="card-text">{{data.garantia.texto.conclusion}}</div>
+            <b class="card-text">{{data.garantia.texto.importante}}</b>
+            
+
+            <div ng-repeat="descripcion in data.garantia.importante.descripcion">
+                <div class="card-text">{{descripcion}}</div>
             </div>
             <div class="card-title yellow-card-title">
-                {{data.garantia.importante.titulo}}
-            </div>
-            <img src="img/guarantee.png" alt="" width="200px">
-            <div class="card-text">
-                {{data.garantia.importante.descripcion}}
-            </div>
-            <card class="card-title yellow-card-title">
                 {{data.garantia.agradecimiento.titulo}}
-            </card>
+            </div>
             <div class="card-text"> {{data.garantia.agradecimiento.descripcion}}</div>
             <img ng-src="{{data.garantia.agradecimiento.foto}}" width="315px" class="img-me" alt="">
             <div class="card-text">{{data.garantia.agradecimiento.texto}}</div>

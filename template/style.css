@@ -136,14 +136,14 @@ h2 .material-icons{
     flex-direction: column;   
 }
 
-.videoX3-supercontainer{
+.imagenX3-supercontainer{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
-.videoX3-container{
+.imagenX3-container{
     display: flex;
     flex-direction: column;
     margin:2%;
@@ -199,6 +199,7 @@ h2 .material-icons{
 .card-items{
     list-style: none;
     padding: 0px;
+    margin:0;
 }
 
 .card-items-num{
@@ -216,6 +217,11 @@ h2 .material-icons{
 .card-item, .card-text{
     padding: 10px;
     text-align: justify;
+}
+
+.card-text{
+    text-align: justify;
+    justify-content: center;
 }
 
 .card-title{

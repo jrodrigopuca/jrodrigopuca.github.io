@@ -1,15 +1,15 @@
 {
     "intro":{
-        "titulo":"El método E. para Emprendedores",
+        "titulo":"El Método E. para Emprendedores",
         "video":"video/book.mp4" 
     },
 
     "promo":{
-        "texto":"Enjoy 80% OFF During The Early Bird Promotion!",
+        "texto":"Disfruta de un descuento especial",
         "tiempo":{
             "anio":2020, "mes": 4, "dia":12
         },
-        "accionable":"Order Now!",
+        "accionable":"¡Obténlo ahora!",
         "accion":"https://bing.com"
     },
 

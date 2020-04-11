@@ -251,10 +251,10 @@ h2 .material-icons{
 }
 
 footer{
-    background-color: #24292e;
-    color:white;
-    font-size:20px;
-    padding:10px;
+    background-color: #3f51b5;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
 }
 .img-me{
     border-radius: 50%;
@@ -348,4 +348,13 @@ footer{
     padding: 20px;
     width: 80%;
     display: flex;
+}
+
+#dev{
+    background-color: #f6f8fa;
+    border-radius: 15px;
+    color: #3f51b5!important;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
 }

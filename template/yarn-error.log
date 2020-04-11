@@ -1,0 +1,31 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\jarp\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js init
+
+PATH: 
+  C:\Users\jarp\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\cmd;C:\Program Files\Git\usr\bin;D:\sw\cmder\vendor\conemu-maximus5\ConEmu\Scripts;D:\sw\cmder\vendor\conemu-maximus5;D:\sw\cmder\vendor\conemu-maximus5\ConEmu;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\Dart\dart-sdk\bin;C:\WINDOWS\System32\OpenSSH;C:\Users\jarp\AppData\Local\LyX 2.3\Perl\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\dotnet;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\nodejs;C:\Users\jarp\AppData\Local\Programs\Python\Python36\Scripts;C:\Users\jarp\AppData\Local\Programs\Python\Python36;C:\RailsInstaller\Git\cmd;C:\RailsInstaller\Ruby2.3.0\bin;C:\Ruby23\bin;C:\Ruby23-x64\bin;C:\Users\jarp\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\Microsoft VS Code\bin;C:\flutter-sdk\flutter\bin;C:\Users\jarp\AppData\Local\Android\sdk\platform-tools;C:\Users\jarp\AppData\Local\Android\Sdk\tools;C:\Program Files\Android\Android Studio\gradle\gradle-4.1\bin;C:\Users\jarp\AppData\Local\GitHubDesktop\bin;C:\Users\jarp\AppData\Local\Programs\MiKTeX 2.9\miktex\bin\x64;C:\Users\jarp\AppData\Local\Microsoft\WindowsApps;C:\Program Files\CMake\bin;C:\Users\jarp\AppData\Local\Programs\Microsoft VS Code Insiders\bin;C:\Users\jarp\AppData\Roaming\npm;C:\MinGW\bin;C:\MinGW\msys\1.0\bin;C:\Program Files\Git\usr\bin;C:\Gradle\gradle-6.1.1\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+
+Yarn version: 
+  1.22.0
+
+Node version: 
+  12.14.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: Can't answer a question unless a user TTY
+      at ConsoleReporter.question (C:\Users\jarp\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:96783:59)
+      at Object.<anonymous> (C:\Users\jarp\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:89063:38)
+      at Generator.next (<anonymous>)
+      at step (C:\Users\jarp\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
+      at C:\Users\jarp\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:321:13
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

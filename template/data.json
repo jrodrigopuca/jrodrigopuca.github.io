@@ -10,7 +10,7 @@
             "anio":2020, "mes": 4, "dia":12
         },
         "accionable":"¡Obténlo ahora!",
-        "accion":"https://bing.com"
+        "accion":"https://transactions.sendowl.com/packages/767893/31DC46AD/purchase"
     },
 
     "galeria":{
@@ -38,10 +38,10 @@
         },
         "comentarios":{
             "texto":"Mira lo que dicen otras personas sobre El Método E.",
-            "imagen":"img/captura.jpg"
+            "imagen":"img/opiniones.png"
         },
-        "accionable": "¡Si, quiero mi copia del libro por solo 6.99 USD!",
-        "accion":"https://bing.com"
+        "accionable": "¡Si, quiero mi copia del libro por solo 9.99 USD!",
+        "accion":"https://transactions.sendowl.com/packages/767893/31DC46AD/purchase"
     },
     
     "contenido":{
@@ -86,7 +86,7 @@
             {"destacado":"Cuál es el error número uno que es fatal a todos los emprendedores y cómo evitarlo…", "texto":"(Este error ha hecho más daño que cualquiera de los otros errores que un emprendedor podría cometer jamás. Protégete y no permitas que te ocurra a ti y verás que tu empresa despegará)"},
             {"destacado":"Las 9 características de una empresa ideal…", "texto":"(Conocerlas evitará que malgastes tiempo y energía en emprendimientos infructuosos destinados a fracasar. También te permitirá armar empresas robustas con grandes chances de éxito)"},
             {"destacado":"Los 3 imanes del dinero…", "texto":"(Así como existen leyes que gobiernan la física, el dinero cuenta con sus propias leyes. Si no las conoces estarás destinado a andar mal en las finanzas por siempre)"},
-            {"destacado":"Cómo elegir un servicio para vender,", "texto":"basado en lo que las personas están comprando ACTUALMENTE… (De forma que tu camino hacia la libertad financiera sea mucho más rápido y menos accidentado. Lo mejor de todo es que aprenderás cómo entregar tu servicio sin necesidad de que sepas como hacer el trabajo técnico)"},
+            {"destacado":"Cómo elegir un servicio para vender, basado en lo que las personas están comprando ACTUALMENTE…", "texto":"(De forma que tu camino hacia la libertad financiera sea mucho más rápido y menos accidentado. Lo mejor de todo es que aprenderás cómo entregar tu servicio sin necesidad de que sepas como hacer el trabajo técnico)"},
             {"destacado":"Cómo crear un Sitio Web que vende tus servicios de forma automática…","texto":"(Generando 10 a 20 clientes al mes que pagan por tus servicios. Con este tipo especial de Sitio Web de El Método E generas dinero y no citas para futuras reuniones e intercambios de email, los cuales resultan en cansancio extremo y cero dineros en tus bolsillos)"},
             {"destacado":"Te comparto mis 4 formas favoritas de generar tráfico para un Sitio Web…", "texto":"(Que te permitirán alimentar tu Sitio Web de Ventas Automático y convertirlos en clientes para tu Empresa Digital. Una de esas estrategias es totalmente gratuita y atraerá clientes durante meses)"},
             {"destacado":"3 estrategias que aumentarán tus ganancias…","texto":"(Cuando apliques estas estrategias podrás duplicar el dinero generado por tu Empresa Digital. La estrategia 3 es poco utilizada, pero te dará excelentes resultados)"},
@@ -99,7 +99,7 @@
     "publicidad":{
         "titulo":"Este Libro Digital está lleno de conocimiento efectivo y probado por años de experiencia personal",
         "accionable":"¡Obtén tu copia del Método E., Ahora!",
-        "accion":"https://bing.com"
+        "accion":"https://transactions.sendowl.com/packages/767893/31DC46AD/purchase"
     },
 
     "motivos":{
@@ -114,7 +114,7 @@
             "Me molesta la gente que trata de estafar a otros, sacándoles el dinero que tanto les costó conseguir. Hay muchos autoproclamados gurúes que nunca emprendieron en sus vidas y solo traen confusión. Mi deseo es traer algo de claridad, mediante información real, probada y sincera. Quizás solo sea un capricho personal que me hace sentir realizado."
         ],
         "accionable":"Quiero mi copia de El Método E. Ahora",
-        "accion":"https://bing.com"
+        "accion":"https://transactions.sendowl.com/packages/767893/31DC46AD/purchase"
     },
 
     "garantia":{
@@ -125,7 +125,7 @@
             "descripcion":["Se que antes de comprar algo quieres conocer que garantía tiene…", "Se que quieres estar seguro de que este libro realmente te servirá. Aunque solamente cueste 9.99 USD has trabajado por ese dinero.","Así que me gustaría proponerte algo:"],
             "lista":["Baja tu copia de El Método E.","Léelo entero y aplica lo aprendido"],
             "conclusion": "Si no te sorprende lo que lees, solo escríbeme un correo pidiéndome una devolución dentro de los 30 días de tu compra",
-            "importante": "¡Te devolveré tus 9!99 USD y te dejaré quedarte con tu copia del libro! ¿Qué tal suena mi garantía de devolución de dinero?"
+            "importante": "¡Te devolveré tus 9.99 USD y te dejaré quedarte con tu copia del libro! ¿Qué tal suena mi garantía de devolución de dinero?"
         },
         "agradecimiento":{
             "titulo": "Esta es una oferta limitada, obtén tu copia ahora antes de que se agoten…",
@@ -134,7 +134,7 @@
             "foto":"img/profile.jpg"
         },
         "accionable":"¡Obtén tu copia del Método E., Ahora!",
-        "accion":"https://bing.com"
+        "accion":"https://transactions.sendowl.com/packages/767893/31DC46AD/purchase"
     },
     "bonus":{
         "titulo":"Incluido con tu orden",

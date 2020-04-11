@@ -17,6 +17,14 @@
 </head>
 
 <body ng-app="myApp" ng-controller="myController">
+    <div class="modal" id="modal">
+        <div class="card modal-content" id="modalContent">
+            <h2> ¡Muchas gracias! </h1>
+            <p class="card-text">Por favor revisa tu correo para más información</p>
+        </div>
+    </div>
+
+
     <div id="promo" ng-show="!fecha.expired" class="ng-hide" ng-cloak>
         <div class="promo-der">
             {{data.promo.texto}}
@@ -32,12 +40,12 @@
             <div class="promo-cir">{{fecha.s}} </div>
         </div>
         <div class="promo-der">
-            <a ng-href="{{data.promo.accion}}" class="btn">{{data.promo.accionable}}</a>
+            <a ng-href="{{data.promo.accion}}" target="_blank" class="btn-promo" onmouseup="afterClick(this)">{{data.promo.accionable}}</a>
         </div>
     </div>
 
     <div id="promo-small" ng-show="!fecha.expired" class="ng-hide" ng-cloak>
-        <a ng-href="{{data.promo.accion}}" class="btn">{{data.promo.texto}}</a>
+        <a ng-href="{{data.promo.accion}}" target="_blank" class="btn-promo" onmouseup="afterClick(this)">{{data.promo.texto}}</a>
     </div>
 
     <section id="intro">
@@ -73,7 +81,7 @@
         <div class="card">
             <p ng-cloak>{{data.presentacion.producto.texto}}</p>
             <img ng-src="{{data.presentacion.producto.imagen}}" width="300px" alt="">
-            <a ng-href="{{data.presentacion.accion}}" class="btn-green jump">{{data.presentacion.accionable}}</a>
+            <a ng-href="{{data.presentacion.accion}}" target="_blank" class="btn-green jump">{{data.presentacion.accionable}}</a>
         </div>
         <div class="card">
             <p ng-cloak>{{data.presentacion.comentarios.texto}}</p>
@@ -125,7 +133,7 @@
             <div class="card-text">
                 {{data.publicidad.titulo}}
             </div>
-            <a ng-href="{{data.publicidad.accion}}" class="btn-green jump">{{data.publicidad.accionable}}</a>
+            <a ng-href="{{data.publicidad.accion}}" target="_blank" class="btn-green jump">{{data.publicidad.accionable}}</a>
         </div>
     </section>
 
@@ -142,7 +150,7 @@
                 {{data.motivos.subtitulo}}
             </div>
             <div ng-repeat="presentacion in data.motivos.presentacion">
-                <div class="card-text">{{presentacion}}</div>
+                <div class="card-text underline">{{presentacion}}</div>
             </div>
             <ol class="card-items-num">
                 <li ng-repeat="motivo in data.motivos.lista" class="card-item">
@@ -150,7 +158,7 @@
                 </li>
 
             </ol>
-            <a ng-href="{{data.motivos.accion}}" class="btn-green jump">{{data.motivos.accionable}}</a>
+            <a ng-href="{{data.motivos.accion}}" target="_blank" class="btn-green jump">{{data.motivos.accionable}}</a>
         </div>
     </section>
     <section class="card-section">
@@ -191,7 +199,7 @@
             <img ng-src="{{data.garantia.agradecimiento.foto}}" width="315px" class="img-me" alt="">
             <div class="card-text">{{data.garantia.agradecimiento.texto}}</div>
 
-            <a ng-href="{{data.garantia.accion}}" class="btn-green jump">{{data.garantia.accionable}}</a>
+            <a ng-href="{{data.garantia.accion}}" target="_blank" class="btn-green jump">{{data.garantia.accionable}}</a>
         </div>
     </section>
 

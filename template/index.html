@@ -70,7 +70,7 @@
                 <!--
                 <video class="videoX3" ng-src="{{opinion.video}}" controls width="300px"></video>
                 -->
-                <img class="videoX3" ng-src="{{i.imagen}}" width="320px">
+                <img class="imagenX3" ng-src="{{i.imagen}}" width="320px">
                 <q ng-cloak> {{i.descripcion}} </q>
                 <p class="opinion" ng-cloak> {{i.autor}}</p>
             </div>
@@ -206,11 +206,30 @@
     <section class="card-section">
 
         <h2>{{data.bonus.titulo}}</h2>
-        <p class="card-title">{{data.bonus.descripcion}}</p>
+        <h2>{{data.bonus.descripcion}}</h2>
         <div class="card" ng-repeat="producto in data.bonus.productos">
             <img ng-src="{{producto.imagen}}" alt="" width="300px">
             <b class="card-text">{{producto.texto}}</b>
             <div class="card-text">{{producto.descripcion}}</div>
+        </div>
+    </section>
+
+    <section class="card-section">
+
+        <div class="card">
+            <h2 class="card-title">{{data.faqs.titulo}}</h2>
+            <ul class="card-items" ng-repeat="item in data.faqs.lista">
+                <li class="card-item">
+                    <b class="card-text">{{item.destacado}}</b>
+                    <small>
+                        <p ng-repeat="subitem in item.texto">{{subitem}}</p>
+                    </small>
+                </li>
+            </ul>
+
+                <a ng-repeat="medio in data.faqs.contacto.medios" ng-href="{{medio.accion}}" target="_blank" class="btn-info">{{medio.descripcion}}</a>
+
+            
         </div>
     </section>
 

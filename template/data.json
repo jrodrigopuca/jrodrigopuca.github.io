@@ -1,52 +1,56 @@
 {
-    "intro":{
-        "titulo":"El Método E. para Emprendedores",
-        "video":"video/book.mp4" 
+    "intro": {
+        "titulo": "El Método E. para Emprendedores",
+        "video": "video/book.mp4"
     },
-
-    "promo":{
-        "texto":"Disfruta de un descuento especial",
-        "tiempo":{
-            "anio":2020, "mes": 4, "dia":12
+    "compra": {
+        "titulo": "¡Muchas gracias!"
+    },
+    "promo": {
+        "texto": "Disfruta de un descuento especial",
+        "tiempo": {
+            "anio": 2020,
+            "mes": 4,
+            "dia": 12
         },
-        "accionable":"¡Obténlo ahora!",
-        "accion":"https://transactions.sendowl.com/packages/767893/31DC46AD/purchase"
+        "accionable": "¡Obténlo ahora!",
+        "accion": "https://transactions.sendowl.com/packages/767893/31DC46AD/purchase"
     },
-
-    "galeria":{
-        "titulo": "¿Te gustaría ganar cientos de dólares por semana?",
-        "imagenes":[
-            {   "imagen":"img/01.jpg",
-                "descripcion":"Imagina ser dueño absoluto de tu tiempo y tener la libertad de hacer lo que más disfrutas...",
+    "galeria": {
+        "titulo": "¿Te gustaría tener tu empresa de servicios digitales desde casa?",
+        "imagenes": [
+            {
+                "imagen": "img/01.jpg",
+                "descripcion": "Imagina ser dueño absoluto de tu tiempo y tener la libertad de hacer lo que más disfrutas...",
                 "autor": ""
             },
-            {   "imagen":"img/02.jpg",
-                "descripcion":"Imagina cuan hermoso sería poder darles a ti y tus seres queridos todo lo que se merecen...",
+            {
+                "imagen": "img/02.jpg",
+                "descripcion": "Imagina cuan hermoso sería poder darles a ti y tus seres queridos todo lo que se merecen...",
                 "autor": ""
             },
-            {   "imagen":"img/03.jpg",
-                "descripcion":"¿Cúan diferente sería tu vida si supieras como hacerlo realidad?...",
+            {
+                "imagen": "img/03.jpg",
+                "descripcion": "¿Cúan diferente sería tu vida si supieras como hacerlo realidad?...",
                 "autor": ""
             }
         ]
     },
-
-    "presentacion":{
-        "producto":{
-            "texto":"Te presento la guía definitiva para generar dinero por internet, desde casa...",
-            "imagen":"img/book.png"
+    "presentacion": {
+        "producto": {
+            "texto": "Te presento la guía definitiva para generar dinero por internet, desde casa...",
+            "imagen": "img/book.png"
         },
-        "comentarios":{
-            "texto":"Mira lo que dicen otras personas sobre El Método E.",
-            "imagen":"img/opiniones.png"
+        "comentarios": {
+            "texto": "Mira lo que dicen otras personas sobre El Método E.",
+            "imagen": "img/opiniones.png"
         },
         "accionable": "¡Si, quiero mi copia del libro por solo 9.99 USD!",
-        "accion":"https://transactions.sendowl.com/packages/767893/31DC46AD/purchase"
+        "accion": "https://transactions.sendowl.com/packages/767893/31DC46AD/purchase"
     },
-    
-    "contenido":{
-        "titulo":"So, What Is The Single Most Valuable Entrepreneurial Skill?",
-        "introduccion":[
+    "contenido": {
+        "titulo": "So, What Is The Single Most Valuable Entrepreneurial Skill?",
+        "introduccion": [
             "The first sale is a crucial vote of confidence your audience gives with their bank account. If you're facing this obstacle chances are you're most likely lacking in one particular skill...",
             "... It's the skill that drives almost every dollar made online and off. ",
             "... It's the skill that can transform a run-of-the-mill business into a wealth generating machine.",
@@ -59,7 +63,7 @@
             "And one of my biggest regrets is not learning its foundations sooner."
         ],
         "oportunidades": {
-            "presentacion":"Most people think it's skills like...",
+            "presentacion": "Most people think it's skills like...",
             "lista": [
                 "Networking",
                 "​Advertising",
@@ -68,98 +72,236 @@
                 "Branding",
                 "Leadership"
             ],
-            "destacado":"... are the most important entrepreneurial skills.",
-            "resumen":"While these are very important skills in their own way, they're relatively easy to outsource or develop."
+            "destacado": "... are the most important entrepreneurial skills.",
+            "resumen": "While these are very important skills in their own way, they're relatively easy to outsource or develop."
         },
         "resumen": [
             "So what is this always in demand 'profit skill'? The one skill almost all successful business owners will admit is in large part responsible for their success?",
             "If you haven't already guessed it, that skill is copywriting. Specifically, sales copywriting..."
         ]
     },
-
-    "caracteristicas":{
-        "descripcion":"Aquí tienes una rápida mirada a algunos de los Secretos que descubrirás en esta Obra Pionera…",
-        "lista":[
-            {"destacado":"Cuáles son los 10 mitos que te alejan del éxito y cómo eliminarlos…","texto":"(estos mitos están arraigados en tu cerebro y tu subconsciente y no te permiten avanzar en la dirección que quieres. Ellos actúan como frenos en tu vida. Identifícalos, elimínalos y alcanzarás tu verdadero potencial)"},
-            {"destacado":"Cómo cultivar la mentalidad correcta que te hará emprendedor próspero… ","texto":"(Tu mentalidad determinará en gran medida hasta dónde llegarás en la vida. Te ofrezco varios conocimientos esenciales que cambiarán tu forma de ver el mundo y allanarán tu camino hacia el éxito)"},
-            {"destacado":"Una técnica infalible para alcanzar todos tus sueños…","texto":"(Esta técnica poderosa y simple te permitirá concentrarte y ganar claridad para actuar. Si la pones en práctica te garantizo que conseguirás todo lo que te propongas)"},
-            {"destacado":"Cuál es el error número uno que es fatal a todos los emprendedores y cómo evitarlo…", "texto":"(Este error ha hecho más daño que cualquiera de los otros errores que un emprendedor podría cometer jamás. Protégete y no permitas que te ocurra a ti y verás que tu empresa despegará)"},
-            {"destacado":"Las 9 características de una empresa ideal…", "texto":"(Conocerlas evitará que malgastes tiempo y energía en emprendimientos infructuosos destinados a fracasar. También te permitirá armar empresas robustas con grandes chances de éxito)"},
-            {"destacado":"Los 3 imanes del dinero…", "texto":"(Así como existen leyes que gobiernan la física, el dinero cuenta con sus propias leyes. Si no las conoces estarás destinado a andar mal en las finanzas por siempre)"},
-            {"destacado":"Cómo elegir un servicio para vender, basado en lo que las personas están comprando ACTUALMENTE…", "texto":"(De forma que tu camino hacia la libertad financiera sea mucho más rápido y menos accidentado. Lo mejor de todo es que aprenderás cómo entregar tu servicio sin necesidad de que sepas como hacer el trabajo técnico)"},
-            {"destacado":"Cómo crear un Sitio Web que vende tus servicios de forma automática…","texto":"(Generando 10 a 20 clientes al mes que pagan por tus servicios. Con este tipo especial de Sitio Web de El Método E generas dinero y no citas para futuras reuniones e intercambios de email, los cuales resultan en cansancio extremo y cero dineros en tus bolsillos)"},
-            {"destacado":"Te comparto mis 4 formas favoritas de generar tráfico para un Sitio Web…", "texto":"(Que te permitirán alimentar tu Sitio Web de Ventas Automático y convertirlos en clientes para tu Empresa Digital. Una de esas estrategias es totalmente gratuita y atraerá clientes durante meses)"},
-            {"destacado":"3 estrategias que aumentarán tus ganancias…","texto":"(Cuando apliques estas estrategias podrás duplicar el dinero generado por tu Empresa Digital. La estrategia 3 es poco utilizada, pero te dará excelentes resultados)"},
-            {"destacado":"Cómo diferenciarte de tu competencia, más allá del precio…","texto":"(Los emprendedores y dueños de agencias digitales que caen en la guerra de precios nunca terminan bien. Solo basta un error para que queden fuera del juego. Este conocimiento que te entrego hará que tus servicios se distingan de tu competencia)"},
-            {"destacado":"Cómo usar tus palabras para hacer dinero…","texto":"(Existe una habilidad que si la aprendes y dominas te transformará en una máquina de vender, logrando que convenzas a extraños de que sean tus clientes y lo podrás hacer sin siquiera abrir tu boca, usando palabras escritas por ti. ¡También puedes usar esta habilidad para abrirá una Empresa Digital nueva!)"},
-            {"destacado":"El Método E. te ofrece una guía completa para empezar tu Empresa Digital desde casa,", "texto": "paso a paso… (Solo debes seguir lo que escribí para ti. Y si ya tienes un emprendimiento, este Método te ayudará a atraer clientes automáticamente y liberar tu tiempo)"}
+    "caracteristicas": {
+        "descripcion": "Aquí tienes una rápida mirada a algunos de los Secretos que descubrirás en esta Obra Pionera…",
+        "lista": [
+            {
+                "destacado": "Cuáles son los 10 mitos que te alejan del éxito y cómo eliminarlos…",
+                "texto": "(estos mitos están arraigados en tu cerebro y tu subconsciente y no te permiten avanzar en la dirección que quieres. Ellos actúan como frenos en tu vida. Identifícalos, elimínalos y alcanzarás tu verdadero potencial)"
+            },
+            {
+                "destacado": "Cómo cultivar la mentalidad correcta que te hará emprendedor próspero… ",
+                "texto": "(Tu mentalidad determinará en gran medida hasta dónde llegarás en la vida. Te ofrezco varios conocimientos esenciales que cambiarán tu forma de ver el mundo y allanarán tu camino hacia el éxito)"
+            },
+            {
+                "destacado": "Una técnica infalible para alcanzar todos tus sueños…",
+                "texto": "(Esta técnica poderosa y simple te permitirá concentrarte y ganar claridad para actuar. Si la pones en práctica te garantizo que conseguirás todo lo que te propongas)"
+            },
+            {
+                "destacado": "Cuál es el error número uno que es fatal a todos los emprendedores y cómo evitarlo…",
+                "texto": "(Este error ha hecho más daño que cualquiera de los otros errores que un emprendedor podría cometer jamás. Protégete y no permitas que te ocurra a ti y verás que tu empresa despegará)"
+            },
+            {
+                "destacado": "Las 9 características de una empresa ideal…",
+                "texto": "(Conocerlas evitará que malgastes tiempo y energía en emprendimientos infructuosos destinados a fracasar. También te permitirá armar empresas robustas con grandes chances de éxito)"
+            },
+            {
+                "destacado": "Los 3 imanes del dinero…",
+                "texto": "(Así como existen leyes que gobiernan la física, el dinero cuenta con sus propias leyes. Si no las conoces estarás destinado a andar mal en las finanzas por siempre)"
+            },
+            {
+                "destacado": "Cómo elegir un servicio para vender, basado en lo que las personas están comprando ACTUALMENTE…",
+                "texto": "(De forma que tu camino hacia la libertad financiera sea mucho más rápido y menos accidentado. Lo mejor de todo es que aprenderás cómo entregar tu servicio sin necesidad de que sepas como hacer el trabajo técnico)"
+            },
+            {
+                "destacado": "Cómo crear un Sitio Web que vende tus servicios de forma automática…",
+                "texto": "(Generando 10 a 20 clientes al mes que pagan por tus servicios. Con este tipo especial de Sitio Web de El Método E generas dinero y no citas para futuras reuniones e intercambios de email, los cuales resultan en cansancio extremo y cero dineros en tus bolsillos)"
+            },
+            {
+                "destacado": "Te comparto mis 4 formas favoritas de generar tráfico para un Sitio Web…",
+                "texto": "(Que te permitirán alimentar tu Sitio Web de Ventas Automático y convertirlos en clientes para tu Empresa Digital. Una de esas estrategias es totalmente gratuita y atraerá clientes durante meses)"
+            },
+            {
+                "destacado": "3 estrategias que aumentarán tus ganancias…",
+                "texto": "(Cuando apliques estas estrategias podrás duplicar el dinero generado por tu Empresa Digital. La estrategia 3 es poco utilizada, pero te dará excelentes resultados)"
+            },
+            {
+                "destacado": "Cómo diferenciarte de tu competencia, más allá del precio…",
+                "texto": "(Los emprendedores y dueños de agencias digitales que caen en la guerra de precios nunca terminan bien. Solo basta un error para que queden fuera del juego. Este conocimiento que te entrego hará que tus servicios se distingan de tu competencia)"
+            },
+            {
+                "destacado": "Cómo usar tus palabras para hacer dinero…",
+                "texto": "(Existe una habilidad que si la aprendes y dominas te transformará en una máquina de vender, logrando que convenzas a extraños de que sean tus clientes y lo podrás hacer sin siquiera abrir tu boca, usando palabras escritas por ti. ¡También puedes usar esta habilidad para abrirá una Empresa Digital nueva!)"
+            },
+            {
+                "destacado": "El Método E. te ofrece una guía completa para empezar tu Empresa Digital desde casa,",
+                "texto": "paso a paso… (Solo debes seguir lo que escribí para ti. Y si ya tienes un emprendimiento, este Método te ayudará a atraer clientes automáticamente y liberar tu tiempo)"
+            }
         ]
     },
-
-    "publicidad":{
-        "titulo":"Este Libro Digital está lleno de conocimiento efectivo y probado por años de experiencia personal",
-        "accionable":"¡Obtén tu copia del Método E., Ahora!",
-        "accion":"https://transactions.sendowl.com/packages/767893/31DC46AD/purchase"
+    "publicidad": {
+        "titulo": "Este Libro Digital está lleno de conocimiento efectivo y probado por años de experiencia personal",
+        "accionable": "¡Obtén tu copia del Método E., Ahora!",
+        "accion": "https://transactions.sendowl.com/packages/767893/31DC46AD/purchase"
     },
-
-    "motivos":{
-        "titulo":"No hay ninguna trampa oculta",
-        "descripcion": ["Se que el libro que escribí es muy económico, cuesta menos de 4 cafés…","Probablemente te preguntes:","'Si te va tan bien con tu consultora, ¿por qué estás dando tu libro tan barato?","Entonces debe ser una estafa…", "'Se de la existencia de sitios web que te venden 'mega ofertas' pero después de que compras te das con la sorpresa de que hay costos ocultos mensuales… Esto no es uno de esos sitios web."],
-        "destacado":"Te garantizo que comprarás mi libro completo por solo 9.99 USD y no habrá costos ocultos",
+    "motivos": {
+        "titulo": "No hay ninguna trampa oculta",
+        "descripcion": [
+            "Se que el libro que escribí es muy económico, cuesta menos de 4 cafés…",
+            "Probablemente te preguntes:",
+            "'Si te va tan bien con tu consultora, ¿por qué estás dando tu libro tan barato?",
+            "Entonces debe ser una estafa…",
+            "'Se de la existencia de sitios web que te venden 'mega ofertas' pero después de que compras te das con la sorpresa de que hay costos ocultos mensuales… Esto no es uno de esos sitios web."
+        ],
+        "destacado": "Te garantizo que comprarás mi libro completo por solo 9.99 USD y no habrá costos ocultos",
         "subtitulo": "Esto no durará mucho tiempo",
-        "presentacion":["Planeaba vender mi libro a 47 USD pero eso significaría imprimirlo y enviarlo por correo. Eso me quitaría ganancias y sería difícil ayudar a muchas personas.","Inicialmente vendí mi libro digital a 37 USD y más de 970 personas lo compraron a ese precio.", "Pero cambié de parecer y te lo estoy ofreciendo a solo 9.99 USD, ahorrándote 27 USD, ¿sabes por qué?"],
-        "lista":[
+        "presentacion": [
+            "Planeaba vender mi libro a 47 USD pero eso significaría imprimirlo y enviarlo por correo. Eso me quitaría ganancias y sería difícil ayudar a muchas personas.",
+            "Inicialmente vendí mi libro digital a 37 USD y más de 970 personas lo compraron a ese precio.",
+            "Pero cambié de parecer y te lo estoy ofreciendo a solo 9.99 USD, ahorrándote 27 USD, ¿sabes por qué?"
+        ],
+        "lista": [
             "Me permite ayudar a miles de personas a las que podría impactar positivamente sus vidas. Se que esta información cambiará la forma en que emprendes para siempre.",
             "Estoy convencido de que te gustará tanto mi libro que apuesto que querrás tomar más clases o entrenamientos. O quizás me buscarás para que te ayude a desarrollar tu Empresa Digital con publicidad o desarrollo web. Sinceridad ante todo…",
             "Me molesta la gente que trata de estafar a otros, sacándoles el dinero que tanto les costó conseguir. Hay muchos autoproclamados gurúes que nunca emprendieron en sus vidas y solo traen confusión. Mi deseo es traer algo de claridad, mediante información real, probada y sincera. Quizás solo sea un capricho personal que me hace sentir realizado."
         ],
-        "accionable":"Quiero mi copia de El Método E. Ahora",
-        "accion":"https://transactions.sendowl.com/packages/767893/31DC46AD/purchase"
+        "accionable": "Quiero mi copia de El Método E. Ahora",
+        "accion": "https://transactions.sendowl.com/packages/767893/31DC46AD/purchase"
     },
-
-    "garantia":{
-        "titulo":"El tiempo apremia...",
-        "descripcion": ["La mayoría de los días mi libro vende de 40 a 70 copias.", "Lo que significa que muchas personas buscan mis servicios de consultoría y cuando mi consultora obtiene muchos pedidos de trabajo, debo cerrar esta página hasta que entreno nuevos empleados.","Esta oferta terminará pronto, ¡aprovecha a agarrar tu copia de El Método E. antes que se agoten hoy!"],
+    "garantia": {
+        "titulo": "El tiempo apremia...",
+        "descripcion": [
+            "La mayoría de los días mi libro vende de 40 a 70 copias.",
+            "Lo que significa que muchas personas buscan mis servicios de consultoría y cuando mi consultora obtiene muchos pedidos de trabajo, debo cerrar esta página hasta que entreno nuevos empleados.",
+            "Esta oferta terminará pronto, ¡aprovecha a agarrar tu copia de El Método E. antes que se agoten hoy!"
+        ],
         "texto": {
-            "titulo":"La mejor Garantía de devolución de dinero del mundo",
-            "descripcion":["Se que antes de comprar algo quieres conocer que garantía tiene…", "Se que quieres estar seguro de que este libro realmente te servirá. Aunque solamente cueste 9.99 USD has trabajado por ese dinero.","Así que me gustaría proponerte algo:"],
-            "lista":["Baja tu copia de El Método E.","Léelo entero y aplica lo aprendido"],
+            "titulo": "La mejor Garantía de devolución de dinero del mundo",
+            "descripcion": [
+                "Se que antes de comprar algo quieres conocer que garantía tiene…",
+                "Se que quieres estar seguro de que este libro realmente te servirá. Aunque solamente cueste 9.99 USD has trabajado por ese dinero.",
+                "Así que me gustaría proponerte algo:"
+            ],
+            "lista": [
+                "Baja tu copia de El Método E.",
+                "Léelo entero y aplica lo aprendido"
+            ],
             "conclusion": "Si no te sorprende lo que lees, solo escríbeme un correo pidiéndome una devolución dentro de los 30 días de tu compra",
             "importante": "¡Te devolveré tus 9.99 USD y te dejaré quedarte con tu copia del libro! ¿Qué tal suena mi garantía de devolución de dinero?"
         },
-        "agradecimiento":{
+        "agradecimiento": {
             "titulo": "Esta es una oferta limitada, obtén tu copia ahora antes de que se agoten…",
-            "descripcion":"Gracias por leer hasta aquí, me gustaría oir de ti pronto…",
-            "texto":" ",
-            "foto":"img/profile.jpg"
+            "descripcion": "Gracias por leer hasta aquí, me gustaría oir de ti pronto…",
+            "texto": " ",
+            "foto": "img/profile.jpg"
         },
-        "accionable":"¡Obtén tu copia del Método E., Ahora!",
-        "accion":"https://transactions.sendowl.com/packages/767893/31DC46AD/purchase"
+        "accionable": "¡Obtén tu copia del Método E., Ahora!",
+        "accion": "https://transactions.sendowl.com/packages/767893/31DC46AD/purchase"
     },
-    "bonus":{
-        "titulo":"Incluido con tu orden",
-        "descripcion":"3 Bonus Imperdibles",
-        "productos":[
-            {   
-                "texto":"Exclusive Training: How To Go On Holiday & Still Make Sales",
-                "descripcion":"This will help you with systems & mindset you need to automate your business.",
-                "imagen":"img/book.png"
+    "bonus": {
+        "titulo": "Incluido con tu orden",
+        "descripcion": "3 Bonus Imperdibles",
+        "productos": [
+            {
+                "texto": "La mentalidad del Emprendedor exitoso - Afirmaciones diarias positivas para liberar tu potencial",
+                "descripcion": "",
+                "imagen": "img/bonus1.png"
             },
-            {   
-                "texto":"$700,000 Plug-And-Play Agency Website Template",
-                "descripcion": "$700,000 Plug-And-Play Agency Website Template",
-                "imagen":"img/book.png"
+            {
+                "texto": "Lista 21 títulos asombrosos para atraer clientes",
+                "descripcion": "",
+                "imagen": "img/bonus2.png"
             },
-            {   
-                "texto":"2 Hour Agency Quickstart Guide",
-                "descripcion":"This PDF will get you started QUICKLY so you can get closer to freedom.",
-                "imagen":"img/book.png"
+
+            {
+                "texto": "Lista de Códigos de descuentos y recursos para el Emprendedor E",
+                "descripcion": "",
+                "imagen": "img/bonus3.png"
             }
         ]
     },
-    "final":{
-        "nombre":"Ebaneo",
-        "descripcion":"En los últimos años Ebaneo Valdez Kao ha desarrollado diversos emprendimientos. Actualmente vive en Taiwán desde donde opera su Consultora Informática internacional.",
+    "faqs": {
+        "titulo": "Preguntas Frecuentes",
+        "lista": [
+            {
+                "destacado": "¿Para quién es esto?",
+                "texto": [
+                    "Esta obra fue pensada para 2 tipos de personas. Aquellas que están interesadas en generar dinero y ganar libertad en sus vidas mediante la creación de una Empresa Digital simple, vendiendo servicios por internet. También es para quienes ya cuentan con un emprendimiento por internet y les gustaría llegar al siguiente nivel. Incrementando sus ventas en piloto automático y liberando su tiempo."
+                ]
+            },
+            {
+                "destacado": "¿Qué es El Método E?",
+                "texto": [
+                    "El método E es un libro digital que ofrece los conocimientos, secretos y pasos necesarios para crear una Empresa Digital que funciona y que dure por décadas.",
+                    "Ya sea que recién empieces a emprender o seas un emprendedor con experiencia, encontrarás información útil y sistemática que cambiará tu forma de emprender, brindándote bases sólidas a prueba del tiempo."
+                ]
+            },
+            {
+                "destacado": "Quiero esto, ¿Qué es exactamente lo que obtengo?",
+                "texto": [
+                    "Esta oferta especial de El Método E. Para Emprendedores es muy buena. La idea es que puedas hacer tu Empresa Digital desde donde quiera que estés. Para ello al ordenar obtienes:",
+                    "1. El Método E. Para Emprendedores en versión digital.",
+                    "2. Una lista exclusiva de 21 Títulos Asombrosos que te permitirán atraer clientes y crear publicidades llamativas.",
+                    "3. Entrenamiento exclusivo: La Mentalidad del emprendedor exitoso - Afirmaciones diarias positivas para liberar tu potencial.",
+                    "4. Lista de códigos de descuentos Y RECURSOS útiles para el emprendedor E - porque todos necesitamos ayuda en algún momento de nuestra jornada."
+                ]
+            },
+            {
+                "destacado": "¿Cómo es este Método diferente a lo que hay por ahí?",
+                "texto": [
+                    "El Método E. es el resultado de años de experiencia real y refinamiento tras sucesivas lecciones aprendidas. La mayoría de las opciones en internet enseñan como obtener 1 o 2 clientes de alto pago (cosa que cualquiera puede hacer), pero no enseñan como mantener un negocio rentable, repetible y escalable.",
+                    "Mi objetivo principal detrás de este trabajo es realmente enseñar buenos métodos a las personas que quieren cambiar sus vidas"
+                ]
+            },
+            {
+                "destacado": "¿Hay alguna garantía?",
+                "texto": [
+                    "Te ofrezco la mejor garantía del mundo, en caso de que esta obra no sea para ti, te devolveré tu dinero dentro de los 30 días de hecha la compra. Puedes quedarte con el libro y los bonus."
+                ]
+            },
+            {
+                "destacado": "¿Cómo es el proceso de compra? ",
+                "texto": [
+                    "Simplemente haz click en alguno de los botones verdes que ves en esta página y verás una pantalla en donde colocarás tu email, en donde recibirás tu libro una vez finalizado el pago.",
+                    "Coloca tus datos en la página de Paypal y finaliza la compra. Dentro de los próximos minutos recibirás un enlace de descarga a tu correo, desde donde obtendrás mi libro y los bonus."
+                ]
+            },
+            {
+                "destacado": "¿Qué es Paypal y por qué lo usas? ","texto": [
+                    "Paypal es una forma de realizar pagos en línea de manera segura y confiable. Permite hacer uso de casi todas las tarjetas de crédito o débito del mercado y está disponible en decenas de países. Uso Paypal por varias razones:",
+                    "1. Me permite que en el raro caso de que quieras recibir tu dinero de vuelta, haciendo uso de mi garantía, lo obtengas de vuelta de forma fácil y cómoda. Sin ningún problema.",
+                    "2. Si creas una cuenta de Paypal, te permitirá recibir pagos por tus servicios digitales desde cualquier parte del mundo.Por ejemplo, ahora estoy viviendo temporalmente en Taiwán y aún así puedo operar mi consultora desde donde quiera. Lo mismo podrás hacer tú, pudiendo vender tus servicios en Asia, Europa, America y casi cualquier lado del mundo.",
+                    "3. Protege las compras y datos de tus tarjetas de crédito, no los revela a nadie. No me interesa obtener los datos de tu tarjeta ni hacer nada extraño, para mí la seguridad tuya es importante.",
+                    "4. ES GRATUITO crearse una cuenta y realizar compras.",
+                    "5. No cuenta con gastos de mantenimiento.",
+                    "En caso de que te preguntes, No, no recibo ningún beneficio en publicitar Paypal."
+                ]
+            },
+            {
+                "destacado": "¿Hay gastos ocultos o de mantenimiento si adquiero esta oferta especial? ","texto": [
+                    "No y nunca los habrá.",
+                    "Me gusta mantener todo de forma clara y solo pagarás una única vez el precio indicado, el cual es extremadamente accesible para la mayoría de las personas.",
+                    "Paypal tampoco cuenta con gastos de mantenimiento."
+                ]
+            },
+            {
+                "destacado": "¿Ofreces ayuda en más profundidad?","texto": [
+                    "Si. Aunque no mezquiné nada a la hora de escribir esta obra pionera en español, ofrezco ayuda extra para aquellos que quieran obtener asistencia",
+                    "Puedes encontrar los servicios que proveo dentro de los bonus o en la sección de servicios en www.elmetodoe.com/servicios",
+                    "Recuerda que si obtienes esta oferta contarás con descuentos y promociones especiales incluidas."
+                ]
+            }
+        ],
+        "contacto":{
+            "texto": "Tengo más dudas, ¿Dónde puedo contactarme?",
+            "medios": [
+                {"descripcion": "Si tienes dudas o consultas, escríbeme", "accion": "mailto:consultas@elmetodoe.com"},
+                {"descripcion": "O sígueme en Facebook", "accion": "https://www.facebook.com/ebaneoe/"},
+                {"descripcion": "Más información sobre Paypal", "accion": "https://www.paypal.com/es/smarthelp/article/%C2%BFqu%C3%A9-tarifas-se-aplican-a-las-cuentas-paypal-faq690"}
+            ]
+        }
+    },
+    "final": {
+        "nombre": "Ebaneo",
+        "descripcion": "En los últimos años Ebaneo Valdez Kao ha desarrollado diversos emprendimientos. Actualmente vive en Taiwán desde donde opera su Consultora Informática internacional.",
         "direccion": ""
     }
 }

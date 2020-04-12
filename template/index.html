@@ -5,22 +5,31 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Book</title>
+    <title>El Método E</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
         integrity="sha256-WAgYcAck1C1/zEl5sBl5cfyhxtLgKGdpI3oKyJffVRI=" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.9/angular.js"
-        integrity="sha256-JCDFk3Tc3BypchwzSjKv7pLwYQKAyuDRs5UrEnm8KyQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.9/angular.min.js"
+        integrity="sha256-b5NvmvUcyr0wpBOLnNbaWH5zKQAivhj8yMYhfXEumQA=" crossorigin="anonymous"></script>
     <script src="app.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163320090-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-163320090-1');
+    </script>
+
 </head>
 
 <body ng-app="myApp" ng-controller="myController">
     <div class="modal" id="modal">
         <div class="card modal-content" id="modalContent">
             <h2> ¡Muchas gracias! </h1>
-            <p class="card-text">Por favor revisa tu correo para más información</p>
+                <p class="card-text">Por favor revisa tu correo para más información</p>
         </div>
     </div>
 
@@ -40,21 +49,27 @@
             <div class="promo-cir">{{fecha.s}} </div>
         </div>
         <div class="promo-der">
-            <a ng-href="{{data.promo.accion}}" target="_blank" class="btn-promo" onmouseup="afterClick(this)">{{data.promo.accionable}}</a>
+            <a ng-href="{{data.promo.accion}}" target="_blank" class="btn-promo"
+                onmouseup="afterClick(this)">{{data.promo.accionable}}</a>
         </div>
     </div>
 
     <div id="promo-small" ng-show="!fecha.expired" class="ng-hide" ng-cloak>
-        <a ng-href="{{data.promo.accion}}" target="_blank" class="btn-promo" onmouseup="afterClick(this)">{{data.promo.texto}}</a>
+        <a ng-href="{{data.promo.accion}}" target="_blank" class="btn-promo"
+            onmouseup="afterClick(this)">{{data.promo.texto}}</a>
     </div>
 
     <section id="intro">
         <h1 ng-cloak>{{data.intro.titulo}}</h1>
         <div class="video-container">
+            <img src="img/cover.jpg" alt="" width="100%">
+            <!--
             <video id="video" ng-src="{{data.intro.video}}" controls autoplay muted></video>
+            -->
         </div>
     </section>
 
+    <!--
     <div class="float-block">
         <button id="pipButton" class="btn-rd">
             <span class="material-icons">
@@ -62,6 +77,7 @@
             </span>
         </button>
     </div>
+    -->
 
     <section>
         <h2 ng-cloak>{{data.galeria.titulo}}</h2>
@@ -81,7 +97,8 @@
         <div class="card">
             <p ng-cloak>{{data.presentacion.producto.texto}}</p>
             <img ng-src="{{data.presentacion.producto.imagen}}" width="300px" alt="">
-            <a ng-href="{{data.presentacion.accion}}" target="_blank" class="btn-green jump">{{data.presentacion.accionable}}</a>
+            <a ng-href="{{data.presentacion.accion}}" target="_blank"
+                class="btn-green jump">{{data.presentacion.accionable}}</a>
         </div>
         <div class="card">
             <p ng-cloak>{{data.presentacion.comentarios.texto}}</p>
@@ -133,7 +150,8 @@
             <div class="card-text">
                 {{data.publicidad.titulo}}
             </div>
-            <a ng-href="{{data.publicidad.accion}}" target="_blank" class="btn-green jump">{{data.publicidad.accionable}}</a>
+            <a ng-href="{{data.publicidad.accion}}" target="_blank"
+                class="btn-green jump">{{data.publicidad.accionable}}</a>
         </div>
     </section>
 
@@ -166,17 +184,17 @@
             <h2>
                 {{data.garantia.titulo}}
             </h2>
-            
+
             <div ng-repeat="descripcion in data.garantia.descripcion">
                 <div class="card-text">{{descripcion}}</div>
             </div>
-            
+
             <div class="card-title yellow-card-title">
                 {{data.garantia.texto.titulo}}
             </div>
 
             <img src="img/guarantee.png" alt="" width="200px">
-            
+
             <div ng-repeat="descripcion in data.garantia.texto.descripcion">
                 <div class="card-text">{{descripcion}}</div>
             </div>
@@ -187,7 +205,7 @@
 
             <div class="card-text">{{data.garantia.texto.conclusion}}</div>
             <b class="card-text">{{data.garantia.texto.importante}}</b>
-            
+
 
             <div ng-repeat="descripcion in data.garantia.importante.descripcion">
                 <div class="card-text">{{descripcion}}</div>
@@ -199,14 +217,14 @@
             <img ng-src="{{data.garantia.agradecimiento.foto}}" width="315px" class="img-me" alt="">
             <div class="card-text">{{data.garantia.agradecimiento.texto}}</div>
 
-            <a ng-href="{{data.garantia.accion}}" target="_blank" class="btn-green jump">{{data.garantia.accionable}}</a>
+            <a ng-href="{{data.garantia.accion}}" target="_blank"
+                class="btn-green jump">{{data.garantia.accionable}}</a>
         </div>
     </section>
 
     <section class="card-section">
 
-        <h2>{{data.bonus.titulo}}</h2>
-        <h2>{{data.bonus.descripcion}}</h2>
+        <h2>{{data.bonus.titulo}}: {{data.bonus.descripcion}}</h2>
         <div class="card" ng-repeat="producto in data.bonus.productos">
             <img ng-src="{{producto.imagen}}" alt="" width="300px">
             <b class="card-text">{{producto.texto}}</b>
@@ -227,9 +245,10 @@
                 </li>
             </ul>
 
-                <a ng-repeat="medio in data.faqs.contacto.medios" ng-href="{{medio.accion}}" target="_blank" class="btn-info">{{medio.descripcion}}</a>
+            <a ng-repeat="medio in data.faqs.contacto.medios" ng-href="{{medio.accion}}" target="_blank"
+                class="btn-info">{{medio.descripcion}}</a>
 
-            
+
         </div>
     </section>
 
@@ -244,7 +263,7 @@
         </small>
 
         <small id="dev">
-        Web desarrollada por <a href="https://about.me/jrodrigopuca" target="_blank">J.A.Rodrigo Puca</a>
+            Web desarrollada por <a href="https://about.me/jrodrigopuca" target="_blank">J.A.Rodrigo Puca</a>
         </small>
     </footer>
 

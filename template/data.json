@@ -11,7 +11,7 @@
         "tiempo": {
             "anio": 2020,
             "mes": 4,
-            "dia": 15
+            "dia": 16
         },
         "accionable": "¡Obténlo ahora!",
         "accion": "https://transactions.sendowl.com/packages/767893/31DC46AD/purchase"
@@ -45,7 +45,7 @@
             "texto": "Mira lo que dicen otras personas sobre El Método E.",
             "imagen": "img/opiniones.png"
         },
-        "accionable": "¡Si, quiero mi copia del libro por solo 5.60 USD!",
+        "accionable": "¡Si, quiero mi copia del libro por solo 9.99 USD!",
         "accion": "https://transactions.sendowl.com/packages/767893/31DC46AD/purchase"
     },
     "contenido": {
@@ -151,12 +151,12 @@
             "Entonces debe ser una estafa…",
             "'Se de la existencia de sitios web que te venden 'mega ofertas' pero después de que compras te das con la sorpresa de que hay costos ocultos mensuales… Esto no es uno de esos sitios web."
         ],
-        "destacado": "Te garantizo que comprarás mi libro completo por solo 5.60 USD y no habrá costos ocultos",
+        "destacado": "Te garantizo que comprarás mi libro completo por solo 9.99 USD y no habrá costos ocultos",
         "subtitulo": "Esto no durará mucho tiempo",
         "presentacion": [
             "Planeaba vender mi libro a 47 USD pero eso significaría imprimirlo y enviarlo por correo. Eso me quitaría ganancias y sería difícil ayudar a muchas personas.",
             "Inicialmente vendí mi libro digital a 37 USD y más de 970 personas lo compraron a ese precio.",
-            "Pero cambié de parecer y te lo estoy ofreciendo a solo 5.60 USD, ahorrándote 27 USD, ¿sabes por qué?"
+            "Pero cambié de parecer y te lo estoy ofreciendo a solo 9.99 USD, ahorrándote 27 USD, ¿sabes por qué?"
         ],
         "lista": [
             "Me permite ayudar a miles de personas a las que podría impactar positivamente sus vidas. Se que esta información cambiará la forma en que emprendes para siempre.",
@@ -177,7 +177,7 @@
             "titulo": "La mejor Garantía de devolución de dinero del mundo",
             "descripcion": [
                 "Se que antes de comprar algo quieres conocer que garantía tiene…",
-                "Se que quieres estar seguro de que este libro realmente te servirá. Aunque solamente cueste 5.60 USD has trabajado por ese dinero.",
+                "Se que quieres estar seguro de que este libro realmente te servirá. Aunque solamente cueste 9.99 USD has trabajado por ese dinero.",
                 "Así que me gustaría proponerte algo:"
             ],
             "lista": [
@@ -185,7 +185,7 @@
                 "Léelo entero y aplica lo aprendido"
             ],
             "conclusion": "Si no te sorprende lo que lees, solo escríbeme un correo pidiéndome una devolución dentro de los 30 días de tu compra",
-            "importante": "¡Te devolveré tus 5.60 USD y te dejaré quedarte con tu copia del libro! ¿Qué tal suena mi garantía de devolución de dinero?"
+            "importante": "¡Te devolveré tus 9.99 USD y te dejaré quedarte con tu copia del libro! ¿Qué tal suena mi garantía de devolución de dinero?"
         },
         "agradecimiento": {
             "titulo": "Esta es una oferta limitada, obtén tu copia ahora antes de que se agoten…",

@@ -14,7 +14,7 @@
             "dia": 16
         },
         "accionable": "¡Obténlo ahora!",
-        "accion": "https://transactions.sendowl.com/packages/767893/31DC46AD/purchase"
+        "accion": "https://play.google.com/store/books/details/Ebaneo_Valdez_Kao_El_M%C3%A9todo_E_Para_Emprendedores?id=xgjeDwAAQBAJ"
     },
     "galeria": {
         "titulo": "¿Te gustaría tener tu empresa de servicios digitales desde casa?",
@@ -46,7 +46,7 @@
             "imagen": "img/opiniones.png"
         },
         "accionable": "¡Si, quiero mi copia del libro por solo 9.99 USD!",
-        "accion": "https://transactions.sendowl.com/packages/767893/31DC46AD/purchase"
+        "accion": "https://play.google.com/store/books/details/Ebaneo_Valdez_Kao_El_M%C3%A9todo_E_Para_Emprendedores?id=xgjeDwAAQBAJ"
     },
     "contenido": {
         "titulo": "So, What Is The Single Most Valuable Entrepreneurial Skill?",
@@ -140,7 +140,7 @@
     "publicidad": {
         "titulo": "Este Libro Digital está lleno de conocimiento efectivo y probado por años de experiencia personal",
         "accionable": "¡Obtén tu copia del Método E., Ahora!",
-        "accion": "https://transactions.sendowl.com/packages/767893/31DC46AD/purchase"
+        "accion": "https://play.google.com/store/books/details/Ebaneo_Valdez_Kao_El_M%C3%A9todo_E_Para_Emprendedores?id=xgjeDwAAQBAJ"
     },
     "motivos": {
         "titulo": "No hay ninguna trampa oculta",
@@ -164,7 +164,7 @@
             "Me molesta la gente que trata de estafar a otros, sacándoles el dinero que tanto les costó conseguir. Hay muchos autoproclamados gurúes que nunca emprendieron en sus vidas y solo traen confusión. Mi deseo es traer algo de claridad, mediante información real, probada y sincera. Quizás solo sea un capricho personal que me hace sentir realizado."
         ],
         "accionable": "Quiero mi copia de El Método E. Ahora",
-        "accion": "https://transactions.sendowl.com/packages/767893/31DC46AD/purchase"
+        "accion": "https://play.google.com/store/books/details/Ebaneo_Valdez_Kao_El_M%C3%A9todo_E_Para_Emprendedores?id=xgjeDwAAQBAJ"
     },
     "garantia": {
         "titulo": "El tiempo apremia...",
@@ -194,7 +194,7 @@
             "foto": "img/profile.jpg"
         },
         "accionable": "¡Obtén tu copia del Método E., Ahora!",
-        "accion": "https://transactions.sendowl.com/packages/767893/31DC46AD/purchase"
+        "accion": "https://play.google.com/store/books/details/Ebaneo_Valdez_Kao_El_M%C3%A9todo_E_Para_Emprendedores?id=xgjeDwAAQBAJ"
     },
     "bonus": {
         "titulo": "Incluido con tu orden",

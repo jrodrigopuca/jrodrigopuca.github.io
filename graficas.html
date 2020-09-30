@@ -1,0 +1,81 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Free Web tutorials">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="author" content="John Doe">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
+
+<select id="nudos" multiple>
+  <option value="1">Nudo1</option>
+  <option value="2">Nudo2</option>
+  <option value="3">Nudo3</option>
+  <option value="4">Nudo4</option>
+</select>
+
+<canvas id="grafica1" width="20" height="20"></canvas>
+<canvas id="grafica2" width="20" height="20"></canvas>
+<canvas id="grafica3" width="20" height="20"></canvas>
+<script>
+	let chart = new Chart(document.getElementById('grafica1'), {
+	    type: 'line',
+	    data: {
+	        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+	        datasets: [{
+	            label: 'Nod1',
+	            fill:false,
+	            borderColor: 'rgb(255, 99, 132)',
+	            data: [1, 3, 4, 2, 1, 3, 5]
+	        },
+	        {
+	            label: 'Nod2',
+	            fill:false,
+	            borderColor: 'rgb(5, 109, 132)',
+	            data: [0, 1, 6, 8, 2, 6, 4]
+	        },
+
+	        ]
+	    },
+	    options: {}
+	});
+
+	let chart2 = new Chart(document.getElementById('grafica2'), {
+		    type: 'bar',
+		    data: {
+		        labels: ['Sector1','Sector2', 'Sector3' ],
+		        datasets: [{
+		            label: 'Nod1',
+		            borderColor: 'rgb(255, 99, 132)',
+		            data: [98,95,92]
+		        }
+		        ]
+		    },
+		    options: {}
+	});
+
+
+	let chart3 = new Chart(
+			document.getElementById('grafica3'), 
+			{
+			    type: 'horizontalBar',
+			    data: {
+			        labels: ['Proy1','Proy2', 'Proy3' ],
+			        datasets: [{
+			            label: 'Nod1',
+			            borderColor: 'rgb(255, 99, 132)',
+			            data: [98,95,92],
+			           	backgroundColor:["rgba(255, 0, 132, 0.2)","rgba(0, 159, 64, 0.2)","rgba(255, 205, 0, 0.2)"]
+			        }],
+
+			    },
+			    options: {
+					"scales":{
+						"xAxes":
+						[{"ticks":{"beginAtZero":true}}]
+					}
+				}
+			});
+</script>

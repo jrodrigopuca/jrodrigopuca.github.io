@@ -1,0 +1,4 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Panel de Recorridos</title></head><body> <h1>Panel de Recorridos</h1> <button id="add-route-btn">Agregar Recorrido</button> <div id="routes-list"></div> <script>(()=>{let e=JSON.parse(localStorage.getItem("routes"))||[],t=document.getElementById("routes-list");if(0===e.length)t.innerHTML="<p>No hay recorridos guardados.</p>";else{let o="<ul>";e.forEach((e,t)=>{o+=`<li>
+                          Recorrido ${t+1}: ${e.id}
+                          <button onclick="redirectToTrack(${e.id})">Ver</button>
+                        </li>`}),o+="</ul>",t.innerHTML=o}})(),document.getElementById("add-route-btn").addEventListener("click",()=>{window.location.href="track.html"});</script> </body></html>

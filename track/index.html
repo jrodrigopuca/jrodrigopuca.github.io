@@ -1,9 +1,7 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Panel de Recorridos</title><link rel="stylesheet" href="index.18ca823f.css"></head><body> <h1>Panel de Recorridos</h1> <button id="add-route-btn" class="button">Agregar Recorrido</button> <div id="routes-list"></div>  <input type="file" id="fileInput" accept=".json"> <script>const e=()=>{let e=JSON.parse(localStorage.getItem("routes"))||[],t=document.getElementById("routes-list");if(0===e.length)t.innerHTML="<p>No hay recorridos guardados.</p>";else{let o="<ul>";e.forEach((e,t)=>{o+=`<li class='list-item'>
                           Recorrido ${t+1}: ${e.id}
-                          <button class='button' onclick="
-                          ()=>{                
-                            alert("redirigiendo...");
+                          <button class='button' onclick="              
+                            alert('redirigiendo...');
                             window.location.href = 'track.html?id=${e.id}';
-                        }
                           ">Ver</button>
                         </li>`}),o+="</ul>",t.innerHTML=o}};e(),document.getElementById("add-route-btn").addEventListener("click",()=>{window.location.href="track.html"}),document.getElementById("fileInput").addEventListener("change",t=>{let o=t.target.files[0],r=new FileReader,l=JSON.parse(localStorage.getItem("routes"))||[];r.onload=t=>{let o=JSON.parse(t.target.result),r=Date.now();l.push({name:"Imported-"+r,id:r,distance:0,path:o}),localStorage.setItem("routes",JSON.stringify(l)),e()},r.readAsText(o)});</script> </body></html>

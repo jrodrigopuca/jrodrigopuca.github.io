@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WebXR AR Frame</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+
+    #ui {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999;
+      display: flex;
+      gap: 8px;
+    }
+
+    button {
+      padding: 6px 12px;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="ui">
+    <button onclick="setAspect(3, 2)">3:2</button>
+    <button onclick="setAspect(4, 3)">4:3</button>
+    <button onclick="setAspect(1, 1)">1:1</button>
+    <button onclick="setAspect(16, 9)">16:9</button>
+  </div>
+
+  <script type="module">
+    import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js';
+    import { ARButton } from 'https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/webxr/ARButton.js';
+
+    let camera, scene, renderer;
+    let controller;
+    let frameMesh;
+    let aspectW = 3, aspectH = 2;
+
+    init();
+
+    function init() {
+      scene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera();
+
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.xr.enabled = true;
+      document.body.appendChild(renderer.domElement);
+
+      document.body.appendChild(ARButton.createButton(renderer, {
+        requiredFeatures: ['hit-test'],
+        optionalFeatures: ['dom-overlay'],
+        domOverlay: { root: document.body }
+      }));
+
+      controller = renderer.xr.getController(0);
+      controller.addEventListener('select', onSelect);
+      scene.add(controller);
+
+      const material = new THREE.MeshBasicMaterial({
+        color: 0x000000,
+        side: THREE.DoubleSide,
+        opacity: 0.5,
+        transparent: true,
+      });
+
+      frameMesh = new THREE.Mesh(
+        new THREE.PlaneGeometry(0.3, 0.3 * aspectH / aspectW),
+        material
+      );
+      frameMesh.visible = false;
+      scene.add(frameMesh);
+
+      renderer.setAnimationLoop(() => {
+        renderer.render(scene, camera);
+      });
+    }
+
+    function onSelect() {
+      const refSpace = renderer.xr.getReferenceSpace();
+      const session = renderer.xr.getSession();
+
+      if (!session) {
+        console.warn("No XR session available");
+        return;
+      }
+
+      const viewerPose = renderer.xr.getFrame().getViewerPose(refSpace);
+      if (!viewerPose) return;
+
+      const pos = viewerPose.transform.position;
+      const dir = new THREE.Vector3(0, 0, -1).applyQuaternion(camera.quaternion);
+
+      const distance = 0.5;
+      const targetPos = new THREE.Vector3(
+        pos.x + dir.x * distance,
+        pos.y + dir.y * distance,
+        pos.z + dir.z * distance
+      );
+
+      frameMesh.position.copy(targetPos);
+      frameMesh.lookAt(new THREE.Vector3(pos.x, pos.y, pos.z));
+      frameMesh.visible = true;
+    }
+
+    window.setAspect = function (w, h) {
+      aspectW = w;
+      aspectH = h;
+      const newGeo = new THREE.PlaneGeometry(0.3, 0.3 * h / w);
+      frameMesh.geometry.dispose();
+      frameMesh.geometry = newGeo;
+    };
+  </script>
+</body>
+
+</html>

@@ -1,28 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AR Marco Fotográfico</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Marco AR - Fotografía</title>
     <style>
+      html,
       body {
         margin: 0;
+        padding: 0;
         overflow: hidden;
         font-family: sans-serif;
+        background: #000;
+        touch-action: none;
       }
 
       canvas {
         display: block;
+        width: 100vw;
+        height: 100vh;
       }
 
       button {
+        all: unset;
+        padding: 10px 20px;
+        font-size: 18px;
+        background: #000;
+        color: #fff;
+        border-radius: 12px;
+        position: fixed;
+        z-index: 999;
         user-select: none;
         -webkit-user-select: none;
-        -webkit-touch-callout: none;
+      }
+
+      button:active {
+        background: #444;
+      }
+
+      #captureBtn {
+        top: 20px;
+        right: 20px;
       }
     </style>
-    <script type="module" crossorigin src="./assets/index-CC3E3qS9.js"></script>
+    <script type="module" crossorigin src="./assets/index-2JbCVCSQ.js"></script>
   </head>
   <body>
+    <!-- El botón de captura se crea dinámicamente desde JS, pero si querés dejarlo en el DOM: -->
+    <!-- <button id="captureBtn">📸</button> -->
+
   </body>
 </html>

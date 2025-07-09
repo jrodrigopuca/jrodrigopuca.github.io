@@ -3,17 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WebXR AR/VR Frame</title>
-    <script type="module" crossorigin src="./assets/index-BrRIkfbi.js"></script>
+    <title>AR Marco Fotográfico</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        font-family: sans-serif;
+      }
+
+      canvas {
+        display: block;
+      }
+
+      button {
+        user-select: none;
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
+      }
+    </style>
+    <script type="module" crossorigin src="./assets/index-CC3E3qS9.js"></script>
   </head>
   <body>
-    <div id="ui">
-      <button onclick="setAspect(3, 2)">3:2</button>
-      <button onclick="setAspect(4, 3)">4:3</button>
-      <button onclick="setAspect(1, 1)">1:1</button>
-      <button onclick="setAspect(16, 9)">16:9</button>
-      <button onclick="enterAR()">Entrar en AR</button>
-      <button onclick="enterVR()">Entrar en VR</button>
-    </div>
   </body>
 </html>

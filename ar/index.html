@@ -4,21 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marco AR</title>
+
     <style>
-        body { margin: 0; overflow: hidden; }
+        body {
+            margin: 0;
+            overflow: hidden; /* Important: Prevents scrolling on mobile, keeps AR content full screen */
+            touch-action: none; /* Prevents default browser touch gestures like pull-to-refresh */
+        }
+
         #ar-canvas {
-            position: absolute;
+            position: fixed; /* Use 'fixed' to ensure it covers the entire viewport, even if scrolled */
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1; /* Para que el canvas esté sobre el contenido */
+            width: 100vw;   /* 100% of viewport width */
+            height: 100vh;  /* 100% of viewport height */
+            z-index: 1;     /* Ensures the canvas is above the main body but below UI elements */
+            display: block; /* Ensures it's rendered as a block element */
         }
+
         #capture-button {
-            position: absolute;
+            position: fixed; /* Use 'fixed' so it stays in place regardless of scrolling */
             bottom: 20px;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translateX(-50%); /* Centers the button horizontally */
             padding: 15px 30px;
             background-color: #007bff;
             color: white;
@@ -26,27 +34,31 @@
             border-radius: 5px;
             font-size: 1.2em;
             cursor: pointer;
-            z-index: 2; /* Para que el botón esté sobre el canvas */
+            z-index: 10; /* Higher z-index to ensure it's on top of the canvas */
+            display: none; /* Initially hidden, will be shown by JS when AR is ready */
         }
+
         #message {
-            position: absolute;
+            position: fixed; /* Use 'fixed' for overlay messages */
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); /* Centers the message both horizontally and vertically */
             background-color: rgba(0, 0, 0, 0.7);
             color: white;
             padding: 20px;
             border-radius: 10px;
-            display: none;
-            z-index: 3;
+            display: block; /* Initially visible to show compatibility messages */
+            z-index: 100; /* Highest z-index to ensure it's always on top */
             text-align: center;
         }
     </style>
 </head>
 <body>
     <canvas id="ar-canvas"></canvas>
-    <button id="capture-button">Capturar</button>
-    <div id="message">Tu dispositivo no soporta WebXR AR, o hay problemas para iniciar la sesión.</div>
+
+    <button id="capture-button"></button>
+
+    <div id="message">Cargando... Verificando compatibilidad AR.</div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="./main.js"></script>

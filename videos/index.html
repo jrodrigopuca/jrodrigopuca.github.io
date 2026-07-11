@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Llajta · Guía de Cochabamba</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --papel:#F4F1E8;
+    --tinta:#22271F;
+    --tinta-suave:#5C6156;
+    --verde:#2E6B4F;      /* turístico */
+    --fucsia:#C43A72;     /* comer */
+    --azul:#2F6FA8;       /* fotos */
+    --dorado:#D9A032;
+    --blanco:#FFFDF8;
+    --borde:#DCD6C6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    font-family:'Instrument Sans',system-ui,sans-serif;
+    background:var(--papel);
+    color:var(--tinta);
+    -webkit-font-smoothing:antialiased;
+  }
+  /* Franja aguayo: firma visual de la guía */
+  .aguayo{
+    height:8px;
+    background:repeating-linear-gradient(90deg,
+      var(--fucsia) 0 22px,
+      var(--dorado) 22px 34px,
+      var(--verde) 34px 58px,
+      var(--azul) 58px 70px,
+      #8A3E5C 70px 82px);
+  }
+  header{padding:20px 18px 12px}
+  .eyebrow{
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--tinta-suave);font-weight:600;margin-bottom:4px;
+  }
+  h1{
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:800;font-size:clamp(28px,7vw,44px);
+    line-height:1.02;letter-spacing:-.01em;
+  }
+  h1 .llajta{color:var(--verde)}
+  .sub{margin-top:8px;font-size:14.5px;color:var(--tinta-suave);max-width:56ch;line-height:1.5}
+
+  /* Filtros */
+  .filtros{
+    display:flex;gap:8px;overflow-x:auto;padding:14px 18px 12px;
+    position:sticky;top:0;z-index:1000;background:var(--papel);
+    border-bottom:1px solid var(--borde);
+    scrollbar-width:none;
+  }
+  .filtros::-webkit-scrollbar{display:none}
+  .chip{
+    flex:0 0 auto;display:flex;align-items:center;gap:7px;
+    font-family:'Instrument Sans',sans-serif;font-weight:600;font-size:13.5px;
+    padding:8px 14px;border-radius:999px;border:1.5px solid var(--borde);
+    background:var(--blanco);color:var(--tinta);cursor:pointer;
+    transition:transform .12s ease, background .12s ease;
+  }
+  .chip .punto{width:9px;height:9px;border-radius:50%}
+  .chip[data-cat="todo"] .punto{background:linear-gradient(90deg,var(--verde) 33%,var(--fucsia) 33% 66%,var(--azul) 66%)}
+  .chip[data-cat="turistico"] .punto{background:var(--verde)}
+  .chip[data-cat="comida"] .punto{background:var(--fucsia)}
+  .chip[data-cat="fotos"] .punto{background:var(--azul)}
+  .chip.activo{background:var(--tinta);color:var(--blanco);border-color:var(--tinta)}
+  .chip:active{transform:scale(.96)}
+  .chip:focus-visible{outline:3px solid var(--dorado);outline-offset:2px}
+
+  /* Mapa */
+  #mapa{
+    height:46vh;min-height:300px;margin:14px 18px 0;
+    border-radius:16px;border:1.5px solid var(--borde);
+    box-shadow:0 2px 10px rgba(34,39,31,.08);
+  }
+  .leaflet-container{font:inherit;background:#E8E4D6}
+  .marcador{
+    display:flex;align-items:center;justify-content:center;
+    width:30px;height:30px;border-radius:50% 50% 50% 4px;
+    transform:rotate(-45deg);
+    border:2.5px solid var(--blanco);
+    box-shadow:0 2px 6px rgba(34,39,31,.35);
+  }
+  .marcador span{transform:rotate(45deg);font-size:14px;line-height:1}
+  .leaflet-popup-content-wrapper{border-radius:12px;font-family:'Instrument Sans',sans-serif}
+  .leaflet-popup-content{margin:12px 14px;font-size:13.5px}
+  .leaflet-popup-content b{font-family:'Bricolage Grotesque',sans-serif;font-size:15px}
+
+  /* Lista de fichas */
+  .contador{padding:18px 18px 4px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta-suave);font-weight:600}
+  .lista{padding:8px 18px 40px;display:grid;gap:12px}
+  @media(min-width:760px){.lista{grid-template-columns:1fr 1fr}}
+  .ficha{
+    background:var(--blanco);border:1.5px solid var(--borde);border-radius:14px;
+    padding:16px 16px 14px;cursor:pointer;position:relative;overflow:hidden;
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .ficha::before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:5px;
+    background:var(--cat-color,var(--verde));
+  }
+  .ficha:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(34,39,31,.10)}
+  .ficha:focus-visible{outline:3px solid var(--dorado);outline-offset:2px}
+  .ficha.resaltada{border-color:var(--tinta);box-shadow:0 6px 16px rgba(34,39,31,.14)}
+  .ficha .cats{display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap}
+  .etq{
+    font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+    padding:3px 9px;border-radius:999px;color:var(--blanco);
+  }
+  .etq.turistico{background:var(--verde)}
+  .etq.comida{background:var(--fucsia)}
+  .etq.fotos{background:var(--azul)}
+  .ficha h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:18px;margin-bottom:5px}
+  .ficha p{font-size:13.5px;line-height:1.5;color:var(--tinta-suave)}
+  .dato{
+    margin-top:10px;padding:9px 11px;border-radius:9px;
+    background:#F1EBDD;font-size:12.5px;line-height:1.45;
+  }
+  .dato b{color:var(--tinta)}
+  .vacio{padding:40px 18px;text-align:center;color:var(--tinta-suave);font-size:14px}
+  footer{padding:0 18px 34px;font-size:12px;color:var(--tinta-suave);line-height:1.5}
+
+  /* Botón de ubicación */
+  .btn-ubicacion{
+    position:absolute;bottom:14px;right:14px;z-index:900;
+    display:flex;align-items:center;gap:7px;
+    font-family:'Instrument Sans',sans-serif;font-weight:600;font-size:13px;
+    padding:9px 14px;border-radius:999px;border:1.5px solid var(--borde);
+    background:var(--blanco);color:var(--tinta);cursor:pointer;
+    box-shadow:0 2px 8px rgba(34,39,31,.18);
+  }
+  .btn-ubicacion:active{transform:scale(.96)}
+  .btn-ubicacion:focus-visible{outline:3px solid var(--dorado);outline-offset:2px}
+  .btn-ubicacion.buscando{opacity:.6;pointer-events:none}
+  .contenedor-mapa{position:relative;margin:14px 18px 0}
+  .contenedor-mapa #mapa{margin:0}
+  .punto-yo{
+    width:18px;height:18px;border-radius:50%;
+    background:#2F6FA8;border:3px solid var(--blanco);
+    box-shadow:0 0 0 2px rgba(47,111,168,.35), 0 2px 6px rgba(34,39,31,.3);
+  }
+  .aviso-ubi{
+    position:absolute;bottom:60px;right:14px;z-index:900;max-width:230px;
+    background:var(--tinta);color:var(--blanco);font-size:12px;line-height:1.4;
+    padding:9px 12px;border-radius:10px;box-shadow:0 2px 8px rgba(34,39,31,.25);
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important}
+  }
+</style>
+</head>
+<body>
+<div class="aguayo" aria-hidden="true"></div>
+
+<header>
+  <p class="eyebrow">Guía de bolsillo · Valle de Cochabamba, Bolivia</p>
+  <h1>La <span class="llajta">Llajta</span>,<br>paso a paso</h1>
+  <p class="sub">Ciudad de la eterna primavera y capital gastronómica de Bolivia. Filtra por lo que buscas, toca una ficha y el mapa te lleva al lugar.</p>
+</header>
+
+<nav class="filtros" aria-label="Filtrar lugares">
+  <button class="chip activo" data-cat="todo"><span class="punto"></span>Todo</button>
+  <button class="chip" data-cat="turistico"><span class="punto"></span>Turístico</button>
+  <button class="chip" data-cat="comida"><span class="punto"></span>Dónde comer</button>
+  <button class="chip" data-cat="fotos"><span class="punto"></span>Para fotos</button>
+</nav>
+
+<div class="contenedor-mapa">
+  <div id="mapa" role="application" aria-label="Mapa de Cochabamba"></div>
+  <button class="btn-ubicacion" id="btnUbi" aria-label="Ver mi ubicación actual">📍 Mi ubicación</button>
+</div>
+
+<p class="contador" id="contador"></p>
+<main class="lista" id="lista"></main>
+<p class="vacio" id="vacio" hidden>No hay lugares en esta categoría.</p>
+
+<footer>Las ubicaciones son aproximadas: confirma horarios y direcciones exactas antes de ir. Buen viaje, y no te vayas sin probar un silpancho.</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const CAT = {
+  turistico:{color:'#2E6B4F', nombre:'Turístico', emoji:'⛪'},
+  comida:{color:'#C43A72', nombre:'Dónde comer', emoji:'🍽️'},
+  fotos:{color:'#2F6FA8', nombre:'Para fotos', emoji:'📷'}
+};
+
+const LUGARES = [
+  {n:'Cristo de la Concordia', lat:-17.3842, lng:-66.1349, cats:['turistico','fotos'], emoji:'✝️',
+   d:'La estatua de Cristo más alta de Sudamérica (34 m, más que el Corcovado), sobre el cerro San Pedro. Se sube en teleférico o por escalinatas.',
+   tip:'Sube temprano en la mañana: la luz es mejor para fotos del valle y hay menos gente. Los domingos se puede subir al interior de la estatua.'},
+  {n:'Plaza 14 de Septiembre', lat:-17.3936, lng:-66.1568, cats:['turistico'], emoji:'🏛️',
+   d:'El corazón colonial de la ciudad, rodeada de arquerías, la Catedral y edificios históricos. Punto de partida ideal para recorrer el centro a pie.',
+   tip:'Desde aquí caminas a la Catedral, al Convento de Santa Teresa y a la calle España en menos de 10 minutos.'},
+  {n:'Catedral Metropolitana', lat:-17.3941, lng:-66.1566, cats:['turistico'], emoji:'⛪',
+   d:'La iglesia más antigua de Cochabamba (siglo XVIII), con interior de estilo barroco mestizo y frescos restaurados.',
+   tip:'Entra al final de la tarde, cuando la luz atraviesa la nave; suele estar abierta alrededor de las misas.'},
+  {n:'La Cancha', lat:-17.4014, lng:-66.1544, cats:['turistico','comida'], emoji:'🧺',
+   d:'Uno de los mercados al aire libre más grandes de Sudamérica: un laberinto de puestos con frutas del valle, textiles, hierbas y comedores populares.',
+   tip:'Prueba un api con pastel a media mañana. Lleva efectivo en billetes chicos y cuida tus pertenencias, como en todo gran mercado.'},
+  {n:'Palacio Portales', lat:-17.3757, lng:-66.1519, cats:['turistico','fotos'], emoji:'🏰',
+   d:'La mansión del "rey del estaño" Simón I. Patiño: salones europeos de lujo y jardines de inspiración versallesca. Hoy es centro cultural.',
+   tip:'Los jardines son de los rincones más fotogénicos de la ciudad. Hay visitas guiadas en horarios fijos; llega unos minutos antes.'},
+  {n:'Convento de Santa Teresa', lat:-17.3953, lng:-66.1533, cats:['turistico'], emoji:'🕯️',
+   d:'Convento de clausura del siglo XVIII convertido en museo. Sus patios, celdas y arte colonial cuentan la vida oculta de las monjas carmelitas.',
+   tip:'Solo se visita con guía y los cupos son limitados: pregunta los horarios en la puerta al empezar tu día en el centro.'},
+  {n:'La Coronilla (Colina San Sebastián)', lat:-17.4003, lng:-66.1607, cats:['turistico'], emoji:'🗿',
+   d:'Colina histórica con el monumento a las Heroínas de la Coronilla, que defendieron la ciudad en 1812. Vista abierta hacia el centro.',
+   tip:'Visítala de día y acompañado; es una parada corta que combina bien con La Cancha, que está al lado.'},
+  {n:'Laguna Alalay', lat:-17.4110, lng:-66.1350, cats:['fotos','turistico'], emoji:'🦩',
+   d:'Gran laguna urbana rodeada por un circuito para caminar o pedalear. Refugio de aves: garzas, patos y, con suerte, flamencos.',
+   tip:'Al atardecer el Tunari se refleja en el agua: la mejor postal gratuita de la ciudad. Lleva lente de zoom si te gustan las aves.'},
+  {n:'Parque Nacional Tunari (acceso)', lat:-17.3395, lng:-66.1830, cats:['turistico','fotos'], emoji:'⛰️',
+   d:'La cordillera que abraza la ciudad. Senderos entre bosques, miradores sobre todo el valle y, para los fuertes, la cumbre del Tunari (5.035 m).',
+   tip:'Incluso sin caminar mucho, los primeros miradores del camino ofrecen vistas enormes. Sal temprano: en la tarde suele nublarse.'},
+  {n:'La Recoleta', lat:-17.3782, lng:-66.1495, cats:['fotos','comida'], emoji:'🌆',
+   d:'Zona de templo colonial, plazuela y la mayor concentración de buenos restaurantes y cafés de la ciudad. El punto de encuentro cochabambino.',
+   tip:'Ven al atardecer: fotos en la plazuela y luego cena en cualquiera de los restaurantes de la zona sin mover el auto.'},
+  {n:'Casa de Campo', lat:-17.3793, lng:-66.1497, cats:['comida'], emoji:'🥘',
+   d:'El clásico para comida típica cochala en la Recoleta: pique macho, chicharrón, lapping y platos abundantes para compartir.',
+   tip:'El pique macho es para 2–3 personas aunque diga "personal". Acompáñalo con una chicha o un mocochinchi.'},
+  {n:'La Estancia', lat:-17.3787, lng:-66.1483, cats:['comida'], emoji:'🥩',
+   d:'Churrasquería de referencia: cortes a la parrilla, ensaladas de barra y ambiente familiar. Ideal si viajas en grupo.',
+   tip:'Los fines de semana al mediodía se llena: reserva o llega antes de la 1 de la tarde.'},
+  {n:'Paprika', lat:-17.3800, lng:-66.1508, cats:['comida'], emoji:'☕',
+   d:'Café-restaurante de ambiente relajado en la Recoleta: desayunos, brunch, opciones internacionales y buena repostería.',
+   tip:'Buen plan para un desayuno largo antes de subir al Cristo, que queda cerca en auto.'},
+  {n:'Gopal', lat:-17.3906, lng:-66.1580, cats:['comida'], emoji:'🥗',
+   d:'Institución vegetariana del centro (calle España): buffet económico al mediodía con cocina casera y opciones veganas.',
+   tip:'Llega entre 12:00 y 13:00, cuando el buffet está más fresco y variado. La calle España está llena de cafés para el postre.'},
+  {n:'Heladería Dumbo (El Prado)', lat:-17.3888, lng:-66.1573, cats:['comida'], emoji:'🍨',
+   d:'Heladería-cafetería clásica de generaciones de cochabambinos, sobre el paseo de El Prado. Helados, salteñas y meriendas.',
+   tip:'Pide una salteña a media mañana, como manda la tradición: se come con cuchara y sin derramar el juguito.'},
+  {n:'Plaza Colón y El Prado', lat:-17.3893, lng:-66.1562, cats:['fotos'], emoji:'⛲',
+   d:'Plaza de jardines y fuentes donde nace El Prado (paseo Ballivián), la avenida arbolada más elegante de la ciudad.',
+   tip:'Los jacarandás en flor (septiembre–octubre) tiñen todo de violeta: la época dorada para fotografiar este paseo.'},
+  {n:'Mirador del teleférico', lat:-17.3866, lng:-66.1394, cats:['fotos'], emoji:'🚡',
+   d:'La cabina que sube al Cristo regala vistas aéreas de toda la mancha urbana con la cordillera del Tunari de fondo.',
+   tip:'Siéntate mirando al oeste para tener el valle de frente durante la subida. Cierra los días de mucho viento.'}
+];
+
+// --- Mapa ---
+const mapa = L.map('mapa', {scrollWheelZoom:false}).setView([-17.390, -66.152], 13);
+const capa = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+  maxZoom:19, subdomains:'abcd', attribution:'&copy; OpenStreetMap &copy; CARTO'
+}).addTo(mapa);
+// Respaldo: si estos tiles tampoco cargan, intenta con OpenStreetMap directo
+let fallos = 0;
+capa.on('tileerror', ()=>{
+  fallos++;
+  if(fallos === 4){
+    mapa.removeLayer(capa);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom:19, attribution:'&copy; OpenStreetMap'
+    }).addTo(mapa);
+  }
+});
+mapa.on('focus', ()=>mapa.scrollWheelZoom.enable());
+mapa.on('blur', ()=>mapa.scrollWheelZoom.disable());
+
+function icono(lugar){
+  const c = CAT[lugar.cats[0]].color;
+  return L.divIcon({
+    className:'',
+    html:`<div class="marcador" style="background:${c}"><span>${lugar.emoji}</span></div>`,
+    iconSize:[30,30], iconAnchor:[15,28], popupAnchor:[0,-26]
+  });
+}
+
+const marcadores = LUGARES.map((l,i)=>{
+  const m = L.marker([l.lat,l.lng], {icon:icono(l)})
+    .bindPopup(`<b>${l.emoji} ${l.n}</b><br>${l.d}`);
+  m.on('click', ()=>resaltar(i));
+  return m;
+});
+
+// --- Fichas y filtro ---
+const lista = document.getElementById('lista');
+const vacio = document.getElementById('vacio');
+const contador = document.getElementById('contador');
+let filtro = 'todo';
+
+function render(){
+  lista.innerHTML = '';
+  let visibles = 0;
+  LUGARES.forEach((l,i)=>{
+    const pasa = filtro==='todo' || l.cats.includes(filtro);
+    if(pasa){ marcadores[i].addTo(mapa); } else { mapa.removeLayer(marcadores[i]); }
+    if(!pasa) return;
+    visibles++;
+    const f = document.createElement('article');
+    f.className = 'ficha';
+    f.id = 'ficha-'+i;
+    f.tabIndex = 0;
+    f.style.setProperty('--cat-color', CAT[l.cats[0]].color);
+    f.innerHTML = `
+      <div class="cats">${l.cats.map(c=>`<span class="etq ${c}">${CAT[c].nombre}</span>`).join('')}</div>
+      <h3>${l.emoji} ${l.n}</h3>
+      <p>${l.d}</p>
+      <div class="dato"><b>Dato llajta:</b> ${l.tip}</div>`;
+    const ir = ()=>{ 
+      mapa.flyTo([l.lat,l.lng], 15, {duration:.8});
+      marcadores[i].openPopup();
+      resaltar(i);
+    };
+    f.addEventListener('click', ir);
+    f.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();ir();} });
+    lista.appendChild(f);
+  });
+  vacio.hidden = visibles>0;
+  contador.textContent = visibles + (visibles===1?' lugar':' lugares') + (filtro==='todo'?' en la guía':' en esta categoría');
+}
+
+function resaltar(i){
+  document.querySelectorAll('.ficha').forEach(f=>f.classList.remove('resaltada'));
+  const f = document.getElementById('ficha-'+i);
+  if(f){ f.classList.add('resaltada'); f.scrollIntoView({behavior:'smooth', block:'nearest'}); }
+}
+
+document.querySelectorAll('.chip').forEach(ch=>{
+  ch.addEventListener('click', ()=>{
+    document.querySelectorAll('.chip').forEach(c=>c.classList.remove('activo'));
+    ch.classList.add('activo');
+    filtro = ch.dataset.cat;
+    render();
+    const grupo = marcadores.filter((m,i)=> filtro==='todo' || LUGARES[i].cats.includes(filtro));
+    if(grupo.length) mapa.fitBounds(L.featureGroup(grupo).getBounds().pad(0.15));
+  });
+});
+
+// --- Mi ubicación ---
+const btnUbi = document.getElementById('btnUbi');
+let marcaYo = null, circuloYo = null, avisoUbi = null;
+
+function mostrarAviso(msg){
+  if(avisoUbi) avisoUbi.remove();
+  avisoUbi = document.createElement('div');
+  avisoUbi.className = 'aviso-ubi';
+  avisoUbi.textContent = msg;
+  document.querySelector('.contenedor-mapa').appendChild(avisoUbi);
+  setTimeout(()=>{ if(avisoUbi){ avisoUbi.remove(); avisoUbi = null; } }, 5000);
+}
+
+btnUbi.addEventListener('click', ()=>{
+  if(!navigator.geolocation){
+    mostrarAviso('Tu navegador no permite acceder a la ubicación.');
+    return;
+  }
+  btnUbi.classList.add('buscando');
+  btnUbi.textContent = '📍 Buscando…';
+  navigator.geolocation.getCurrentPosition(pos=>{
+    const {latitude:lat, longitude:lng, accuracy} = pos.coords;
+    if(marcaYo){ mapa.removeLayer(marcaYo); mapa.removeLayer(circuloYo); }
+    marcaYo = L.marker([lat,lng], {icon: L.divIcon({
+      className:'', html:'<div class="punto-yo"></div>',
+      iconSize:[18,18], iconAnchor:[9,9]
+    })}).addTo(mapa).bindPopup('<b>📍 Estás aquí</b>');
+    circuloYo = L.circle([lat,lng], {
+      radius: Math.min(accuracy, 300),
+      color:'#2F6FA8', fillColor:'#2F6FA8', fillOpacity:.12, weight:1
+    }).addTo(mapa);
+    mapa.flyTo([lat,lng], 15, {duration:.8});
+    marcaYo.openPopup();
+    btnUbi.classList.remove('buscando');
+    btnUbi.textContent = '📍 Mi ubicación';
+  }, err=>{
+    btnUbi.classList.remove('buscando');
+    btnUbi.textContent = '📍 Mi ubicación';
+    if(err.code === 1) mostrarAviso('Permiso denegado. Activa la ubicación para este sitio en tu navegador.');
+    else if(err.code === 3) mostrarAviso('Tardó demasiado en encontrar tu ubicación. Intenta de nuevo.');
+    else mostrarAviso('No se pudo obtener tu ubicación. Revisa que el GPS esté activado.');
+  }, {enableHighAccuracy:true, timeout:10000, maximumAge:30000});
+});
+
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>AutoEscuela 3D — Simulador de manejo</title>
+<style>
+  :root{
+    --panel: rgba(10,13,18,.74);
+    --line: rgba(255,255,255,.14);
+    --amber:#ffb020; --green:#2ee06f; --red:#ff4d5a; --cyan:#4fd8e8;
+    --ink:#f3f6f9;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{width:100%;height:100%;overflow:hidden;background:#0b0e12;touch-action:none;overscroll-behavior:none;
+    font-family:"Chakra Petch","Avenir Next Condensed","Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);
+    -webkit-user-select:none;user-select:none}
+  canvas#c{position:fixed;inset:0;display:block}
+  .hud{position:fixed;pointer-events:none;z-index:5}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;backdrop-filter:blur(6px)}
+
+  /* ---- puntos ---- */
+  #ptsBox{top:calc(8px + env(safe-area-inset-top));left:calc(10px + env(safe-area-inset-left));padding:6px 14px;display:flex;align-items:center;gap:8px}
+  #ptsBox .lbl{font-size:10px;letter-spacing:.18em;color:#9fb0bf}
+  #pts{font-size:26px;font-weight:700;color:var(--amber);font-variant-numeric:tabular-nums;min-width:52px;text-align:right}
+  #pts.bad{color:var(--red)} 
+
+  /* ---- velocímetro ---- */
+  #spdBox{bottom:calc(10px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);padding:6px 18px 8px;text-align:center;min-width:150px}
+  #spd{font-size:42px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+  #spd.over{color:var(--red)}
+  #cruise{display:none;font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--green);margin-top:2px}
+  #cruise.on{display:block}
+  .pedal.latched{border-width:2px;box-shadow:0 0 0 2px rgba(46,224,111,.35), 0 0 18px rgba(46,224,111,.35)}
+  #spdBox .u{font-size:11px;letter-spacing:.28em;color:#9fb0bf}
+  #gearLbl{position:absolute;right:12px;top:10px;font-size:22px;font-weight:700;color:var(--cyan)}
+  #limit{position:absolute;left:12px;top:8px;width:30px;height:30px;border-radius:50%;background:#fff;border:4px solid #d32f2f;color:#111;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  #engineOff{display:none;margin-top:4px;font-size:11px;color:var(--red);letter-spacing:.06em}
+  #sigs{display:flex;justify-content:center;align-items:center;gap:16px;font-size:16px;color:#3a4652;height:18px}
+  #sigs .on{color:var(--green);text-shadow:0 0 8px var(--green)}
+  #lights{font-size:12px}#lights.on{color:var(--amber);text-shadow:0 0 8px var(--amber)}
+  #rpmWrap{width:132px;height:5px;background:#232a33;border-radius:3px;margin:5px auto 2px;overflow:hidden}
+  #rpmBar{height:100%;width:10%;background:linear-gradient(90deg,var(--cyan) 0%,var(--amber) 70%,var(--red) 100%);background-size:132px 100%}
+  #rpm{font-size:10px;letter-spacing:.14em;color:#9fb0bf}
+  #hint{font-size:11px;color:var(--amber);min-height:13px;letter-spacing:.04em}
+  #clock{font-size:11px;color:#9fb0bf;letter-spacing:.12em}
+  /* intermitentes + bocina: columna a la izquierda del velocímetro */
+  #ctrlL{position:fixed;z-index:6;bottom:calc(10px + env(safe-area-inset-bottom));left:calc(50% - 139px);display:none;flex-direction:column;gap:6px}
+  body.playing #ctrlL{display:flex}
+  .cbtn{pointer-events:auto;width:52px;height:50px;border-radius:14px;border:1px solid var(--line);background:var(--panel);color:#cfd8e0;
+    font-size:20px;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)}
+  .cbtn.on{border-color:var(--green);color:var(--green);background:rgba(46,224,111,.22)}
+  .cbtn:active{background:rgba(255,255,255,.22)}
+
+  /* ---- navegación viaje ---- */
+  #navBox{top:calc(8px + env(safe-area-inset-top));left:50%;transform:translateX(-50%);padding:6px 16px;display:none;align-items:center;gap:12px}
+  #arrow{width:0;height:0;border-left:11px solid transparent;border-right:11px solid transparent;border-bottom:20px solid var(--green);transition:transform .12s linear}
+  #navTxt{font-size:13px;line-height:1.25}
+  #navTxt b{color:var(--green)}
+  #navDist{font-size:17px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--green)}
+
+  /* ---- minimapa + viaje ---- */
+  #miniWrap{top:calc(8px + env(safe-area-inset-top));right:calc(10px + env(safe-area-inset-right));padding:6px;display:flex;flex-direction:column;gap:6px;align-items:center}
+  #mini{width:118px;height:118px;border-radius:9px;background:#10151c}
+  #tripBtn{pointer-events:auto;border:1px solid var(--amber);background:rgba(255,176,32,.14);color:var(--amber);
+    font:700 13px inherit;font-family:inherit;letter-spacing:.04em;padding:8px 10px;border-radius:10px;width:118px}
+  #tripBtn:active{background:rgba(255,176,32,.35)}
+  #tripCnt{font-size:10px;color:#9fb0bf;letter-spacing:.1em}
+
+  /* ---- mensajes ---- */
+  #msgs{top:26%;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;gap:6px;align-items:center;width:90%;max-width:420px}
+  .toast{padding:8px 16px;border-radius:12px;background:var(--panel);border:1px solid var(--line);font-size:15px;font-weight:600;
+    animation:pop .18s ease-out, fade .5s ease-in 2.3s forwards;text-align:center}
+  .toast.bad{border-color:var(--red);color:#ffb3b9}
+  .toast.good{border-color:var(--green);color:#b8f5cf}
+  .toast.info{border-color:var(--cyan);color:#c9f2f8}
+  @keyframes pop{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
+  @keyframes fade{to{opacity:0;transform:translateY(-8px)}}
+
+  /* ---- pedales (esquinas, para pulgares en horizontal) ---- */
+  .pedal{pointer-events:auto;position:fixed;z-index:6;border-radius:18px;border:1px solid var(--line);
+    background:var(--panel);color:#cfd8e0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    font-weight:700;letter-spacing:.08em;backdrop-filter:blur(6px)}
+  .pedal small{font-size:9px;letter-spacing:.2em;color:#8a99a8;margin-top:2px}
+  .pedal .ico{font-size:20px}
+  .pedal.on{background:rgba(255,255,255,.22);color:#fff}
+  #pClutch{left:calc(10px + env(safe-area-inset-left));bottom:calc(10px + env(safe-area-inset-bottom));width:96px;height:132px;border-color:var(--cyan)}
+  #pClutch.on{background:rgba(79,216,232,.3)}
+  #pBrake{right:calc(128px + env(safe-area-inset-right));bottom:calc(10px + env(safe-area-inset-bottom));width:96px;height:118px;border-color:var(--red)}
+  #pBrake.on{background:rgba(255,77,90,.3)}
+  #pGas{right:calc(10px + env(safe-area-inset-right));bottom:calc(10px + env(safe-area-inset-bottom));width:106px;height:152px;border-color:var(--green)}
+  #pGas.on{background:rgba(46,224,111,.3)}
+
+  /* ---- caja de cambios: paletas junto al embrague ---- */
+  #gearBox{pointer-events:auto;position:fixed;z-index:6;left:calc(116px + env(safe-area-inset-left));bottom:calc(10px + env(safe-area-inset-bottom));
+    display:flex;flex-direction:column;gap:5px;align-items:center}
+  #gearBox button{pointer-events:auto;width:60px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--panel);
+    color:var(--ink);font:700 20px inherit;font-family:inherit;backdrop-filter:blur(6px)}
+  #gearBox button:active{background:rgba(255,255,255,.25)}
+  #gearBox .cur{width:60px;text-align:center;font-size:22px;font-weight:700;color:var(--cyan);background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:1px 0}
+  #autoBox{pointer-events:auto;position:fixed;z-index:6;left:calc(10px + env(safe-area-inset-left));bottom:calc(10px + env(safe-area-inset-bottom));display:none;flex-direction:row;gap:8px}
+  #autoBox button{width:56px;height:56px;border-radius:14px;border:1px solid var(--line);background:var(--panel);color:#cfd8e0;font:700 20px inherit;font-family:inherit}
+  #autoBox button.sel{border-color:var(--cyan);color:var(--cyan);background:rgba(79,216,232,.16)}
+
+  /* ---- espejos ---- */
+  #rearMirror,#sideMirror{position:fixed;z-index:4;pointer-events:none;display:none;
+    border:2px solid #1a1f26;outline:1px solid rgba(255,255,255,.14);border-radius:12px;
+    box-shadow:0 6px 16px rgba(0,0,0,.55), inset 0 0 14px rgba(0,0,0,.35)}
+  #rearMirror{top:calc(6px + env(safe-area-inset-top));left:50%;transform:translateX(-50%)}
+  #rearMirror::after{content:"";position:absolute;left:calc(50% - 12px);top:-8px;width:24px;height:8px;background:#1a1f26;border-radius:4px 4px 0 0}
+  #sideMirror{left:calc(8px + env(safe-area-inset-left));top:34%;border-radius:14px 18px 18px 14px}
+  body.playing #rearMirror,body.playing #sideMirror{display:block}
+
+  /* ---- botones del sistema (pantalla completa, centrar volante, sonido) ---- */
+  #sysBtns{position:fixed;z-index:6;top:calc(8px + env(safe-area-inset-top));right:calc(148px + env(safe-area-inset-right));display:none;gap:6px}
+  body.playing #sysBtns{display:flex}
+  .sysb{pointer-events:auto;width:36px;height:36px;border-radius:10px;border:1px solid var(--line);background:var(--panel);
+    color:#cfd8e0;font-size:16px;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)}
+  .sysb:active{background:rgba(255,255,255,.2)}
+
+  /* ---- aviso: girar el teléfono ---- */
+  #rotate{position:fixed;inset:0;z-index:30;background:#0a0e13ee;display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:20px}
+  #rotate .ph{font-size:56px;animation:rot 1.6s ease-in-out infinite}
+  @keyframes rot{0%,20%{transform:rotate(0)}60%,100%{transform:rotate(90deg)}}
+  @media (orientation: portrait){ body.playing #rotate{display:flex} }
+
+  /* ---- volante táctil / recalibrar ---- */
+  #touchWheel{pointer-events:auto;position:fixed;z-index:6;left:50%;transform:translateX(-50%);bottom:calc(76px + env(safe-area-inset-bottom));
+    width:190px;height:34px;border-radius:20px;background:var(--panel);border:1px solid var(--line);display:none;align-items:center;justify-content:center;overflow:hidden}
+  #twKnob{width:30px;height:26px;border-radius:12px;background:var(--cyan);position:absolute;left:calc(50% - 15px)}
+  #twLbl{font-size:9px;letter-spacing:.25em;color:#8a99a8;pointer-events:none}
+
+  /* ---- overlays ---- */
+  .overlay,.overlay *{touch-action:manipulation}
+  .overlay{position:fixed;inset:0;z-index:20;background:radial-gradient(120% 120% at 50% 0%, #16222e 0%, #0a0e13 70%);
+    display:flex;align-items:center;justify-content:center;padding:16px}
+  .card{max-width:520px;width:100%;background:rgba(16,21,28,.9);border:1px solid var(--line);border-radius:20px;padding:22px 22px 18px;max-height:94vh;overflow:auto}
+  .card h1{font-size:26px;letter-spacing:.02em}
+  .card h1 span{color:var(--amber)}
+  .card p.sub{color:#9fb0bf;font-size:13px;margin:4px 0 14px}
+  .seg{display:flex;gap:8px;margin:8px 0 14px}
+  .seg button{flex:1;padding:12px 8px;border-radius:14px;border:1px solid var(--line);background:transparent;color:#cfd8e0;font:700 15px inherit;font-family:inherit}
+  .seg button small{display:block;font-weight:400;font-size:10.5px;color:#8a99a8;margin-top:3px;letter-spacing:.03em}
+  .seg button.sel{border-color:var(--amber);color:var(--amber);background:rgba(255,176,32,.1)}
+  .tips{font-size:12.5px;color:#aebbc7;line-height:1.7;border-top:1px solid var(--line);padding-top:10px;margin-top:2px}
+  .tips b{color:var(--ink)}
+  #startBtn{width:100%;margin-top:14px;padding:15px;border-radius:14px;border:0;background:var(--amber);color:#171006;font:700 17px inherit;font-family:inherit;letter-spacing:.03em}
+  #startBtn:active{filter:brightness(.9)}
+  #over{display:none}
+  #over .card{text-align:center}
+  #over h1{color:var(--red)}
+  #overStats{margin:12px 0;color:#aebbc7;font-size:14px;line-height:1.8}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+
+<!-- HUD -->
+<div class="hud panel" id="ptsBox"><span class="lbl">PUNTOS</span><span id="pts">100</span></div>
+
+<div class="hud panel" id="navBox">
+  <div id="arrow"></div>
+  <div id="navTxt"><b id="navPhase">Recoge al pasajero</b><br><span id="navDist">0 m</span></div>
+</div>
+
+<div class="hud panel" id="miniWrap">
+  <canvas id="mini" width="118" height="118"></canvas>
+  <button id="tripBtn">🚕 Buscar viaje</button>
+  <span id="tripCnt">Viajes: 0 · $0</span>
+  <span id="clock">07:40</span>
+</div>
+
+<div class="hud panel" id="spdBox">
+  <div id="limit">60</div><div id="gearLbl">N</div>
+  <div id="sigs"><span id="sigLi">◀</span><span id="lights">💡</span><span id="sigRi">▶</span></div>
+  <div id="spd">0</div><div class="u">KM/H</div>
+  <div id="cruise">⏵ CRUCERO 45</div>
+  <div id="rpmWrap"><div id="rpmBar"></div></div><div id="rpm">850 RPM</div>
+  <div id="hint"></div>
+  <div id="engineOff">⚠︎ MOTOR APAGADO · mantén el embrague</div>
+</div>
+
+<!-- intermitentes y bocina -->
+<div id="ctrlL">
+  <button class="cbtn" id="horn" title="Bocina">📯</button>
+  <button class="cbtn" id="sigL" title="Intermitente izquierdo">◀</button>
+  <button class="cbtn" id="sigR" title="Intermitente derecho">▶</button>
+</div>
+
+<div class="hud" id="msgs"></div>
+
+<!-- Controles -->
+<div class="pedal" id="pClutch"><span class="ico">⬇</span>EMBRAGUE<small>CLUTCH</small></div>
+<div class="pedal" id="pBrake"><span class="ico">■</span><span id="brakeTxt">FRENO</span><small id="brakeSm">BRAKE</small></div>
+<div class="pedal" id="pGas"><span class="ico">▲</span><span id="gasTxt">ACELERAR</span><small id="gasSm">GAS</small></div>
+
+<div id="gearBox">
+  <button id="gUp">▲</button>
+  <div class="cur" id="gearCur">N</div>
+  <button id="gDn">▼</button>
+</div>
+<div id="autoBox">
+  <button data-sel="R">R</button>
+  <button data-sel="N">N</button>
+  <button data-sel="D" class="sel">D</button>
+</div>
+
+<div id="touchWheel"><div id="twKnob"></div><span id="twLbl">VOLANTE</span></div>
+
+<!-- Espejos (se renderizan sobre el canvas 3D) -->
+<div id="rearMirror"></div>
+<div id="sideMirror"></div>
+
+<!-- Botones del sistema -->
+<div id="sysBtns">
+  <button class="sysb" id="fsBtn" title="Pantalla completa">⛶</button>
+  <button class="sysb" id="recal" title="Centrar volante">⟳</button>
+  <button class="sysb" id="mute" title="Sonido">🔊</button>
+</div>
+
+<!-- Aviso de orientación -->
+<div id="rotate">
+  <div class="ph">📱</div>
+  <div style="font-size:18px;font-weight:700">Gira tu teléfono</div>
+  <div style="font-size:13px;color:#9fb0bf">Este juego se conduce en modo horizontal</div>
+</div>
+
+<!-- Pantalla de inicio -->
+<div class="overlay" id="menu">
+  <div class="card">
+    <h1>🚘 AutoEscuela <span>3D</span></h1>
+    <p class="sub">Aprende a conducir en una mini ciudad: respeta semáforos y señales, esquiva peatones y completa viajes llevando pasajeros.</p>
+    <div class="seg" id="modeSeg">
+      <button data-mode="auto" class="sel">AUTOMÁTICO<small>Solo acelerador y freno</small></button>
+      <button data-mode="manual">MANUAL<small>Embrague + 5 cambios y reversa</small></button>
+    </div>
+    <div style="font-size:11px;letter-spacing:.14em;color:#8a99a8;margin-bottom:6px">📲 DIRECCIÓN CON EL TELÉFONO</div>
+    <div class="seg" id="steerSeg" style="margin-top:0">
+      <button data-steer="tilt" class="sel">INCLINAR<small>Teléfono apaisado inclinado hacia ti; baja el borde izquierdo o derecho para doblar</small></button>
+      <button data-steer="wheel">VOLANTE<small>Teléfono de frente, lo giras como un volante real</small></button>
+    </div>
+    <div style="font-size:11px;letter-spacing:.14em;color:#8a99a8;margin-bottom:6px">🎚 SENSIBILIDAD</div>
+    <div class="seg" id="sensSeg" style="margin-top:0">
+      <button data-range="30" data-tilt="15">ÁGIL<small>Poco movimiento, giro completo</small></button>
+      <button data-range="45" data-tilt="25" class="sel">NORMAL<small>Equilibrada</small></button>
+      <button data-range="65" data-tilt="40">SUAVE<small>Más recorrido, más precisa</small></button>
+    </div>
+    <div style="font-size:11px;letter-spacing:.14em;color:#8a99a8;margin-bottom:6px">🖐 PEDALES</div>
+    <div class="seg" id="pedSeg" style="margin-top:0">
+      <button data-ped="hold" class="sel">MANTENER<small>Pedales reales: acelera y frena mientras los mantienes apretados</small></button>
+      <button data-ped="tap">TOQUE + CRUCERO<small>Un toque en AVANZAR y el auto mantiene la velocidad</small></button>
+    </div>
+    <div class="tips">
+      <b>🎮 Controles:</b> sostén el teléfono apaisado con las dos manos, un poco inclinado hacia ti, y <b>baja el borde izquierdo o derecho para doblar</b>. Con los pulgares manejas acelerador y freno (y embrague en manual). No importa cuánto lo tengas inclinado hacia ti: solo cuenta el movimiento lateral.<br>
+      <b>📱 Pantalla completa:</b> se activa sola al comenzar (botón ⛶ para alternar). En iPhone: Compartir → "Añadir a pantalla de inicio".<br>
+      <b>🚦 Reglas:</b> empiezas con <b>100 puntos</b>. Rojo −15 · PARE −10 · Chocar −10/−15 · Atropellar −25 · Exceso &gt;60 km/h −5 · Contramano −10 · Girar sin intermitente −5 · Vereda −5.<br>
+      <b>🌗 Realismo:</b> ciclo día/noche con faros automáticos, tacómetro, derrape en curvas rápidas, cordones, bocina e intermitentes. El pasajero sube por tu <b>lado derecho</b> (carril correcto).<br>
+      <b>🚕 Viajes:</b> acepta un viaje, sigue las flechas verdes, detente junto al pasajero y llévalo a destino: <b>+50 puntos</b>.<br>
+      <b>💻 PC:</b> flechas = manejar · espacio = freno · C = embrague · A/Z = cambios · Q/E = intermitentes · H = bocina.
+    </div>
+    <button id="startBtn" type="button">COMENZAR A CONDUCIR</button>
+    <div id="bootMsg" style="display:none;margin-top:10px;padding:10px;border:1px solid var(--red);border-radius:10px;color:#ffb3b9;font-size:12.5px"></div>
+  </div>
+</div>
+
+<!-- Fin de juego -->
+<div class="overlay" id="over">
+  <div class="card">
+    <h1>🚫 Licencia suspendida</h1>
+    <p class="sub">Te quedaste sin puntos. ¡A practicar de nuevo!</p>
+    <div id="overStats"></div>
+    <button id="startBtn2" class="" style="width:100%;padding:15px;border-radius:14px;border:0;background:var(--amber);color:#171006;font:700 17px inherit;font-family:inherit">REINTENTAR</button>
+  </div>
+</div>
+
+<script>
+/* Reporte visible de cualquier error de arranque */
+window.addEventListener('error',function(e){
+  try{
+    var b=document.getElementById('bootMsg');
+    if(b){b.style.display='block';b.textContent='⚠️ Error al iniciar: '+(e.message||'desconocido')+'. Recarga la página.';}
+  }catch(_){}
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* ============================================================
+   AutoEscuela 3D — simulador de manejo en primera persona
+   ============================================================ */
+'use strict';
+if(typeof THREE==='undefined'){
+  document.getElementById('bootMsg').style.display='block';
+  document.getElementById('bootMsg').textContent='⚠️ No se pudo cargar el motor 3D (three.js). Verifica tu conexión a internet y recarga.';
+  throw new Error('three.js no cargó');
+}
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+const rand=(a,b)=>a+Math.random()*(b-a);
+const randInt=(a,b)=>Math.floor(rand(a,b+1));
+const moveToward=(v,t,d)=> v<t?Math.min(t,v+d):Math.max(t,v-d);
+const dist2=(ax,az,bx,bz)=>Math.hypot(ax-bx,az-bz);
+
+/* ---------- constantes del mundo ---------- */
+const G=44;            // separación entre calles
+const NI=2;            // índices de intersección -2..2  (5x5)
+const RW=10;           // ancho de calzada
+const LANE=2.6;        // offset del carril derecho
+const LIM=2*G+2;       // límite del mundo
+const SPEED_LIMIT=60;  // km/h
+
+/* ---------- estado global ---------- */
+const cfg={auto:true,wheelRange:45,tiltRange:25,steer:'tilt',tap:false};
+const cruise={on:false,target:0};let brakePulse=0;
+function cruiseOff(){if(cruise.on){cruise.on=false;updateCruiseHUD();}}
+function cruiseSet(kmhT){cruise.on=true;cruise.target=clamp(Math.round(kmhT/5)*5,15,60);updateCruiseHUD();}
+function updateCruiseHUD(){
+  const c=document.getElementById('cruise');c.classList.toggle('on',cruise.on);
+  c.textContent='⏵ CRUCERO '+cruise.target;
+  document.getElementById('pGas').classList.toggle('latched',cruise.on);
+}
+let running=false, t=0, points=100, trips=0;
+const player={x:LANE,z:1.6*G,heading:Math.PI,v:0,steer:0,gear:0,gearIdx:1,sel:'D',engine:true,
+  stallT:0,restartT:0,collCd:0,spdCd:0,rpm:850,sig:0,sigHeading:0,sigT:0,lastSigT:-9,sigPhase:0,
+  offRoad:false,sideT:0,wrongT:0,wrongCd:0,skid:0,lastV:0,camPitch:0,camRoll:0,horn:false};
+const input={throttle:0,brake:0,clutch:0,keySteer:0,touchSteer:0};
+let gyroActive=false,gyroZero=null,steerGyro=0;
+
+/* ---------- three.js base ---------- */
+const renderer=new THREE.WebGLRenderer({canvas:document.getElementById('c'),antialias:window.devicePixelRatio<2});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+const scene=new THREE.Scene();
+scene.background=new THREE.Color(0x9fd2ea);
+scene.fog=new THREE.Fog(0x9fd2ea,70,300);
+const camera=new THREE.PerspectiveCamera(70,1,0.1,500);
+camera.layers.enable(1); // el tablero (capa 1) solo se ve en la cámara principal
+
+/* ---------- espejos: cámaras traseras + render espejado ---------- */
+const rearCam=new THREE.PerspectiveCamera(52,3,0.3,200);
+const sideCam=new THREE.PerspectiveCamera(46,1.7,0.3,200);
+const mirrorRects={rear:null,side:null};
+function rectOf(id){
+  const el=document.getElementById(id);
+  if(!el||el.style.display==='none')return null;
+  const r=el.getBoundingClientRect();
+  if(!r.width)return null;
+  return {x:r.left+2,y:innerHeight-r.bottom+2,w:r.width-4,h:r.height-4};
+}
+function layout(){
+  renderer.setSize(innerWidth,innerHeight);
+  camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();
+  const rm=document.getElementById('rearMirror'),sm=document.getElementById('sideMirror');
+  const rw=Math.min(innerWidth*0.36,300);
+  rm.style.width=rw+'px';rm.style.height=(rw*0.3)+'px';
+  const sw=Math.min(innerWidth*0.2,168);
+  sm.style.width=sw+'px';sm.style.height=(sw*0.52)+'px';
+  /* la guía de viaje va debajo del retrovisor */
+  document.getElementById('navBox').style.top=(rw*0.3+16)+'px';
+  mirrorRects.rear=rectOf('rearMirror');
+  mirrorRects.side=rectOf('sideMirror');
+}
+addEventListener('resize',layout);
+addEventListener('orientationchange',()=>setTimeout(layout,350));
+layout();
+function renderMirror(cam,r){
+  if(!r||r.w<12||r.h<12)return;
+  cam.aspect=r.w/r.h;cam.updateProjectionMatrix();
+  cam.projectionMatrix.elements[0]*=-1; // inversión horizontal, como un espejo real
+  cam.projectionMatrixInverse.copy(cam.projectionMatrix).invert();
+  renderer.setViewport(r.x,r.y,r.w,r.h);
+  renderer.setScissor(r.x,r.y,r.w,r.h);
+  renderer.render(scene,cam);
+}
+function updateMirrorCams(){
+  const fx=Math.sin(player.heading),fz=Math.cos(player.heading);
+  const lx=fz,lz=-fx; // vector izquierda
+  rearCam.position.set(player.x,1.32,player.z);
+  rearCam.lookAt(player.x-fx*10,1.05,player.z-fz*10);
+  sideCam.position.set(player.x+lx*0.95+fx*0.4,1.05,player.z+lz*0.95+fz*0.4);
+  sideCam.lookAt(sideCam.position.x-fx*10+lx*2.2,0.85,sideCam.position.z-fz*10+lz*2.2);
+}
+const hemi=new THREE.HemisphereLight(0xeaf6ff,0x55684d,0.95);scene.add(hemi);
+const sun=new THREE.DirectionalLight(0xfff2d8,0.9);sun.position.set(70,110,40);scene.add(sun);
+
+/* ---------- ciclo día / noche ---------- */
+let dayT=0.32;const DAY_LEN=480; // un día completo dura 8 minutos
+const skyCol=new THREE.Color(0x9fd2ea),dayCol=new THREE.Color(0x9fd2ea),nightCol=new THREE.Color(0x0b1226),duskCol=new THREE.Color(0xf0925a);
+scene.background=skyCol;
+const lampHeadMat=new THREE.MeshBasicMaterial({color:0x6a6f76});
+const hlMat=new THREE.MeshBasicMaterial({color:0xcfd3d8});      // faros de NPC
+let isNight=false;
+function updateDayNight(dt){
+  dayT=(dayT+dt/DAY_LEN)%1;
+  const light=clamp(Math.sin(dayT*Math.PI*2-Math.PI/2)*0.5+0.5,0,1); // 0 medianoche · 1 mediodía
+  const dusk=Math.max(0,1-Math.abs(light-0.3)/0.2);
+  hemi.intensity=0.14+0.82*light;sun.intensity=0.95*light;
+  skyCol.copy(nightCol).lerp(dayCol,light).lerp(duskCol,dusk*0.5);
+  scene.fog.color.copy(skyCol);
+  const night=light<0.42;
+  if(night!==isNight){isNight=night;toast(night?'🌙 Anochece · faros encendidos':'☀️ Amanece · faros apagados','info');}
+  headlight.intensity=night?1.7:0;
+  lampHeadMat.color.setHex(night?0xfff1b8:0x6a6f76);
+  hlMat.color.setHex(night?0xffffff:0xcfd3d8);
+  document.getElementById('lights').classList.toggle('on',night);
+  const h=Math.floor(dayT*24),m=Math.floor((dayT*24-h)*60);
+  document.getElementById('clock').textContent=(h<10?'0':'')+h+':'+(m<10?'0':'')+m;
+}
+
+const M={ // materiales compartidos (doble cara: necesario para el render espejado de los retrovisores)
+  asphalt:new THREE.MeshLambertMaterial({color:0x33363c}),
+  side:new THREE.MeshLambertMaterial({color:0x8d9297}),
+  white:new THREE.MeshBasicMaterial({color:0xf2f2f2}),
+  grass:new THREE.MeshLambertMaterial({color:0x4e7d43}),
+  pole:new THREE.MeshLambertMaterial({color:0x3c4046}),
+  trunk:new THREE.MeshLambertMaterial({color:0x6b4a2e}),
+  leaf:new THREE.MeshLambertMaterial({color:0x3f7a35}),
+};
+Object.values(M).forEach(m=>m.side=THREE.DoubleSide);
+const DS=m=>{m.side=THREE.DoubleSide;return m;};
+
+/* ---------- suelo, calles, veredas ---------- */
+{
+  const g=new THREE.Mesh(new THREE.PlaneGeometry(560,560),M.grass);
+  g.rotation.x=-Math.PI/2;g.position.y=-0.02;scene.add(g);
+}
+const EXT=2*G+14;
+for(let k=-NI;k<=NI;k++){
+  const rh=new THREE.Mesh(new THREE.PlaneGeometry(EXT*2,RW),M.asphalt); // calle este-oeste
+  rh.rotation.x=-Math.PI/2;rh.position.set(0,0.00,k*G);scene.add(rh);
+  const rv=new THREE.Mesh(new THREE.PlaneGeometry(RW,EXT*2),M.asphalt); // calle norte-sur
+  rv.rotation.x=-Math.PI/2;rv.position.set(k*G,0.005,0);scene.add(rv);
+}
+// plataformas de manzana (vereda)
+for(let i=-NI;i<NI;i++)for(let j=-NI;j<NI;j++){
+  const s=G-RW;
+  const p=new THREE.Mesh(new THREE.PlaneGeometry(s,s),M.side);
+  p.rotation.x=-Math.PI/2;p.position.set((i+0.5)*G,0.02,(j+0.5)*G);scene.add(p);
+}
+/* líneas de carril discontinuas (instanciado) */
+{
+  const geo=new THREE.PlaneGeometry(0.34,2.6);geo.rotateX(-Math.PI/2);
+  const mats=[];const m4=new THREE.Matrix4();const q=new THREE.Quaternion();
+  const nearNode=v=>{for(let k=-NI;k<=NI;k++)if(Math.abs(v-k*G)<8)return true;return false;};
+  for(let k=-NI;k<=NI;k++)for(let s=-EXT;s<=EXT;s+=7){
+    if(!nearNode(s)){
+      mats.push(new THREE.Matrix4().compose(new THREE.Vector3(k*G,0.03,s),q,new THREE.Vector3(1,1,1))); // vertical
+      const q2=new THREE.Quaternion().setFromEuler(new THREE.Euler(0,Math.PI/2,0));
+      mats.push(new THREE.Matrix4().compose(new THREE.Vector3(s,0.03,k*G),q2,new THREE.Vector3(1,1,1))); // horizontal
+    }
+  }
+  const im=new THREE.InstancedMesh(geo,M.white,mats.length);
+  mats.forEach((m,i)=>im.setMatrixAt(i,m));scene.add(im);
+}
+/* sendas peatonales (cebras, instanciado) */
+{
+  const geo=new THREE.PlaneGeometry(0.55,2.6);geo.rotateX(-Math.PI/2);
+  const list=[];const qz=new THREE.Quaternion();
+  const qx=new THREE.Quaternion().setFromEuler(new THREE.Euler(0,Math.PI/2,0));
+  const S=new THREE.Vector3(1,1,1);
+  for(let i=-NI;i<=NI;i++)for(let j=-NI;j<=NI;j++){
+    const cx=i*G,cz=j*G,off=RW/2+2.0;
+    for(const sgn of[-1,1]){
+      for(let s=-3.85;s<=3.85;s+=1.1){ // cruza la calle vertical (franjas largas en z)
+        list.push(new THREE.Matrix4().compose(new THREE.Vector3(cx+s,0.032,cz+sgn*off),qz,S));
+        list.push(new THREE.Matrix4().compose(new THREE.Vector3(cx+sgn*off,0.034,cz+s),qx,S));
+      }
+    }
+  }
+  const im=new THREE.InstancedMesh(geo,M.white,list.length);
+  list.forEach((m,i)=>im.setMatrixAt(i,m));scene.add(im);
+}
+
+/* ---------- edificios ---------- */
+const buildings=[]; // {x,z,hw,hd} AABB
+{
+  const palette=[0x9a6a54,0x9aa0a6,0xc9b28a,0x6f8f8a,0x5c6370,0xa9825f,0x7f8fa3];
+  for(let i=-NI;i<NI;i++)for(let j=-NI;j<NI;j++){
+    const cx=(i+0.5)*G,cz=(j+0.5)*G,half=(G-RW)/2-3;
+    const n=randInt(2,3);
+    for(let k=0;k<n;k++){
+      const w=rand(7,13),d=rand(7,13),h=rand(6,26);
+      const bx=cx+rand(-(half-w/2),half-w/2),bz=cz+rand(-(half-d/2),half-d/2);
+      const mesh=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),
+        DS(new THREE.MeshLambertMaterial({color:palette[randInt(0,palette.length-1)]})));
+      mesh.position.set(bx,h/2,bz);scene.add(mesh);
+      buildings.push({x:bx,z:bz,hw:w/2,hd:d/2});
+    }
+  }
+}
+/* árboles (instanciado) */
+{
+  const N=54;
+  const tg=new THREE.CylinderGeometry(0.16,0.22,1.6,5);
+  const lg=new THREE.SphereGeometry(1.2,7,6);
+  const ti=new THREE.InstancedMesh(tg,M.trunk,N), li=new THREE.InstancedMesh(lg,M.leaf,N);
+  const q=new THREE.Quaternion(),S=new THREE.Vector3(1,1,1);
+  for(let k=0;k<N;k++){
+    const i=randInt(-NI,NI-1),j=randInt(-NI,NI-1);
+    const cx=(i+0.5)*G,cz=(j+0.5)*G,half=(G-RW)/2-1.3;
+    const side=randInt(0,3),u=rand(-half+3,half-3);
+    let x=cx,z=cz;
+    if(side===0){x=cx+u;z=cz-half}else if(side===1){x=cx+u;z=cz+half}
+    else if(side===2){x=cx-half;z=cz+u}else{x=cx+half;z=cz+u}
+    ti.setMatrixAt(k,new THREE.Matrix4().compose(new THREE.Vector3(x,0.8,z),q,S));
+    li.setMatrixAt(k,new THREE.Matrix4().compose(new THREE.Vector3(x,2.2,z),q,new THREE.Vector3(rand(.8,1.2),rand(.8,1.2),rand(.8,1.2))));
+  }
+  scene.add(ti,li);
+}
+
+/* farolas (instanciado) */
+{
+  const list=[];
+  const near=v=>{for(let k=-NI;k<=NI;k++)if(Math.abs(v-k*G)<9)return true;return false;};
+  for(let k=-NI;k<=NI;k++)for(let s=-EXT+16;s<=EXT-16;s+=30){
+    if(near(s))continue;
+    const side=((k+s/30)|0)%2?1:-1;
+    list.push([k*G+side*(RW/2+0.8),s]);
+    list.push([s,k*G+side*(RW/2+0.8)]);
+  }
+  const pg=new THREE.CylinderGeometry(0.08,0.11,6.2,5),hg=new THREE.SphereGeometry(0.3,7,6);
+  const pi=new THREE.InstancedMesh(pg,M.pole,list.length),hi=new THREE.InstancedMesh(hg,lampHeadMat,list.length);
+  const q=new THREE.Quaternion(),S=new THREE.Vector3(1,1,1);
+  list.forEach(([x,z],i)=>{
+    pi.setMatrixAt(i,new THREE.Matrix4().compose(new THREE.Vector3(x,3.1,z),q,S));
+    hi.setMatrixAt(i,new THREE.Matrix4().compose(new THREE.Vector3(x,6.3,z),q,S));
+  });
+  scene.add(pi,hi);
+}
+
+/* ---------- semáforos y señales ---------- */
+function lightNS(tt){const c=tt%22;return c<9?'g':c<12?'y':'r';}
+function lightEW(tt){const c=tt%22;return c<12?'r':c<20?'g':'y';}
+const trafficLights=[]; // {i,j,cx,cz, mats:{NS:{r,y,g},EW:{...}}, wasIn:false}
+const stopSigns=[];     // {i,j,cx,cz, minK, inRing, wasIn}
+const nodes=[];         // todas las intersecciones (regla del intermitente)
+for(let i=-NI;i<=NI;i++)for(let j=-NI;j<=NI;j++)nodes.push({cx:i*G,cz:j*G,wasIn:false,entryH:0,sigUsed:false});
+const COL_ON={r:0xff2d2d,y:0xffc21a,g:0x2bff6a}, COL_OFF={r:0x3a0f12,y:0x3d3110,g:0x0e3a1c};
+
+function makeHead(mats){
+  const g=new THREE.Group();
+  g.add(new THREE.Mesh(new THREE.BoxGeometry(0.62,1.7,0.36),M.pole));
+  const sg=new THREE.SphereGeometry(0.2,8,6);
+  [['r',0.52],['y',0],['g',-0.52]].forEach(([k,y])=>{
+    const s=new THREE.Mesh(sg,mats[k]);s.position.set(0,y,0.2);g.add(s);
+  });
+  return g;
+}
+function txtSprite(draw){ // textura de canvas para señales
+  const c=document.createElement('canvas');c.width=c.height=128;draw(c.getContext('2d'));
+  const t=new THREE.CanvasTexture(c);return new THREE.MeshBasicMaterial({map:t,transparent:true,side:THREE.DoubleSide});
+}
+const pareMat=txtSprite(g=>{
+  g.translate(64,64);g.rotate(Math.PI/8);g.fillStyle='#c62828';g.beginPath();
+  for(let k=0;k<8;k++){const a=k/8*Math.PI*2,x=Math.cos(a)*58,y=Math.sin(a)*58;k?g.lineTo(x,y):g.moveTo(x,y);}
+  g.closePath();g.fill();g.strokeStyle='#fff';g.lineWidth=7;g.stroke();
+  g.rotate(-Math.PI/8);g.fillStyle='#fff';g.font='bold 34px Arial';g.textAlign='center';g.textBaseline='middle';g.fillText('PARE',0,3);
+});
+const limitMat=txtSprite(g=>{
+  g.beginPath();g.arc(64,64,58,0,7);g.fillStyle='#fff';g.fill();g.lineWidth=13;g.strokeStyle='#d32f2f';g.stroke();
+  g.fillStyle='#111';g.font='bold 52px Arial';g.textAlign='center';g.textBaseline='middle';g.fillText('60',64,68);
+});
+function signPost(mat,x,z,ry){
+  const gr=new THREE.Group();
+  const p=new THREE.Mesh(new THREE.CylinderGeometry(0.07,0.07,2.6,5),M.pole);p.position.y=1.3;gr.add(p);
+  const s=new THREE.Mesh(new THREE.PlaneGeometry(1.5,1.5),mat);s.position.y=2.9;gr.add(s);
+  gr.position.set(x,0,z);gr.rotation.y=ry;scene.add(gr);
+}
+
+for(let i=-NI;i<=NI;i++)for(let j=-NI;j<=NI;j++){
+  const cx=i*G,cz=j*G,off=RW/2+1.1;
+  if((i+j+200)%2===0){ // semáforo
+    const mats={NS:{},EW:{}};
+    for(const ax of['NS','EW'])for(const k of['r','y','g'])
+      mats[ax][k]=DS(new THREE.MeshBasicMaterial({color:COL_OFF[k]}));
+    const poleG=new THREE.CylinderGeometry(0.1,0.12,5.2,6);
+    const p1=new THREE.Mesh(poleG,M.pole);p1.position.set(cx+off,2.6,cz+off);scene.add(p1);
+    const p2=new THREE.Mesh(poleG,M.pole);p2.position.set(cx-off,2.6,cz-off);scene.add(p2);
+    const h1=makeHead(mats.NS);h1.position.set(cx+off,4.6,cz+off);h1.rotation.y=0;scene.add(h1);          // mira +z (para quien va al norte)
+    const h2=makeHead(mats.NS);h2.position.set(cx-off,4.6,cz-off);h2.rotation.y=Math.PI;scene.add(h2);    // mira -z
+    const h3=makeHead(mats.EW);h3.position.set(cx+off,4.0,cz+off);h3.rotation.y=-Math.PI/2;scene.add(h3); // mira -x
+    const h4=makeHead(mats.EW);h4.position.set(cx-off,4.0,cz-off);h4.rotation.y=Math.PI/2;scene.add(h4);  // mira +x
+    trafficLights.push({i,j,cx,cz,mats,wasIn:false});
+  }else{ // PARE
+    signPost(pareMat,cx+off+0.5,cz+off+0.5,Math.PI/4*3*0+0);
+    signPost(pareMat,cx-off-0.5,cz-off-0.5,Math.PI);
+    stopSigns.push({i,j,cx,cz,minK:999,wasIn:false});
+  }
+}
+// señales de límite de velocidad repartidas
+for(let k=0;k<6;k++){
+  const i=randInt(-NI,NI);const s=rand(-EXT+20,EXT-20);
+  signPost(limitMat,i*G+RW/2+0.9,s,-Math.PI/2);
+}
+function updateLightMats(){
+  const sNS=lightNS(t),sEW=lightEW(t);
+  for(const L of trafficLights){
+    for(const k of['r','y','g']){
+      L.mats.NS[k].color.setHex(k===sNS?COL_ON[k]:COL_OFF[k]);
+      L.mats.EW[k].color.setHex(k===sEW?COL_ON[k]:COL_OFF[k]);
+    }
+  }
+}
+
+/* ---------- vehículos NPC ---------- */
+const npcs=[];
+function makeCarMesh(color){
+  const g=new THREE.Group();
+  g.userData.mats={brake:DS(new THREE.MeshBasicMaterial({color:0x3a0f12})),
+    sigL:DS(new THREE.MeshBasicMaterial({color:0x4a2a08})),sigR:DS(new THREE.MeshBasicMaterial({color:0x4a2a08}))};
+  const lg=new THREE.SphereGeometry(0.13,6,5);
+  const lamp=(mat,x,y,z)=>{const m=new THREE.Mesh(lg,mat);m.position.set(x,y,z);g.add(m);};
+  lamp(hlMat,-0.62,0.72,1.96);lamp(hlMat,0.62,0.72,1.96);                       // faros
+  lamp(g.userData.mats.brake,-0.62,0.75,-1.96);lamp(g.userData.mats.brake,0.62,0.75,-1.96); // freno
+  lamp(g.userData.mats.sigL,-0.9,0.7,1.85);lamp(g.userData.mats.sigL,-0.9,0.7,-1.85);   // intermitente izq
+  lamp(g.userData.mats.sigR,0.9,0.7,1.85);lamp(g.userData.mats.sigR,0.9,0.7,-1.85);     // intermitente der
+  const body=new THREE.Mesh(new THREE.BoxGeometry(1.8,0.75,3.9),DS(new THREE.MeshLambertMaterial({color})));
+  body.position.y=0.62;g.add(body);
+  const cab=new THREE.Mesh(new THREE.BoxGeometry(1.6,0.6,1.9),DS(new THREE.MeshLambertMaterial({color:0x1c2530})));
+  cab.position.set(0,1.25,-0.2);g.add(cab);
+  const wg=new THREE.CylinderGeometry(0.34,0.34,0.3,8);wg.rotateZ(Math.PI/2);
+  const wm=DS(new THREE.MeshLambertMaterial({color:0x14161a}));
+  [[-0.95,1.25],[0.95,1.25],[-0.95,-1.25],[0.95,-1.25]].forEach(([x,z])=>{
+    const w=new THREE.Mesh(wg,wm);w.position.set(x,0.34,z);g.add(w);
+  });
+  return g;
+}
+{
+  const cols=[0xd9dde2,0x4a6fa5,0xb43c3c,0xd8a13a,0x3e7d5a,0x777d86,0x8a4a8f,0x2f3946];
+  for(let k=0;k<8;k++){
+    const i=randInt(-NI,NI),j=randInt(-NI,NI);
+    const dirs=[[1,0],[-1,0],[0,1],[0,-1]].filter(([dx,dz])=>Math.abs(i+dx)<=NI&&Math.abs(j+dz)<=NI);
+    const [dx,dz]=dirs[randInt(0,dirs.length-1)];
+    const mesh=makeCarMesh(cols[k]);scene.add(mesh);
+    const n={px:i*G,pz:j*G,ti:i+dx,tj:j+dz,dx,dz,v:rand(4,7),mesh,rx:0,rz:0,mats:mesh.userData.mats};
+    n.next=pickNext(n.ti,n.tj,dx,dz);
+    npcs.push(n);
+  }
+}
+function lightForAxis(axis){return axis==='NS'?lightNS(t):lightEW(t);}
+function isLighted(i,j){return (i+j+200)%2===0;}
+/* elige la próxima dirección al llegar al nodo (i,j) viniendo con dirección (dx,dz) */
+function pickNext(i,j,dx,dz){
+  const opts=[[1,0],[-1,0],[0,1],[0,-1]].filter(([ox,oz])=>
+    !(ox===-dx&&oz===-dz)&&Math.abs(i+ox)<=NI&&Math.abs(j+oz)<=NI);
+  if(!opts.length)return[-dx,-dz];
+  const straight=opts.find(o=>o[0]===dx&&o[1]===dz);
+  if(straight&&Math.random()<0.55)return straight;
+  return opts[randInt(0,opts.length-1)];
+}
+function updateNPCs(dt){
+  for(const n of npcs){
+    const tx=n.ti*G,tz=n.tj*G;
+    const rem=Math.abs(tx-n.px)+Math.abs(tz-n.pz);
+    let target=7.5;
+    // semáforo del nodo destino
+    if(isLighted(n.ti,n.tj)){
+      const axis=n.dx!==0?'EW':'NS';
+      const st=lightForAxis(axis);
+      const stopD=rem-(RW/2+2.6);
+      if(st!=='g'&&stopD>0.2&&stopD<11) target=0;
+    }
+    // obstáculo adelante (jugador u otro NPC)
+    const check=(ox,oz)=>{
+      const rx=ox-n.rx,rz=oz-n.rz;
+      const fwd=rx*n.dx+rz*n.dz, lat=Math.abs(rx*(-n.dz)+rz*n.dx);
+      return fwd>0.5&&fwd<9&&lat<2.6;
+    };
+    if(check(player.x,player.z)) target=0;
+    for(const o of npcs) if(o!==n&&check(o.rx,o.rz)&&(o.dx===n.dx&&o.dz===n.dz)) target=0;
+    // peatón cruzando adelante
+    for(const p of peds){const pp=p.mesh.position;if(p.type==='cross'&&check(pp.x,pp.z))target=0;}
+    // giro planificado: intermitente y reducir velocidad
+    const turning=n.next[0]!==n.dx||n.next[1]!==n.dz;
+    if(turning&&rem<10)target=Math.min(target,3.8);
+    const blink=(t%0.8)<0.4;
+    const rightTurn=(n.next[0]*(-n.dz)+n.next[1]*(n.dx))>0;
+    n.mats.sigR.color.setHex(turning&&rem<20&&rightTurn&&blink?0xffa726:0x4a2a08);
+    n.mats.sigL.color.setHex(turning&&rem<20&&!rightTurn&&blink?0xffa726:0x4a2a08);
+    // luces de freno
+    n.mats.brake.color.setHex((target<n.v-0.4||(n.v<0.3&&target===0))?0xff2222:0x3a0f12);
+    n.v=moveToward(n.v,target,(target<n.v?9:2.5)*dt);
+    const step=n.v*dt;
+    if(step>=rem){ // llegó al nodo: tomar la dirección planificada y planificar la siguiente
+      n.px=tx;n.pz=tz;
+      n.dx=n.next[0];n.dz=n.next[1];n.ti+=n.dx;n.tj+=n.dz;
+      n.next=pickNext(n.ti,n.tj,n.dx,n.dz);
+    }else{n.px+=n.dx*step;n.pz+=n.dz*step;}
+    // posición renderizada = carril derecho
+    n.rx=n.px+(-n.dz)*LANE; n.rz=n.pz+(n.dx)*LANE;
+    n.mesh.position.set(n.rx,0,n.rz);
+    n.mesh.rotation.y=Math.atan2(n.dx,n.dz);
+  }
+}
+
+/* ---------- peatones ---------- */
+const peds=[];
+function makePed(){
+  const g=new THREE.Group();
+  const shirt=[0xd05a5a,0x5a7ad0,0x64b06a,0xd0a05a,0xa06ad0,0xe0e0e0][randInt(0,5)];
+  const body=new THREE.Mesh(new THREE.CylinderGeometry(0.24,0.3,1.05,6),DS(new THREE.MeshLambertMaterial({color:shirt})));
+  body.position.y=0.85;g.add(body);
+  const head=new THREE.Mesh(new THREE.SphereGeometry(0.19,7,6),DS(new THREE.MeshLambertMaterial({color:0xd8ab8a})));
+  head.position.y=1.6;g.add(head);
+  const legs=new THREE.Mesh(new THREE.CylinderGeometry(0.2,0.22,0.65,6),DS(new THREE.MeshLambertMaterial({color:0x2f3540})));
+  legs.position.y=0.33;g.add(legs);
+  return g;
+}
+function perimPos(cx,cz,half,s){
+  const L=2*half,side=Math.floor(s/L)%4,u=(s%L)-half;
+  if(side===0)return[cx+u,cz-half];if(side===1)return[cx+half,cz+u];
+  if(side===2)return[cx-u,cz+half];return[cx-half,cz-u];
+}
+for(let k=0;k<10;k++){ // caminantes por la vereda
+  const i=randInt(-NI,NI-1),j=randInt(-NI,NI-1);
+  const mesh=makePed();scene.add(mesh);
+  peds.push({type:'walk',cx:(i+0.5)*G,cz:(j+0.5)*G,half:(G-RW)/2-0.9,s:rand(0,200),dir:Math.random()<.5?1:-1,mesh,cd:0});
+}
+for(let k=0;k<6;k++){ // cruzan la calle por la senda
+  const axis=Math.random()<.5?'v':'h';
+  const li=randInt(-NI,NI),ni=randInt(-NI,NI);
+  const line=li*G,node=ni*G;
+  const at=node+(Math.random()<.5?-1:1)*(RW/2+2.0); // sobre la cebra
+  const lighted=axis==='v'?isLighted(li,ni):isLighted(ni,li);
+  const mesh=makePed();scene.add(mesh);
+  peds.push({type:'cross',axis,line,at,lighted,u:rand(-1,1)*(RW/2+2),dir:Math.random()<.5?1:-1,pause:rand(0,4),waiting:false,mesh,cd:0});
+}
+/* ¿el semáforo permite cruzar? (los autos de esa calle deben tener rojo) */
+function pedMayCross(p){
+  if(!p.lighted)return true;
+  return (p.axis==='v'?lightNS(t):lightEW(t))==='r';
+}
+function updatePeds(dt){
+  for(const p of peds){
+    if(p.cd>0)p.cd-=dt;
+    if(p.type==='walk'){
+      p.s+=p.dir*1.15*dt;const per=8*p.half;p.s=((p.s%per)+per)%per;
+      const [x,z]=perimPos(p.cx,p.cz,p.half,p.s);
+      p.mesh.rotation.y+= (Math.sin(t*6+p.s)*0.02);
+      p.mesh.position.set(x,0,z);
+    }else{
+      if(p.pause>0){p.pause-=dt;continue;}
+      if(p.waiting){ if(!pedMayCross(p)){p.pause=0.3;continue;} p.waiting=false; }
+      const max=RW/2+2.2;
+      const pp=p.mesh.position;
+      const hurry=player.horn&&dist2(player.x,player.z,pp.x,pp.z)<18?2.4:1;
+      p.u+=p.dir*0.95*hurry*dt;
+      if(Math.abs(p.u)>max){p.u=clamp(p.u,-max,max);p.dir*=-1;p.pause=rand(2,7);p.waiting=true;}
+      if(p.axis==='v')p.mesh.position.set(p.line+p.u,0,p.at);
+      else p.mesh.position.set(p.at,0,p.line+p.u);
+    }
+    p.mesh.position.y=Math.abs(Math.sin(t*8+p.s||0))*0.03;
+  }
+}
+function respawnPed(p){
+  if(p.type==='walk'){const i=randInt(-NI,NI-1),j=randInt(-NI,NI-1);p.cx=(i+0.5)*G;p.cz=(j+0.5)*G;p.s=rand(0,200);}
+  else{p.u=(RW/2+2.2)*(Math.random()<.5?-1:1);p.pause=rand(3,8);}
+  p.cd=2;
+}
+
+/* ---------- tablero / capó / volante del jugador ---------- */
+const dash=new THREE.Group();scene.add(dash);dash.rotation.order='YXZ';
+{
+  const hood=new THREE.Mesh(new THREE.BoxGeometry(1.72,0.1,1.5),new THREE.MeshLambertMaterial({color:0xb4432f}));
+  hood.position.set(0,0.82,1.85);dash.add(hood);
+  const panel=new THREE.Mesh(new THREE.BoxGeometry(1.8,0.34,0.5),new THREE.MeshLambertMaterial({color:0x171b21}));
+  panel.position.set(0,0.94,0.95);dash.add(panel);
+  const pillL=new THREE.Mesh(new THREE.BoxGeometry(0.07,1.1,0.07),new THREE.MeshLambertMaterial({color:0x171b21}));
+  pillL.position.set(-0.86,1.5,0.95);pillL.rotation.x=-0.35;dash.add(pillL);
+  const pillR=pillL.clone();pillR.position.x=0.86;dash.add(pillR);
+}
+const wheelTilt=new THREE.Group();wheelTilt.position.set(0,1.02,0.78);wheelTilt.rotation.x=-1.05;dash.add(wheelTilt);
+const wheel=new THREE.Group();wheelTilt.add(wheel);
+{
+  const rim=new THREE.Mesh(new THREE.TorusGeometry(0.3,0.032,7,22),new THREE.MeshLambertMaterial({color:0x22262c}));
+  wheel.add(rim);
+  const sp=new THREE.BoxGeometry(0.56,0.05,0.04);
+  const m=new THREE.MeshLambertMaterial({color:0x30353c});
+  const s1=new THREE.Mesh(sp,m);wheel.add(s1);
+  const s2=new THREE.Mesh(sp,m);s2.rotation.z=Math.PI/2;s2.scale.x=0.55;s2.position.y=-0.14;wheel.add(s2);
+}
+dash.traverse(o=>o.layers.set(1)); // visible solo para la cámara del conductor
+const headlight=new THREE.SpotLight(0xfff4d6,0,75,0.6,0.45,1);
+headlight.position.set(0,0.9,1.9);
+const hlTarget=new THREE.Object3D();hlTarget.position.set(0,0,30);
+dash.add(headlight);dash.add(hlTarget);headlight.target=hlTarget;
+headlight.layers.enableAll();
+
+/* ---------- viajes (tipo Uber) ---------- */
+const trip={state:'none',pt:null,passMesh:null,beacon:null,route:[],routeT:0,fare:0,infr:0,hintT:0};
+let earnings=0;
+function makeBeacon(color){
+  const g=new THREE.Group();
+  const col=new THREE.Mesh(new THREE.CylinderGeometry(1.6,1.6,26,10,1,true),
+    new THREE.MeshBasicMaterial({color,transparent:true,opacity:0.28,side:THREE.DoubleSide,depthWrite:false}));
+  col.position.y=13;g.add(col);
+  const ring=new THREE.Mesh(new THREE.RingGeometry(1.8,2.6,18),
+    new THREE.MeshBasicMaterial({color,transparent:true,opacity:0.85,side:THREE.DoubleSide}));
+  ring.rotation.x=-Math.PI/2;ring.position.y=0.06;g.add(ring);
+  scene.add(g);return g;
+}
+function randRoadPoint(minD,fx,fz){
+  for(let tr=0;tr<40;tr++){
+    const vert=Math.random()<.5, line=randInt(-NI,NI)*G, s=rand(-2*G+8,2*G-8);
+    const side=Math.random()<.5?-1:1, off=RW/2+2.4;
+    const x=vert?line+side*off:s, z=vert?s:line+side*off;
+    if(dist2(x,z,fx,fz)>minD)return{x,z};
+  }
+  return{x:0,z:0};
+}
+/* ruta por BFS sobre la grilla */
+function nearNode(x,z){return[clamp(Math.round(x/G),-NI,NI),clamp(Math.round(z/G),-NI,NI)];}
+function bfsRoute(a,b){
+  const key=(i,j)=>(i+NI)*5+(j+NI);
+  const prev=new Array(25).fill(-1);prev[key(a[0],a[1])]=key(a[0],a[1]);
+  const q=[a];
+  while(q.length){
+    const [i,j]=q.shift();
+    if(i===b[0]&&j===b[1])break;
+    for(const[dx,dz]of[[1,0],[-1,0],[0,1],[0,-1]]){
+      const ni=i+dx,nj=j+dz;
+      if(Math.abs(ni)>NI||Math.abs(nj)>NI)continue;
+      if(prev[key(ni,nj)]!==-1)continue;
+      prev[key(ni,nj)]=key(i,j);q.push([ni,nj]);
+    }
+  }
+  const path=[];let cur=key(b[0],b[1]);
+  if(prev[cur]===-1)return path;
+  while(true){
+    const i=Math.floor(cur/5)-NI,j=cur%5-NI;path.unshift([i*G,j*G]);
+    if(prev[cur]===cur)break;cur=prev[cur];
+  }
+  return path;
+}
+/* flechas de ruta (instanciado) */
+const CHEV_N=90;
+const chevGeo=new THREE.ConeGeometry(0.7,1.7,4);chevGeo.rotateX(Math.PI/2);
+const chev=new THREE.InstancedMesh(chevGeo,DS(new THREE.MeshBasicMaterial({color:0x2ee06f})),CHEV_N);
+chev.count=0;scene.add(chev);
+function computeRoute(){
+  if(trip.state==='none'||!trip.pt){chev.count=0;trip.route=[];return;}
+  const a=nearNode(player.x,player.z),b=nearNode(trip.pt.x,trip.pt.z);
+  const nodes=bfsRoute(a,b);
+  const pts=[[player.x,player.z],...nodes,[trip.pt.x,trip.pt.z]];
+  trip.route=pts;
+  // colocar chevrones
+  let n=0;const m4=new THREE.Matrix4(),S=new THREE.Vector3(1,1,1);
+  for(let s=0;s<pts.length-1&&n<CHEV_N;s++){
+    const [ax,az]=pts[s],[bx,bz]=pts[s+1];
+    const d=dist2(ax,az,bx,bz);if(d<2)continue;
+    const ang=Math.atan2(bx-ax,bz-az);
+    const q=new THREE.Quaternion().setFromEuler(new THREE.Euler(0,ang,0));
+    for(let u=5;u<d-2&&n<CHEV_N;u+=8){
+      const x=ax+(bx-ax)*u/d,z=az+(bz-az)*u/d;
+      chev.setMatrixAt(n++,m4.compose(new THREE.Vector3(x,0.25,z),q,S));
+    }
+  }
+  chev.count=n;chev.instanceMatrix.needsUpdate=true;
+}
+function routeDistance(){
+  if(!trip.route.length)return dist2(player.x,player.z,trip.pt.x,trip.pt.z);
+  let d=0;for(let s=0;s<trip.route.length-1;s++)
+    d+=dist2(trip.route[s][0],trip.route[s][1],trip.route[s+1][0],trip.route[s+1][1]);
+  return d;
+}
+function startTrip(){
+  if(trip.state!=='none')return;
+  trip.pt=randRoadPoint(80,player.x,player.z);
+  trip.state='pickup';
+  trip.passMesh=makePed();trip.passMesh.position.set(trip.pt.x,0,trip.pt.z);scene.add(trip.passMesh);
+  trip.beacon=makeBeacon(0x2ee06f);trip.beacon.position.set(trip.pt.x,0,trip.pt.z);
+  toast('🚕 Viaje aceptado · recoge al pasajero','info');
+  document.getElementById('tripBtn').style.display='none';
+  computeRoute();
+}
+function updateTrip(dt){
+  if(trip.state==='none')return;
+  trip.routeT+=dt;
+  if(trip.routeT>1.4){trip.routeT=0;computeRoute();}
+  if(trip.beacon)trip.beacon.rotation.y+=dt*1.5;
+  const d=dist2(player.x,player.z,trip.pt.x,trip.pt.z);
+  const kmh=Math.abs(player.v)*3.6;
+  document.getElementById('navBox').style.display='flex';
+  document.getElementById('navPhase').textContent=trip.state==='pickup'?'Recoge al pasajero':'Lleva al pasajero a destino';
+  const rd=Math.round(routeDistance());
+  const fx=Math.sin(player.heading),fz=Math.cos(player.heading);
+  const relx=trip.pt.x-player.x,relz=trip.pt.z-player.z;
+  const onRight=(relx*(-fz)+relz*fx)>0.3;   // el pasajero debe quedar del lado derecho del auto
+  document.getElementById('navDist').textContent=(d<9?(onRight?'DETENTE AQUÍ · ':'POR LA DERECHA · '):'')+rd+' m';
+  if(d<9&&!onRight&&kmh<4){trip.hintT+=dt;if(trip.hintT>1.5){trip.hintT=-6;toast('👉 Detente con el pasajero a tu derecha (carril correcto)','info');}}
+  const bearing=Math.atan2(trip.pt.x-player.x,trip.pt.z-player.z);
+  let rel=bearing-player.heading;while(rel>Math.PI)rel-=2*Math.PI;while(rel<-Math.PI)rel+=2*Math.PI;
+  document.getElementById('arrow').style.transform='rotate('+(-rel)+'rad)';
+  if(d<7&&kmh<4&&onRight){
+    if(trip.state==='pickup'){
+      scene.remove(trip.passMesh);scene.remove(trip.beacon);
+      trip.pt=randRoadPoint(90,player.x,player.z);
+      trip.beacon=makeBeacon(0x4fd8e8);trip.beacon.position.set(trip.pt.x,0,trip.pt.z);
+      trip.state='drop';trip.infr=0;computeRoute();
+      trip.fare=Math.round(2+routeDistance()*0.06);
+      toast('👤 Pasajero a bordo · tarifa $'+trip.fare,'good');
+    }else{
+      scene.remove(trip.beacon);trip.state='none';trip.pt=null;chev.count=0;
+      trips++;earnings+=trip.fare;
+      document.getElementById('tripCnt').textContent='Viajes: '+trips+' · $'+earnings;
+      addPoints(50,'⭐ ¡Viaje completado! +50 · $'+trip.fare);
+      if(trip.infr===0)setTimeout(()=>addPoints(10,'🏅 Viaje impecable, sin infracciones · +10'),900);
+      document.getElementById('tripBtn').style.display='block';
+      document.getElementById('navBox').style.display='none';
+    }
+  }
+}
+
+/* ---------- HUD helpers ---------- */
+function toast(txt,kind){
+  const el=document.createElement('div');el.className='toast '+(kind||'info');el.textContent=txt;
+  const box=document.getElementById('msgs');box.appendChild(el);
+  while(box.children.length>3)box.removeChild(box.firstChild);
+  setTimeout(()=>el.remove(),3000);
+}
+function addPoints(d,msg){
+  points=Math.max(0,points+d);
+  if(d<0&&trip.state!=='none')trip.infr++;
+  const p=document.getElementById('pts');p.textContent=points;
+  p.classList.toggle('bad',points<30);
+  if(msg)toast(msg,d<0?'bad':'good');
+  if(points<=0)gameOver();
+}
+function gameOver(){
+  running=false;
+  document.getElementById('overStats').innerHTML='Viajes completados: <b>'+trips+'</b><br>Modo: <b>'+(cfg.auto?'Automático':'Manual')+'</b>';
+  document.getElementById('over').style.display='flex';
+}
+
+/* ---------- minimapa ---------- */
+const miniCtx=document.getElementById('mini').getContext('2d');
+function drawMini(){
+  const c=miniCtx,W=118,sc=W/(2*(LIM+8));
+  const X=x=>W/2+x*sc, Z=z=>W/2+z*sc;
+  c.fillStyle='#10151c';c.fillRect(0,0,W,W);
+  c.strokeStyle='#3b4450';c.lineWidth=RW*sc;
+  for(let k=-NI;k<=NI;k++){
+    c.beginPath();c.moveTo(X(-EXT),Z(k*G));c.lineTo(X(EXT),Z(k*G));c.stroke();
+    c.beginPath();c.moveTo(X(k*G),Z(-EXT));c.lineTo(X(k*G),Z(EXT));c.stroke();
+  }
+  if(trip.route.length){ // ruta
+    c.strokeStyle='#2ee06f';c.lineWidth=2;c.beginPath();
+    trip.route.forEach(([x,z],i)=>i?c.lineTo(X(x),Z(z)):c.moveTo(X(x),Z(z)));c.stroke();
+  }
+  if(trip.pt){c.fillStyle=trip.state==='pickup'?'#2ee06f':'#4fd8e8';
+    c.beginPath();c.arc(X(trip.pt.x),Z(trip.pt.z),3.5,0,7);c.fill();}
+  for(const n of npcs){c.fillStyle='#c9a227';c.fillRect(X(n.rx)-1.5,Z(n.rz)-1.5,3,3);}
+  // jugador (triángulo orientado)
+  c.save();c.translate(X(player.x),Z(player.z));c.rotate(-player.heading);
+  c.fillStyle='#ff4d5a';c.beginPath();c.moveTo(0,-5);c.lineTo(3.6,4);c.lineTo(-3.6,4);c.closePath();c.fill();c.restore();
+}
+
+/* ---------- motor de audio ---------- */
+let ac=null,osc=null,gain=null,muted=false,noiseBuf=null,skidGain=null,hornGain=null;
+function initAudio(){
+  try{
+    ac=new (window.AudioContext||window.webkitAudioContext)();
+    /* motor */
+    osc=ac.createOscillator();osc.type='sawtooth';
+    const fil=ac.createBiquadFilter();fil.type='lowpass';fil.frequency.value=520;
+    gain=ac.createGain();gain.gain.value=0;
+    osc.connect(fil);fil.connect(gain);gain.connect(ac.destination);osc.start();
+    /* ruido blanco (derrape, choques, cordón) */
+    const len=ac.sampleRate;noiseBuf=ac.createBuffer(1,len,ac.sampleRate);
+    const d=noiseBuf.getChannelData(0);for(let i=0;i<len;i++)d[i]=Math.random()*2-1;
+    const skid=ac.createBufferSource();skid.buffer=noiseBuf;skid.loop=true;
+    const bp=ac.createBiquadFilter();bp.type='bandpass';bp.frequency.value=2600;bp.Q.value=1.2;
+    skidGain=ac.createGain();skidGain.gain.value=0;
+    skid.connect(bp);bp.connect(skidGain);skidGain.connect(ac.destination);skid.start();
+    /* bocina: dos tonos */
+    hornGain=ac.createGain();hornGain.gain.value=0;hornGain.connect(ac.destination);
+    [420,530].forEach(f=>{const o=ac.createOscillator();o.type='square';o.frequency.value=f;
+      const g=ac.createGain();g.gain.value=0.5;o.connect(g);g.connect(hornGain);o.start();});
+  }catch(e){}
+}
+function sfxNoise(dur,freq,vol){
+  if(!ac||muted||!noiseBuf)return;
+  try{
+    const src=ac.createBufferSource();src.buffer=noiseBuf;
+    const f=ac.createBiquadFilter();f.type='lowpass';f.frequency.value=freq;
+    const g=ac.createGain();g.gain.setValueAtTime(vol,ac.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001,ac.currentTime+dur);
+    src.connect(f);f.connect(g);g.connect(ac.destination);src.start();src.stop(ac.currentTime+dur);
+  }catch(e){}
+}
+function sfxClick(){
+  if(!ac||muted)return;
+  try{
+    const o=ac.createOscillator();o.type='square';o.frequency.value=player.sigPhase?900:1300;
+    const g=ac.createGain();g.gain.setValueAtTime(0.06,ac.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001,ac.currentTime+0.04);
+    o.connect(g);g.connect(ac.destination);o.start();o.stop(ac.currentTime+0.05);
+  }catch(e){}
+}
+function updateAudio(){
+  if(!ac||muted){if(gain)gain.gain.value=0;if(skidGain)skidGain.gain.value=0;if(hornGain)hornGain.gain.value=0;return;}
+  hornGain.gain.value+=((player.horn?0.12:0)-hornGain.gain.value)*0.4;
+  skidGain.gain.value+=((player.skid*0.25)-skidGain.gain.value)*0.2;
+  if(!player.engine){gain.gain.value=Math.max(0,gain.gain.value-0.01);return;}
+  osc.frequency.value=30+player.rpm*0.03;
+  gain.gain.value+= (0.03+input.throttle*0.03-gain.gain.value)*0.15;
+}
+
+/* ============================================================
+   FÍSICA DEL AUTO Y REGLAS DE TRÁNSITO
+   ============================================================ */
+const SPEC={'-1':{a:4.4,vm:16},1:{a:6.0,vm:22},2:{a:4.8,vm:42},3:{a:3.7,vm:64},4:{a:3.0,vm:88},5:{a:2.4,vm:120}};
+const LUG={2:8,3:20,4:36,5:52};
+const GEAR_SEQ=[-1,0,1,2,3,4,5], GEAR_NAME={'-1':'R',0:'N',1:'1',2:'2',3:'3',4:'4',5:'5'};
+
+function currentGear(kmh){
+  if(cfg.auto){
+    if(player.sel==='R')return -1;
+    if(player.sel==='N')return 0;
+    let g=1;for(const th of[17,35,55,80])if(kmh>th)g++;return g;
+  }
+  return GEAR_SEQ[player.gearIdx];
+}
+function getSteer(){
+  let s=input.keySteer+input.touchSteer;
+  if(gyroActive)s+=steerGyro;
+  return clamp(s,-1,1);
+}
+function updatePlayer(dt){
+  const kmh=Math.abs(player.v)*3.6;
+  const clutch=cfg.auto?0:input.clutch;
+  player.gear=currentGear(kmh);
+  const g=player.gear, spec=SPEC[g];
+
+  /* dirección (modelo bicicleta) con límite de adherencia: subviraje y derrape */
+  player.steer=moveToward(player.steer,getSteer(),3.2*dt);
+  const delta=player.steer*0.55/(1+Math.abs(player.v)*0.055);
+  const latA=player.v*player.v*Math.tan(Math.abs(delta))/2.6; // aceleración lateral
+  const GRIP=player.offRoad?4.5:7.5;
+  let grip=1;
+  if(latA>GRIP){grip=GRIP/latA;player.v-=player.v*0.35*dt;}
+  player.skid=moveToward(player.skid,clamp((latA-GRIP*0.8)/GRIP,0,1),4*dt);
+  if(Math.abs(player.v)>0.05)player.heading+=(player.v/2.6)*Math.tan(delta*grip)*dt;
+
+  /* intermitente: se apaga solo al terminar el giro */
+  if(player.sig!==0){
+    let dh=player.heading-player.sigHeading;while(dh>Math.PI)dh-=2*Math.PI;while(dh<-Math.PI)dh+=2*Math.PI;
+    if(Math.abs(dh)>1.15)setSig(0,true);
+    const ph=Math.floor((t-player.sigT)/0.4)%2;
+    if(ph!==player.sigPhase){player.sigPhase=ph;sfxClick();}
+  }
+
+  /* control de crucero (modo toque): mantiene la velocidad objetivo sin tocar botones */
+  if(cfg.tap){
+    if(cruise.on){
+      const bad=!player.engine||g===0||g===-1||(cfg.auto&&player.sel!=='D');
+      if(bad)cruiseOff();
+      else if(!pointerGas&&!keys.ArrowUp){
+        const err=cruise.target-kmh;
+        input.throttle=clamp(err*0.09+0.12,0,1);
+        if(err<-5)input.brake=Math.max(input.brake,0.25);
+      }
+    }
+    if(brakePulse>0){brakePulse-=dt;input.brake=Math.max(input.brake,0.75);}
+  }
+
+  /* fuerza del motor */
+  let a=0;
+  if(player.engine&&g!==0&&spec){
+    const dir=g===-1?-1:1;
+    let fa=spec.a*input.throttle*Math.max(0,1-(dir*player.v*3.6)/spec.vm);
+    if(!cfg.auto&&g>=2&&kmh<LUG[g])fa*=0.22; // patina en cambio largo
+    a+=dir*fa*(1-clutch);
+  }
+  if(cfg.auto&&player.sel==='D'&&player.engine&&input.throttle===0&&input.brake===0&&kmh<7)a+=0.45; // arrastre del automático
+  player.v+=a*dt;
+
+  /* frenos + arrastre + freno motor (+ tierra si está fuera de la calzada) */
+  let dec=input.brake*9+0.35+0.011*player.v*player.v;
+  if(input.throttle===0&&g!==0)dec+=0.5*(1-clutch);
+  if(player.offRoad)dec+=2.2;
+  player.v=moveToward(player.v,0,dec*dt);
+
+  /* revoluciones */
+  let rpmT;
+  if(!player.engine)rpmT=0;
+  else if(g===0||clutch>0.5)rpmT=850+input.throttle*4900;
+  else rpmT=850+(kmh/(spec?spec.vm:60))*5300*(1-clutch*0.5)+input.throttle*250;
+  player.rpm+=(rpmT-player.rpm)*Math.min(1,dt*7);
+
+  /* calado del motor (manual) */
+  if(!cfg.auto&&player.engine){
+    const stallLim=(g===1||g===-1)?3.5:8;
+    if(g!==0&&clutch<0.35&&kmh<stallLim&&input.throttle<0.25)player.stallT+=dt;
+    else player.stallT=0;
+    if(player.stallT>0.7){
+      player.engine=false;player.stallT=0;player.v=moveToward(player.v,0,20*dt);cruiseOff();
+      toast('🔑 El motor se apagó — pisa a fondo el embrague','bad');
+      document.getElementById('engineOff').style.display='block';
+    }
+  }
+  if(!player.engine){
+    if(input.clutch>0.7||player.gear===0)player.restartT+=dt;else player.restartT=0;
+    if(player.restartT>0.9){
+      player.engine=true;player.restartT=0;
+      toast('✓ Motor en marcha','good');
+      document.getElementById('engineOff').style.display='none';
+    }
+  }
+
+  /* mover */
+  player.x+=Math.sin(player.heading)*player.v*dt;
+  player.z+=Math.cos(player.heading)*player.v*dt;
+
+  /* límites del mundo */
+  if(Math.abs(player.x)>LIM){player.x=clamp(player.x,-LIM,LIM);player.v*=0.4;}
+  if(Math.abs(player.z)>LIM){player.z=clamp(player.z,-LIM,LIM);player.v*=0.4;}
+
+  /* cordón: al subir/bajar de la vereda hay un golpe */
+  const off=!roadInfo(player.x,player.z).on;
+  if(off!==player.offRoad){
+    player.offRoad=off;
+    if(kmh>4){player.v*=0.72;sfxNoise(0.14,900,0.3);player.camPitch-=0.02;}
+  }
+
+  /* colisiones */
+  if(player.collCd>0)player.collCd-=dt;
+  const R=1.15;
+  for(const b of buildings){
+    const qx=clamp(player.x,b.x-b.hw,b.x+b.hw),qz=clamp(player.z,b.z-b.hd,b.z+b.hd);
+    const dx=player.x-qx,dz=player.z-qz,d=Math.hypot(dx,dz);
+    if(d<R+0.3){
+      const nx=d>0.001?dx/d:1,nz=d>0.001?dz/d:0;
+      player.x=qx+nx*(R+0.32);player.z=qz+nz*(R+0.32);
+      if(Math.abs(player.v)>1&&player.collCd<=0){player.collCd=1.2;addPoints(-10,'💥 Chocaste contra un edificio · −10');sfxNoise(0.4,380,0.5);player.camPitch+=0.05;cruiseOff();}
+      player.v*=-0.2;
+    }
+  }
+  for(const n of npcs){
+    if(dist2(player.x,player.z,n.rx,n.rz)<2.6&&player.collCd<=0){
+      player.collCd=1.4;addPoints(-15,'🚗 Chocaste con otro vehículo · −15');sfxNoise(0.4,380,0.5);player.camPitch+=0.05;cruiseOff();
+      const dx=player.x-n.rx,dz=player.z-n.rz,d=Math.hypot(dx,dz)||1;
+      player.x+=dx/d*1.4;player.z+=dz/d*1.4;player.v*=-0.25;
+    }
+  }
+  for(const p of peds){
+    const pp=p.mesh.position;
+    if(p.cd<=0&&dist2(player.x,player.z,pp.x,pp.z)<1.5&&kmh>3){
+      addPoints(-25,'🚶 Atropellaste a un peatón · −25');respawnPed(p);
+      p.mesh.position.set(1000,0,1000);
+    }
+  }
+
+  /* cámara con dinámica: cabeceo al acelerar/frenar, inclinación en curva, vibración fuera de la calzada */
+  const acc=(player.v-player.lastV)/Math.max(dt,0.001);player.lastV=player.v;
+  player.camPitch+=((-acc*0.018)-player.camPitch)*Math.min(1,dt*5);
+  player.camRoll+=((-player.steer*Math.min(Math.abs(player.v),22)*0.0032)-player.camRoll)*Math.min(1,dt*5);
+  const bob=player.offRoad?Math.sin(t*38)*0.012*Math.min(1,kmh/15):Math.sin(t*22)*0.0015;
+  const fx=Math.sin(player.heading),fz=Math.cos(player.heading);
+  dash.position.set(player.x,0,player.z);dash.rotation.y=player.heading;
+  dash.rotation.x=player.camPitch*0.6;
+  wheel.rotation.z=-player.steer*2.3;
+  camera.position.set(player.x+fx*0.15,1.27+bob,player.z+fz*0.15);
+  camera.lookAt(player.x+fx*10,1.05+player.camPitch*10,player.z+fz*10);
+  camera.rotateZ(player.camRoll);
+  const fov=70+clamp(kmh*0.09,0,11);
+  if(Math.abs(camera.fov-fov)>0.2){camera.fov=fov;camera.updateProjectionMatrix();}
+
+  /* HUD */
+  const spdEl=document.getElementById('spd');
+  spdEl.textContent=Math.round(kmh);
+  spdEl.classList.toggle('over',kmh>SPEED_LIMIT);
+  const gl=cfg.auto?(player.sel==='D'?'D'+(player.gear>0?player.gear:''):player.sel):GEAR_NAME[player.gear];
+  document.getElementById('gearLbl').textContent=gl;
+  /* tacómetro, intermitentes y consejos de cambio */
+  const rpmEl=document.getElementById('rpm');
+  rpmEl.textContent=Math.round(player.rpm/10)*10+' RPM';
+  rpmEl.style.color=player.rpm>5400?'#ff4d5a':'#9fb0bf';
+  document.getElementById('rpmBar').style.width=clamp(player.rpm/6500*100,2,100)+'%';
+  const blinkOn=player.sig!==0&&player.sigPhase===0;
+  document.getElementById('sigLi').classList.toggle('on',blinkOn&&player.sig<0);
+  document.getElementById('sigRi').classList.toggle('on',blinkOn&&player.sig>0);
+  let hint='';
+  if(!cfg.auto&&player.engine){
+    if(g>=1&&g<5&&player.rpm>5300)hint='▲ Sube de cambio';
+    else if(g>=2&&player.rpm<1250&&kmh>3&&clutch<0.5)hint='▼ Baja de cambio';
+  }
+  if(player.skid>0.4)hint='⚠ Derrape · reduce la velocidad';
+  else if(player.offRoad&&kmh>3)hint='⚠ Fuera de la calzada';
+  document.getElementById('hint').textContent=hint;
+  updateAudio();
+}
+function setSig(s,auto){
+  if(!auto&&player.sig===s)s=0;
+  player.sig=s;player.sigHeading=player.heading;player.sigT=t;player.sigPhase=0;
+  if(s!==0)player.lastSigT=t;
+  document.getElementById('sigL').classList.toggle('on',s<0);
+  document.getElementById('sigR').classList.toggle('on',s>0);
+  document.getElementById('sigLi').classList.toggle('on',s<0);
+  document.getElementById('sigRi').classList.toggle('on',s>0);
+  if(s!==0)sfxClick();
+}
+/* ¿dónde está el auto? calzada vertical/horizontal, intersección o vereda */
+function roadInfo(x,z){
+  let vi=null,hi=null;
+  for(let k=-NI;k<=NI;k++){
+    if(Math.abs(x-k*G)<RW/2)vi=k;
+    if(Math.abs(z-k*G)<RW/2)hi=k;
+  }
+  if(vi!==null&&hi!==null)return{on:true,axis:'x'};
+  if(vi!==null)return{on:true,axis:'v',lat:x-vi*G};
+  if(hi!==null)return{on:true,axis:'h',lat:z-hi*G};
+  return{on:false};
+}
+
+/* ---------- infracciones ---------- */
+function checkRules(dt){
+  const kmh=Math.abs(player.v)*3.6;
+  /* exceso de velocidad */
+  if(kmh>SPEED_LIMIT+2){
+    player.spdCd-=dt;
+    if(player.spdCd<=0){player.spdCd=3;addPoints(-5,'⚡ Exceso de velocidad · −5');}
+  }else player.spdCd=Math.min(player.spdCd,0.5);
+
+  /* semáforo en rojo */
+  for(const L of trafficLights){
+    const inBox=Math.abs(player.x-L.cx)<RW/2+1.6&&Math.abs(player.z-L.cz)<RW/2+1.6;
+    if(inBox&&!L.wasIn){
+      const fx=Math.sin(player.heading),fz=Math.cos(player.heading);
+      const axis=Math.abs(fx)>Math.abs(fz)?'EW':'NS';
+      if(lightForAxis(axis)==='r'&&kmh>5)addPoints(-15,'🚦 Cruzaste con semáforo en rojo · −15');
+    }
+    L.wasIn=inBox;
+  }
+  /* girar sin intermitente (en cualquier intersección) */
+  for(const N of nodes){
+    const cheb=Math.max(Math.abs(player.x-N.cx),Math.abs(player.z-N.cz));
+    const inBox=cheb<RW/2+1.6;
+    if(inBox&&!N.wasIn){N.entryH=player.heading;N.sigUsed=player.sig!==0||(t-player.lastSigT)<3;}
+    if(inBox&&player.sig!==0)N.sigUsed=true;
+    if(!inBox&&N.wasIn){
+      let dh=player.heading-N.entryH;while(dh>Math.PI)dh-=2*Math.PI;while(dh<-Math.PI)dh+=2*Math.PI;
+      if(Math.abs(dh)>0.8&&!N.sigUsed&&kmh>2)addPoints(-5,'↔ Giraste sin poner el intermitente · −5');
+    }
+    N.wasIn=inBox;
+  }
+  /* vereda y contramano */
+  const ri=roadInfo(player.x,player.z);
+  if(!ri.on&&kmh>3){
+    player.sideT+=dt;
+    if(player.sideT>1.5){player.sideT=0;addPoints(-5,'🚧 Circulas por la vereda · −5');}
+  }else player.sideT=0;
+  player.wrongCd-=dt;
+  if(ri.on&&ri.axis!=='x'&&kmh>5){
+    const fx=Math.sin(player.heading),fz=Math.cos(player.heading);
+    let wrong=false;
+    if(ri.axis==='v'&&Math.abs(fz)>0.7)wrong=ri.lat*(-fz)<-0.6;   // carril correcto: a la derecha del eje
+    if(ri.axis==='h'&&Math.abs(fx)>0.7)wrong=ri.lat*(fx)<-0.6;
+    if(wrong){
+      player.wrongT+=dt;
+      if(player.wrongT>2&&player.wrongCd<=0){player.wrongCd=8;addPoints(-10,'⛔ Circulas en contramano · −10');}
+    }else player.wrongT=Math.max(0,player.wrongT-dt);
+  }
+  /* señal de PARE */
+  for(const S of stopSigns){
+    const cheb=Math.max(Math.abs(player.x-S.cx),Math.abs(player.z-S.cz));
+    const inRing=cheb<RW/2+9&&cheb>RW/2+1.4, inBox=cheb<=RW/2+1.4;
+    if(inRing)S.minK=Math.min(S.minK,kmh);
+    if(inBox&&!S.wasIn){
+      if(S.minK>6&&kmh>5)addPoints(-10,'🛑 No respetaste el PARE · −10');
+      S.minK=999;
+    }
+    if(!inRing&&!inBox)S.minK=999;
+    S.wasIn=inBox;
+  }
+}
+
+/* ============================================================
+   ENTRADAS: pedales, cambios, giroscopio, teclado
+   ============================================================ */
+function bindPedal(id,set){
+  const el=document.getElementById(id);
+  const on=e=>{e.preventDefault();el.classList.add('on');set(1);};
+  const off=e=>{e.preventDefault();el.classList.remove('on');set(0);};
+  el.addEventListener('pointerdown',e=>{try{el.setPointerCapture(e.pointerId);}catch(_){}on(e);});
+  el.addEventListener('pointerup',off);el.addEventListener('pointercancel',off);
+  el.addEventListener('contextmenu',e=>e.preventDefault());
+}
+bindPedal('pGas',v=>input.throttle=v);
+bindPedal('pBrake',v=>input.brake=v);
+bindPedal('pClutch',v=>input.clutch=v);
+
+function tryShift(dir){
+  if(cfg.auto)return;
+  if(input.clutch<0.5){toast('Pisa el EMBRAGUE para cambiar','bad');return;}
+  player.gearIdx=clamp(player.gearIdx+dir,0,GEAR_SEQ.length-1);
+  document.getElementById('gearCur').textContent=GEAR_NAME[GEAR_SEQ[player.gearIdx]];
+}
+document.getElementById('gUp').addEventListener('pointerdown',e=>{e.preventDefault();tryShift(1);});
+document.getElementById('gDn').addEventListener('pointerdown',e=>{e.preventDefault();tryShift(-1);});
+document.querySelectorAll('#autoBox button').forEach(b=>{
+  b.addEventListener('pointerdown',e=>{
+    e.preventDefault();
+    const kmh=Math.abs(player.v)*3.6;
+    if(kmh>8&&b.dataset.sel!==player.sel){toast('Detén el auto para cambiar de marcha','bad');return;}
+    player.sel=b.dataset.sel;
+    document.querySelectorAll('#autoBox button').forEach(x=>x.classList.toggle('sel',x===b));
+  });
+});
+
+/* ---------- volante con el teléfono ----------
+   Se mide cuánto giró el teléfono alrededor del eje perpendicular a la pantalla,
+   usando la proyección de la gravedad sobre la pantalla: atan2(gy, gx).
+   Así funciona igual sostenido vertical o inclinado 45°, y en cualquier orientación
+   horizontal; el cero se calibra al empezar (y con ⟳). Sentido horario = derecha. */
+let motionSeen=false,wheelDeg=0;
+/* curva de respuesta común: zona muerta, rango y respuesta progresiva */
+function shapeSteer(deg,range,dz){
+  const a=Math.abs(deg);
+  let v=a<dz?0:(a-dz)/(range-dz);
+  return Math.pow(clamp(v,0,1),1.25)*Math.sign(deg);
+}
+/* MODO INCLINAR: en horizontal, beta mide cuánto se inclina el eje largo del teléfono
+   (bajar un borde), sin importar cuánto esté inclinado hacia el jugador. */
+function onTilt(e){
+  let ang=0;
+  if(screen.orientation&&typeof screen.orientation.angle==='number')ang=screen.orientation.angle;
+  else if(typeof window.orientation==='number')ang=window.orientation;
+  let raw;
+  if(ang===90)raw=e.beta;else if(ang===-90||ang===270)raw=-e.beta;else raw=e.gamma; // vertical: gamma
+  if(raw==null)return;
+  if(gyroZero===null)gyroZero=raw;
+  let d=raw-gyroZero;while(d>180)d-=360;while(d<-180)d+=360;
+  wheelDeg+=(d-wheelDeg)*0.5;
+  steerGyro=shapeSteer(wheelDeg,cfg.tiltRange,1.5);gyroActive=true;
+}
+function onGravity(gx,gy){
+  const mag=Math.hypot(gx,gy);
+  if(mag<2.2)return;                 // teléfono casi plano: no hay referencia de volante
+  const ang=Math.atan2(gy,gx);
+  if(gyroZero===null)gyroZero=ang;
+  let d=ang-gyroZero;
+  while(d>Math.PI)d-=2*Math.PI;while(d<-Math.PI)d+=2*Math.PI;
+  const deg=-d*180/Math.PI;          // horario positivo
+  wheelDeg+=(deg-wheelDeg)*0.45;     // suaviza el pulso de las manos
+  steerGyro=shapeSteer(wheelDeg,cfg.wheelRange,2.5);gyroActive=true;
+}
+addEventListener('devicemotion',e=>{
+  if(cfg.steer!=='wheel')return;
+  const a=e.accelerationIncludingGravity;
+  if(!a||a.x==null||a.y==null)return;
+  motionSeen=true;onGravity(a.x,a.y);
+});
+addEventListener('deviceorientation',e=>{
+  if(e.beta==null&&e.gamma==null)return;
+  if(cfg.steer==='tilt'){onTilt(e);return;}
+  if(motionSeen||e.beta==null||e.gamma==null)return; // reserva del modo volante
+  const b=e.beta*Math.PI/180,g=e.gamma*Math.PI/180;
+  onGravity(-Math.cos(b)*Math.sin(g)*9.81,Math.sin(b)*9.81);
+});
+document.getElementById('recal').addEventListener('pointerdown',e=>{e.preventDefault();gyroZero=null;wheelDeg=0;toast('Dirección centrada ✓ · esta posición es "recto"','info');});
+
+/* volante táctil de reserva */
+{
+  const tw=document.getElementById('touchWheel'),knob=document.getElementById('twKnob');
+  let active=false;
+  const setFrom=e=>{
+    const r=tw.getBoundingClientRect();
+    const u=clamp((e.clientX-r.left-r.width/2)/(r.width/2-16),-1,1);
+    input.touchSteer=u;knob.style.left=`calc(50% - 15px + ${u*(r.width/2-18)}px)`;
+  };
+  tw.addEventListener('pointerdown',e=>{e.preventDefault();active=true;try{tw.setPointerCapture(e.pointerId);}catch(_){}setFrom(e);});
+  tw.addEventListener('pointermove',e=>{if(active)setFrom(e);});
+  const end=()=>{active=false;input.touchSteer=0;knob.style.left='calc(50% - 15px)';};
+  tw.addEventListener('pointerup',end);tw.addEventListener('pointercancel',end);
+}
+
+/* teclado (PC) */
+const keys={};
+addEventListener('keydown',e=>{
+  keys[e.code]=true;
+  if(e.code==='KeyA')tryShift(1);
+  if(e.code==='KeyZ')tryShift(-1);
+  if(e.code==='KeyQ'&&!e.repeat)setSig(-1);
+  if(e.code==='KeyE'&&!e.repeat)setSig(1);
+  if(e.code==='KeyH')player.horn=true;
+  if(e.code==='Space')e.preventDefault();
+});
+addEventListener('keyup',e=>{keys[e.code]=false;if(e.code==='KeyH')player.horn=false;});
+function pollKeys(dt){
+  const tgt=(keys.ArrowLeft?-1:0)+(keys.ArrowRight?1:0);
+  input.keySteer=moveToward(input.keySteer,tgt,4*dt);
+  if(keys.ArrowUp)input.throttle=1;else if(!pointerGas)input.throttle=Math.min(input.throttle,pointerGasVal);
+  if(keys.ArrowDown||keys.Space)input.brake=1;else if(!pointerBrake)input.brake=Math.min(input.brake,pointerBrakeVal);
+  if(keys.KeyC)input.clutch=1;else if(!pointerClutch)input.clutch=Math.min(input.clutch,pointerClutchVal);
+}
+/* seguimiento de si el pedal táctil está presionado, para que el teclado no lo pise */
+let pointerGas=false,pointerBrake=false,pointerClutch=false;
+let pointerGasVal=0,pointerBrakeVal=0,pointerClutchVal=0;
+['pGas','pBrake','pClutch'].forEach(id=>{
+  const el=document.getElementById(id);let downT=0;
+  el.addEventListener('pointerdown',()=>{
+    downT=performance.now();
+    if(id==='pGas'){pointerGas=true;pointerGasVal=1;}
+    if(id==='pBrake'){pointerBrake=true;pointerBrakeVal=1;if(cfg.tap)cruiseOff();}
+    if(id==='pClutch'){pointerClutch=true;pointerClutchVal=1;}
+  });
+  const off=()=>{
+    const held=performance.now()-downT;
+    if(id==='pGas'){pointerGas=false;pointerGasVal=0;
+      if(cfg.tap&&running){
+        const kmh=Math.abs(player.v)*3.6;
+        if(held<320) cruiseSet(cruise.on?cruise.target+10:Math.max(35,kmh)); // toque: activar / +10
+        else cruiseSet(Math.max(20,kmh));                                     // mantener y soltar: conservar velocidad
+        if(!cfg.auto&&player.gear<=0&&!cruise.wasWarned){toast('Pon 1ª con el embrague para avanzar','info');cruise.wasWarned=true;}
+      }
+    }
+    if(id==='pBrake'){pointerBrake=false;pointerBrakeVal=0;if(cfg.tap&&held<320)brakePulse=0.8;} // toque en freno: frenada corta
+    if(id==='pClutch'){pointerClutch=false;pointerClutchVal=0;}
+  };
+  el.addEventListener('pointerup',off);el.addEventListener('pointercancel',off);
+});
+
+document.getElementById('tripBtn').addEventListener('pointerdown',e=>{e.preventDefault();startTrip();});
+document.getElementById('sigL').addEventListener('pointerdown',e=>{e.preventDefault();setSig(-1);});
+document.getElementById('sigR').addEventListener('pointerdown',e=>{e.preventDefault();setSig(1);});
+{
+  const h=document.getElementById('horn');
+  const on=e=>{e.preventDefault();player.horn=true;h.classList.add('on');try{h.setPointerCapture(e.pointerId);}catch(_){}};
+  const off=e=>{e.preventDefault();player.horn=false;h.classList.remove('on');};
+  h.addEventListener('pointerdown',on);h.addEventListener('pointerup',off);h.addEventListener('pointercancel',off);
+}
+document.getElementById('mute').addEventListener('pointerdown',e=>{
+  e.preventDefault();muted=!muted;
+  document.getElementById('mute').textContent=muted?'🔇':'🔊';
+});
+
+/* ============================================================
+   MENÚ DE INICIO Y BUCLE PRINCIPAL
+   ============================================================ */
+let mode='auto';
+document.querySelectorAll('#pedSeg button').forEach(b=>{
+  const pick=e=>{
+    if(e&&e.preventDefault)e.preventDefault();
+    cfg.tap=b.dataset.ped==='tap';
+    document.querySelectorAll('#pedSeg button').forEach(x=>x.classList.toggle('sel',x===b));
+  };
+  b.addEventListener('click',pick);b.addEventListener('pointerup',pick);
+});
+document.querySelectorAll('#steerSeg button').forEach(b=>{
+  const pick=e=>{
+    if(e&&e.preventDefault)e.preventDefault();
+    cfg.steer=b.dataset.steer;
+    document.querySelectorAll('#steerSeg button').forEach(x=>x.classList.toggle('sel',x===b));
+  };
+  b.addEventListener('click',pick);b.addEventListener('pointerup',pick);
+});
+document.querySelectorAll('#sensSeg button').forEach(b=>{
+  const pick=e=>{
+    if(e&&e.preventDefault)e.preventDefault();
+    cfg.wheelRange=parseInt(b.dataset.range,10);
+    cfg.tiltRange=parseInt(b.dataset.tilt,10);
+    document.querySelectorAll('#sensSeg button').forEach(x=>x.classList.toggle('sel',x===b));
+  };
+  b.addEventListener('click',pick);b.addEventListener('pointerup',pick);
+});
+document.querySelectorAll('#modeSeg button').forEach(b=>{
+  const pick=e=>{
+    if(e&&e.preventDefault)e.preventDefault();
+    mode=b.dataset.mode;
+    document.querySelectorAll('#modeSeg button').forEach(x=>x.classList.toggle('sel',x===b));
+  };
+  b.addEventListener('click',pick);
+  b.addEventListener('pointerup',pick);
+});
+/* ---------- pantalla completa ---------- */
+function goFS(){
+  const el=document.documentElement;
+  try{
+    const f=el.requestFullscreen||el.webkitRequestFullscreen||el.mozRequestFullScreen;
+    const p=f&&f.call(el);if(p&&p.catch)p.catch(()=>{});
+  }catch(e){}
+  try{
+    const ol=screen.orientation&&screen.orientation.lock&&screen.orientation.lock('landscape');
+    if(ol&&ol.catch)ol.catch(()=>{});
+  }catch(e){}
+}
+function exitFS(){
+  try{const f=document.exitFullscreen||document.webkitExitFullscreen;const p=f&&f.call(document);if(p&&p.catch)p.catch(()=>{});}catch(e){}
+}
+document.getElementById('fsBtn').addEventListener('pointerup',e=>{
+  e.preventDefault();
+  const active=document.fullscreenElement||document.webkitFullscreenElement;
+  if(active)exitFS();else goFS();
+});
+['fullscreenchange','webkitfullscreenchange'].forEach(ev=>
+  document.addEventListener(ev,()=>setTimeout(layout,250)));
+
+let started=false;
+function startGame(){
+  if(started)return;started=true;
+  cfg.auto=(mode==='auto');
+  /* permisos de sensores (iOS) en segundo plano: nunca bloquean el inicio */
+  try{
+    if(typeof DeviceMotionEvent!=='undefined'&&typeof DeviceMotionEvent.requestPermission==='function'){
+      const p=DeviceMotionEvent.requestPermission();if(p&&p.catch)p.catch(()=>{});
+    }
+  }catch(e){}
+  try{
+    if(typeof DeviceOrientationEvent!=='undefined'&&typeof DeviceOrientationEvent.requestPermission==='function'){
+      const p=DeviceOrientationEvent.requestPermission();if(p&&p.catch)p.catch(()=>{});
+    }
+  }catch(e){}
+  goFS();
+  gyroZero=null;
+  /* recalibrar el centro cuando el jugador ya acomodó las manos */
+  setTimeout(()=>{gyroZero=null;wheelDeg=0;},1200);
+  document.body.classList.add('playing');
+  document.getElementById('menu').style.display='none';
+  document.getElementById('pClutch').style.display=cfg.auto?'none':'flex';
+  document.getElementById('gearBox').style.display=cfg.auto?'none':'flex';
+  document.getElementById('autoBox').style.display=cfg.auto?'flex':'none';
+  if(cfg.tap){
+    document.getElementById('gasTxt').textContent='AVANZAR';document.getElementById('gasSm').textContent='TOQUE · CRUCERO';
+    document.getElementById('brakeTxt').textContent='FRENAR';document.getElementById('brakeSm').textContent='TOQUE · DETENER';
+  }
+  try{initAudio();}catch(e){}
+  running=true;
+  layout();setTimeout(layout,450);setTimeout(layout,1200);
+  toast(cfg.auto?'Caja automática · palanca en D':'Caja manual · embrague + 1ª para arrancar','info');
+  /* si en 2,5 s no hay giroscopio, mostrar volante táctil */
+  setTimeout(()=>{
+    if(!gyroActive){document.getElementById('touchWheel').style.display='flex';toast('Sin sensores: usa el volante táctil','info');}
+    else toast(cfg.steer==='tilt'?'📲 Inclina el teléfono a los lados para doblar · ⟳ centra la dirección':'🎡 Gira el teléfono como un volante · ⟳ para centrarlo','info');
+  },2500);
+}
+{
+  const sb=document.getElementById('startBtn');
+  sb.addEventListener('click',startGame);
+  sb.addEventListener('pointerup',e=>{e.preventDefault();startGame();});
+  sb.addEventListener('touchend',e=>{e.preventDefault();startGame();},{passive:false});
+  const sb2=document.getElementById('startBtn2');
+  const rl=e=>{e.preventDefault();location.reload();};
+  sb2.addEventListener('click',rl);sb2.addEventListener('pointerup',rl);
+}
+
+let last=performance.now(),rectT=0;
+function tick(now){
+  requestAnimationFrame(tick);
+  const dt=clamp((now-last)/1000,0,0.05);last=now;
+  if(running){
+    t+=dt;rectT+=dt;
+    if(rectT>2){rectT=0;mirrorRects.rear=rectOf('rearMirror');mirrorRects.side=rectOf('sideMirror');}
+    pollKeys(dt);
+    updateDayNight(dt);
+    updateLightMats();
+    updatePlayer(dt);
+    updateNPCs(dt);
+    updatePeds(dt);
+    checkRules(dt);
+    updateTrip(dt);
+    drawMini();
+  }
+  /* vista principal */
+  renderer.setScissorTest(false);
+  renderer.setViewport(0,0,innerWidth,innerHeight);
+  renderer.render(scene,camera);
+  /* espejos */
+  if(running){
+    updateMirrorCams();
+    renderer.setScissorTest(true);
+    renderMirror(rearCam,mirrorRects.rear);
+    renderMirror(sideCam,mirrorRects.side);
+    renderer.setScissorTest(false);
+    renderer.setViewport(0,0,innerWidth,innerHeight);
+  }
+}
+requestAnimationFrame(tick);
+</script>
+</body>
+</html>

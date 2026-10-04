@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Llajta · Guía de Cochabamba</title>
+<title>Guías de viaje · Cochabamba, Tarija y Mendoza</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -18,50 +18,42 @@
     --dorado:#C98A1E;     /* excursiones */
     --blanco:#FFFDF8;
     --borde:#DCD6C6;
+    --acento:#2E6B4F;     /* cambia según la ciudad */
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html,body{height:100%}
-  body{
-    font-family:'Instrument Sans',system-ui,sans-serif;
-    background:var(--papel);
-    color:var(--tinta);
-    -webkit-font-smoothing:antialiased;
+  body{font-family:'Instrument Sans',system-ui,sans-serif;background:var(--papel);color:var(--tinta);-webkit-font-smoothing:antialiased}
+  .aguayo{height:8px;background:repeating-linear-gradient(90deg,var(--fucsia) 0 22px,var(--dorado) 22px 34px,var(--verde) 34px 58px,var(--azul) 58px 70px,#8A3E5C 70px 82px)}
+
+  /* Selector de ciudad */
+  .ciudades{display:flex;gap:8px;padding:16px 18px 0;overflow-x:auto;scrollbar-width:none}
+  .ciudades::-webkit-scrollbar{display:none}
+  .btn-ciudad{
+    flex:0 0 auto;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:15px;
+    padding:10px 18px;border-radius:12px;border:1.5px solid var(--borde);
+    background:var(--blanco);color:var(--tinta);cursor:pointer;
+    transition:transform .12s ease;
   }
-  .aguayo{
-    height:8px;
-    background:repeating-linear-gradient(90deg,
-      var(--fucsia) 0 22px,
-      var(--dorado) 22px 34px,
-      var(--verde) 34px 58px,
-      var(--azul) 58px 70px,
-      #8A3E5C 70px 82px);
-  }
-  header{padding:20px 18px 12px}
+  .btn-ciudad.activo{background:var(--acento);border-color:var(--acento);color:var(--blanco)}
+  .btn-ciudad:active{transform:scale(.96)}
+  .btn-ciudad:focus-visible{outline:3px solid var(--dorado);outline-offset:2px}
+
+  header{padding:16px 18px 12px}
   .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-suave);font-weight:600;margin-bottom:4px}
   h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(28px,7vw,44px);line-height:1.02;letter-spacing:-.01em}
-  h1 .llajta{color:var(--verde)}
+  h1 .ac{color:var(--acento)}
   .sub{margin-top:8px;font-size:14.5px;color:var(--tinta-suave);max-width:56ch;line-height:1.5}
   h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:24px;letter-spacing:-.01em;margin-bottom:4px}
   .seccion{padding:26px 18px 6px}
   .seccion .intro{font-size:14px;color:var(--tinta-suave);line-height:1.5;margin-bottom:14px;max-width:60ch}
 
-  /* Barra de búsqueda + filtros */
   .barra{position:sticky;top:0;z-index:1000;background:var(--papel);border-bottom:1px solid var(--borde);padding-bottom:12px}
   .busqueda{padding:12px 18px 0}
-  .busqueda input{
-    width:100%;padding:11px 15px;border-radius:12px;border:1.5px solid var(--borde);
-    background:var(--blanco);font:inherit;font-size:14.5px;color:var(--tinta);
-  }
+  .busqueda input{width:100%;padding:11px 15px;border-radius:12px;border:1.5px solid var(--borde);background:var(--blanco);font:inherit;font-size:14.5px;color:var(--tinta)}
   .busqueda input:focus{outline:3px solid var(--dorado);outline-offset:1px}
   .filtros{display:flex;gap:8px;overflow-x:auto;padding:10px 18px 0;scrollbar-width:none}
   .filtros::-webkit-scrollbar{display:none}
-  .chip{
-    flex:0 0 auto;display:flex;align-items:center;gap:7px;
-    font-family:'Instrument Sans',sans-serif;font-weight:600;font-size:13.5px;
-    padding:8px 14px;border-radius:999px;border:1.5px solid var(--borde);
-    background:var(--blanco);color:var(--tinta);cursor:pointer;
-    transition:transform .12s ease, background .12s ease;
-  }
+  .chip{flex:0 0 auto;display:flex;align-items:center;gap:7px;font-weight:600;font-size:13.5px;padding:8px 14px;border-radius:999px;border:1.5px solid var(--borde);background:var(--blanco);color:var(--tinta);cursor:pointer;transition:transform .12s ease}
   .chip .punto{width:9px;height:9px;border-radius:50%}
   .chip[data-cat="todo"] .punto{background:linear-gradient(90deg,var(--verde) 25%,var(--fucsia) 25% 50%,var(--azul) 50% 75%,var(--dorado) 75%)}
   .chip[data-cat="turistico"] .punto{background:var(--verde)}
@@ -72,60 +64,31 @@
   .chip:active{transform:scale(.96)}
   .chip:focus-visible{outline:3px solid var(--dorado);outline-offset:2px}
 
-  /* Mapa */
   .contenedor-mapa{position:relative;margin:14px 18px 0}
   #mapa{height:46vh;min-height:300px;border-radius:16px;border:1.5px solid var(--borde);box-shadow:0 2px 10px rgba(34,39,31,.08)}
   .leaflet-container{font:inherit;background:#E8E4D6}
-  .marcador{
-    display:flex;align-items:center;justify-content:center;
-    width:30px;height:30px;border-radius:50% 50% 50% 4px;transform:rotate(-45deg);
-    border:2.5px solid var(--blanco);box-shadow:0 2px 6px rgba(34,39,31,.35);
-  }
+  .marcador{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50% 50% 50% 4px;transform:rotate(-45deg);border:2.5px solid var(--blanco);box-shadow:0 2px 6px rgba(34,39,31,.35)}
   .marcador span{transform:rotate(45deg);font-size:14px;line-height:1}
   .leaflet-popup-content-wrapper{border-radius:12px;font-family:'Instrument Sans',sans-serif}
   .leaflet-popup-content{margin:12px 14px;font-size:13.5px}
   .leaflet-popup-content b{font-family:'Bricolage Grotesque',sans-serif;font-size:15px}
-  .btn-ubicacion{
-    position:absolute;bottom:14px;right:14px;z-index:900;
-    display:flex;align-items:center;gap:7px;
-    font-family:'Instrument Sans',sans-serif;font-weight:600;font-size:13px;
-    padding:9px 14px;border-radius:999px;border:1.5px solid var(--borde);
-    background:var(--blanco);color:var(--tinta);cursor:pointer;
-    box-shadow:0 2px 8px rgba(34,39,31,.18);
-  }
+  .btn-ubicacion{position:absolute;bottom:14px;right:14px;z-index:900;display:flex;align-items:center;gap:7px;font-weight:600;font-size:13px;padding:9px 14px;border-radius:999px;border:1.5px solid var(--borde);background:var(--blanco);color:var(--tinta);cursor:pointer;box-shadow:0 2px 8px rgba(34,39,31,.18)}
   .btn-ubicacion:active{transform:scale(.96)}
   .btn-ubicacion:focus-visible{outline:3px solid var(--dorado);outline-offset:2px}
   .btn-ubicacion.buscando{opacity:.6;pointer-events:none}
-  .punto-yo{
-    width:18px;height:18px;border-radius:50%;background:#2F6FA8;border:3px solid var(--blanco);
-    box-shadow:0 0 0 2px rgba(47,111,168,.35), 0 2px 6px rgba(34,39,31,.3);
-  }
-  .aviso-ubi{
-    position:absolute;bottom:60px;right:14px;z-index:900;max-width:230px;
-    background:var(--tinta);color:var(--blanco);font-size:12px;line-height:1.4;
-    padding:9px 12px;border-radius:10px;box-shadow:0 2px 8px rgba(34,39,31,.25);
-  }
+  .punto-yo{width:18px;height:18px;border-radius:50%;background:#2F6FA8;border:3px solid var(--blanco);box-shadow:0 0 0 2px rgba(47,111,168,.35),0 2px 6px rgba(34,39,31,.3)}
+  .aviso-ubi{position:absolute;bottom:60px;right:14px;z-index:900;max-width:230px;background:var(--tinta);color:var(--blanco);font-size:12px;line-height:1.4;padding:9px 12px;border-radius:10px;box-shadow:0 2px 8px rgba(34,39,31,.25)}
 
-  /* Contador + orden */
   .fila-contador{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:18px 18px 4px;flex-wrap:wrap}
   .contador{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta-suave);font-weight:600}
-  .btn-cerca{
-    display:none;align-items:center;gap:6px;font-family:inherit;font-weight:600;font-size:12.5px;
-    padding:6px 12px;border-radius:999px;border:1.5px solid var(--borde);
-    background:var(--blanco);color:var(--tinta);cursor:pointer;
-  }
+  .btn-cerca{display:none;align-items:center;gap:6px;font-family:inherit;font-weight:600;font-size:12.5px;padding:6px 12px;border-radius:999px;border:1.5px solid var(--borde);background:var(--blanco);color:var(--tinta);cursor:pointer}
   .btn-cerca.visible{display:flex}
   .btn-cerca.activo{background:var(--azul);border-color:var(--azul);color:var(--blanco)}
   .btn-cerca:focus-visible{outline:3px solid var(--dorado);outline-offset:2px}
 
-  /* Fichas */
   .lista{padding:8px 18px 10px;display:grid;gap:12px}
   @media(min-width:760px){.lista{grid-template-columns:1fr 1fr}}
-  .ficha{
-    background:var(--blanco);border:1.5px solid var(--borde);border-radius:14px;
-    padding:16px 16px 14px;cursor:pointer;position:relative;overflow:hidden;
-    transition:transform .12s ease, box-shadow .12s ease;
-  }
+  .ficha{background:var(--blanco);border:1.5px solid var(--borde);border-radius:14px;padding:16px 16px 14px;cursor:pointer;position:relative;overflow:hidden;transition:transform .12s ease, box-shadow .12s ease}
   .ficha::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--cat-color,var(--verde))}
   .ficha:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(34,39,31,.10)}
   .ficha:focus-visible{outline:3px solid var(--dorado);outline-offset:2px}
@@ -143,16 +106,13 @@
   .meta span{white-space:nowrap}
   .dato{margin-top:10px;padding:9px 11px;border-radius:9px;background:#F1EBDD;font-size:12.5px;line-height:1.45}
   .dato b{color:var(--tinta)}
+  .nota-foto{margin-top:8px;padding:9px 11px;border-radius:9px;background:#E7EEF5;border-left:3px solid var(--azul);font-size:12.5px;line-height:1.45}
+  .nota-foto b{color:var(--azul)}
   .acciones{margin-top:11px;display:flex;gap:8px}
-  .btn-ir{
-    display:inline-flex;align-items:center;gap:6px;text-decoration:none;
-    font-weight:600;font-size:12.5px;padding:7px 13px;border-radius:999px;
-    background:var(--tinta);color:var(--blanco);
-  }
+  .btn-ir{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-weight:600;font-size:12.5px;padding:7px 13px;border-radius:999px;background:var(--tinta);color:var(--blanco)}
   .btn-ir:focus-visible{outline:3px solid var(--dorado);outline-offset:2px}
   .vacio{padding:40px 18px;text-align:center;color:var(--tinta-suave);font-size:14px}
 
-  /* Platos típicos */
   .platos{display:grid;gap:10px}
   @media(min-width:760px){.platos{grid-template-columns:1fr 1fr 1fr}}
   .plato{background:var(--blanco);border:1.5px solid var(--borde);border-radius:14px;padding:14px 15px;position:relative;overflow:hidden}
@@ -162,7 +122,6 @@
   .plato .donde{margin-top:7px;font-size:12px;color:var(--tinta)}
   .plato .donde b{color:var(--fucsia)}
 
-  /* Itinerarios */
   .itinerarios{display:grid;gap:12px}
   @media(min-width:760px){.itinerarios{grid-template-columns:1fr 1fr}}
   .itin{background:var(--blanco);border:1.5px solid var(--borde);border-radius:14px;padding:16px;position:relative;overflow:hidden}
@@ -172,29 +131,30 @@
   .itin li{font-size:13.5px;line-height:1.45;color:var(--tinta-suave)}
   .itin li b{color:var(--tinta);font-weight:600}
 
-  /* Tips */
   .tips{display:grid;gap:8px}
+  .tips.foto .tip-item{border-left:3px solid var(--azul)}
   .tip-item{display:flex;gap:10px;background:var(--blanco);border:1.5px solid var(--borde);border-radius:12px;padding:12px 14px;font-size:13.5px;line-height:1.5;color:var(--tinta-suave)}
   .tip-item .ic{flex:0 0 auto;font-size:17px}
   .tip-item b{color:var(--tinta)}
 
   footer{padding:28px 18px 36px;font-size:12px;color:var(--tinta-suave);line-height:1.5}
-
   @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
 <div class="aguayo" aria-hidden="true"></div>
 
+<nav class="ciudades" id="selectorCiudades" aria-label="Elegir ciudad"></nav>
+
 <header>
-  <p class="eyebrow">Guía de bolsillo · Valle de Cochabamba, Bolivia</p>
-  <h1>La <span class="llajta">Llajta</span>,<br>paso a paso</h1>
-  <p class="sub">Ciudad de la eterna primavera y capital gastronómica de Bolivia. Busca, filtra por lo que te interesa, toca una ficha y el mapa te lleva al lugar.</p>
+  <p class="eyebrow" id="hEyebrow"></p>
+  <h1 id="hTitulo"></h1>
+  <p class="sub" id="hSub"></p>
 </header>
 
 <div class="barra">
   <div class="busqueda">
-    <input type="search" id="buscar" placeholder="Buscar lugar… (ej. Cristo, silpancho, Tarata)" aria-label="Buscar lugares">
+    <input type="search" id="buscar" placeholder="Buscar lugar…" aria-label="Buscar lugares">
   </div>
   <nav class="filtros" aria-label="Filtrar lugares">
     <button class="chip activo" data-cat="todo"><span class="punto"></span>Todo</button>
@@ -206,7 +166,7 @@
 </div>
 
 <div class="contenedor-mapa">
-  <div id="mapa" role="application" aria-label="Mapa de Cochabamba"></div>
+  <div id="mapa" role="application" aria-label="Mapa de la ciudad"></div>
   <button class="btn-ubicacion" id="btnUbi" aria-label="Ver mi ubicación actual">📍 Mi ubicación</button>
 </div>
 
@@ -219,63 +179,55 @@
 
 <section class="seccion" aria-labelledby="t-platos">
   <h2 id="t-platos">Qué probar sí o sí 🍴</h2>
-  <p class="intro">Cochabamba es la capital gastronómica de Bolivia: aquí se come mucho, rico y a toda hora. Estos son los imperdibles.</p>
-  <div class="platos">
-    <div class="plato"><h3>Silpancho</h3><p>Carne apanada muy fina sobre arroz y papa, coronada con huevo frito y sarza de tomate y cebolla. El plato cochabambino por excelencia.</p><p class="donde"><b>Dónde:</b> silpancherías de barrio, sobre todo por la Av. América y Cala Cala, al atardecer.</p></div>
-    <div class="plato"><h3>Pique macho</h3><p>Montaña de carne, salchicha, papas fritas, locoto y huevo. Nació en La Llajta y se come en grupo.</p><p class="donde"><b>Dónde:</b> Casa de Campo (Recoleta) es el clásico.</p></div>
-    <div class="plato"><h3>Salteña</h3><p>Empanada jugosa de carne o pollo que se come a media mañana, con cuchara y técnica para no mancharse.</p><p class="donde"><b>Dónde:</b> salteñerías del centro y El Prado, entre 9:00 y 12:00; después se acaban.</p></div>
-    <div class="plato"><h3>Chicharrón con mote</h3><p>Cerdo cocido en su propia grasa, servido con mote de maíz y llajwa. Plato de fin de semana.</p><p class="donde"><b>Dónde:</b> Sacaba y El Abra son la meca; también en los comedores de La Cancha.</p></div>
-    <div class="plato"><h3>Api con pastel</h3><p>Bebida caliente de maíz morado con canela, acompañada de un pastel frito de queso espolvoreado con azúcar. Desayuno de mercado.</p><p class="donde"><b>Dónde:</b> puestos de La Cancha y mercados, temprano en la mañana.</p></div>
-    <div class="plato"><h3>Garapiña</h3><p>Chicha frozen con canela y coco: refresco tradicional del valle, con o sin alcohol.</p><p class="donde"><b>Dónde:</b> Quillacollo es su tierra; pídela bien helada.</p></div>
-  </div>
+  <p class="intro" id="platosIntro"></p>
+  <div class="platos" id="platos"></div>
 </section>
 
 <section class="seccion" aria-labelledby="t-itin">
   <h2 id="t-itin">Itinerarios sugeridos 🗓️</h2>
-  <p class="intro">Dos rutas listas para seguir. Toca cada lugar en las fichas de arriba para verlo en el mapa.</p>
-  <div class="itinerarios">
-    <div class="itin">
-      <h3>1 día esencial</h3>
-      <ol>
-        <li><b>Mañana:</b> sube temprano al Cristo de la Concordia en teleférico.</li>
-        <li><b>Media mañana:</b> salteña en El Prado y paseo hasta la Plaza Colón.</li>
-        <li><b>Mediodía:</b> centro histórico — Plaza 14 de Septiembre, Catedral y Convento de Santa Teresa.</li>
-        <li><b>Almuerzo:</b> buffet en Gopal o comida típica en Casa de Campo.</li>
-        <li><b>Tarde:</b> piérdete (con cuidado) en La Cancha.</li>
-        <li><b>Atardecer:</b> fotos y cena en La Recoleta.</li>
-      </ol>
-    </div>
-    <div class="itin">
-      <h3>Fin de semana completo</h3>
-      <ol>
-        <li><b>Día 1:</b> el itinerario esencial de arriba.</li>
-        <li><b>Día 2 mañana:</b> Palacio Portales y sus jardines.</li>
-        <li><b>Día 2 mediodía:</b> escapada a Pairumani o Tarata; chicharrón de camino.</li>
-        <li><b>Día 2 tarde:</b> vuelta por Quillacollo (garapiña incluida).</li>
-        <li><b>Día 2 atardecer:</b> cierre en la Laguna Alalay con el Tunari de fondo.</li>
-        <li><b>¿Un día más?</b> Incallajta, Villa Tunari o Toro Toro te esperan.</li>
-      </ol>
-    </div>
-  </div>
+  <p class="intro">Rutas listas para seguir. Toca cada lugar en las fichas de arriba para verlo en el mapa.</p>
+  <div class="itinerarios" id="itinerarios"></div>
+</section>
+
+<section class="seccion" aria-labelledby="t-fotoguia">
+  <h2 id="t-fotoguia">Guía fotográfica 📷</h2>
+  <p class="intro" id="fotoGuiaIntro"></p>
+  <div class="tips foto" id="fotoGuia"></div>
 </section>
 
 <section class="seccion" aria-labelledby="t-tips">
   <h2 id="t-tips">Consejos prácticos 🎒</h2>
-  <p class="intro">Lo básico para moverte como un llajtino más.</p>
-  <div class="tips">
-    <div class="tip-item"><span class="ic">⛰️</span><span><b>Altura:</b> la ciudad está a ~2.560 m. Es más suave que La Paz, pero hidrátate bien y tómalo con calma el primer día.</span></div>
-    <div class="tip-item"><span class="ic">☀️</span><span><b>Clima:</b> soleado casi todo el año, seco y con sol fuerte: bloqueador y gorra siempre. Las lluvias se concentran entre diciembre y marzo.</span></div>
-    <div class="tip-item"><span class="ic">🚐</span><span><b>Cómo moverse:</b> trufis y micros son baratísimos y cubren toda la ciudad; para más comodidad usa taxis de aplicación o radiotaxis, sobre todo de noche.</span></div>
-    <div class="tip-item"><span class="ic">💵</span><span><b>Efectivo:</b> en mercados, trufis y puestos callejeros solo aceptan bolivianos en billetes chicos. Los restaurantes formales sí aceptan tarjeta o QR.</span></div>
-    <div class="tip-item"><span class="ic">🎉</span><span><b>Urkupiña:</b> si vienes a mediados de agosto, la festividad de la Virgen de Urkupiña en Quillacollo es la fiesta más grande del valle: danzas, música y multitudes.</span></div>
-    <div class="tip-item"><span class="ic">🕐</span><span><b>Ritmo local:</b> la salteña es de media mañana, el almuerzo es la comida fuerte del día y muchos museos cierran al mediodía. Planifica con siesta incluida.</span></div>
-  </div>
+  <p class="intro" id="tipsIntro"></p>
+  <div class="tips" id="tips"></div>
 </section>
 
-<footer>Las ubicaciones, precios y horarios son aproximados y pueden cambiar: confirma antes de ir. Buen viaje, y no te vayas sin probar un silpancho.</footer>
+<footer>Las ubicaciones, precios y horarios son aproximados y pueden cambiar: confirma antes de ir. Buen viaje.</footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
+/* ============================================================
+   ESTRUCTURA ESCALABLE
+   ------------------------------------------------------------
+   Para AGREGAR UNA CIUDAD: copia un objeto completo dentro de
+   CIUDADES (por ej. el de Tarija), cámbiale el id, textos,
+   centro del mapa y contenido. El selector, el mapa, los
+   filtros y todas las secciones se generan solos.
+
+   Cada ciudad incluye también: platos[], itinerarios[], tips[]
+   y fotoGuia[] (consejos fotográficos generales de la ciudad).
+
+   Para AGREGAR UN LUGAR: añade un objeto al array `lugares`
+   de su ciudad con estos campos:
+     n     nombre                    lat/lng  coordenadas
+     cats  ['turistico'|'comida'|'fotos'|'excursiones'] (1 o más;
+           la primera define el color del marcador)
+     emoji ícono del marcador        d   descripción
+     h horario · p precio · t tiempo de visita · tip consejo local
+     foto  (opcional) nota fotográfica profesional: mejor luz,
+           lente/focal, ajustes y composición. Se muestra como
+           bloque "📷 Nota del fotógrafo" solo si existe.
+   ============================================================ */
+
 const CAT = {
   turistico:{color:'#2E6B4F', nombre:'Turístico'},
   comida:{color:'#C43A72', nombre:'Dónde comer'},
@@ -283,103 +235,435 @@ const CAT = {
   excursiones:{color:'#C98A1E', nombre:'Excursión'}
 };
 
-const LUGARES = [
-  {n:'Cristo de la Concordia', lat:-17.3842, lng:-66.1349, cats:['turistico','fotos'], emoji:'✝️',
-   d:'La estatua de Cristo más alta de Sudamérica (34 m, más que el Corcovado), sobre el cerro San Pedro. Se sube en teleférico o por escalinatas.',
-   h:'Teleférico mar–dom, aprox. 9:00–17:00', p:'Teleférico económico (Bs 15 aprox. ida y vuelta)', t:'1–2 h',
-   tip:'Sube temprano en la mañana: la luz es mejor para fotos del valle y hay menos gente. Los domingos se puede subir al interior de la estatua.'},
-  {n:'Plaza 14 de Septiembre', lat:-17.3936, lng:-66.1568, cats:['turistico'], emoji:'🏛️',
-   d:'El corazón colonial de la ciudad, rodeada de arquerías, la Catedral y edificios históricos. Punto de partida ideal para recorrer el centro a pie.',
-   h:'Siempre abierta', p:'Gratis', t:'30 min',
-   tip:'Desde aquí caminas a la Catedral, al Convento de Santa Teresa y a la calle España en menos de 10 minutos.'},
-  {n:'Catedral Metropolitana', lat:-17.3941, lng:-66.1566, cats:['turistico'], emoji:'⛪',
-   d:'La iglesia más antigua de Cochabamba (siglo XVIII), con interior de estilo barroco mestizo y frescos restaurados.',
-   h:'Alrededor de los horarios de misa', p:'Gratis', t:'30 min',
-   tip:'Entra al final de la tarde, cuando la luz atraviesa la nave.'},
-  {n:'La Cancha', lat:-17.4014, lng:-66.1544, cats:['turistico','comida'], emoji:'🧺',
-   d:'Uno de los mercados al aire libre más grandes de Sudamérica: un laberinto de puestos con frutas del valle, textiles, hierbas y comedores populares.',
-   h:'Todos los días; miércoles y sábado son los más movidos', p:'Gratis (lleva efectivo chico)', t:'2–3 h',
-   tip:'Prueba un api con pastel a media mañana. Cuida tus pertenencias, como en todo gran mercado.'},
-  {n:'Palacio Portales', lat:-17.3757, lng:-66.1519, cats:['turistico','fotos'], emoji:'🏰',
-   d:'La mansión del "rey del estaño" Simón I. Patiño: salones europeos de lujo y jardines de inspiración versallesca. Hoy es centro cultural.',
-   h:'Visitas guiadas mar–dom en horarios fijos', p:'Entrada económica', t:'1–1.5 h',
-   tip:'Los jardines son de los rincones más fotogénicos de la ciudad. Llega unos minutos antes de la visita guiada.'},
-  {n:'Convento de Santa Teresa', lat:-17.3953, lng:-66.1533, cats:['turistico'], emoji:'🕯️',
-   d:'Convento de clausura del siglo XVIII convertido en museo. Sus patios, celdas y arte colonial cuentan la vida oculta de las monjas carmelitas.',
-   h:'Visitas guiadas, lun–sáb', p:'Entrada económica', t:'1 h',
-   tip:'Solo se visita con guía y los cupos son limitados: pregunta los horarios en la puerta al empezar tu día en el centro.'},
-  {n:'La Coronilla (Colina San Sebastián)', lat:-17.4003, lng:-66.1607, cats:['turistico'], emoji:'🗿',
-   d:'Colina histórica con el monumento a las Heroínas de la Coronilla, que defendieron la ciudad en 1812. Vista abierta hacia el centro.',
-   h:'De día', p:'Gratis', t:'30 min',
-   tip:'Visítala de día y acompañado; combina bien con La Cancha, que está al lado.'},
-  {n:'Laguna Alalay', lat:-17.4110, lng:-66.1350, cats:['fotos','turistico'], emoji:'🦩',
-   d:'Gran laguna urbana rodeada por un circuito para caminar o pedalear. Refugio de aves: garzas, patos y, con suerte, flamencos.',
-   h:'Siempre; mejor al amanecer o atardecer', p:'Gratis', t:'1–2 h',
-   tip:'Al atardecer el Tunari se refleja en el agua: la mejor postal gratuita de la ciudad. Lleva lente de zoom si te gustan las aves.'},
-  {n:'Parque Nacional Tunari (acceso)', lat:-17.3395, lng:-66.1830, cats:['turistico','fotos'], emoji:'⛰️',
-   d:'La cordillera que abraza la ciudad. Senderos entre bosques, miradores sobre todo el valle y, para los fuertes, la cumbre del Tunari (5.035 m).',
-   h:'Todo el día; sal temprano', p:'Gratis', t:'Medio día',
-   tip:'Incluso sin caminar mucho, los primeros miradores del camino ofrecen vistas enormes. En la tarde suele nublarse.'},
-  {n:'La Recoleta', lat:-17.3782, lng:-66.1495, cats:['fotos','comida'], emoji:'🌆',
-   d:'Zona de templo colonial, plazuela y la mayor concentración de buenos restaurantes y cafés de la ciudad. El punto de encuentro cochabambino.',
-   h:'Mejor en la tarde-noche', p:'Gratis pasear', t:'1–2 h',
-   tip:'Ven al atardecer: fotos en la plazuela y luego cena en cualquiera de los restaurantes de la zona sin mover el auto.'},
-  {n:'Casa de Campo', lat:-17.3793, lng:-66.1497, cats:['comida'], emoji:'🥘',
-   d:'El clásico para comida típica cochala en la Recoleta: pique macho, chicharrón, lapping y platos abundantes para compartir.',
-   h:'Almuerzo y cena', p:'Bs 50–90 por plato aprox.', t:'1.5 h',
-   tip:'El pique macho es para 2–3 personas aunque diga "personal". Acompáñalo con una chicha o un mocochinchi.'},
-  {n:'La Estancia', lat:-17.3787, lng:-66.1483, cats:['comida'], emoji:'🥩',
-   d:'Churrasquería de referencia: cortes a la parrilla, ensaladas de barra y ambiente familiar. Ideal si viajas en grupo.',
-   h:'Almuerzo y cena', p:'Bs 60–120 aprox.', t:'1.5 h',
-   tip:'Los fines de semana al mediodía se llena: reserva o llega antes de la 1 de la tarde.'},
-  {n:'Paprika', lat:-17.3800, lng:-66.1508, cats:['comida'], emoji:'☕',
-   d:'Café-restaurante de ambiente relajado en la Recoleta: desayunos, brunch, opciones internacionales y buena repostería.',
-   h:'De desayuno a cena', p:'Bs 30–70 aprox.', t:'1 h',
-   tip:'Buen plan para un desayuno largo antes de subir al Cristo, que queda cerca en auto.'},
-  {n:'Gopal', lat:-17.3906, lng:-66.1580, cats:['comida'], emoji:'🥗',
-   d:'Institución vegetariana del centro (calle España): buffet económico al mediodía con cocina casera y opciones veganas.',
-   h:'Almuerzo, aprox. 12:00–14:30', p:'Buffet muy económico', t:'1 h',
-   tip:'Llega entre 12:00 y 13:00, cuando el buffet está más fresco y variado. La calle España está llena de cafés para el postre.'},
-  {n:'Heladería Dumbo (El Prado)', lat:-17.3888, lng:-66.1573, cats:['comida'], emoji:'🍨',
-   d:'Heladería-cafetería clásica de generaciones de cochabambinos, sobre el paseo de El Prado. Helados, salteñas y meriendas.',
-   h:'Todo el día', p:'Económico', t:'45 min',
-   tip:'Pide una salteña a media mañana, como manda la tradición: se come con cuchara y sin derramar el juguito.'},
-  {n:'Plaza Colón y El Prado', lat:-17.3893, lng:-66.1562, cats:['fotos'], emoji:'⛲',
-   d:'Plaza de jardines y fuentes donde nace El Prado (paseo Ballivián), la avenida arbolada más elegante de la ciudad.',
-   h:'Siempre abierta', p:'Gratis', t:'45 min',
-   tip:'Los jacarandás en flor (septiembre–octubre) tiñen todo de violeta: la época dorada para fotografiar este paseo.'},
-  {n:'Mirador del teleférico', lat:-17.3866, lng:-66.1394, cats:['fotos'], emoji:'🚡',
-   d:'La cabina que sube al Cristo regala vistas aéreas de toda la mancha urbana con la cordillera del Tunari de fondo.',
-   h:'Mismo horario que el teleférico', p:'Incluido en el pasaje', t:'20 min',
-   tip:'Siéntate mirando al oeste para tener el valle de frente durante la subida. Cierra los días de mucho viento.'},
-  {n:'Quillacollo y el santuario de Urkupiña', lat:-17.3930, lng:-66.2790, cats:['excursiones'], emoji:'⛪',
-   d:'Ciudad vecina (a ~13 km) famosa por el santuario de la Virgen de Urkupiña y por su garapiña. En agosto acoge la festividad más grande del valle.',
-   h:'Fácil de visitar cualquier día; fiesta grande ~14–16 de agosto', p:'Trufi muy barato desde la ciudad', t:'Medio día',
-   tip:'Combínala con Pairumani: están en la misma dirección. Y sí: la garapiña es obligatoria.'},
-  {n:'Parque Pairumani (Villa Albina)', lat:-17.3600, lng:-66.3200, cats:['excursiones','fotos'], emoji:'🌳',
-   d:'Antigua hacienda de la familia Patiño en Vinto (~25 km): la elegante Villa Albina, jardines señoriales y un bosque ideal para picnic.',
-   h:'De día; la villa tiene horarios de visita limitados', p:'Entrada económica', t:'Medio día',
-   tip:'Perfecto para escapar del ruido un domingo. Lleva picnic y verifica los horarios de visita a la villa antes de ir.'},
-  {n:'Tarata (Valle Alto)', lat:-17.6090, lng:-66.0210, cats:['excursiones','fotos'], emoji:'🏘️',
-   d:'Pueblo colonial a ~35 km: calles empedradas, iglesia y convento históricos, y la cuna de la chicha del Valle Alto.',
-   h:'Mejor de día; los fines de semana hay más vida', p:'Trufi barato desde la Av. 6 de Agosto', t:'Día completo',
-   tip:'Si te alcanza el día, sigue hasta Punata o Cliza para comer el famoso pichón (palomino) del Valle Alto.'},
-  {n:'Incallajta', lat:-17.6080, lng:-65.4140, cats:['excursiones','turistico'], emoji:'🗺️',
-   d:'La ruina inca más importante de Bolivia, cerca de Pocona (~130 km): una fortaleza monumental con la kallanka techada más grande del imperio.',
-   h:'De día; ideal salir muy temprano', p:'Entrada económica + transporte', t:'Día completo',
-   tip:'El camino final es de tierra: mejor en tour o con movilidad alta. Lleva agua, snacks y zapatos de trekking.'},
-  {n:'Villa Tunari (Chapare)', lat:-16.9720, lng:-65.4210, cats:['excursiones'], emoji:'🐒',
-   d:'La puerta al trópico cochabambino (~160 km, 3–4 h): selva, ríos, el Parque Machía con monos rescatados y comida a base de pescado.',
-   h:'Todo el año; en época de lluvias hay más mosquitos', p:'Bus/trufi accesible; hospedajes de todo precio', t:'Fin de semana',
-   tip:'Pasas de valle seco a selva en una sola carretera. Prueba el pacú a la parrilla y lleva repelente sí o sí.'},
-  {n:'Toro Toro', lat:-18.1350, lng:-65.7630, cats:['excursiones','fotos'], emoji:'🦕',
-   d:'Parque nacional (en Potosí, pero se va desde Cochabamba, ~4–5 h): cañones vertiginosos, huellas de dinosaurio, cavernas y la Ciudad de Itas.',
-   h:'Se visita con guías locales obligatorios', p:'Entrada + guía, costo moderado', t:'2–3 días',
-   tip:'La joya de la región. Reserva al menos dos noches: el cañón de Toro Toro y la caverna de Umajalanta lo merecen.'}
+const CIUDADES = [
+{
+  id:'cochabamba',
+  nombre:'Cochabamba',
+  acento:'#2E6B4F',
+  eyebrow:'Guía de bolsillo · Valle de Cochabamba, Bolivia',
+  tituloHTML:'La <span class="ac">Llajta</span>,<br>paso a paso',
+  sub:'Ciudad de la eterna primavera y capital gastronómica de Bolivia. Busca, filtra por lo que te interesa, toca una ficha y el mapa te lleva al lugar.',
+  buscarPlaceholder:'Buscar lugar… (ej. Cristo, silpancho, Tarata)',
+  centro:[-17.390,-66.152], zoom:13,
+  platosIntro:'Cochabamba es la capital gastronómica de Bolivia: aquí se come mucho, rico y a toda hora. Estos son los imperdibles.',
+  tipsIntro:'Lo básico para moverte como un llajtino más.',
+  fotoGuiaIntro:'El plan de luz para el valle: cuándo, con qué equipo y cómo comportarse con la cámara al hombro.',
+  fotoGuia:[
+    {ic:'🗓️', b:'Mejor época', d:'septiembre–octubre por los jacarandás en flor; mayo–agosto (época seca) da cielos limpios y visibilidad total de la cordillera; diciembre–marzo trae valle verde y cielos dramáticos de tormenta.'},
+    {ic:'🌅', b:'Amanecer vs atardecer', d:'amanecer para el Cristo y el Tunari (aire más limpio y luz lateral sobre el valle); atardecer para Alalay, La Recoleta y El Prado. A 2.560 m el mediodía es duro: resérvalo para mercados e interiores.'},
+    {ic:'🎒', b:'Mochila sugerida', d:'un gran angular (16–35 mm), un tele (70–200 mm, o más para aves), polarizador, trípode liviano para la hora azul y batería extra. Con dos lentes cubres el 90% de la ciudad.'},
+    {ic:'🤝', b:'Etiqueta local', d:'en La Cancha y los mercados pide permiso antes de retratar a caseras y vendedores: una compra pequeña abre sonrisas. Sé discreto con equipo grande entre multitudes.'},
+    {ic:'🌌', b:'Cielo nocturno', d:'fuera de la mancha urbana (Tunari, Valle Alto) hay cielos oscuros de verdad; el núcleo de la Vía Láctea se ve mejor entre abril y septiembre.'},
+    {ic:'🚁', b:'Drones', d:'volar en Bolivia requiere autorización de la DGAC y hay restricciones cerca de aeropuertos — y el Jorge Wilstermann está dentro de la ciudad. Infórmate bien antes de despegar.'}
+  ],
+  lugares:[
+    {n:'Cristo de la Concordia', lat:-17.3842, lng:-66.1349, cats:['turistico','fotos'], emoji:'✝️',
+     d:'La estatua de Cristo más alta de Sudamérica (34 m, más que el Corcovado), sobre el cerro San Pedro. Se sube en teleférico o por escalinatas.',
+     h:'Teleférico mar–dom, aprox. 9:00–17:00', p:'Teleférico económico (Bs 15 aprox.)', t:'1–2 h',
+     tip:'Sube temprano: la luz es mejor para fotos del valle y hay menos gente. Los domingos se puede subir al interior de la estatua.',
+     foto:'Amanecer o última hora: luz lateral que modela el valle. Gran angular (16–24 mm) en contrapicado para la estatua contra el cielo, y un 70–200 mm para comprimir la ciudad con la cordillera. Coloca al Cristo en un tercio del encuadre, no al centro.'},
+    {n:'Plaza 14 de Septiembre', lat:-17.3936, lng:-66.1568, cats:['turistico'], emoji:'🏛️',
+     d:'El corazón colonial de la ciudad, rodeada de arquerías, la Catedral y edificios históricos. Punto de partida ideal para recorrer el centro a pie.',
+     h:'Siempre abierta', p:'Gratis', t:'30 min',
+     tip:'Desde aquí caminas a la Catedral, al Convento de Santa Teresa y a la calle España en menos de 10 minutos.'},
+    {n:'Catedral Metropolitana', lat:-17.3941, lng:-66.1566, cats:['turistico'], emoji:'⛪',
+     d:'La iglesia más antigua de Cochabamba (siglo XVIII), con interior de estilo barroco mestizo y frescos restaurados.',
+     h:'Alrededor de los horarios de misa', p:'Gratis', t:'30 min',
+     tip:'Entra al final de la tarde, cuando la luz atraviesa la nave.'},
+    {n:'La Cancha', lat:-17.4014, lng:-66.1544, cats:['turistico','comida'], emoji:'🧺',
+     d:'Uno de los mercados al aire libre más grandes de Sudamérica: un laberinto de puestos con frutas del valle, textiles, hierbas y comedores populares.',
+     h:'Todos los días; miércoles y sábado son los más movidos', p:'Gratis (lleva efectivo chico)', t:'2–3 h',
+     tip:'Prueba un api con pastel a media mañana. Cuida tus pertenencias, como en todo gran mercado.'},
+    {n:'Palacio Portales', lat:-17.3757, lng:-66.1519, cats:['turistico','fotos'], emoji:'🏰',
+     d:'La mansión del "rey del estaño" Simón I. Patiño: salones europeos de lujo y jardines de inspiración versallesca. Hoy es centro cultural.',
+     h:'Visitas guiadas mar–dom en horarios fijos', p:'Entrada económica', t:'1–1.5 h',
+     tip:'Los jardines son de los rincones más fotogénicos de la ciudad. Llega unos minutos antes de la visita guiada.',
+     foto:'Media mañana, con luz aún suave sobre los jardines. Usa las líneas de los setos como guías hacia la fachada (24–35 mm). En interiores, si permiten fotos: 35–50 mm luminoso a f/1.8–2.8 e ISO 800 sin miedo.'},
+    {n:'Convento de Santa Teresa', lat:-17.3953, lng:-66.1533, cats:['turistico'], emoji:'🕯️',
+     d:'Convento de clausura del siglo XVIII convertido en museo. Sus patios, celdas y arte colonial cuentan la vida oculta de las monjas carmelitas.',
+     h:'Visitas guiadas, lun–sáb', p:'Entrada económica', t:'1 h',
+     tip:'Solo se visita con guía y los cupos son limitados: pregunta los horarios en la puerta al empezar tu día en el centro.'},
+    {n:'La Coronilla (Colina San Sebastián)', lat:-17.4003, lng:-66.1607, cats:['turistico'], emoji:'🗿',
+     d:'Colina histórica con el monumento a las Heroínas de la Coronilla, que defendieron la ciudad en 1812. Vista abierta hacia el centro.',
+     h:'De día', p:'Gratis', t:'30 min',
+     tip:'Visítala de día y acompañado; combina bien con La Cancha, que está al lado.'},
+    {n:'Laguna Alalay', lat:-17.4110, lng:-66.1350, cats:['fotos','turistico'], emoji:'🦩',
+     d:'Gran laguna urbana rodeada por un circuito para caminar o pedalear. Refugio de aves: garzas, patos y, con suerte, flamencos.',
+     h:'Siempre; mejor al amanecer o atardecer', p:'Gratis', t:'1–2 h',
+     tip:'Al atardecer el Tunari se refleja en el agua: la mejor postal gratuita de la ciudad.',
+     foto:'Hora dorada y hora azul con viento en calma: el Tunari se refleja en el agua. Polarizador para controlar reflejos, trípode para la hora azul, y teleobjetivo de 300 mm+ a 1/1000 s o más para las aves.'},
+    {n:'Parque Nacional Tunari (acceso)', lat:-17.3395, lng:-66.1830, cats:['turistico','fotos'], emoji:'⛰️',
+     d:'La cordillera que abraza la ciudad. Senderos entre bosques, miradores sobre todo el valle y, para los fuertes, la cumbre del Tunari (5.035 m).',
+     h:'Todo el día; sal temprano', p:'Gratis', t:'Medio día',
+     tip:'Incluso sin caminar mucho, los primeros miradores del camino ofrecen vistas enormes. En la tarde suele nublarse.',
+     foto:'El mediodía aplana el valle: sube al amanecer. Panorámicas con 24–35 mm desde los miradores; el contraste cielo/valle es fuerte, así que haz bracketing o usa filtro ND degradado.'},
+    {n:'La Recoleta', lat:-17.3782, lng:-66.1495, cats:['fotos','comida'], emoji:'🌆',
+     d:'Zona de templo colonial, plazuela y la mayor concentración de buenos restaurantes y cafés de la ciudad. El punto de encuentro cochabambino.',
+     h:'Mejor en la tarde-noche', p:'Gratis pasear', t:'1–2 h',
+     tip:'Ven al atardecer: fotos en la plazuela y luego cena en cualquiera de los restaurantes de la zona sin mover el auto.',
+     foto:'Hora azul: faroles cálidos contra cielo índigo. 35 mm a f/2 para street, ISO 800–1600. La plazuela con el templo de fondo funciona mejor en formato vertical.'},
+    {n:'Casa de Campo', lat:-17.3793, lng:-66.1497, cats:['comida'], emoji:'🥘',
+     d:'El clásico para comida típica cochala en la Recoleta: pique macho, chicharrón, lapping y platos abundantes para compartir.',
+     h:'Almuerzo y cena', p:'Bs 50–90 por plato aprox.', t:'1.5 h',
+     tip:'El pique macho es para 2–3 personas aunque diga "personal". Acompáñalo con una chicha o un mocochinchi.'},
+    {n:'La Estancia', lat:-17.3787, lng:-66.1483, cats:['comida'], emoji:'🥩',
+     d:'Churrasquería de referencia: cortes a la parrilla, ensaladas de barra y ambiente familiar. Ideal si viajas en grupo.',
+     h:'Almuerzo y cena', p:'Bs 60–120 aprox.', t:'1.5 h',
+     tip:'Los fines de semana al mediodía se llena: reserva o llega antes de la 1 de la tarde.'},
+    {n:'Paprika', lat:-17.3800, lng:-66.1508, cats:['comida'], emoji:'☕',
+     d:'Café-restaurante de ambiente relajado en la Recoleta: desayunos, brunch, opciones internacionales y buena repostería.',
+     h:'De desayuno a cena', p:'Bs 30–70 aprox.', t:'1 h',
+     tip:'Buen plan para un desayuno largo antes de subir al Cristo, que queda cerca en auto.'},
+    {n:'Gopal', lat:-17.3906, lng:-66.1580, cats:['comida'], emoji:'🥗',
+     d:'Institución vegetariana del centro (calle España): buffet económico al mediodía con cocina casera y opciones veganas.',
+     h:'Almuerzo, aprox. 12:00–14:30', p:'Buffet muy económico', t:'1 h',
+     tip:'Llega entre 12:00 y 13:00, cuando el buffet está más fresco. La calle España está llena de cafés para el postre.'},
+    {n:'Heladería Dumbo (El Prado)', lat:-17.3888, lng:-66.1573, cats:['comida'], emoji:'🍨',
+     d:'Heladería-cafetería clásica de generaciones de cochabambinos, sobre el paseo de El Prado. Helados, salteñas y meriendas.',
+     h:'Todo el día', p:'Económico', t:'45 min',
+     tip:'Pide una salteña a media mañana, como manda la tradición: se come con cuchara y sin derramar el juguito.'},
+    {n:'Plaza Colón y El Prado', lat:-17.3893, lng:-66.1562, cats:['fotos'], emoji:'⛲',
+     d:'Plaza de jardines y fuentes donde nace El Prado (paseo Ballivián), la avenida arbolada más elegante de la ciudad.',
+     h:'Siempre abierta', p:'Gratis', t:'45 min',
+     tip:'Los jacarandás en flor (septiembre–octubre) tiñen todo de violeta: la época dorada para fotografiar este paseo.',
+     foto:'En jacarandás (sep–oct), dispara a contraluz suave para que el violeta “flote”. Un 85 mm abre bokeh de flores; en el bulevar usa la perspectiva del paseo como línea de fuga central.'},
+    {n:'Mirador del teleférico', lat:-17.3866, lng:-66.1394, cats:['fotos'], emoji:'🚡',
+     d:'La cabina que sube al Cristo regala vistas aéreas de toda la mancha urbana con la cordillera del Tunari de fondo.',
+     h:'Mismo horario que el teleférico', p:'Incluido en el pasaje', t:'20 min',
+     tip:'Siéntate mirando al oeste para tener el valle de frente durante la subida. Cierra los días de mucho viento.',
+     foto:'Pega el lente al vidrio de la cabina y tapa reflejos con la mano o el parasol. Mínimo 1/500 s por el movimiento. Siéntate mirando al oeste para tener el valle de frente.'},
+    {n:'Quillacollo y el santuario de Urkupiña', lat:-17.3930, lng:-66.2790, cats:['excursiones'], emoji:'⛪',
+     d:'Ciudad vecina (a ~13 km) famosa por el santuario de la Virgen de Urkupiña y por su garapiña. En agosto acoge la festividad más grande del valle.',
+     h:'Cualquier día; fiesta grande ~14–16 de agosto', p:'Trufi muy barato desde la ciudad', t:'Medio día',
+     tip:'Combínala con Pairumani: están en la misma dirección. Y sí: la garapiña es obligatoria.'},
+    {n:'Parque Pairumani (Villa Albina)', lat:-17.3600, lng:-66.3200, cats:['excursiones','fotos'], emoji:'🌳',
+     d:'Antigua hacienda de la familia Patiño en Vinto (~25 km): la elegante Villa Albina, jardines señoriales y un bosque ideal para picnic.',
+     h:'De día; la villa tiene horarios de visita limitados', p:'Entrada económica', t:'Medio día',
+     tip:'Perfecto para escapar del ruido un domingo. Lleva picnic y verifica los horarios de visita a la villa antes de ir.',
+     foto:'La luz filtrada del bosque es ideal: un día nublado suave es tu aliado. 50 mm a f/2 para retratos entre árboles; la fachada de Villa Albina pide un 24 mm frontal y simétrico.'},
+    {n:'Tarata (Valle Alto)', lat:-17.6090, lng:-66.0210, cats:['excursiones','fotos'], emoji:'🏘️',
+     d:'Pueblo colonial a ~35 km: calles empedradas, iglesia y convento históricos, y la cuna de la chicha del Valle Alto.',
+     h:'Mejor de día; los fines de semana hay más vida', p:'Trufi barato desde la Av. 6 de Agosto', t:'Día completo',
+     tip:'Si te alcanza el día, sigue hasta Punata o Cliza para comer el famoso pichón del Valle Alto.',
+     foto:'Adobe y empedrado: pura textura. Búscala con luz dorada rasante de última hora. 28–35 mm para street y usa puertas y arcos coloniales como marcos naturales.'},
+    {n:'Incallajta', lat:-17.6080, lng:-65.4140, cats:['excursiones','turistico'], emoji:'🗺️',
+     d:'La ruina inca más importante de Bolivia, cerca de Pocona (~130 km): una fortaleza monumental con la kallanka techada más grande del imperio.',
+     h:'De día; ideal salir muy temprano', p:'Entrada económica + transporte', t:'Día completo',
+     tip:'El camino final es de tierra: mejor en tour o con movilidad alta. Lleva agua, snacks y zapatos de trekking.'},
+    {n:'Villa Tunari (Chapare)', lat:-16.9720, lng:-65.4210, cats:['excursiones'], emoji:'🐒',
+     d:'La puerta al trópico cochabambino (~160 km, 3–4 h): selva, ríos, el Parque Machía con monos rescatados y comida a base de pescado.',
+     h:'Todo el año; en época de lluvias hay más mosquitos', p:'Bus/trufi accesible', t:'Fin de semana',
+     tip:'Pasas de valle seco a selva en una sola carretera. Prueba el pacú a la parrilla y lleva repelente sí o sí.'},
+    {n:'Toro Toro', lat:-18.1350, lng:-65.7630, cats:['excursiones','fotos'], emoji:'🦕',
+     d:'Parque nacional (en Potosí, pero se va desde Cochabamba, ~4–5 h): cañones vertiginosos, huellas de dinosaurio, cavernas y la Ciudad de Itas.',
+     h:'Se visita con guías locales obligatorios', p:'Entrada + guía, costo moderado', t:'2–3 días',
+     tip:'La joya de la región. Reserva al menos dos noches: el cañón de Toro Toro y la caverna de Umajalanta lo merecen.',
+     foto:'En el mirador del cañón: gran angular 14–20 mm; al amanecer suele haber niebla en el fondo. En las cavernas necesitas f/2.8, ISO alto y una linterna para pintar con luz. Las huellas de dinosaurio, con luz rasante de mañana o tarde.'}
+  ],
+  platos:[
+    {n:'Silpancho', d:'Carne apanada muy fina sobre arroz y papa, coronada con huevo frito y sarza de tomate y cebolla. El plato cochabambino por excelencia.', donde:'Silpancherías de barrio, sobre todo por la Av. América y Cala Cala, al atardecer.'},
+    {n:'Pique macho', d:'Montaña de carne, salchicha, papas fritas, locoto y huevo. Nació en La Llajta y se come en grupo.', donde:'Casa de Campo (Recoleta) es el clásico.'},
+    {n:'Salteña', d:'Empanada jugosa de carne o pollo que se come a media mañana, con cuchara y técnica para no mancharse.', donde:'Salteñerías del centro y El Prado, entre 9:00 y 12:00; después se acaban.'},
+    {n:'Chicharrón con mote', d:'Cerdo cocido en su propia grasa, servido con mote de maíz y llajwa. Plato de fin de semana.', donde:'Sacaba y El Abra son la meca; también en los comedores de La Cancha.'},
+    {n:'Api con pastel', d:'Bebida caliente de maíz morado con canela, con un pastel frito de queso espolvoreado con azúcar. Desayuno de mercado.', donde:'Puestos de La Cancha y mercados, temprano en la mañana.'},
+    {n:'Garapiña', d:'Chicha frozen con canela y coco: refresco tradicional del valle, con o sin alcohol.', donde:'Quillacollo es su tierra; pídela bien helada.'}
+  ],
+  itinerarios:[
+    {t:'1 día esencial', pasos:[
+      '<b>Mañana:</b> sube temprano al Cristo de la Concordia en teleférico.',
+      '<b>Media mañana:</b> salteña en El Prado y paseo hasta la Plaza Colón.',
+      '<b>Mediodía:</b> centro histórico — Plaza 14 de Septiembre, Catedral y Convento de Santa Teresa.',
+      '<b>Almuerzo:</b> buffet en Gopal o comida típica en Casa de Campo.',
+      '<b>Tarde:</b> piérdete (con cuidado) en La Cancha.',
+      '<b>Atardecer:</b> fotos y cena en La Recoleta.']},
+    {t:'Fin de semana completo', pasos:[
+      '<b>Día 1:</b> el itinerario esencial de arriba.',
+      '<b>Día 2 mañana:</b> Palacio Portales y sus jardines.',
+      '<b>Día 2 mediodía:</b> escapada a Pairumani o Tarata; chicharrón de camino.',
+      '<b>Día 2 tarde:</b> vuelta por Quillacollo (garapiña incluida).',
+      '<b>Día 2 atardecer:</b> cierre en la Laguna Alalay con el Tunari de fondo.',
+      '<b>¿Un día más?</b> Incallajta, Villa Tunari o Toro Toro te esperan.']}
+  ],
+  tips:[
+    {ic:'⛰️', b:'Altura', d:'la ciudad está a ~2.560 m. Es más suave que La Paz, pero hidrátate bien y tómalo con calma el primer día.'},
+    {ic:'☀️', b:'Clima', d:'soleado casi todo el año, seco y con sol fuerte: bloqueador y gorra siempre. Las lluvias se concentran entre diciembre y marzo.'},
+    {ic:'🚐', b:'Cómo moverse', d:'trufis y micros son baratísimos y cubren toda la ciudad; para más comodidad usa taxis de aplicación o radiotaxis, sobre todo de noche.'},
+    {ic:'💵', b:'Efectivo', d:'en mercados, trufis y puestos callejeros solo aceptan bolivianos en billetes chicos. Los restaurantes formales aceptan tarjeta o QR.'},
+    {ic:'🎉', b:'Urkupiña', d:'a mediados de agosto, la festividad de la Virgen de Urkupiña en Quillacollo es la fiesta más grande del valle: danzas, música y multitudes.'},
+    {ic:'🕐', b:'Ritmo local', d:'la salteña es de media mañana, el almuerzo es la comida fuerte del día y muchos museos cierran al mediodía. Planifica con siesta incluida.'}
+  ]
+},
+{
+  id:'tarija',
+  nombre:'Tarija',
+  acento:'#8A2B4A',
+  eyebrow:'Guía de bolsillo · Valle Central de Tarija, Bolivia',
+  tituloHTML:'Tarija la <span class="ac">linda</span>,<br>sin apuro',
+  sub:'La "Andalucía boliviana": clima suave, gente chapaca de sonrisa fácil y los viñedos más altos del mundo. Busca, filtra y deja que el mapa te guíe, copa en mano.',
+  buscarPlaceholder:'Buscar lugar… (ej. vino, Coimata, saice)',
+  centro:[-21.535,-64.730], zoom:13,
+  platosIntro:'La cocina chapaca es de valle y de río: platos criollos contundentes, dulces de horno y, por supuesto, vino y singani de altura.',
+  tipsIntro:'Lo básico para vivir Tarija al ritmo chapaco.',
+  fotoGuiaIntro:'Tarija es un destino de teleobjetivo y luz dorada: viñedos, fauna de altura y cañones. Así se planifica.',
+  fotoGuia:[
+    {ic:'🗓️', b:'Mejor época', d:'la vendimia (febrero–marzo) llena los viñedos de racimos y movimiento; marzo–mayo el valle sigue verde con luz suave; junio–agosto hay cielos limpios ideales para paisaje y astrofotografía.'},
+    {ic:'🌅', b:'Amanecer vs atardecer', d:'el atardecer desde la Loma de San Juan es el clásico; el amanecer vale oro en Sama (fauna activa, luz rasante en las dunas) y en los viñedos con niebla baja.'},
+    {ic:'🎒', b:'Mochila sugerida', d:'aquí manda el teleobjetivo: 300 mm o más para cóndores y flamencos. Suma un ND para las cascadas de Coimata, polarizador para los ríos y un 35–50 mm luminoso para bodegas.'},
+    {ic:'🤝', b:'Etiqueta local', d:'en las bodegas pregunta antes de fotografiar procesos y personal. Los chapacos son abiertos: una charla previa convierte un retrato robado en uno memorable.'},
+    {ic:'🌌', b:'Cielo nocturno', d:'las lagunas de Tajzara (Sama), a 3.400 m, tienen cielos de nivel astro: Vía Láctea de abril a septiembre. Eso sí, el frío nocturno es serio y agota baterías.'},
+    {ic:'🚁', b:'Drones', d:'igual que en todo el país, la DGAC exige autorización. En la Reserva de Sama y el Valle de los Cóndores consulta además a los guías: los drones estresan a la fauna.'}
+  ],
+  lugares:[
+    {n:'Plaza Luis de Fuentes y Vargas', lat:-21.5355, lng:-64.7296, cats:['turistico'], emoji:'🌴',
+     d:'La plaza principal, con palmeras, la estatua del fundador y el ambiente relajado que define a la ciudad. Todo el centro histórico se camina desde aquí.',
+     h:'Siempre abierta', p:'Gratis', t:'30 min',
+     tip:'Siéntate en una banca al atardecer: la plaza es el salón social de los tarijeños y el mejor lugar para sentir el ritmo chapaco.'},
+    {n:'Catedral de San Bernardo', lat:-21.5355, lng:-64.7320, cats:['turistico'], emoji:'⛪',
+     d:'La iglesia matriz de Tarija, dedicada al patrono de la ciudad. Guarda los restos de personajes históricos del sur boliviano.',
+     h:'Alrededor de los horarios de misa', p:'Gratis', t:'30 min',
+     tip:'A pocos pasos está la basílica de San Francisco, con uno de los conventos y bibliotecas antiguas más valiosos del país.'},
+    {n:'Casa Dorada', lat:-21.5340, lng:-64.7295, cats:['turistico','fotos'], emoji:'✨',
+     d:'Mansión de estilo art nouveau (1903) pintada de dorado por dentro y por fuera. Hoy es la Casa de la Cultura y el edificio más fotografiado del centro.',
+     h:'Visitas en horario de oficina, lun–vie', p:'Entrada económica o gratuita', t:'45 min',
+     tip:'Pide subir a los salones del segundo piso: los frescos y muebles de época son lo mejor de la visita.',
+     foto:'La fachada dorada explota con luz rasante de la tarde. 24 mm desde la esquina opuesta para captar ambas fachadas; aléjate un poco y corrige verticales para no distorsionar el edificio.'},
+    {n:'Museo Paleontológico y Arqueológico', lat:-21.5330, lng:-64.7300, cats:['turistico'], emoji:'🦴',
+     d:'Colección famosa de megafauna: restos de perezosos gigantes, gliptodontes y mastodontes hallados en el propio valle de Tarija.',
+     h:'Lun–sáb en horario de oficina', p:'Entrada económica', t:'1 h',
+     tip:'El valle tarijeño es uno de los yacimientos de megafauna más ricos de Sudamérica: aquí entiendes por qué.'},
+    {n:'Mirador Loma de San Juan', lat:-21.5405, lng:-64.7225, cats:['fotos'], emoji:'🌇',
+     d:'La colina-mirador de la ciudad: vista completa del valle, la cordillera de Sama al fondo y jardines para pasear.',
+     h:'Mejor de día y al atardecer', p:'Gratis', t:'45 min',
+     tip:'Sube para el atardecer: la luz dorada sobre el valle y los cerros es la postal clásica de Tarija.',
+     foto:'Atardecer: luz dorada sobre el valle con la cordillera de Sama de fondo. Panorámica con 24–35 mm y un 70–200 mm para capas de cerros. Quédate a la hora azul, cuando la ciudad enciende sus luces.'},
+    {n:'Plaza Sucre y sus cafés', lat:-21.5327, lng:-64.7350, cats:['fotos','comida'], emoji:'☕',
+     d:'Plazuela arbolada rodeada de cafés, heladerías y restaurantes con mesas al aire libre. El punto de encuentro juvenil de la ciudad.',
+     h:'Mejor en la tarde-noche', p:'Gratis pasear', t:'1–2 h',
+     tip:'Ideal para un café de media tarde o un helado de canela, el sabor tradicional tarijeño.',
+     foto:'Escenas de café y vida chapaca: 35–50 mm en tarde-noche. La luz cálida de las mesas al aire libre da un aire documental precioso. Para retratos cercanos, pide permiso primero.'},
+    {n:'Mercado Central', lat:-21.5343, lng:-64.7327, cats:['comida','turistico'], emoji:'🧺',
+     d:'El corazón gastronómico popular: desayunos, jugos de fruta del valle, y al mediodía saice, ranga y chancao en los comedores del segundo piso.',
+     h:'Todos los días, de mañana a media tarde', p:'Platos muy económicos', t:'1–1.5 h',
+     tip:'Pide un saice con arroz y ensalada, y de postre un jugo de uva en temporada de vendimia (febrero–marzo).'},
+    {n:'El Fogón del Gringo', lat:-21.5330, lng:-64.7390, cats:['comida'], emoji:'🥩',
+     d:'Parrilla de referencia en Tarija: cortes generosos, barra de ensaladas y buena carta de vinos locales.',
+     h:'Almuerzo y cena', p:'Bs 60–120 aprox.', t:'1.5 h',
+     tip:'Acompaña la carne con un tannat tarijeño: es la cepa insignia de la región.'},
+    {n:'Gattopardo (Plaza principal)', lat:-21.5352, lng:-64.7300, cats:['comida'], emoji:'🍕',
+     d:'Café-restaurante clásico frente a la plaza principal: pizzas, pastas, platos locales y mesas perfectas para ver pasar la ciudad.',
+     h:'De desayuno a cena', p:'Bs 40–90 aprox.', t:'1–1.5 h',
+     tip:'Su terraza sobre la plaza es de los mejores lugares para una copa de vino al caer la tarde.'},
+    {n:'Valle de la Concepción (Ruta del Vino)', lat:-21.6870, lng:-64.6070, cats:['excursiones','comida'], emoji:'🍇',
+     d:'El corazón vitivinícola de Bolivia (~25 km): viñedos de altura, bodegas grandes y artesanales, y el pueblito de La Concepción para almorzar.',
+     h:'Bodegas abren mejor de jue–dom; confirma visitas', p:'Tours y degustaciones de costo moderado', t:'Día completo',
+     tip:'La vendimia (febrero–marzo) es la mejor época: fiesta, uva fresca y vino patero recién pisado.'},
+    {n:'Bodega Casa Vieja', lat:-21.6900, lng:-64.6050, cats:['excursiones','comida','fotos'], emoji:'🍷',
+     d:'Bodega artesanal histórica en una casona colonial de La Concepción: vino patero, singani y almuerzos criollos bajo la parra.',
+     h:'Mejor fines de semana al mediodía', p:'Degustación y almuerzo accesibles', t:'2–3 h',
+     tip:'Llega con hambre: el almuerzo criollo con vino de la casa y música en vivo los domingos es una experiencia completa.',
+     foto:'Interior de adobe con luz de ventana: f/2 e ISO 800+. La parra del patio a contraluz del mediodía crea un moteado hermoso. Detalles de barricas, botellas y manos vendimiando con un 50 mm.'},
+    {n:'Tomatitas', lat:-21.5030, lng:-64.7660, cats:['excursiones','fotos'], emoji:'🏞️',
+     d:'Balneario natural a ~5 km donde se juntan los ríos Guadalquivir y Erquis: pozas para refrescarse, sauces y comedores campestres.',
+     h:'De día; fines de semana muy concurrido', p:'Gratis; comida económica', t:'Medio día',
+     tip:'Prueba los famosos cangrejitos fritos de Tomatitas con llajwa: el bocado más típico del lugar.',
+     foto:'Polarizador para saturar el verde de los sauces y quitar brillos del río. Con trípode o apoyo, velocidades de 1/8–1/2 s sedan el agua de las pozas sin perder textura.'},
+    {n:'Cascadas de Coimata', lat:-21.4920, lng:-64.8030, cats:['excursiones','fotos'], emoji:'💦',
+     d:'Pozas y cascadas entre vegetación a ~15 km de la ciudad: caminata corta, agua fría y paisaje de quebrada.',
+     h:'De día; mejor con sol', p:'Ingreso simbólico o gratuito', t:'Medio día',
+     tip:'Combínala con Tomatitas: están en la misma ruta. Lleva zapatos con agarre para las piedras húmedas.',
+     foto:'Sedas de agua: filtro ND de 3–6 pasos y trípode para exposiciones de 0.5–2 s. Llega temprano para luz suave en la quebrada y cuida el rocío en el lente: lleva paño de microfibra.'},
+    {n:'San Lorenzo', lat:-21.4230, lng:-64.7550, cats:['excursiones','turistico'], emoji:'🏘️',
+     d:'Pueblo colonial a ~15 km, cuna del caudillo chapaco Eustaquio "Moto" Méndez, cuya casa es museo. Calles tranquilas y hornos de rosquetes.',
+     h:'De día; el museo cierra al mediodía', p:'Entrada económica', t:'Medio día',
+     tip:'Compra rosquetes y empanadas blanqueadas recién horneadas: San Lorenzo es famoso por su dulcería tradicional.'},
+    {n:'Reserva de Sama (lagunas de Tajzara)', lat:-21.7300, lng:-65.0300, cats:['excursiones','fotos'], emoji:'🦩',
+     d:'Altiplano a ~2 h de la ciudad: lagunas altoandinas con flamencos, dunas de arena y silencio total a más de 3.400 m.',
+     h:'De día; sal temprano y abrígate', p:'Ingreso a la reserva económico', t:'Día completo',
+     tip:'El contraste es brutal: sales del valle templado y en dos horas estás en puna con flamencos. Lleva abrigo aunque haga calor abajo.',
+     foto:'Luz altiplánica dura y cielos limpísimos. Flamencos con 400 mm+ a 1/2000 s; dunas al atardecer con sombras largas. La hora azul es espectacular, pero el frío agota baterías: lleva repuesto en un bolsillo abrigado.'},
+    {n:'Valle de los Cóndores', lat:-22.0200, lng:-64.8300, cats:['excursiones','fotos'], emoji:'🦅',
+     d:'Cañones cerca de Padcaya donde los cóndores vuelan a la altura de tus ojos. Una de las experiencias naturales más impresionantes del sur boliviano.',
+     h:'Con tour o guía local; caminatas exigentes', p:'Tour de costo moderado', t:'1–2 días',
+     tip:'Ve con guía y madruga: las corrientes térmicas de media mañana son el momento en que los cóndores planean más cerca.',
+     foto:'Cóndores a la altura del ojo: 300–600 mm, 1/2500 s, ráfaga y AF continuo. Media mañana, cuando suben las térmicas. Subexpón −0.7 EV para no quemar el blanco del collar contra el plumaje oscuro.'}
+  ],
+  platos:[
+    {n:'Saice tarijeño', d:'Guiso de carne molida con papa, arveja y ají colorado, servido con arroz, fideo o ambos. El plato bandera chapaco.', donde:'Comedores del Mercado Central, al mediodía.'},
+    {n:'Ranga', d:'Guiso de panza de res en salsa amarilla de ají, con papa blanca. Sabor fuerte y muy tradicional.', donde:'Mercados y picanterías tradicionales del centro.'},
+    {n:'Chancao de gallina', d:'Gallina criolla en salsa picante de ají amarillo: el plato dominguero de las familias tarijeñas.', donde:'Restaurantes campestres camino a San Lorenzo y Tomatitas.'},
+    {n:'Cangrejitos de Tomatitas', d:'Pequeños cangrejos de río fritos, crocantes, que se comen enteros con llajwa y mote.', donde:'Puestos y comedores del balneario de Tomatitas.'},
+    {n:'Rosquetes y empanadas blanqueadas', d:'Dulces de horno cubiertos de merengue blanco: la repostería chapaca de las fiestas.', donde:'San Lorenzo y dulcerías tradicionales del centro.'},
+    {n:'Vino y singani de altura', d:'Los viñedos más altos del mundo (1.800–2.400 m) dan tannat potentes y el singani, el destilado nacional de uva moscatel.', donde:'Ruta del Vino del Valle de la Concepción; Casa Vieja para lo artesanal.'}
+  ],
+  itinerarios:[
+    {t:'1 día esencial', pasos:[
+      '<b>Mañana:</b> plaza principal, Catedral y la Casa Dorada.',
+      '<b>Media mañana:</b> Museo Paleontológico para saludar a los perezosos gigantes.',
+      '<b>Almuerzo:</b> saice en el Mercado Central.',
+      '<b>Tarde:</b> café o helado de canela en la Plaza Sucre.',
+      '<b>Atardecer:</b> vista del valle desde la Loma de San Juan.',
+      '<b>Noche:</b> cena y tannat en El Fogón del Gringo o Gattopardo.']},
+    {t:'Fin de semana completo', pasos:[
+      '<b>Día 1:</b> el itinerario esencial de arriba.',
+      '<b>Día 2 mañana:</b> Ruta del Vino en el Valle de la Concepción.',
+      '<b>Día 2 mediodía:</b> almuerzo criollo con vino patero en Casa Vieja.',
+      '<b>Día 2 tarde:</b> chapuzón en Tomatitas o caminata a las cascadas de Coimata.',
+      '<b>Día 2 atardecer:</b> rosquetes en San Lorenzo de vuelta a la ciudad.',
+      '<b>¿Un día más?</b> Flamencos en Sama o cóndores en el Valle de los Cóndores.']}
+  ],
+  tips:[
+    {ic:'🌤️', b:'Clima', d:'Tarija está a ~1.870 m: el valle más templado de Bolivia. Días cálidos, noches frescas y sol fuerte: bloqueador siempre.'},
+    {ic:'🍷', b:'Vino', d:'la vendimia (febrero–marzo) llena el valle de fiesta y uva fresca. Muchas bodegas piden reservar la visita: confirma antes de ir.'},
+    {ic:'🚕', b:'Cómo moverse', d:'el centro se camina entero; para Tomatitas, San Lorenzo o el Valle hay trufis baratos y taxis accesibles. Para Sama o los cóndores, mejor tour.'},
+    {ic:'😴', b:'Ritmo chapaco', d:'la siesta es sagrada: muchos negocios cierran entre 12:30 y 15:00. Planifica las visitas de museos por la mañana.'},
+    {ic:'💵', b:'Efectivo', d:'mercados, balnearios y bodegas pequeñas funcionan con efectivo en bolivianos. Los restaurantes del centro aceptan tarjeta o QR.'},
+    {ic:'🎉', b:'Fiestas', d:'San Roque (agosto–septiembre) llena la ciudad de chunchos danzantes: es la fiesta mayor chapaca y patrimonio cultural.'}
+  ]
+},
+{
+  id:'mendoza',
+  nombre:'Mendoza',
+  acento:'#5E2750',
+  eyebrow:'Guía de bolsillo · Mendoza, Argentina',
+  tituloHTML:'Mendoza, del <span class="ac">sol</span><br>y del buen vino',
+  sub:'Capital mundial del Malbec al pie de los Andes: una ciudad de plazas y acequias, rodeada de viñedos y con el Aconcagua como telón de fondo. Busca, filtra y sal a recorrerla, copa en mano.',
+  buscarPlaceholder:'Buscar lugar… (ej. Malbec, Aconcagua, asado)',
+  centro:[-32.889,-68.845], zoom:13,
+  platosIntro:'La mesa mendocina es parrilla, horno de barro y aceite de oliva, todo regado con los vinos de altura más famosos de Sudamérica.',
+  tipsIntro:'Lo básico para moverte como un mendocino más.',
+  fotoGuia:[
+    {ic:'🗓️', b:'Mejor época', d:'la vendimia (febrero–marzo) llena los viñedos de actividad; el otoño (abril–mayo) los tiñe de rojos y dorados — la postal más buscada de Mendoza; en invierno los Andes nevados dan fondos espectaculares.'},
+    {ic:'🌅', b:'Amanecer vs atardecer', d:'al amanecer la luz enciende de frente la cordillera (los Andes están al oeste): es el momento para viñedos con montaña de fondo. El atardecer es para el Cerro de la Gloria y la ciudad a contraluz.'},
+    {ic:'🎒', b:'Mochila sugerida', d:'gran angular para bodegas y montaña, un 70–200 mm para comprimir hileras de viñas contra los Andes, polarizador para el cielo seco cuyano y protección contra el polvo si sopla el viento Zonda.'},
+    {ic:'🤝', b:'Etiqueta local', d:'en bodegas pregunta antes de fotografiar salas de barricas y personal; muchas piden reservar la visita. En la calle, los mendocinos son relajados con la cámara, pero la siesta es sagrada: medio día de calles vacías.'},
+    {ic:'🌌', b:'Cielo nocturno', d:'el aire seco de montaña regala cielos limpios: Uspallata y el Valle de Uco son bases ideales para Vía Láctea entre abril y septiembre, con viñedos o picos nevados en primer plano.'},
+    {ic:'🚁', b:'Drones', d:'en Argentina los regula la ANAC: registro y restricciones según zona. En el Parque Aconcagua y reservas provinciales consulta antes de volar; cerca del aeropuerto El Plumerillo está prohibido.'}
+  ],
+  lugares:[
+    {n:'Plaza Independencia', lat:-32.8895, lng:-68.8458, cats:['turistico'], emoji:'⛲',
+     d:'La plaza mayor de la ciudad: cuatro manzanas de árboles, fuentes y ferias de artesanos, con el teatro Independencia y museos alrededor.',
+     h:'Siempre abierta; feria de artesanos por las tardes', p:'Gratis', t:'45 min',
+     tip:'Desde aquí nacen las cuatro plazas satélite (España, Italia, Chile y San Martín), a dos cuadras cada una: un paseo redondo de una mañana.'},
+    {n:'Plaza España', lat:-32.8930, lng:-68.8420, cats:['fotos'], emoji:'🎨',
+     d:'La más bonita de las plazas mendocinas: bancos, fuentes y murales revestidos de azulejos andaluces que cuentan la historia de la hermandad hispano-argentina.',
+     h:'Siempre abierta', p:'Gratis', t:'30 min',
+     foto:'Los azulejos piden detalle: un 35–50 mm y luz suave de media mañana, cuando el sol aún no lava los colores. El mural principal, de frente y en vertical; busca simetrías en las fuentes.',
+     tip:'Ve temprano: es pequeña y muy fotografiada. Los detalles de cerámica son el verdadero tesoro.'},
+    {n:'Peatonal Sarmiento', lat:-32.8898, lng:-68.8430, cats:['turistico'], emoji:'🚶',
+     d:'La peatonal que une la Plaza Independencia con la Alameda: cafés con mesas afuera, edificios históricos y el pulso comercial del microcentro.',
+     h:'Comercios de mañana y tarde (cierran en la siesta)', p:'Gratis', t:'45 min',
+     tip:'Ideal para un café de media mañana viendo pasar la ciudad. Recuerda la siesta: entre 13:00 y 17:00 muchos locales cierran.'},
+    {n:'Área Fundacional y Plaza Pedro del Castillo', lat:-32.8805, lng:-68.8335, cats:['turistico'], emoji:'🏛️',
+     d:'Donde nació Mendoza en 1561 y donde el terremoto de 1861 la destruyó: ruinas de San Francisco, museo de sitio y la historia de la ciudad vieja.',
+     h:'Museo mar–dom en horario diurno', p:'Entrada económica', t:'1 h',
+     tip:'El museo subterráneo muestra los cimientos del cabildo original: la mejor forma de entender por qué Mendoza es una ciudad "nueva" con plazas antisísmicas.'},
+    {n:'Parque General San Martín', lat:-32.8880, lng:-68.8700, cats:['turistico','fotos'], emoji:'🌳',
+     d:'Uno de los parques urbanos más grandes de Sudamérica (390 ha): los portones de hierro, el lago con regatas, el rosedal y los Caballitos de Marly.',
+     h:'Siempre abierto; mejor de día', p:'Gratis', t:'2–3 h',
+     foto:'El lago al atardecer refleja los cipreses: 24–35 mm desde la costanera este. Los portones y el rosedal funcionan con luz dorada rasante; un polarizador intensifica el verde y el cielo.',
+     tip:'Alquila una bici o recórrelo en auto: es enorme. Los fines de semana se llena de familias, mate y remo en el lago.'},
+    {n:'Cerro de la Gloria', lat:-32.8820, lng:-68.8790, cats:['turistico','fotos'], emoji:'🐎',
+     d:'Dentro del parque, la colina con el monumento al Ejército de los Andes: bronce monumental a la gesta de San Martín y vista completa de la ciudad y la precordillera.',
+     h:'De día', p:'Gratis', t:'1 h',
+     foto:'Atardecer: la ciudad a contraluz dorado hacia el este y el monumento recortado contra el cielo. Gran angular en contrapicado para el bronce; un 70–200 mm comprime la ciudad contra la llanura.',
+     tip:'Sube al final de la tarde y baja antes de que oscurezca. El monumento en bronce es impresionante visto desde atrás, con los cóndores de la cima.'},
+    {n:'Mercado Central', lat:-32.8860, lng:-68.8425, cats:['comida','turistico'], emoji:'🧺',
+     d:'El mercado histórico de la ciudad (Av. Las Heras): fiambres, quesos, aceitunas, frutas secas y puestos de comida donde almuerzan los mendocinos.',
+     h:'Lun–sáb de mañana a tarde', p:'Platos económicos', t:'1 h',
+     tip:'Arma una picada de fiambres, queso y aceitunas mendocinas: es el mejor souvenir comestible y el almuerzo más auténtico del centro.'},
+    {n:'Avenida Arístides Villanueva', lat:-32.8930, lng:-68.8560, cats:['comida'], emoji:'🍻',
+     d:'"La Arístides": la calle de bares, cervecerías y restaurantes donde sale todo Mendoza. De tarde cafés tranquilos, de noche pura energía.',
+     h:'De la tarde hasta la madrugada', p:'Rango amplio de precios', t:'2+ h',
+     tip:'Los jueves a sábado explota de gente desde las 22:00; si quieres mesa en los mejores bares, llega antes de las 21:00 (temprano para estándares argentinos).'},
+    {n:'Azafrán', lat:-32.8900, lng:-68.8490, cats:['comida'], emoji:'🍷',
+     d:'Uno de los restaurantes insignia del centro: cocina de autor con productos cuyanos y una cava donde eliges tu botella acompañado por un sommelier.',
+     h:'Almuerzo y cena; conviene reservar', p:'Precio medio-alto', t:'2 h',
+     tip:'Déjate guiar por el sommelier en la cava: maridar el menú con etiquetas pequeñas de bodegas boutique es la experiencia.'},
+    {n:'La Marchigiana', lat:-32.8920, lng:-68.8440, cats:['comida'], emoji:'🍝',
+     d:'Institución mendocina de pastas desde 1950: cocina ítalo-argentina de familia, sorrentinos y salsas de la nonna.',
+     h:'Almuerzo y cena', p:'Precio medio', t:'1.5 h',
+     tip:'La herencia italiana es mitad del ADN mendocino: sus sorrentinos con un Malbec joven lo explican mejor que cualquier museo.'},
+    {n:'Parrilla Don Mario', lat:-32.8850, lng:-68.8100, cats:['comida'], emoji:'🥩',
+     d:'Parrilla clásica de Guaymallén, templo del asado: bife de chorizo, mollejas y la liturgia completa de la carne argentina.',
+     h:'Almuerzo y cena', p:'Precio medio-alto', t:'2 h',
+     tip:'Pide el bife a punto y mollejas de entrada. El asado argentino no se apura: resérvate la tarde.'},
+    {n:'Heladería Ferruccio Soppelsa', lat:-32.8900, lng:-68.8450, cats:['comida'], emoji:'🍨',
+     d:'La heladería histórica de Mendoza (desde 1927), famosa por sus sabores con vino: sorbete de Malbec, torrontés y frutas cuyanas.',
+     h:'Todo el día hasta la noche', p:'Económico', t:'30 min',
+     tip:'El helado de Malbec no es un truco para turistas: es tradición local. Pídelo con un sabor de fruta para el contraste.'},
+    {n:'Maipú en bici (bodegas y olivícolas)', lat:-32.9800, lng:-68.7900, cats:['excursiones','comida'], emoji:'🚲',
+     d:'El circuito clásico para pedalear entre bodegas históricas, fábricas de aceite de oliva y almacenes de dulces, a ~15 km del centro.',
+     h:'De día; reserva las visitas con degustación', p:'Alquiler de bici + degustaciones accesibles', t:'Día completo',
+     tip:'Empieza por las bodegas más lejanas y vuelve pedaleando a favor. Y modera las degustaciones: la vuelta también es en bici.'},
+    {n:'Luján de Cuyo y Chacras de Coria', lat:-32.9850, lng:-68.8800, cats:['excursiones','comida','fotos'], emoji:'🍇',
+     d:'La "primera zona" del Malbec argentino: bodegas de renombre entre viñedos con los Andes de fondo, y el pueblito de Chacras con su feria y restaurantes.',
+     h:'Bodegas con reserva previa; Chacras mejor en fin de semana', p:'Degustaciones de costo moderado a alto', t:'Día completo',
+     foto:'La toma clásica: hileras de viñas como líneas de fuga hacia la cordillera, con un 70–200 mm que comprime la montaña. Al amanecer los Andes se encienden de frente; en otoño el viñedo arde en rojos.',
+     tip:'Reserva almuerzo en una bodega con terraza a los viñedos: la sobremesa mirando el Cordón del Plata es el momento Mendoza por excelencia.'},
+    {n:'Valle de Uco', lat:-33.3580, lng:-69.1480, cats:['excursiones','comida','fotos'], emoji:'🏔️',
+     d:'La región vitivinícola de altura (a ~1 h 30): bodegas de arquitectura espectacular entre viñedos a 1.000–1.400 m, con la cordillera nevada encima.',
+     h:'Con reserva; muchas bodegas cierran domingo', p:'Degustaciones y almuerzos de nivel alto', t:'Día completo',
+     foto:'El valle es puro paisaje de capas: viñedo, álamos, precordillera y nieve. Gran angular para las bodegas-escultura y 70–200 mm para comprimir los planos. La luz de otoño por la tarde es oro puro.',
+     tip:'Elige dos bodegas como máximo y un almuerzo largo: las distancias son grandes y el valle se disfruta sin reloj.'},
+    {n:'Dique Potrerillos', lat:-32.9500, lng:-69.2000, cats:['excursiones','fotos'], emoji:'🚣',
+     d:'Embalse turquesa entre montañas a ~45 min: kayak, rafting en el río Mendoza, miradores sobre la ruta y pueblitos de montaña.',
+     h:'De día; deportes de río en temporada', p:'Miradores gratis; actividades de costo moderado', t:'Medio día o completo',
+     foto:'El contraste turquesa del agua contra la montaña ocre pide polarizador. Desde los miradores de la ruta 82, un 24–35 mm; al atardecer el viento suele calmar y el lago se vuelve espejo.',
+     tip:'Para en los miradores de la ruta panorámica: las mejores vistas del lago son gratis. Si hay viento Zonda, el agua pierde el color.'},
+    {n:'Termas de Cacheuta', lat:-33.0117, lng:-69.1215, cats:['excursiones'], emoji:'♨️',
+     d:'Termas de montaña sobre el cañón del río Mendoza: piletas escalonadas al aire libre, spa y un parque de agua familiar.',
+     h:'De día; entrada por turnos en temporada alta', p:'Entrada de costo moderado', t:'Medio día o completo',
+     tip:'Entre semana se disfruta el doble. El circuito de piletas sobre el río, con la montaña encima, es de los mejores planes de relax de la provincia.'},
+    {n:'Puente del Inca', lat:-32.8250, lng:-69.9100, cats:['excursiones','fotos'], emoji:'🌉',
+     d:'Monumento natural en plena alta montaña (~2 h 45): un puente de piedra teñido de ocres y amarillos por aguas termales, junto a las ruinas del antiguo hotel.',
+     h:'De día; en invierno consulta el estado de la ruta', p:'Gratis', t:'1 h (parada de ruta)',
+     foto:'Los ocres sulfurosos saturan solos: no fuerces la edición. Luz de mañana para el puente iluminado de frente; un 24 mm abarca puente, capilla y montaña. Con nieve, el contraste de color es irreal.',
+     tip:'Es parada obligada de la ruta a Aconcagua. Súmale el mirador del Cristo Redentor si la temporada y la ruta lo permiten.'},
+    {n:'Parque Aconcagua (Laguna Horcones)', lat:-32.8070, lng:-69.9420, cats:['excursiones','fotos'], emoji:'🗻',
+     d:'La puerta al techo de América (6.961 m): el sendero corto a la laguna Horcones regala la vista clásica de la pared sur del Aconcagua.',
+     h:'Temporada nov–abr con registro en el ingreso; en invierno puede estar cerrado', p:'Entrada al parque de costo moderado', t:'Día completo (con el viaje)',
+     foto:'Mañana despejada: la pared sur se nubla después del mediodía. La laguna como primer plano con 16–24 mm, o un 70–200 mm para aislar la cumbre. El viento es constante: sube la velocidad de obturación.',
+     tip:'Sal de la ciudad al alba: la montaña suele taparse pasado el mediodía. Lleva abrigo incluso en pleno verano, estás a 2.900 m.'}
+  ],
+  platos:[
+    {n:'Asado argentino', d:'La liturgia de la parrilla: bife de chorizo, costillar, mollejas y chorizos a fuego lento. En Mendoza, siempre con un Malbec en la mesa.', donde:'Parrillas clásicas como Don Mario, o en cualquier bodega con restaurante.'},
+    {n:'Empanadas mendocinas', d:'Al horno de barro, jugosas, con carne cortada a cuchillo, cebolla abundante y aceituna. Distintas a todas las del país, dicen aquí.', donde:'Almacenes de campo en Maipú y Luján, y casas de empanadas del centro.'},
+    {n:'Chivito a la llama', d:'El chivo malargüino asado lento es el plato criollo de celebración del sur mendocino: carne tierna con sabor de montaña.', donde:'Restaurantes criollos y fiestas regionales; algunos lo sirven en el Valle de Uco.'},
+    {n:'Aceite de oliva y aceitunas', d:'Mendoza es tierra olivícola: aceites varietales, aceitunas y pastas de oliva que compiten en nivel con sus vinos.', donde:'Olivícolas de Maipú (visitas con degustación) y el Mercado Central.'},
+    {n:'Helado de Malbec', d:'El sorbete de vino es tradición mendocina: intenso, frutal y perfecto para las tardes de calor seco.', donde:'Ferruccio Soppelsa, la heladería histórica de la ciudad.'},
+    {n:'Malbec y vinos de altura', d:'La cepa insignia argentina alcanza aquí su máxima expresión, junto a blancos y tintos de parcelas a más de 1.000 m.', donde:'Bodegas de Luján de Cuyo, Maipú y el Valle de Uco; reserva las visitas.'}
+  ],
+  itinerarios:[
+    {t:'1 día esencial', pasos:[
+      '<b>Mañana:</b> Plaza Independencia y el circuito de plazas, con parada larga en Plaza España.',
+      '<b>Media mañana:</b> picada de fiambres y aceitunas en el Mercado Central.',
+      '<b>Mediodía:</b> Área Fundacional para entender la ciudad que se cayó y volvió a nacer.',
+      '<b>Siesta:</b> como los locales — o helado de Malbec en Soppelsa.',
+      '<b>Tarde:</b> Parque San Martín y subida al Cerro de la Gloria para el atardecer.',
+      '<b>Noche:</b> cena y bares en la Arístides.']},
+    {t:'Fin de semana completo', pasos:[
+      '<b>Día 1:</b> el itinerario esencial de arriba.',
+      '<b>Día 2 mañana:</b> bodegas de Luján de Cuyo o Maipú en bici.',
+      '<b>Día 2 mediodía:</b> almuerzo con vista a los viñedos y sobremesa sin apuro.',
+      '<b>Día 2 tarde:</b> paseo por Chacras de Coria y su plaza.',
+      '<b>¿Un día más?</b> Alta montaña: Potrerillos, termas de Cacheuta, Puente del Inca y el mirador del Aconcagua.',
+      '<b>¿Y otro?</b> Valle de Uco, el gran día de vino y cordillera.']}
+  ],
+  tips:[
+    {ic:'☀️', b:'Clima', d:'a ~750 m, Mendoza es desierto irrigado: sol intenso, aire seco y gran amplitud térmica. Bloqueador, agua y una capa extra para la noche, incluso en verano.'},
+    {ic:'💨', b:'Viento Zonda', d:'un viento cálido y seco que baja de la cordillera algunos días: levanta polvo y sube la temperatura de golpe. Si sopla fuerte, mejor plan de interiores o bodegas.'},
+    {ic:'😴', b:'La siesta', d:'de ~13:00 a 17:00 muchos comercios cierran y la ciudad se vacía; la vida vuelve tarde: aquí se cena a las 21:30 o más.'},
+    {ic:'🚰', b:'Las acequias', d:'los canales de riego que bordean casi todas las veredas son patrimonio mendocino… y trampas de tobillos para distraídos. Mira dónde pisas, sobre todo de noche.'},
+    {ic:'🚗', b:'Vino y volante', d:'en la provincia rige tolerancia cero de alcohol al conducir. Para la ruta del vino: conductor designado, tour contratado o bici con moderación.'},
+    {ic:'🎉', b:'Vendimia', d:'la Fiesta Nacional de la Vendimia (fines de febrero–marzo) es el gran evento mendocino: bendición de los frutos, carros, reinas y el acto central en el teatro griego del parque.'}
+  ]
+}
 ];
 
-// --- Mapa ---
-const mapa = L.map('mapa', {scrollWheelZoom:false}).setView([-17.390, -66.152], 13);
+/* ============ MOTOR DE LA GUÍA (no necesitas tocarlo) ============ */
+
+// --- Mapa base ---
+const mapa = L.map('mapa', {scrollWheelZoom:false});
 const capa = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
   maxZoom:19, subdomains:'abcd', attribution:'&copy; OpenStreetMap &copy; CARTO'
 }).addTo(mapa);
@@ -388,40 +672,26 @@ capa.on('tileerror', ()=>{
   fallos++;
   if(fallos === 4){
     mapa.removeLayer(capa);
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom:19, attribution:'&copy; OpenStreetMap'
-    }).addTo(mapa);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom:19, attribution:'&copy; OpenStreetMap'}).addTo(mapa);
   }
 });
 mapa.on('focus', ()=>mapa.scrollWheelZoom.enable());
 mapa.on('blur', ()=>mapa.scrollWheelZoom.disable());
 
-function icono(lugar){
-  const c = CAT[lugar.cats[0]].color;
-  return L.divIcon({
-    className:'',
-    html:`<div class="marcador" style="background:${c}"><span>${lugar.emoji}</span></div>`,
-    iconSize:[30,30], iconAnchor:[15,28], popupAnchor:[0,-26]
-  });
-}
-
-const marcadores = LUGARES.map((l,i)=>{
-  const m = L.marker([l.lat,l.lng], {icon:icono(l)})
-    .bindPopup(`<b>${l.emoji} ${l.n}</b><br>${l.d}`);
-  m.on('click', ()=>resaltar(i));
-  return m;
-});
-
 // --- Estado ---
+let ciudad = CIUDADES[0];
+let marcadores = [];
+let filtro = 'todo';
+let texto = '';
+let posYo = null;
+let ordenCercania = false;
+let marcaYo = null, circuloYo = null, avisoUbi = null;
+
 const lista = document.getElementById('lista');
 const vacio = document.getElementById('vacio');
 const contador = document.getElementById('contador');
 const inputBuscar = document.getElementById('buscar');
 const btnCerca = document.getElementById('btnCerca');
-let filtro = 'todo';
-let texto = '';
-let posYo = null;
-let ordenCercania = false;
 
 function distKm(lat1,lng1,lat2,lng2){
   const R = 6371, rad = Math.PI/180;
@@ -430,25 +700,84 @@ function distKm(lat1,lng1,lat2,lng2){
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 }
 
+function icono(lugar){
+  const c = CAT[lugar.cats[0]].color;
+  return L.divIcon({className:'', html:`<div class="marcador" style="background:${c}"><span>${lugar.emoji}</span></div>`,
+    iconSize:[30,30], iconAnchor:[15,28], popupAnchor:[0,-26]});
+}
+
+// --- Selector de ciudades (se genera desde los datos) ---
+const selector = document.getElementById('selectorCiudades');
+CIUDADES.forEach(c=>{
+  const b = document.createElement('button');
+  b.className = 'btn-ciudad';
+  b.textContent = '📍 ' + c.nombre;
+  b.dataset.id = c.id;
+  b.addEventListener('click', ()=>cargarCiudad(c.id));
+  selector.appendChild(b);
+});
+
+function cargarCiudad(id){
+  ciudad = CIUDADES.find(c=>c.id===id) || CIUDADES[0];
+  document.documentElement.style.setProperty('--acento', ciudad.acento);
+  document.querySelectorAll('.btn-ciudad').forEach(b=>b.classList.toggle('activo', b.dataset.id===ciudad.id));
+
+  // Encabezado
+  document.getElementById('hEyebrow').textContent = ciudad.eyebrow;
+  document.getElementById('hTitulo').innerHTML = ciudad.tituloHTML;
+  document.getElementById('hSub').textContent = ciudad.sub;
+  inputBuscar.placeholder = ciudad.buscarPlaceholder;
+  document.getElementById('platosIntro').textContent = ciudad.platosIntro;
+  document.getElementById('tipsIntro').textContent = ciudad.tipsIntro;
+  document.getElementById('fotoGuiaIntro').textContent = ciudad.fotoGuiaIntro;
+
+  // Reset de filtros y búsqueda
+  filtro = 'todo'; texto = ''; inputBuscar.value = '';
+  document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('activo', c.dataset.cat==='todo'));
+
+  // Marcadores nuevos
+  marcadores.forEach(m=>mapa.removeLayer(m));
+  marcadores = ciudad.lugares.map((l,i)=>{
+    const m = L.marker([l.lat,l.lng], {icon:icono(l)}).bindPopup(`<b>${l.emoji} ${l.n}</b><br>${l.d}`);
+    m.on('click', ()=>resaltar(i));
+    return m;
+  });
+  mapa.setView(ciudad.centro, ciudad.zoom);
+
+  renderSecciones();
+  render();
+}
+
+function renderSecciones(){
+  document.getElementById('platos').innerHTML = ciudad.platos.map(p=>`
+    <div class="plato"><h3>${p.n}</h3><p>${p.d}</p><p class="donde"><b>Dónde:</b> ${p.donde}</p></div>`).join('');
+  document.getElementById('itinerarios').innerHTML = ciudad.itinerarios.map(it=>`
+    <div class="itin"><h3>${it.t}</h3><ol>${it.pasos.map(p=>`<li>${p}</li>`).join('')}</ol></div>`).join('');
+  document.getElementById('tips').innerHTML = ciudad.tips.map(t=>`
+    <div class="tip-item"><span class="ic">${t.ic}</span><span><b>${t.b}:</b> ${t.d}</span></div>`).join('');
+  document.getElementById('fotoGuia').innerHTML = ciudad.fotoGuia.map(t=>`
+    <div class="tip-item"><span class="ic">${t.ic}</span><span><b>${t.b}:</b> ${t.d}</span></div>`).join('');
+}
+
 function render(){
   lista.innerHTML = '';
-  let indices = LUGARES.map((_,i)=>i).filter(i=>{
-    const l = LUGARES[i];
+  let indices = ciudad.lugares.map((_,i)=>i).filter(i=>{
+    const l = ciudad.lugares[i];
     const pasaCat = filtro==='todo' || l.cats.includes(filtro);
     const pasaTexto = !texto || (l.n+' '+l.d+' '+l.tip).toLowerCase().includes(texto);
     return pasaCat && pasaTexto;
   });
-  LUGARES.forEach((_,i)=>{
+  ciudad.lugares.forEach((_,i)=>{
     if(indices.includes(i)) marcadores[i].addTo(mapa);
     else mapa.removeLayer(marcadores[i]);
   });
   if(ordenCercania && posYo){
     indices.sort((a,b)=>
-      distKm(posYo.lat,posYo.lng,LUGARES[a].lat,LUGARES[a].lng) -
-      distKm(posYo.lat,posYo.lng,LUGARES[b].lat,LUGARES[b].lng));
+      distKm(posYo.lat,posYo.lng,ciudad.lugares[a].lat,ciudad.lugares[a].lng) -
+      distKm(posYo.lat,posYo.lng,ciudad.lugares[b].lat,ciudad.lugares[b].lng));
   }
   indices.forEach(i=>{
-    const l = LUGARES[i];
+    const l = ciudad.lugares[i];
     const f = document.createElement('article');
     f.className = 'ficha';
     f.id = 'ficha-'+i;
@@ -463,12 +792,9 @@ function render(){
       <div class="cats">${l.cats.map(c=>`<span class="etq ${c}">${CAT[c].nombre}</span>`).join('')}${distHTML}</div>
       <h3>${l.emoji} ${l.n}</h3>
       <p>${l.d}</p>
-      <div class="meta">
-        <span>🕐 ${l.h}</span>
-        <span>💰 ${l.p}</span>
-        <span>⏱ ${l.t}</span>
-      </div>
-      <div class="dato"><b>Dato llajta:</b> ${l.tip}</div>
+      <div class="meta"><span>🕐 ${l.h}</span><span>💰 ${l.p}</span><span>⏱ ${l.t}</span></div>
+      <div class="dato"><b>Dato local:</b> ${l.tip}</div>
+      ${l.foto ? `<div class="nota-foto"><b>📷 Nota del fotógrafo:</b> ${l.foto}</div>` : ''}
       <div class="acciones">
         <a class="btn-ir" href="https://www.google.com/maps/dir/?api=1&destination=${l.lat},${l.lng}" target="_blank" rel="noopener" aria-label="Cómo llegar a ${l.n}">🧭 Cómo llegar</a>
       </div>`;
@@ -484,7 +810,7 @@ function render(){
   });
   vacio.hidden = indices.length>0;
   contador.textContent = indices.length + (indices.length===1?' lugar':' lugares') +
-    (texto ? ' encontrados' : (filtro==='todo'?' en la guía':' en esta categoría'));
+    (texto ? ' encontrados' : (filtro==='todo' ? ' en '+ciudad.nombre : ' en esta categoría'));
 }
 
 function resaltar(i){
@@ -493,10 +819,7 @@ function resaltar(i){
   if(f){ f.classList.add('resaltada'); f.scrollIntoView({behavior:'smooth', block:'nearest'}); }
 }
 
-inputBuscar.addEventListener('input', ()=>{
-  texto = inputBuscar.value.trim().toLowerCase();
-  render();
-});
+inputBuscar.addEventListener('input', ()=>{ texto = inputBuscar.value.trim().toLowerCase(); render(); });
 
 document.querySelectorAll('.chip').forEach(ch=>{
   ch.addEventListener('click', ()=>{
@@ -504,7 +827,7 @@ document.querySelectorAll('.chip').forEach(ch=>{
     ch.classList.add('activo');
     filtro = ch.dataset.cat;
     render();
-    const grupo = marcadores.filter((m,i)=> filtro==='todo' || LUGARES[i].cats.includes(filtro));
+    const grupo = marcadores.filter((m,i)=> filtro==='todo' || ciudad.lugares[i].cats.includes(filtro));
     if(grupo.length) mapa.fitBounds(L.featureGroup(grupo).getBounds().pad(0.15));
   });
 });
@@ -518,8 +841,6 @@ btnCerca.addEventListener('click', ()=>{
 
 // --- Mi ubicación ---
 const btnUbi = document.getElementById('btnUbi');
-let marcaYo = null, circuloYo = null, avisoUbi = null;
-
 function mostrarAviso(msg){
   if(avisoUbi) avisoUbi.remove();
   avisoUbi = document.createElement('div');
@@ -528,26 +849,17 @@ function mostrarAviso(msg){
   document.querySelector('.contenedor-mapa').appendChild(avisoUbi);
   setTimeout(()=>{ if(avisoUbi){ avisoUbi.remove(); avisoUbi = null; } }, 5000);
 }
-
 btnUbi.addEventListener('click', ()=>{
-  if(!navigator.geolocation){
-    mostrarAviso('Tu navegador no permite acceder a la ubicación.');
-    return;
-  }
+  if(!navigator.geolocation){ mostrarAviso('Tu navegador no permite acceder a la ubicación.'); return; }
   btnUbi.classList.add('buscando');
   btnUbi.textContent = '📍 Buscando…';
   navigator.geolocation.getCurrentPosition(pos=>{
     const {latitude:lat, longitude:lng, accuracy} = pos.coords;
     posYo = {lat, lng};
     if(marcaYo){ mapa.removeLayer(marcaYo); mapa.removeLayer(circuloYo); }
-    marcaYo = L.marker([lat,lng], {icon: L.divIcon({
-      className:'', html:'<div class="punto-yo"></div>',
-      iconSize:[18,18], iconAnchor:[9,9]
-    })}).addTo(mapa).bindPopup('<b>📍 Estás aquí</b>');
-    circuloYo = L.circle([lat,lng], {
-      radius: Math.min(accuracy, 300),
-      color:'#2F6FA8', fillColor:'#2F6FA8', fillOpacity:.12, weight:1
-    }).addTo(mapa);
+    marcaYo = L.marker([lat,lng], {icon: L.divIcon({className:'', html:'<div class="punto-yo"></div>', iconSize:[18,18], iconAnchor:[9,9]})})
+      .addTo(mapa).bindPopup('<b>📍 Estás aquí</b>');
+    circuloYo = L.circle([lat,lng], {radius: Math.min(accuracy,300), color:'#2F6FA8', fillColor:'#2F6FA8', fillOpacity:.12, weight:1}).addTo(mapa);
     mapa.flyTo([lat,lng], 15, {duration:.8});
     marcaYo.openPopup();
     btnUbi.classList.remove('buscando');
@@ -563,7 +875,8 @@ btnUbi.addEventListener('click', ()=>{
   }, {enableHighAccuracy:true, timeout:10000, maximumAge:30000});
 });
 
-render();
+// Arranque
+cargarCiudad('cochabamba');
 </script>
 </body>
 </html>

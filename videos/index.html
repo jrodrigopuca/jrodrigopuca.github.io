@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Guías de viaje · Cochabamba, Tarija y Mendoza</title>
+<title>Guías de viaje</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -664,17 +664,31 @@ const CIUDADES = [
 
 // --- Mapa base ---
 const mapa = L.map('mapa', {scrollWheelZoom:false});
-const capa = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-  maxZoom:19, subdomains:'abcd', attribution:'&copy; OpenStreetMap &copy; CARTO'
-}).addTo(mapa);
-let fallos = 0;
-capa.on('tileerror', ()=>{
-  fallos++;
-  if(fallos === 4){
-    mapa.removeLayer(capa);
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom:19, attribution:'&copy; OpenStreetMap'}).addTo(mapa);
-  }
-});
+// Proveedores de mapa base gratuitos y sin API key, en orden de preferencia.
+// Si uno falla repetidamente, se pasa automáticamente al siguiente.
+const PROVEEDORES = [
+  {url:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+   opts:{maxZoom:19, attribution:'&copy; OpenStreetMap contributors'}},
+  {url:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+   opts:{maxZoom:19, attribution:'Tiles &copy; Esri'}},
+  {url:'https://a.tile.opentopomap.org/{z}/{x}/{y}.png',
+   opts:{maxZoom:17, attribution:'&copy; OpenStreetMap, SRTM | &copy; OpenTopoMap'}}
+];
+let provIdx = 0, capa = null, fallos = 0;
+function montarCapa(){
+  if(capa) mapa.removeLayer(capa);
+  fallos = 0;
+  const p = PROVEEDORES[provIdx];
+  capa = L.tileLayer(p.url, p.opts).addTo(mapa);
+  capa.on('tileerror', ()=>{
+    fallos++;
+    if(fallos >= 4 && provIdx < PROVEEDORES.length - 1){
+      provIdx++;
+      montarCapa();
+    }
+  });
+}
+montarCapa();
 mapa.on('focus', ()=>mapa.scrollWheelZoom.enable());
 mapa.on('blur', ()=>mapa.scrollWheelZoom.disable());
 
@@ -876,7 +890,8 @@ btnUbi.addEventListener('click', ()=>{
 });
 
 // Arranque
-cargarCiudad('cochabamba');
+document.title = 'Guías de viaje · ' + CIUDADES.map(c=>c.nombre).join(' · ');
+cargarCiudad(CIUDADES[0].id);
 </script>
 </body>
 </html>
